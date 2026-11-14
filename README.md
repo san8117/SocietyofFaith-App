@@ -12,3 +12,4 @@
 
 ### Etapa 0 — 14/11/2026
 - Preparada a documentação inicial e a estrutura básica do repositório.
+- Etapa 1.1 — 14/11/2026: paleta clean aplicada (tokens.css) e estilos visuais base.
