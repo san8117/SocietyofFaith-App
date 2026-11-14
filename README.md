@@ -1,4 +1,8 @@
-# SocietyofFaith-App
+# Society of Faith
+
+**Religião e Sociedade no Brasil**: um site informativo e interativo que mostra como a sociedade brasileira se identifica em matéria de fé, com dados dos censos do IBGE (1872–2022), conceitos das Ciências da Religião, história do cristianismo, vídeos e quiz de revisão.
+
+> Projeto educacional desenvolvido a partir das disciplinas de Fundamentos do Cristianismo e Antropologia Cristã (UNASP).
 
 ## Criadores
 
@@ -8,8 +12,73 @@
 - Lucas Cardoso
 - Kaue Bueno
 
+## O que o site terá
+
+- **Religião**: etimologia, definições (Geertz, Durkheim, Marx, Nietzsche), classificações (animismo, ateísmo, teísmo, panteísmo, magismo) e constituintes (doutrina, ritos, ética, comunidade, mito).
+- **Brasil em dados**: gráficos interativos do IBGE (Censo 2010 × 2022), perfis por região, idade, sexo, cor ou raça e escolaridade.
+- **Todos os censos**: linha do tempo de 1872 a 2022 e como a religião foi perguntada em cada recenseamento.
+- **Cristianismo**: nascimento, cronologia, Edito de Milão, Teodósio e a estrutura das primeiras comunidades.
+- **Vídeos**: seleção sobre religião e sociedade.
+- **Quiz**: perguntas de revisão com feedback.
+- **Fontes**: links oficiais do IBGE e referências bibliográficas.
+
+## Tecnologias
+
+HTML5, CSS3 e JavaScript puro (ES modules). Sem frameworks e sem etapa de build. Gráficos com Chart.js 4.4.7 (CDN, versão fixa). Hospedagem prevista: GitHub Pages.
+
+## Estrutura do projeto
+
+```text
+SocietyofFaith-App/
+  brasil.html
+  css/       tokens.css, base.css, graficos.css
+  js/        dados-ibge.js, graficos.js
+  data/      dados complementares
+  conteudo/  textos de apoio
+  assets/    imagens e ícones
+```
+
+## Como rodar localmente
+
+1. Clone o repositório.
+2. Abra a pasta no VS Code.
+3. Use a extensão "Live Server" ou execute `python -m http.server 5500`.
+4. Acesse `http://localhost:5500/brasil.html`.
+
+## Roadmap
+
+- [x] Etapa 0: README e esqueleto do repositório
+- [ ] Etapa 1: Estrutura, identidade visual e home
+- [ ] Etapa 2: Conteúdo teórico sobre religião
+- [x] Etapa 3: Dados do IBGE e gráficos (2010 × 2022)
+- [ ] Etapa 4: Linha do tempo dos censos (1872–2022) e mapa por região/UF
+- [ ] Etapa 5: Cristianismo e sociedade brasileira
+- [ ] Etapa 6: Vídeos, fontes e links oficiais
+- [ ] Etapa 7: Quiz, acessibilidade, polimento e deploy
+
 ## Changelog
 
 ### Etapa 0 — 14/11/2026
 - Preparada a documentação inicial e a estrutura básica do repositório.
-- Etapa 1.1 — 14/11/2026: paleta clean aplicada (tokens.css) e estilos visuais base.
+
+### Etapa 1.1 — 14/11/2026
+- Aplicada a paleta clean em `css/tokens.css` e criados estilos visuais base.
+
+### Etapa 3 — 14/11/2026
+- Criados `brasil.html`, `css/graficos.css`, `js/dados-ibge.js` e `js/graficos.js`; atualizados `README.md`.
+- Entregues gráficos interativos do Censo 2010 e 2022, tabelas acessíveis, filtros por perfil, navegação por seção, animações respeitando movimento reduzido e ressalvas metodológicas.
+
+## Fontes de dados
+
+- IBGE, Censo Demográfico 2022 — Religiões: resultados preliminares da amostra (2025).
+- IBGE, Censos Demográficos de 1872, 1890, 1940, 1950, 1960, 1970, 1980, 1991, 2000 e 2010.
+- Microdados do Censo 2022 (divulgados em 31/08/2026) para o detalhamento por denominação.
+- Cada gráfico e tabela do site informa fonte e ano. Onde há divergência entre fontes, o site sinaliza.
+
+## Aviso metodológico
+
+Os censos mudaram a forma de perguntar sobre religião ao longo do tempo (campo aberto, campo fechado, categorias novas). As comparações históricas devem ser lidas com essa ressalva. No Censo 2022, a categoria "evangélicos não determinados" cresceu muito, o que pode subestimar o peso das denominações pentecostais.
+
+## Licença
+
+Conteúdo educativo. Dados: IBGE. Referências completas na página "Fontes" do site. Licença: MIT (ajuste se necessário).

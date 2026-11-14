@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FAF7F2">
+  <meta name="description" content="Explore dados do Censo 2022 sobre religião no Brasil, com comparações, gráficos e tabelas acessíveis.">
+  <title>Brasil em dados — Society of Faith</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/graficos.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script type="module" src="js/graficos.js"></script>
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="record-mark" viewBox="0 0 24 24"><path d="m12 2 2.7 6.3L21.5 9l-5.1 4.5 1.4 6.8L12 16.8l-5.8 3.5 1.4-6.8L2.5 9l6.8-.7L12 2Z" /></symbol>
+  </svg>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Society of Faith, início">Society <span>of Faith</span></a>
+    <span class="header-section">Religião e sociedade no Brasil</span>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero page-hero" aria-labelledby="page-title">
+      <div class="container">
+        <p class="eyebrow">Brasil em dados</p>
+        <h1 id="page-title">Como o Brasil se identifica em matéria de fé?</h1>
+        <p class="hero__lead">Os números do IBGE: o que mudou entre 2010 e 2022, e quem são os fiéis de cada grupo.</p>
+      </div>
+    </section>
+
+    <nav class="section-nav" aria-label="Navegação nesta página">
+      <div class="section-nav__inner">
+        <a href="#panorama">Panorama</a>
+        <a href="#comparar">2010 × 2022</a>
+        <a href="#denominacoes">Denominações</a>
+        <a href="#regioes">Regiões</a>
+        <a href="#idade-sexo">Idade e sexo</a>
+        <a href="#cor-raca">Cor ou raça</a>
+        <a href="#escolaridade">Escolaridade e vida</a>
+        <a href="#recordes">Recordes</a>
+        <a href="#como-ler">Como ler</a>
+      </div>
+    </nav>
+
+    <p class="js-fallback container" id="js-fallback">Ative o JavaScript para ver os gráficos e as tabelas de dados interativas.</p>
+    <p class="chart-fallback container" id="chart-fallback" hidden>Não foi possível carregar os gráficos agora. As tabelas de dados permanecem disponíveis abaixo de cada gráfico.</p>
+    <p class="sr-only" id="live-region" aria-live="polite" aria-atomic="true"></p>
+
+    <section class="content-section" id="panorama" data-reveal aria-labelledby="panorama-title">
+      <div class="container">
+        <p class="eyebrow">01 · Panorama</p>
+        <h2 id="panorama-title">Um país de muitas crenças</h2>
+        <p class="section-intro">A distribuição das declarações de religião no Censo 2022 revela um país plural e em transformação.</p>
+        <div class="stat-grid">
+          <article class="stat-card"><p class="stat-card__value"><span data-counter="56.7">56,7</span>%</p><h3>Católicos</h3><p>≈ 100 milhões de pessoas</p></article>
+          <article class="stat-card"><p class="stat-card__value"><span data-counter="26.9">26,9</span>%</p><h3>Evangélicos</h3><p>≈ 47,4 milhões de pessoas</p></article>
+          <article class="stat-card"><p class="stat-card__value"><span data-counter="9.3">9,3</span>%</p><h3>Sem religião</h3><p>16,4 milhões de pessoas</p></article>
+          <article class="stat-card"><p class="stat-card__value"><span data-counter="86.9">86,9</span>%</p><h3>Cristãos no total</h3><p>Somando todas as denominações cristãs*</p></article>
+        </div>
+        <p class="data-note">Base: 176,6 milhões de pessoas com 10 anos ou mais (Censo 2022). <span>Fonte: IBGE, Censo 2022; microdados divulgados em 31/08/2026.</span></p>
+      </div>
+    </section>
+
+    <section class="content-section content-section--alt" id="comparar" data-reveal aria-labelledby="comparar-title">
+      <div class="container">
+        <p class="eyebrow">02 · Comparação</p>
+        <h2 id="comparar-title">O que mudou entre 2010 e 2022?</h2>
+        <p class="section-intro">Entre 2010 e 2022, os católicos recuaram 8,4 p.p., enquanto evangélicos (+5,3 p.p.) e sem religião (+1,4 p.p.) avançaram. A queda católica desacelerou: foi de 9,0 p.p. entre 2000 e 2010.</p>
+        <div class="control-row" role="radiogroup" aria-label="Modo de comparação">
+          <label class="choice"><input type="radio" name="comparison-mode" value="grouped" checked> Lado a lado</label>
+          <label class="choice"><input type="radio" name="comparison-mode" value="change"> Variação em p.p.</label>
+        </div>
+        <figure class="chart-figure" data-chart="comparison">
+          <div class="chart-container"><canvas id="chart-comparison" role="img" aria-label="Gráfico de barras que compara as declarações religiosas em 2010 e 2022"><span>Comparação entre os grupos religiosos em 2010 e 2022.</span></canvas></div>
+          <figcaption><h3>Religiões declaradas, 2010 e 2022</h3><p>Fonte: IBGE, Censo Demográfico 2022 (resultados preliminares da amostra) e Censo 2010, população de 10 anos ou mais.</p><details class="data-details"><summary>Ver tabela de dados</summary><div data-table="comparison"></div></details></figcaption>
+        </figure>
+        <div class="chart-grid chart-grid--donut">
+          <figure class="chart-figure" data-chart="donut">
+            <div class="control-row control-row--compact" role="group" aria-label="Ano da distribuição">
+              <button class="year-button" type="button" data-year="2010" aria-pressed="true">2010</button>
+              <button class="year-button" type="button" data-year="2022" aria-pressed="false">2022</button>
+            </div>
+            <div class="chart-container chart-container--donut"><canvas id="chart-donut" role="img" aria-label="Gráfico de rosca com a distribuição das religiões declaradas"><span>Distribuição das religiões declaradas no ano selecionado.</span></canvas></div>
+            <div class="accessible-legend" id="donut-legend" role="group" aria-label="Mostrar ou ocultar grupos no gráfico de rosca"></div>
+            <figcaption><h3>Distribuição por grupo religioso</h3><p>Fonte: IBGE, Censo Demográfico 2022 (resultados preliminares da amostra) e Censo 2010, população de 10 anos ou mais.</p><details class="data-details"><summary>Ver tabela de dados</summary><div data-table="donut"></div></details></figcaption>
+          </figure>
+          <div class="donut-table-wrap"><h3 class="mini-heading">Valores por grupo</h3><div data-table="donut-mini"></div></div>
+        </div>
+        <aside class="callout"><span aria-hidden="true">⚠️</span><p>O Texto de estudo cita 65% de católicos e 22,2% de evangélicos em 2010 (população total, divulgação de 2012: 64,6% e 22,2%). A comparação com 2022 usa a base de 10 anos ou mais (65,1% e 21,6%), a única comparável.</p></aside>
+      </div>
+    </section>
+
+    <section class="content-section" id="denominacoes" data-reveal aria-labelledby="denominacoes-title">
+      <div class="container">
+        <p class="eyebrow">03 · Denominações</p>
+        <h2 id="denominacoes-title">Dentro de cada grupo</h2>
+        <p class="section-intro">O detalhamento por denominação mostra a diversidade que existe dentro das grandes categorias do Censo.</p>
+        <figure class="chart-figure" data-chart="denominations">
+          <div class="chart-container chart-container--tall"><canvas id="chart-denominations" role="img" aria-label="Barras horizontais com denominações religiosas no Brasil em 2022"><span>Percentual da população de 10 anos ou mais por denominação.</span></canvas></div>
+          <figcaption><h3>Denominações em 2022</h3><p>Fonte: microdados do Censo 2022 (IBGE, 31/08/2026), segundo reportagem Folhapress de 02/09/2026; Censo 2010.</p><details class="data-details"><summary>Ver tabela de dados</summary><div data-table="denominations"></div></details></figcaption>
+        </figure>
+        <figure class="chart-figure chart-figure--small" data-chart="evangelicals">
+          <div class="chart-container chart-container--small"><canvas id="chart-evangelicals" role="img" aria-label="Comparação de evangélicos não determinados em 2010 e 2022"><span>Comparação de evangélicos não determinados entre os dois censos.</span></canvas></div>
+          <figcaption><h3>Evangélicos não determinados</h3><p>Fonte: microdados do Censo 2022 (IBGE, 31/08/2026), segundo reportagem Folhapress de 02/09/2026; Censo 2010.</p><details class="data-details"><summary>Ver tabela de dados</summary><div data-table="evangelicals"></div></details></figcaption>
+        </figure>
+        <aside class="callout"><span aria-hidden="true">⚠️</span><p>Em 2010, os recenseadores eram orientados a NÃO aceitar respostas genéricas como “crente” ou “evangélica” e a perguntar a denominação. Em 2022 essa instrução não constou do treinamento. Resultado: o grupo “evangélicos não determinados” mais que triplicou e o peso real dos pentecostais pode estar subestimado. Pesquisadores também apontam dificuldades de aplicação (pandemia, orçamento, período eleitoral polarizado, áreas dominadas por tráfico e milícias).</p></aside>
+        <div class="stat-grid stat-grid--three">
+          <article class="stat-card"><h3>Ateus</h3><p class="stat-card__value">1,7 milhão</p><p>1,0%, triplicaram desde 2010</p></article>
+          <article class="stat-card"><h3>Agnósticos</h3><p class="stat-card__value">881 mil</p><p>0,5% da população de 10 anos ou mais</p></article>
+          <article class="stat-card"><h3>Múltiplo pertencimento</h3><p class="stat-card__value">132 mil</p><p>Menos de 0,1%</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section content-section--alt" id="regioes" data-reveal aria-labelledby="regioes-title">
+      <div class="container">
+        <p class="eyebrow">04 · Regiões</p>
+        <h2 id="regioes-title">O mapa da fé no Brasil</h2>
+        <p class="section-intro">As declarações religiosas variam entre as Grandes Regiões. Ordene as barras por um grupo ou selecione uma região para explorar os valores.</p>
+        <label class="select-label" for="region-sort">Ordenar por</label>
+        <select id="region-sort" class="select-control">
+          <option value="0">Católicos</option><option value="1">Evangélicos</option><option value="6">Sem religião</option>
+        </select>
+        <label class="select-label" for="region-select">Explorar região</label>
+        <select id="region-select" class="select-control">
+          <option>Norte</option><option>Nordeste</option><option>Sudeste</option><option>Sul</option><option>Centro-Oeste</option>
+        </select>
+        <figure class="chart-figure" data-chart="regions">
+          <div class="chart-container chart-container--tall"><canvas id="chart-regions" role="img" aria-label="Barras horizontais empilhadas com a distribuição religiosa por Grande Região"><span>Distribuição dos grupos religiosos nas cinco Grandes Regiões.</span></canvas></div>
+          <figcaption><h3>Composição religiosa por Grande Região</h3><p>Fonte: IBGE, Censo 2022, Gráfico 3.</p><details class="data-details"><summary>Ver tabela de dados</summary><div data-table="regions"></div></details></figcaption>
+        </figure>
+        <div class="region-detail" id="region-detail" aria-live="polite"><p>Selecione uma região no gráfico para ver os percentuais.</p></div>
+        <p class="body-copy">O catolicismo lidera em todas as regiões, com maior presença no Nordeste (63,9%) e no Sul (62,4%). Evangélicos têm maior presença no Norte (36,8%) e no Centro-Oeste (31,4%). Espíritas concentram-se no Sudeste (2,7%); umbanda e candomblé no Sul (1,6%) e Sudeste (1,4%); e pessoas sem religião no Sudeste (10,5%).</p>
+        <aside class="callout"><span aria-hidden="true">⚠️</span><p>Alguns veículos publicaram 45,6% de católicos no Norte. O gráfico oficial do IBGE (Gráfico 3 da publicação) mostra 50,5%, valor usado aqui. Confira na tabela SIDRA do Censo 2022.</p></aside>
+      </div>
+    </section>
+
+    <section class="content-section" id="idade-sexo" data-reveal aria-labelledby="idade-sexo-title">
+      <div class="container">
+        <p class="eyebrow">05 · Idade e sexo</p>
+        <h2 id="idade-sexo-title">Como a fé muda ao longo da vida?</h2>
+        <p class="section-intro">Católicos são maioria em todas as idades, mas crescem com a idade (52,0% aos 10–14; 72,0% aos 80+); evangélicos fazem o caminho inverso (31,6% aos 10–14; 19,0% aos 80+).</p>
+        <div class="control-row age-controls" role="group" aria-label="Adicionar outros grupos ao gráfico de idade">
+          <span>Mostrar também:</span>
+          <button type="button" class="year-button" data-age-group="espirita" aria-pressed="false">Espíritas</button>
+          <button type="button" class="year-button" data-age-group="umbanda" aria-pressed="false">Umbanda e candomblé</button>
+          <button type="button" class="year-button" data-age-group="outras" aria-pressed="false">Outras religiosidades</button>
+          <button type="button" class="year-button" data-age-group="indigenas" aria-pressed="false">Tradições indígenas</button>
+          <button type="button" class="year-button" data-age-group="naosabe" aria-pressed="false">Não sabe / sem declaração</button>
+        </div>
+        <figure class="chart-figure" data-chart="ages">
+          <div class="chart-container"><canvas id="chart-ages" role="img" aria-label="Linhas com percentuais de grupos religiosos por faixa etária"><span>Percentuais de declaração religiosa por faixa etária.</span></canvas></div>
+          <figcaption><h3>Religião por faixa etária</h3><p>Fonte: IBGE, Censo 2022, Tabelas 1 e 2.</p><details class="data-details"><summary>Ver tabela de dados</summary><div data-table="ages"></div></details></figcaption>
+        </figure>
+        <figure class="chart-figure" data-chart="sex">
+          <div class="chart-container"><canvas id="chart-sex" role="img" aria-label="Barras empilhadas com composição por sexo em cada grupo religioso"><span>Proporção de homens e mulheres por grupo religioso.</span></canvas></div>
+          <figcaption><h3>Composição por sexo</h3><p>Fonte: IBGE, Censo 2022, Tabelas 1 e 2.</p><details class="data-details"><summary>Ver tabela de dados</summary><div data-table="sex"></div></details></figcaption>
+        </figure>
+        <p class="body-copy">Sem religião é o único grande grupo com maioria masculina (56,2%), além das tradições indígenas (50,9%); entre os espíritas, 60,6% são mulheres.</p>
+      </div>
+    </section>
+
+    <section class="content-section content-section--alt" id="cor-raca" data-reveal aria-labelledby="cor-raca-title">
+      <div class="container">
+        <p class="eyebrow">06 · Cor ou raça</p>
+        <h2 id="cor-raca-title">Religião e diversidade racial</h2>
+        <div class="tab-list" role="tablist" aria-label="Visões de religião e cor ou raça">
+          <button id="tab-religion-color" role="tab" aria-selected="true" aria-controls="panel-religion-color" tabindex="0">Religião de cada grupo</button>
+          <button id="tab-color-religion" role="tab" aria-selected="false" aria-controls="panel-color-religion" tabindex="-1">Quem são os fiéis de cada religião</button>
+        </div>
+        <div id="panel-religion-color" role="tabpanel" aria-labelledby="tab-religion-color">
+          <label class="select-label" for="race-select">Selecione cor ou raça</label>
+          <select id="race-select" class="select-control">
+            <option>Branca</option><option>Preta</option><option>Parda</option><option>Amarela</option><option>Indígena</option>
+          </select>
+          <figure class="chart-figure" data-chart="race-religion">
+            <div class="chart-container chart-container--donut"><canvas id="chart-race-religion" role="img" aria-label="Distribuição religiosa por cor ou raça selecionada"><span>Distribuição religiosa da cor ou raça selecionada.</span></canvas></div>
+            <figcaption><h3>Religiões declaradas por cor ou raça</h3><p>Fonte: IBGE, Censo 2022, Tabelas 3 e 4.</p><details class="data-details"><summary>Ver tabela de dados</summary><div data-table="race-religion"></div></details></figcaption>
+          </figure>
+        </div>
+        <div id="panel-color-religion" role="tabpanel" aria-labelledby="tab-color-religion" hidden>
+          <figure class="chart-figure" data-chart="color-religion">
+            <div class="chart-container chart-container--tall"><canvas id="chart-color-religion" role="img" aria-label="Composição por cor ou raça em cada grupo religioso"><span>Composição por cor ou raça em cada grupo religioso.</span></canvas></div>
+            <figcaption><h3>Composição de cada grupo religioso</h3><p>Fonte: IBGE, Censo 2022, Tabelas 3 e 4.</p><details class="data-details"><summary>Ver tabela de dados</summary><div data-table="color-religion"></div></details></figcaption>
+          </figure>
+        </div>
+        <p class="body-copy">Católicos são maioria em todas as cores/raças; 30,0% das pessoas pretas e 29,3% das pardas são evangélicas; entre os amarelos, 16,2% são sem religião; entre os indígenas, 42,7% são católicos, 32,2% evangélicos e 7,6% seguem tradições indígenas; 2,3% das pessoas pretas seguem umbanda/candomblé.</p>
+        <aside class="callout"><span aria-hidden="true">⚠️</span><p>Os indicadores de pessoas indígenas usam apenas a declaração de cor ou raça; não representam todo o contingente indígena recenseado (que inclui o quesito “se considera indígena”).</p></aside>
+      </div>
+    </section>
+
+    <section class="content-section" id="escolaridade" data-reveal aria-labelledby="escolaridade-title">
+      <div class="container">
+        <p class="eyebrow">07 · Escolaridade e vida</p>
+        <h2 id="escolaridade-title">Escolaridade e condições de vida</h2>
+        <figure class="chart-figure" data-chart="instruction">
+          <div class="chart-container chart-container--tall"><canvas id="chart-instruction" role="img" aria-label="Nível de instrução por grupo religioso entre pessoas de 25 anos ou mais"><span>Distribuição dos níveis de instrução por grupo religioso.</span></canvas></div>
+          <figcaption><h3>Nível de instrução (25 anos ou mais)</h3><p>Fonte: IBGE, Censo 2022, Tabela 5 e Gráficos 4, 5 e 6.</p><details class="data-details"><summary>Ver tabela de dados</summary><div data-table="instruction"></div></details></figcaption>
+        </figure>
+        <label class="select-label" for="indicator-select">Indicador</label>
+        <select id="indicator-select" class="select-control">
+          <option value="analfabetismo15">Analfabetismo (15+)</option>
+          <option value="domicilioProprio">Domicílio próprio</option>
+          <option value="internetCasa">Internet em casa</option>
+        </select>
+        <figure class="chart-figure" data-chart="indicators">
+          <div class="chart-container chart-container--tall"><canvas id="chart-indicators" role="img" aria-label="Indicador social selecionado por grupo religioso"><span>Indicador social por grupo religioso.</span></canvas></div>
+          <figcaption><h3>Indicadores sociais por grupo</h3><p>Fonte: IBGE, Censo 2022, Tabela 5 e Gráficos 4, 5 e 6.</p><details class="data-details"><summary>Ver tabela de dados</summary><div data-table="indicators"></div></details></figcaption>
+        </figure>
+        <div class="stat-grid stat-grid--three">
+          <article class="stat-card"><h3>Espíritas</h3><p>Maior percentual com ensino superior: <strong>48,0%</strong>; menor taxa de analfabetismo: <strong>1,0%</strong>.</p></article>
+          <article class="stat-card"><h3>Tradições indígenas</h3><p>Maior taxa de analfabetismo: <strong>24,6%</strong>; menor conexão de internet: <strong>52,9%</strong>.</p></article>
+          <article class="stat-card"><h3>Católicos</h3><p>Taxa de analfabetismo de <strong>7,8%</strong>, relacionada ao perfil mais envelhecido do grupo.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section content-section--alt" id="recordes" data-reveal aria-labelledby="recordes-title">
+      <div class="container">
+        <p class="eyebrow">08 · Recordes</p>
+        <h2 id="recordes-title">Destaques pelo país</h2>
+        <div class="record-grid">
+          <article class="record-card"><svg class="record-icon" aria-hidden="true"><use href="#record-mark"></use></svg><p>Estado mais católico</p><strong>Piauí · 77,4%</strong><p>Menos católico: Roraima · 37,9%</p></article>
+          <article class="record-card"><svg class="record-icon" aria-hidden="true"><use href="#record-mark"></use></svg><p>Estado mais evangélico</p><strong>Acre · 44,4%</strong><p>Menos evangélico: Piauí · 15,6%</p></article>
+          <article class="record-card"><svg class="record-icon" aria-hidden="true"><use href="#record-mark"></use></svg><p>Mais espíritas</p><strong>Rio de Janeiro · 3,5%</strong></article>
+          <article class="record-card"><svg class="record-icon" aria-hidden="true"><use href="#record-mark"></use></svg><p>Mais umbanda e candomblé</p><strong>Rio Grande do Sul · 3,2%</strong></article>
+          <article class="record-card"><svg class="record-icon" aria-hidden="true"><use href="#record-mark"></use></svg><p>Mais sem religião</p><strong>Roraima · 16,9%</strong><p>Também lidera em outras religiosidades (7,8%) e tradições indígenas (1,7%).</p></article>
+          <article class="record-card"><svg class="record-icon" aria-hidden="true"><use href="#record-mark"></use></svg><p>Maior proporção sem religião</p><strong>Chuí (RS) · 37,8%</strong></article>
+          <article class="record-card"><svg class="record-icon" aria-hidden="true"><use href="#record-mark"></use></svg><p>Município com maioria espírita</p><strong>Palmelo (GO) · 42,6%</strong><p>Único município onde os espíritas predominam.</p></article>
+          <article class="record-card"><svg class="record-icon" aria-hidden="true"><use href="#record-mark"></use></svg><p>Grupo predominante</p><strong>5.322 municípios</strong><p>Católicos predominam; em 244, são os evangélicos. Em 20 (14 no RS), católicos passam de 95%.</p></article>
+          <article class="record-card record-card--wide"><svg class="record-icon" aria-hidden="true"><use href="#record-mark"></use></svg><p>Municípios com mais de 100 mil habitantes</p><strong>Crato (CE), 81,3% católicos · Queimados (RJ), 23,1% católicos · Manacapuru (AM), 51,8% evangélicos · Itabaiana (SE), 10,3% evangélicos</strong></article>
+        </div>
+        <p class="data-note">Fonte: IBGE, Censo 2022, resultados preliminares da amostra.</p>
+      </div>
+    </section>
+
+    <section class="content-section" id="como-ler" data-reveal aria-labelledby="como-ler-title">
+      <div class="container">
+        <p class="eyebrow">09 · Metodologia</p>
+        <h2 id="como-ler-title">Como ler estes dados</h2>
+        <div class="accordion">
+          <details><summary>Base de 10 anos ou mais</summary><p>Diferente de censos anteriores, a religião foi investigada apenas para pessoas com 10 anos ou mais em 2022.</p></details>
+          <details><summary>Resultados preliminares</summary><p>Baseados na malha de setores censitários preliminar; podem ser revisados.</p></details>
+          <details><summary>Pergunta aberta</summary><p>A religião é declarada em campo aberto e depois codificada; em terras indígenas a pergunta foi “Qual a sua crença, ritual indígena ou religião?”.</p></details>
+          <details><summary>Declarar não é praticar</summary><p>O censo mede declaração, não prática nem frequência (conceitos: declarantes não praticantes e dupla pertença).</p></details>
+        </div>
+        <article class="teaser-card">
+          <p class="eyebrow">Próxima etapa</p>
+          <h3>Série histórica completa 1872–2022 e linha do tempo dos censos: em breve</h3>
+          <button class="button--secondary" type="button" disabled>Em breve</button>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><p>Dados: IBGE. Consulte as fontes oficiais e as ressalvas metodológicas antes de comparar os resultados.</p></footer>
+</body>
+</html>
