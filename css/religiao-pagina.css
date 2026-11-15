@@ -4,6 +4,131 @@
   padding-block: clamp(2.5rem, 6vw, 5rem);
 }
 
+.religion-page [data-scroll-section] {
+  padding-block: clamp(2.5rem, 6vw, 5rem);
+  scroll-margin-top: calc(var(--header-height, 4.25rem) + 1rem);
+}
+
+.respect-callout {
+  margin-block: 1.5rem;
+}
+
+.term-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+  gap: 1rem;
+  margin-block: 1.5rem;
+}
+
+.term-card {
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  padding: 1.1rem;
+}
+
+.term-card h3 {
+  margin-top: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.term-card p,
+.glossary-list dd {
+  color: var(--ink-soft);
+}
+
+.glossary-list {
+  display: grid;
+  grid-template-columns: minmax(9rem, 0.4fr) 1fr;
+  gap: 0.65rem 1rem;
+  margin: 1rem 0 0;
+}
+
+.glossary-list dt {
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.glossary-list dd {
+  margin: 0;
+}
+
+.census-figure {
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.census-figure figcaption {
+  margin-top: 0.8rem;
+  color: var(--ink);
+  font-weight: 650;
+}
+
+.census-figure canvas {
+  width: 100%;
+  max-height: 22rem;
+}
+
+.religion-numbers .stat-card {
+  min-width: 0;
+}
+
+.religion-numbers .callout {
+  margin-block: 1.25rem;
+}
+
+.religion-page [data-scroll-section] .mini-heading {
+  margin-top: 2rem;
+}
+
+[data-new-religion-page] [data-image-gallery] {
+  position: relative;
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  padding: 1rem 0 1.25rem;
+  scroll-snap-type: x mandatory;
+}
+
+[data-new-religion-page] [data-image-gallery]::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 0.5rem;
+  background: radial-gradient(12px 6px at 12px 0, transparent 95%, var(--accent-2) 100%) 0 0 / 24px 8px repeat-x;
+  content: "";
+  pointer-events: none;
+}
+
+[data-new-religion-page] [data-image-gallery] > div {
+  flex: 0 0 min(78vw, 18rem);
+  scroll-snap-align: center;
+}
+
+[data-new-religion-page] [data-image-gallery] .image-figure {
+  transition: transform 180ms ease;
+}
+
+[data-new-religion-page] [data-image-gallery] > div:nth-child(odd) .image-figure {
+  transform: rotate(-1.3deg);
+}
+
+[data-new-religion-page] [data-image-gallery] > div:nth-child(even) .image-figure {
+  transform: rotate(1.3deg);
+}
+
+[data-new-religion-page] [data-image-gallery] .image-figure:hover,
+[data-new-religion-page] [data-image-gallery] .image-figure:focus-within {
+  transform: rotate(0);
+}
+
 .religion-society {
   width: min(100%, 70rem);
   margin-inline: auto;
@@ -447,6 +572,23 @@
 #censos,
 #galeria {
   scroll-margin-top: calc(var(--header-height, 4.25rem) + 1rem);
+}
+
+@media (max-width: 520px) {
+  .glossary-list {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-new-religion-page] [data-image-gallery] .image-figure {
+      transition: none;
+    }
+  }
+
+  .glossary-list dd {
+    margin-bottom: 0.65rem;
+  }
 }
 
 .section-nav a[aria-current="location"] {

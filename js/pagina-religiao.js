@@ -1,7 +1,9 @@
 // Modelo da página: a seção “Religião e sociedade” é obrigatória em novas páginas.
 import { SOCIEDADE } from './dados-sociedade.js';
-import { COMPARATIVO, GRUPOS } from './dados-ibge.js';
+import { COMPARATIVO, COR_POR_RELIGIAO, GRUPOS, IDADES, INDICADORES, INSTRUCAO, REGIOES, SEXO } from './dados-ibge.js';
 import { SERIE } from './dados-censos.js';
+import { EXTRAS, RELIGIOES } from './dados-religioes.js';
+import { PAGINAS_RELIGIAO } from './dados-paginas-religiao.js';
 import { IMAGENS_RELIGIOES } from './imagens-religioes.js';
 import { aplicarTema, formatarPercentual, gerarTabela, opcoesBase, observarGraficos } from './charts-core.js';
 import { montarImagens } from './imagens.js';
@@ -47,6 +49,10 @@ function gerarTabelas() {
 }
 
 function criarGrafico(tipo) {
+  if (PAGINAS_RELIGIAO[slug]) {
+    criarGraficoCenso(tipo);
+    return;
+  }
   if (!window.Chart || graficos.has(tipo)) return;
   const canvas = document.querySelector(`[data-religion-chart="${tipo}"]`);
   if (!canvas) return;
@@ -165,6 +171,12 @@ function montarPainelSociedade(area) {
   const resumo = document.createElement('p');
   resumo.className = 'society-panel__summary';
   resumo.textContent = area.resumo;
+  if (area.conferir && new URLSearchParams(location.search).get('dev') === '1') {
+    const seloResumo = document.createElement('small');
+    seloResumo.className = 'society-review-badge';
+    seloResumo.textContent = 'a conferir';
+    resumo.append(' ', seloResumo);
+  }
   const exemplosTitle = document.createElement('h4');
   exemplosTitle.textContent = 'Exemplos';
   const exemplos = document.createElement('div');
@@ -203,6 +215,12 @@ function montarPainelSociedade(area) {
     const texto = document.createElement('p');
     texto.textContent = area.olhares[indice];
     item.append(subtitulo, texto);
+    if (area.conferirOlhares?.[indice] && new URLSearchParams(location.search).get('dev') === '1') {
+      const selo = document.createElement('small');
+      selo.className = 'society-review-badge';
+      selo.textContent = 'a conferir';
+      item.append(selo);
+    }
     olhares.append(item);
   });
   const refletir = document.createElement('blockquote');
@@ -232,7 +250,14 @@ function desenharRadial(navegacao, areas) {
     caminho.setAttribute('d', `M ${centro.x} ${centro.y} Q ${(centro.x + ponto.x) / 2 + (ponto.y - centro.y) * 0.12} ${(centro.y + ponto.y) / 2 - (ponto.x - centro.x) * 0.12} ${ponto.x} ${ponto.y}`);
     svg.append(caminho);
   });
-  const nome = ({ catolicismo: 'Catolicismo', evangelicos: 'Evangélicos', espiritismo: 'Espiritismo' })[slug];
+  const nome = ({
+    catolicismo: 'Catolicismo',
+    evangelicos: 'Evangélicos',
+    espiritismo: 'Espiritismo',
+    umbanda: 'Umbanda',
+    candomble: 'Candomblé',
+    'tradicoes-indigenas': 'Tradições indígenas'
+  })[slug];
   const centroLabel = document.createElement('span');
   centroLabel.className = 'society-center';
   centroLabel.textContent = nome;
@@ -281,10 +306,17 @@ function montarSociedade() {
   if (!secao || !dados) return;
   const navegacao = secao.querySelector('[data-society-tabs]');
   const painelContainer = secao.querySelector('[data-society-panels]');
-  const grupo = GRUPOS.find((item) => item.id === ({ catolicismo: 'catolica', evangelicos: 'evangelicas', espiritismo: 'espirita' })[slug]);
+  const grupoSociedade = GRUPOS.find((item) => item.id === ({
+    catolicismo: 'catolica',
+    evangelicos: 'evangelicas',
+    espiritismo: 'espirita',
+    umbanda: 'umbanda',
+    candomble: 'umbanda',
+    'tradicoes-indigenas': 'indigenas'
+  })[slug]);
   secao.closest('.religion-society').style.setProperty(
     '--society-color',
-    getComputedStyle(document.documentElement).getPropertyValue(grupo.cssVar).trim()
+    getComputedStyle(document.documentElement).getPropertyValue(grupoSociedade.cssVar).trim()
   );
   navegacao.setAttribute('role', 'tablist');
   navegacao.setAttribute('aria-label', 'Áreas de religião e sociedade');
@@ -363,7 +395,7 @@ function montarSociedade() {
 }
 
 function configurarScrollspy() {
-  const secoes = [...document.querySelectorAll('.religion-page > section[id]')];
+  const secoes = [...document.querySelectorAll('.religion-page [data-scroll-section][id], .religion-page > section[id]')];
   const links = [...document.querySelectorAll('.section-nav a')];
   if (!('IntersectionObserver' in window)) return;
   const observador = new IntersectionObserver((entradas) => {
@@ -390,6 +422,7 @@ function iniciarGraficos() {
 
 function montarGaleria() {
   const gallery = document.querySelector('[data-image-gallery]');
+  if (!gallery) return;
   for (const slot of Object.keys(IMAGENS_RELIGIOES[slug]).filter((item) => item.startsWith('galeria'))) {
     const container = document.createElement('div');
     container.dataset.imageSlot = slot;
@@ -398,7 +431,454 @@ function montarGaleria() {
   montarImagens(IMAGENS_RELIGIOES[slug]);
 }
 
-gerarTabelas();
+function criarElemento(tag, className = '', texto = '') {
+  const elemento = document.createElement(tag);
+  if (className) elemento.className = className;
+  if (texto) elemento.textContent = texto;
+  return elemento;
+}
+
+function criarCallout(texto) {
+  const aside = criarElemento('aside', 'callout');
+  aside.append(criarElemento('span', '', '⚠️'), criarElemento('p', '', texto));
+  return aside;
+}
+
+function criarImagemSlot(slot, className = 'article-image') {
+  const container = criarElemento('div', className);
+  container.dataset.imageSlot = slot;
+  return container;
+}
+
+function criarSecao(id, label, titulo, className = 'container religion-article') {
+  const section = criarElemento('section', className);
+  section.id = id;
+  section.dataset.scrollSection = '';
+  section.setAttribute('aria-labelledby', `${id}-title`);
+  section.append(criarElemento('p', 'eyebrow', label), criarElemento('h2', '', titulo));
+  section.querySelector('h2').id = `${id}-title`;
+  return section;
+}
+
+function criarBadgeConferencia(parent, conferir) {
+  if (!conferir || new URLSearchParams(location.search).get('dev') !== '1') return;
+  parent.append(criarElemento('small', 'society-review-badge', 'a conferir'));
+}
+
+function renderizarHistoria(conteudo, pagina) {
+  const section = criarSecao('historia', 'História', 'Uma história em contextos diversos');
+  const intro = criarElemento('p', 'body-copy', 'Conheça alguns marcos e leituras sobre a trajetória desta tradição, reconhecendo sua diversidade interna.');
+  section.append(intro);
+  const tabs = criarElemento('div', 'article-tabs');
+  tabs.setAttribute('role', 'tablist');
+  tabs.setAttribute('aria-label', `Tópicos sobre ${pagina.title}`);
+  const panels = [];
+  pagina.history.forEach((item, index) => {
+    const tabId = `${slug}-history-tab-${index}`;
+    const panelId = `${slug}-history-panel-${index}`;
+    const tab = criarElemento('button', '', item.tab);
+    tab.type = 'button';
+    tab.id = tabId;
+    tab.setAttribute('role', 'tab');
+    tab.setAttribute('aria-controls', panelId);
+    tab.setAttribute('aria-selected', String(index === 0));
+    tab.tabIndex = index === 0 ? 0 : -1;
+    tabs.append(tab);
+    const panel = criarElemento('section', 'article-panel');
+    panel.id = panelId;
+    panel.setAttribute('role', 'tabpanel');
+    panel.setAttribute('aria-labelledby', tabId);
+    panel.hidden = index !== 0;
+    panel.append(criarElemento('h3', '', item.title), criarElemento('p', '', item.text));
+    criarBadgeConferencia(panel, item.conferir);
+    if (item.extra) {
+      panel.append(criarElemento('p', '', item.extra));
+      criarBadgeConferencia(panel, item.extraConferir);
+    }
+    if (item.note) panel.append(criarCallout(item.note));
+    panel.append(criarImagemSlot(index === 0 ? 'origens' : index === 1 ? 'brasil' : 'hoje'));
+    panels.push(panel);
+  });
+  section.append(tabs, ...panels);
+  const timeline = criarElemento('ol', 'timeline-list');
+  pagina.timeline.forEach((item) => {
+    const li = criarElemento('li');
+    const strong = criarElemento('strong', '', `${item.year}: `);
+    li.append(strong, document.createTextNode(item.text));
+    criarBadgeConferencia(li, item.conferir);
+    timeline.append(li);
+  });
+  section.append(criarElemento('h3', 'mini-heading', 'Linha do tempo'), timeline);
+  conteudo.append(section);
+}
+
+function renderizarParaEntender(conteudo, pagina) {
+  const section = criarSecao('para-entender', 'Para entender', 'Conceitos e termos importantes');
+  const cards = criarElemento('div', 'term-grid');
+  pagina.understand.forEach(([term, definition]) => {
+    const card = criarElemento('article', 'term-card');
+    card.append(criarElemento('h3', '', term), criarElemento('p', '', definition));
+    cards.append(card);
+  });
+  const aviso = criarElemento('p', 'method-note', 'Descrição geral e respeitosa; cada comunidade pode ter entendimentos próprios.');
+  const details = criarElemento('details', 'accordion');
+  details.append(criarElemento('summary', '', 'Glossário rápido'));
+  const list = criarElemento('dl', 'glossary-list');
+  pagina.glossary.forEach(([term, definition]) => {
+    list.append(criarElemento('dt', '', term), criarElemento('dd', '', definition));
+  });
+  details.append(list);
+  section.append(cards, aviso, details);
+  conteudo.append(section);
+}
+
+function renderizarSociedade(conteudo, pagina) {
+  const section = criarSecao('sociedade', 'Religião e sociedade', 'Religião e sociedade', 'container religion-society');
+  const intro = criarElemento('p', '', 'Como esta tradição dialoga com educação, cuidado, cultura, direitos, comunidade e convivência.');
+  const conceito = criarElemento('a', 'society-link-card');
+  conceito.dataset.societyConcept = '';
+  conceito.href = pagina.conceito.href;
+  conceito.append(
+    criarElemento('span', '', 'Conceito relacionado'),
+    criarElemento('strong', '', pagina.conceito.rotulo),
+    criarElemento('p', '', pagina.conceito.frase),
+    criarElemento('span', '', 'Ver conceito →')
+  );
+  const layout = criarElemento('div', 'society-layout');
+  layout.dataset.society = '';
+  const navigation = criarElemento('div', 'society-navigation');
+  navigation.dataset.societyTabs = '';
+  navigation.setAttribute('aria-label', 'Áreas de religião e sociedade');
+  const panels = criarElemento('div', 'society-panels');
+  panels.dataset.societyPanels = '';
+  const areaLinks = criarElemento('div', 'society-links');
+  areaLinks.append(conceito);
+  section.append(intro, layout, areaLinks);
+  layout.append(navigation, panels);
+  conteudo.append(section);
+}
+
+function censusGroupIndex() {
+  return GRUPOS.findIndex((item) => item.id === (slug === 'tradicoes-indigenas' ? 'indigenas' : 'umbanda'));
+}
+
+function censusGroupLabel() {
+  return slug === 'tradicoes-indigenas' ? 'Tradições indígenas' : 'Umbanda e Candomblé';
+}
+
+function censusValues(tipo) {
+  const index = censusGroupIndex();
+  const groupName = censusGroupLabel();
+  if (tipo === 'comparison') return {
+    labels: ['2010', '2022'],
+    values: [COMPARATIVO[2010][index], COMPARATIVO[2022][index]],
+    rows: [['2010', formatarPercentual(COMPARATIVO[2010][index])], ['2022', formatarPercentual(COMPARATIVO[2022][index])]]
+  };
+  if (tipo === 'subgroups') {
+    const rows = EXTRAS[slug].subgrupos;
+    const formatarSubgrupo = (value) => value > 0 && value < 0.1
+      ? `${new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value)}%`
+      : formatarPercentual(value);
+    return { labels: rows.map((item) => item.nome), values: rows.map((item) => item.pct), rows: rows.map((item) => [item.nome, formatarSubgrupo(item.pct), item.pessoas]) };
+  }
+  if (tipo === 'regions') {
+    const rows = Object.entries(REGIOES).map(([name, values]) => [name, values[index]]);
+    return { labels: rows.map(([name]) => name), values: rows.map(([, value]) => value), rows: rows.map(([name, value]) => [name, formatarPercentual(value)]) };
+  }
+  if (tipo === 'ages') {
+    const rows = Object.entries(IDADES).map(([name, values]) => [name, values[index]]);
+    return { labels: rows.map(([name]) => name), values: rows.map(([, value]) => value), rows: rows.map(([name, value]) => [name, formatarPercentual(value)]) };
+  }
+  if (tipo === 'sex') {
+    const key = slug === 'tradicoes-indigenas' ? 'Tradições indígenas' : 'Umbanda e Candomblé';
+    const values = SEXO[key];
+    return { labels: ['Homens', 'Mulheres'], values, rows: [['Homens', formatarPercentual(values[0])], ['Mulheres', formatarPercentual(values[1])]] };
+  }
+  if (tipo === 'color') {
+    const labels = ['Branca', 'Preta', 'Amarela', 'Parda', 'Indígena'];
+    const key = slug === 'tradicoes-indigenas' ? 'Tradições indígenas' : 'Umbanda e Candomblé';
+    const values = COR_POR_RELIGIAO[key];
+    return { labels, values, rows: labels.map((label, itemIndex) => [label, formatarPercentual(values[itemIndex])]) };
+  }
+  if (tipo === 'education') {
+    const key = slug === 'tradicoes-indigenas' ? 'Tradições indígenas' : 'Umbanda e Candomblé';
+    const labels = ['Sem instrução/fundamental incompleto', 'Fundamental completo/médio incompleto', 'Médio completo/superior incompleto', 'Superior completo'];
+    const values = INSTRUCAO[key];
+    return { labels, values, rows: labels.map((label, itemIndex) => [label, formatarPercentual(values[itemIndex])]) };
+  }
+  if (tipo === 'indicators') {
+    const key = slug === 'tradicoes-indigenas' ? 'Tradições indígenas' : 'Umbanda e Candomblé';
+    const items = [
+      ['Analfabetismo (15+)', INDICADORES.analfabetismo15[key]],
+      ['Domicílio próprio', INDICADORES.domicilioProprio[key]],
+      ['Internet em casa', INDICADORES.internetCasa[key]]
+    ];
+    return { labels: items.map(([name]) => name), values: items.map(([, value]) => value), rows: items.map(([name, value]) => [name, formatarPercentual(value)]) };
+  }
+  if (tipo === 'region-table') return { labels: [], values: [], rows: [] };
+  return { labels: [groupName], values: [], rows: [] };
+}
+
+function adicionarFiguraCenso(section, tipo, titulo, descricao, tableColumns = ['Categoria', 'Percentual']) {
+  const figure = criarElemento('figure', 'religion-chart census-figure');
+  const canvas = document.createElement('canvas');
+  canvas.dataset.religionChart = tipo;
+  canvas.setAttribute('role', 'img');
+  canvas.setAttribute('aria-label', descricao);
+  const caption = criarElemento('figcaption');
+  caption.append(criarElemento('h3', '', titulo));
+  figure.append(canvas, caption);
+  const details = criarElemento('details', 'data-details');
+  details.append(criarElemento('summary', '', 'Ver tabela de dados'));
+  const table = criarElemento('div');
+  table.dataset.table = tipo;
+  details.append(table);
+  figure.append(details);
+  section.append(figure);
+  const data = censusValues(tipo);
+  gerarTabela(table, titulo, tableColumns, data.rows);
+}
+
+// Exibe os números-resumo próprios de cada tradição.
+function renderizarChipsCenso(section, extras) {
+  const chips = criarElemento('div', 'stat-grid');
+  extras.chips.forEach(([value, label, complement]) => {
+    const card = criarElemento('article', 'stat-card');
+    card.append(criarElemento('p', 'stat-card__value', value), criarElemento('h3', '', label));
+    if (complement) card.append(criarElemento('p', '', complement));
+    chips.append(card);
+  });
+  section.append(chips);
+}
+
+// Compara os percentuais censitários e, quando há dados, os subgrupos separados.
+function renderizarEvolucaoCenso(section, extras) {
+  section.append(criarElemento('h3', 'mini-heading', 'Evolução: 2010 × 2022'));
+  const index = censusGroupIndex();
+  const value2010 = COMPARATIVO[2010][index];
+  const value2022 = COMPARATIVO[2022][index];
+  const delta = value2022 - value2010;
+  const comparisonStats = criarElemento('div', 'stat-grid stat-grid--three');
+  [
+    ['2010', formatarPercentual(value2010)],
+    ['2022', formatarPercentual(value2022)],
+    ['Variação', `${delta > 0 ? '↑ ' : delta < 0 ? '↓ ' : ''}${formatarNumero(delta)} p.p.`]
+  ].forEach(([label, value]) => {
+    const card = criarElemento('article', 'stat-card');
+    card.append(criarElemento('p', 'stat-card__value', value), criarElemento('h3', '', label));
+    comparisonStats.append(card);
+  });
+  section.append(comparisonStats);
+  adicionarFiguraCenso(section, 'comparison', 'Comparação do grupo nos censos', `Comparação do percentual de ${censusGroupLabel()} em 2010 e 2022.`);
+  if (extras.subgrupos.length) {
+    adicionarFiguraCenso(section, 'subgroups', 'Percentuais separados nas bases informadas', 'Comparação dos percentuais individuais de Umbanda ou Candomblé nas bases indicadas.', ['Grupo e base', 'Percentual', 'Pessoas']);
+    section.append(criarElemento('p', 'method-note', 'Em 2010 os dados separados vêm do Texto de estudo (população total); em 2022, dos microdados (população de 10+). As bases são diferentes: compare apenas a ordem de grandeza.'));
+    section.append(criarElemento('p', 'method-note', 'Em números de pessoas, Umbanda e Candomblé mais que dobraram entre os dois censos, mas lembre-se de que as bases diferem.'));
+  }
+}
+
+// Mostra os recortes censitários com seus valores tabulados e gráficos acessíveis.
+function renderizarPerfilCenso(section, extras) {
+  section.append(criarElemento('h3', 'mini-heading', `Perfil do grupo ${extras.avisoCombinado ? 'Umbanda e Candomblé' : 'Tradições indígenas'}`));
+  adicionarFiguraCenso(section, 'regions', 'Por região', 'Percentual por região no recorte censitário informado.');
+  adicionarFiguraCenso(section, 'ages', 'Por faixa etária', 'Percentual por faixa etária no recorte censitário informado.');
+  adicionarFiguraCenso(section, 'sex', 'Composição por sexo', 'Composição percentual por sexo no recorte censitário informado.');
+  adicionarFiguraCenso(section, 'color', 'Composição por cor ou raça', 'Composição percentual por cor ou raça no recorte censitário informado.');
+  adicionarFiguraCenso(section, 'education', 'Escolaridade (pessoas de 25 anos ou mais)', 'Distribuição percentual por nível de instrução.');
+  adicionarFiguraCenso(section, 'indicators', 'Condições de vida', 'Indicadores de analfabetismo, domicílio próprio e internet em casa.');
+}
+
+function renderizarFonteCenso(section) {
+  const fonte = criarElemento('p', 'method-note', 'Fonte: IBGE, Censo Demográfico 2010 e 2022; microdados do Censo 2022 divulgados em 31/08/2026. Consulte também as ');
+  const ibge = criarElemento('a', '', 'fontes oficiais do IBGE');
+  ibge.href = 'https://www.ibge.gov.br/';
+  ibge.target = '_blank';
+  ibge.rel = 'noopener noreferrer';
+  ibge.append(criarElemento('span', 'sr-only', ' (abre em nova aba)'));
+  fonte.append(ibge, document.createTextNode('.'));
+  section.append(fonte);
+}
+
+function renderizarCensos(conteudo, pagina) {
+  const section = criarSecao('censos', 'Nos censos do IBGE', 'O que os censos registram?');
+  section.classList.add('religion-numbers');
+  section.append(criarElemento('p', '', 'O Censo registra a religião declarada, não a prática nem a frequência. O comparativo principal considera pessoas de 10 anos ou mais; bases de anos distintos exigem cautela.'));
+  const extras = EXTRAS[slug];
+  if (extras.avisoCombinado) {
+    section.append(criarCallout('O IBGE divulga Umbanda e Candomblé juntos na maioria dos recortes (região, idade, sexo, cor ou raça e escolaridade). Os gráficos desta página mostram o grupo combinado; só os microdados de 2022 separam as duas religiões.'));
+  }
+  pagina.censusCallouts.forEach((text) => section.append(criarCallout(text)));
+  renderizarChipsCenso(section, extras);
+  renderizarEvolucaoCenso(section, extras);
+  renderizarPerfilCenso(section, extras);
+  renderizarFonteCenso(section);
+  conteudo.append(section);
+}
+
+function renderizarCuriosidades(conteudo, pagina) {
+  const section = criarSecao('curiosidades', 'Você sabia?', 'Números e destaques');
+  const facts = criarElemento('div', 'stat-grid');
+  pagina.facts.forEach((fact) => {
+    const card = criarElemento('article', 'stat-card');
+    card.append(criarElemento('p', '', fact));
+    facts.append(card);
+  });
+  section.append(facts);
+  const records = criarElemento('div', 'record-grid');
+  EXTRAS[slug].recordes.forEach(([name, value, detail]) => {
+    const card = criarElemento('article', 'record-card');
+    card.append(criarElemento('p', '', name), criarElemento('strong', '', value), criarElemento('p', '', detail));
+    records.append(card);
+  });
+  section.append(criarElemento('h3', 'mini-heading', 'Destaques dos dados'), records);
+  conteudo.append(section);
+}
+
+function renderizarGaleria(conteudo) {
+  const section = criarSecao('galeria', 'Galeria', 'Imagens e créditos', 'container religion-gallery');
+  section.append(criarElemento('p', '', 'As imagens permanecem pendentes de curadoria de origem, autorização, direitos de uso, descrição alternativa e crédito. Priorizaremos arquitetura, patrimônio, festas públicas, objetos, mapas, ilustrações históricas e acervos oficiais.'));
+  section.append(criarElemento('div', 'image-gallery'));
+  section.querySelector('.image-gallery').dataset.imageGallery = '';
+  const credits = criarElemento('details', 'accordion');
+  credits.append(criarElemento('summary', '', 'Créditos das imagens'));
+  credits.append(criarElemento('p', '', 'Imagens de rituais exigem autorização de quem é retratado.'));
+  section.append(credits);
+  conteudo.append(section);
+}
+
+function renderizarNavegacaoReligioes() {
+  const nav = document.querySelector('[data-religion-pagination]');
+  if (!nav) return;
+  const ativas = RELIGIOES.filter((religiao) => religiao.status !== 'breve' && (religiao.pagina || religiao.arquivo));
+  const indice = ativas.findIndex((religiao) => religiao.id === slug);
+  const anterior = ativas[indice - 1];
+  const proxima = ativas[indice + 1];
+  const linkAnterior = criarElemento('a', '', anterior ? `← Anterior: ${anterior.nome}` : '← Índice de religiões');
+  linkAnterior.href = anterior ? (anterior.pagina ?? anterior.arquivo) : 'religioes.html';
+  const linkProxima = criarElemento('a', '', proxima ? `Próxima: ${proxima.nome} →` : 'Índice de religiões →');
+  linkProxima.href = proxima ? (proxima.pagina ?? proxima.arquivo) : 'religioes.html';
+  nav.replaceChildren(linkAnterior, linkProxima);
+}
+
+function criarTabelaFallbackSociedade(area) {
+  const article = criarElemento('article', 'society-static-panel');
+  article.dataset.area = area.id;
+  const resumo = criarElemento('p', '', area.resumo);
+  if (area.conferir && new URLSearchParams(location.search).get('dev') === '1') {
+    resumo.append(' ', criarElemento('small', 'society-review-badge', 'a conferir'));
+  }
+  article.append(criarElemento('h3', '', area.titulo), resumo, criarElemento('h4', '', 'Exemplos'));
+  const list = criarElemento('ul');
+  area.exemplos.forEach((exemplo) => {
+    const item = criarElemento('li');
+    item.append(criarElemento('strong', '', `${exemplo.titulo}: `), document.createTextNode(exemplo.texto));
+    criarBadgeConferencia(item, exemplo.conferir);
+    list.append(item);
+  });
+  const views = criarElemento('details', 'society-static-views');
+  views.append(criarElemento('summary', '', 'Dois olhares'));
+  const grid = criarElemento('div', 'society-static-views__grid');
+  area.olhares.forEach((text, index) => {
+    const p = criarElemento('p');
+    p.append(criarElemento('strong', '', index === 0 ? 'Um olhar: ' : 'Outro olhar: '), document.createTextNode(text));
+    if (area.conferirOlhares?.[index] && new URLSearchParams(location.search).get('dev') === '1') {
+      p.append(' ', criarElemento('small', 'society-review-badge', 'a conferir'));
+    }
+    grid.append(p);
+  });
+  views.append(grid);
+  article.append(list, views, criarElemento('blockquote', '', area.refletir), criarElemento('p', 'society-source', `Fonte: ${area.fonte}`));
+  return article;
+}
+
+function montarPainelSociedadeEstatico() {
+  const data = SOCIEDADE[slug];
+  const container = document.querySelector('[data-society-panels]');
+  if (!data || !container) return;
+  container.replaceChildren(...data.areas.map(criarTabelaFallbackSociedade));
+}
+
+function renderizarPaginaNova() {
+  const pagina = PAGINAS_RELIGIAO[slug];
+  const conteudo = document.querySelector('[data-religion-content]');
+  if (!pagina || !conteudo) return false;
+  const nav = document.querySelector('[data-page-navigation]');
+  [
+    ['frase', 'Em uma frase'],
+    ['historia', 'História'],
+    ['para-entender', 'Para entender'],
+    ['sociedade', 'Religião e sociedade'],
+    ['censos', 'Nos censos do IBGE'],
+    ['curiosidades', 'Você sabia?'],
+    ['galeria', 'Galeria']
+  ].forEach(([id, label]) => {
+    const link = criarElemento('a', '', label);
+    link.href = `#${id}`;
+    nav.append(link);
+  });
+  const frase = criarSecao('frase', 'Em uma frase', 'Uma síntese');
+  frase.append(criarElemento('p', 'section-intro', pagina.sentence));
+  frase.append(criarImagemSlot('capa', 'article-cover'));
+  conteudo.append(frase);
+  renderizarHistoria(conteudo, pagina);
+  renderizarParaEntender(conteudo, pagina);
+  renderizarSociedade(conteudo, SOCIEDADE[slug]);
+  renderizarCensos(conteudo, pagina);
+  renderizarCuriosidades(conteudo, pagina);
+  renderizarGaleria(conteudo);
+  const pagination = criarElemento('nav', 'religion-pagination');
+  pagination.dataset.religionPagination = '';
+  pagination.setAttribute('aria-label', 'Anterior e próxima religião');
+  conteudo.append(pagination);
+  montarPainelSociedadeEstatico();
+  return true;
+}
+
+function criarGraficoCenso(tipo) {
+  if (!window.Chart || graficos.has(tipo)) return;
+  const canvas = document.querySelector(`[data-religion-chart="${tipo}"]`);
+  if (!canvas) return;
+  const data = censusValues(tipo);
+  const grupoCor = GRUPOS.find((item) => item.id === (slug === 'tradicoes-indigenas' ? 'indigenas' : 'umbanda'));
+  const cor = getComputedStyle(document.documentElement).getPropertyValue(grupoCor.cssVar).trim();
+  const options = opcoesBase();
+  options.plugins.legend.display = false;
+  options.plugins.tooltip.callbacks = {
+    label: (context) => {
+      const value = Number(context.parsed.x ?? context.parsed.y);
+      const formatted = tipo === 'subgroups' && value > 0 && value < 0.1
+        ? `${new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value)}%`
+        : formatarPercentual(value);
+      return `${context.dataset.label}: ${formatted}`;
+    }
+  };
+  if (['regions', 'ages', 'education', 'indicators', 'subgroups'].includes(tipo)) {
+    options.indexAxis = 'y';
+    options.scales.x.beginAtZero = true;
+    options.scales.x.ticks.callback = (value) => `${value}%`;
+  } else {
+    options.scales.y.beginAtZero = true;
+    options.scales.y.ticks.callback = (value) => `${value}%`;
+  }
+  const chart = new window.Chart(canvas, {
+    type: 'bar',
+    data: {
+      labels: data.labels,
+      datasets: [{
+        label: censusGroupLabel(),
+        data: data.values,
+        backgroundColor: cor,
+        borderColor: cor,
+        borderWidth: 1
+      }]
+    },
+    options
+  });
+  graficos.set(tipo, chart);
+}
+
+if (!renderizarPaginaNova()) gerarTabelas();
+renderizarNavegacaoReligioes();
 configurarAbas();
 montarGaleria();
 montarSociedade();

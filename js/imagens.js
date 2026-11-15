@@ -10,7 +10,7 @@ function mostrarImagem(dialogo, imagem, credito, licenca) {
   const legenda = dialogo.querySelector('p');
   ampliada.src = imagem.src;
   ampliada.alt = imagem.alt;
-  legenda.textContent = `${credito} · ${licenca}`;
+  legenda.textContent = [imagem.legenda, credito, licenca, imagem.fonte].filter(Boolean).join(' · ');
   dialogo.showModal();
 }
 
@@ -27,7 +27,7 @@ export function montarImagens(manifesto) {
     const item = manifesto[container.dataset.imageSlot];
     if (!item) return;
     const figura = criar('figure', 'image-figure');
-    if (item.src && item.alt && item.credito && item.licenca) {
+    if (item.src && item.alt && item.credito && item.licenca && (!item.sensivel || item.fonte)) {
       const imagem = criar('img', 'image-figure__image');
       imagem.src = item.src;
       imagem.alt = item.alt;
@@ -41,14 +41,14 @@ export function montarImagens(manifesto) {
         if (dialogo) mostrarImagem(dialogo, item, item.credito, item.licenca);
       });
       figura.append(abrir);
-      figura.append(criar('figcaption', '', `${item.credito} · ${item.licenca}`));
+      figura.append(criar('figcaption', '', [item.legenda, item.credito, item.licenca, item.fonte].filter(Boolean).join(' · ')));
     } else {
       const placeholder = criar('div', 'image-placeholder');
       placeholder.setAttribute('role', 'img');
       placeholder.setAttribute('aria-label', `Imagem ainda não selecionada. Sugestão de pesquisa: ${item.consulta}`);
       placeholder.append(criar('span', '', 'Imagem em curadoria'));
       placeholder.append(criar('small', '', `Sugestão de pesquisa: ${item.consulta}`));
-      figura.append(placeholder, criar('figcaption', '', 'Imagem pendente de seleção e verificação de licença.'));
+      figura.append(placeholder, criar('figcaption', '', item.legenda || 'Imagem pendente de seleção e verificação de licença.'));
     }
     container.replaceChildren(figura);
   });

@@ -1,5 +1,5 @@
-const area = (id, titulo, icone, resumo, exemplos, olhares, refletir, fonte) => ({
-  id, titulo, icone, resumo, exemplos, olhares, refletir, fonte
+const area = (id, titulo, icone, resumo, exemplos, olhares, refletir, fonte, conferir = false, conferirOlhares = []) => ({
+  id, titulo, icone, resumo, exemplos, olhares, refletir, fonte, conferir, conferirOlhares
 });
 
 export const SOCIEDADE = {
@@ -209,6 +209,214 @@ export const SOCIEDADE = {
         ['A mistura de crenças é característica do campo religioso brasileiro.', 'Cada tradição quer ser reconhecida por seu próprio nome e história.'],
         'Por que algumas pessoas escondem sua religião de origem?',
         'Texto 01 (seção 4.2.2).')
+    ]
+  },
+  umbanda: {
+    conceito: {
+      rotulo: 'Sincretismo religioso',
+      frase: 'A Umbanda nasce do encontro de tradições católicas, espíritas, africanas e indígenas: um exemplo vivo de sincretismo no campo religioso brasileiro.',
+      href: 'religiao.html#identidade'
+    },
+    areas: [
+      area('educacao', 'Educação e formação', 'educacao',
+        'A transmissão acontece sobretudo na prática e na oralidade, dentro do terreiro; também há cursos de formação em algumas casas.',
+        [
+          { titulo: 'Oralidade', texto: 'Saberes passados em giras, conversas e vivência.' },
+          { titulo: 'Lei 10.639/2003', texto: 'Torna obrigatório o ensino de história e cultura afro-brasileira e africana, o que dialoga com o debate sobre religiões de matriz africana.' },
+          { titulo: 'Ensino Religioso', texto: 'Debate sobre o espaço das religiões afro-brasileiras no currículo.' }
+        ],
+        ['Aprender a história dessas tradições ajuda a combater o preconceito.', 'Há quem defenda que a escola pública informe sobre as religiões sem ensinar práticas religiosas.'],
+        'Conhecer uma religião é o mesmo que praticá-la?',
+        'Aulas 1 e 2 (Ensino Religioso); Texto 01.', true),
+      area('assistencia', 'Assistência e cuidado', 'assistencia',
+        'Muitos terreiros oferecem acolhimento, atendimento espiritual e ações solidárias.',
+        [
+          { titulo: 'Consulta e passe', texto: 'Atendimento espiritual (o Texto 01 fala na procura por serviços terapêuticos das religiões).' },
+          { titulo: 'Ações solidárias', texto: 'Distribuição de alimentos e roupas por casas.', conferir: true },
+          { titulo: 'Dupla pertença', texto: 'Pessoas usam serviços de uma religião e se declaram de outra.' }
+        ],
+        ['Para muitos, o terreiro é lugar de escuta, cuidado e pertencimento.', 'Práticas religiosas de cuidado e a medicina convencional podem coexistir, cada uma respeitando seus limites.'],
+        'Por que tantas pessoas procuram religiões em momentos de dificuldade?',
+        'Texto 01 (seção 4.2.2).'),
+      area('cultura', 'Cultura, música e festas', 'cultura',
+        'Música, dança e festas públicas fazem da Umbanda parte da cultura brasileira.',
+        [
+          { titulo: 'Festas para Iemanjá', texto: 'Celebrações de fim de ano em praias, como Copacabana (RJ) e Santos (SP).', conferir: true },
+          { titulo: 'Música', texto: 'Pontos cantados e atabaques.' },
+          { titulo: 'Cores e símbolos', texto: 'Presentes em festas populares.' }
+        ],
+        ['Festas públicas mostram a vitalidade e a abertura da religião.', 'A espetacularização pode deslocar o sentido religioso, e há debates sobre isso entre os próprios fiéis.'],
+        'Quando a cultura religiosa vira espetáculo?',
+        'Texto de apoio.'),
+      area('politica', 'Política e leis', 'politica',
+        'A liberdade de crença é garantida pela Constituição, mas a história foi marcada por perseguição.',
+        [
+          { titulo: 'Código Penal de 1890', texto: 'Previa punição a práticas ligadas a magia e curandeirismo.', conferir: true },
+          { titulo: 'Constituição de 1988, art. 5º', texto: 'Liberdade de consciência e de crença e proteção aos locais de culto.' },
+          { titulo: 'Dia Nacional da Umbanda (15 de novembro)', texto: 'A data tem reconhecimento em lei federal.', conferir: true }
+        ],
+        ['O reconhecimento legal protege direitos e dá visibilidade.', 'Leis, sozinhas, não eliminam o preconceito: são necessárias educação e fiscalização.'],
+        'Direitos garantidos no papel são sempre vividos na prática?',
+        'Texto 01 (afro-brasileiros mais organizados por direitos constitucionais).'),
+      area('familia', 'Comunidade e família de santo', 'familia',
+        'A vida religiosa envolve a comunidade do terreiro.',
+        [
+          { titulo: 'Lideranças', texto: 'Mães e pais de santo orientam a casa.' },
+          { titulo: 'Entidades como guias', texto: 'Caboclos, pretos-velhos e crianças, vistos como orientadores (descrição geral).' },
+          { titulo: 'Mulheres', texto: '56,7% de quem segue Umbanda ou Candomblé são mulheres (IBGE, 2022).' }
+        ],
+        ['A “família de santo” amplia a rede de apoio de seus membros.', 'Algumas pessoas escondem a religião da família ou do trabalho por receio de preconceito.'],
+        'O que significa pertencer a uma “família de santo”?',
+        'IBGE, Censo 2022; Texto 01.'),
+      area('convivencia', 'Convivência e diversidade', 'convivencia',
+        'A Umbanda simboliza o trânsito e a mistura religiosa brasileira, e também é alvo de intolerância.',
+        [
+          { titulo: 'Subnotificação', texto: 'Muitos afro-brasileiros se declaram espíritas ou católicos, o que sugere haver mais umbandistas e candomblecistas do que o censo registra.' },
+          { titulo: 'Censo 2022', texto: 'Umbanda e Candomblé passaram de 0,3% (2010) para 1,0%.' },
+          { titulo: 'Intolerância religiosa', texto: 'Ataques a praticantes e terreiros, tema da campanha #LiberdadeReligiosa (Aulas 2 e 3).' }
+        ],
+        ['O aumento pode refletir mais pessoas se declarando sem medo.', 'Também pode envolver mudanças na coleta e na classificação das respostas; pesquisadores discutem o tema.'],
+        'O que muda quando alguém se sente seguro para dizer qual é sua religião?',
+        'Texto 01; IBGE, Censo 2022; Aula 2.', false, [false, true])
+    ]
+  },
+  candomble: {
+    conceito: {
+      rotulo: 'Estratégias × táticas (Chartier, conforme as aulas)',
+      frase: 'Diante de perseguição, comunidades de matriz africana criaram formas de preservar sua fé, como aproximar divindades africanas de santos católicos: uma das leituras do sincretismo.',
+      href: 'religiao.html#identidade'
+    },
+    areas: [
+      area('educacao', 'Educação e saberes', 'educacao',
+        'Os saberes do Candomblé são transmitidos pela oralidade e pela convivência, sob a orientação das lideranças do terreiro.',
+        [
+          { titulo: 'Oralidade', texto: 'Mitos dos orixás narrados e vividos.' },
+          { titulo: 'Mito de Olorun', texto: 'O Texto 03 cita esse ser supremo africano entre os mitos de criação.' },
+          { titulo: 'Lei 10.639/2003', texto: 'Ensino de história e cultura afro-brasileira.' }
+        ],
+        ['A tradição oral é uma forma legítima de conhecimento.', 'Para a escola, o desafio é falar de religião sem fazer catequese.'],
+        'Que saberes só se aprendem vivendo?',
+        'Texto 03; Texto 01; Aula 1.'),
+      area('assistencia', 'Assistência e cuidado', 'assistencia',
+        'O terreiro costuma ser lugar de acolhimento.',
+        [
+          { titulo: 'Acolhimento comunitário', texto: 'Alimentação, escuta e apoio.', conferir: true },
+          { titulo: 'Jogo de búzios', texto: 'Consulta oracular procurada por pessoas de várias religiões.' },
+          { titulo: 'Ervas e saberes tradicionais', texto: 'Plantas usadas em ritos e cuidados (descrição geral).', conferir: true }
+        ],
+        ['Muitas pessoas encontram no terreiro apoio emocional e comunitário.', 'Cuidar da saúde exige também acompanhamento médico; as práticas podem se complementar.'],
+        'Quando um saber tradicional é considerado cuidado?',
+        'Texto 01 (4.2.2).'),
+      area('cultura', 'Cultura, culinária e festas', 'cultura',
+        'A cultura afro-brasileira, em especial a baiana, tem forte ligação com o Candomblé.',
+        [
+          { titulo: 'Acarajé', texto: 'O Ofício das Baianas de Acarajé é patrimônio imaterial desde 2005.', conferir: true },
+          { titulo: 'Festa de Iemanjá', texto: 'Celebrada em Salvador, no Rio Vermelho, em 2 de fevereiro.', conferir: true },
+          { titulo: 'Lavagem do Bonfim', texto: 'Festa em Salvador que mistura tradições católicas e de matriz africana.', conferir: true }
+        ],
+        ['A cultura de matriz africana é patrimônio do país.', 'Quando símbolos religiosos viram atração turística, há debate sobre respeito e sentido.'],
+        'Quem pode contar a história de uma festa religiosa?',
+        'Texto de apoio.'),
+      area('politica', 'Política e leis', 'politica',
+        'Da repressão ao reconhecimento: a trajetória legal dos terreiros.',
+        [
+          { titulo: 'Repressão histórica', texto: 'Invasões policiais e exigência de registro dos terreiros.', conferir: true },
+          { titulo: 'Tombamento de terreiros pelo Iphan', texto: 'A Casa Branca do Engenho Velho é um exemplo.', conferir: true },
+          { titulo: 'Dia Nacional de Combate à Intolerância Religiosa (21 de janeiro)', texto: 'A data foi instituída por lei.', conferir: true },
+          { titulo: 'Estatuto da Igualdade Racial (Lei 12.288/2010)', texto: 'Marco legal relacionado à igualdade racial.', conferir: true }
+        ],
+        ['O reconhecimento como patrimônio protege a memória e os espaços de culto.', 'A proteção legal precisa vir acompanhada de combate efetivo à violência.'],
+        'Como o Estado laico protege todas as religiões por igual?',
+        'Texto 01.'),
+      area('familia', 'Família de santo e comunidade', 'familia',
+        'O terreiro funciona como uma grande família.',
+        [
+          { titulo: 'Casa de santo', texto: 'Comunidade em torno de uma liderança.' },
+          { titulo: 'Iniciação', texto: 'Processo ritual de entrada na comunidade.' },
+          { titulo: 'Liderança feminina', texto: 'Mãe Menininha do Gantois (1894–1986) é referência nacional.' }
+        ],
+        ['A comunidade oferece vínculo e identidade.', 'Para quem vem de famílias de outras religiões, a escolha pode gerar conflitos.'],
+        'Como equilibrar a fé individual e os laços familiares?',
+        'Texto de apoio; IBGE, Censo 2022.'),
+      area('convivencia', 'Convivência e diversidade', 'convivencia',
+        'O Candomblé dialoga com o catolicismo e enfrenta intolerância.',
+        [
+          { titulo: 'Sincretismo', texto: 'Aproximações entre divindades africanas e santos católicos, que variam entre casas e regiões.' },
+          { titulo: 'Neopentecostalismo', texto: 'Segundo o Texto 01, o combate às religiões afro não reduziu o número de adeptos.' },
+          { titulo: 'Dupla pertença', texto: 'Pessoas que frequentam mais de uma religião.' }
+        ],
+        ['O diálogo inter-religioso pode reduzir conflitos.', 'Existem diferenças religiosas reais que não precisam virar violência.'],
+        'Como discordar de uma religião sem desrespeitar quem a pratica?',
+        'Texto 01; Aula 2 (charges sobre intolerância).')
+    ]
+  },
+  'tradicoes-indigenas': {
+    conceito: {
+      rotulo: 'Animismo e estranhamento (Texto 03; Antropologia)',
+      frase: 'O Texto 03 lembra que as classificações são ocidentais; para os povos indígenas, a antropologia pede estranhamento e cuidado, pois cada povo tem sua própria cosmologia.',
+      href: 'religiao.html#classificacoes'
+    },
+    areas: [
+      area('educacao', 'Educação', 'educacao',
+        'A educação escolar indígena busca ser diferenciada, bilíngue e intercultural.',
+        [
+          { titulo: 'Saberes tradicionais', texto: 'Transmitidos por anciões e pela vida comunitária.' },
+          { titulo: 'Escolas indígenas', texto: 'Currículo com língua e cultura do povo.', conferir: true },
+          { titulo: 'Missões', texto: 'Histórico de escolarização ligada a missões religiosas, como a dos jesuítas.' }
+        ],
+        ['Escolas próprias fortalecem línguas e tradições.', 'Garantir qualidade e infraestrutura nas aldeias é um desafio.'],
+        'Quem decide o que e como se ensina numa aldeia?',
+        'LDB 9.394/96 (arts. 78 e 79); Aula 1.', true),
+      area('assistencia', 'Saúde e cuidado', 'assistencia',
+        'Os cuidados com a saúde envolvem especialistas tradicionais e serviços públicos.',
+        [
+          { titulo: 'Pajés e especialistas', texto: 'Cuidam conforme a cosmologia do povo.' },
+          { titulo: 'Subsistema de Atenção à Saúde Indígena', texto: 'Integra o SUS.', conferir: true },
+          { titulo: 'Interculturalidade em saúde', texto: 'Diálogo entre saberes.' }
+        ],
+        ['Respeitar os saberes tradicionais melhora a confiança no atendimento.', 'Os serviços de saúde precisam seguir protocolos médicos e adaptar-se às culturas.'],
+        'Como unir conhecimento tradicional e ciência?',
+        'Texto de apoio.'),
+      area('cultura', 'Cultura, ritual e arte', 'cultura',
+        'Cantos, danças, grafismos e plumária fazem parte de um sistema de símbolos que cada povo mantém.',
+        [
+          { titulo: 'Kuarup', texto: 'Ritual funerário de povos do Alto Xingu.', conferir: true },
+          { titulo: 'Toré', texto: 'Ritual de vários povos do Nordeste.', conferir: true },
+          { titulo: 'Arte plumária e grafismos', texto: 'Expressões visuais com significado próprio.' }
+        ],
+        ['Rituais e artes sustentam memória e identidade.', 'Alguns saberes e rituais são restritos e não devem ser expostos sem autorização.'],
+        'O que pode ser mostrado ao público, e quem decide?',
+        'Texto 03 (conceito de mito e símbolo); Texto de apoio.'),
+      area('politica', 'Direitos e território', 'politica',
+        'O território é central para a vida social e espiritual dos povos.',
+        [
+          { titulo: 'Constituição de 1988 (art. 231)', texto: 'Reconhece organização social, costumes, línguas, crenças e tradições e direitos sobre terras tradicionalmente ocupadas.', conferir: true },
+          { titulo: 'Terra Indígena', texto: 'Espaço reconhecido pelo Estado.' },
+          { titulo: 'Censo 2022', texto: 'Quesito próprio sobre “crença, ritual indígena ou religião” em terras indígenas.' }
+        ],
+        ['A proteção do território é condição para a continuidade das tradições.', 'As demarcações são debatidas no país, com interesses e leituras jurídicas diferentes.'],
+        'Como proteger direitos coletivos sem ignorar interesses diversos?',
+        'IBGE, Censo 2022; Constituição Federal.'),
+      area('familia', 'Família e comunidade', 'familia',
+        'Parentesco, comunidade e ritual organizam a vida em cada povo.',
+        [
+          { titulo: 'Lideranças', texto: 'Pajés, caciques e anciões (os papéis variam por povo).' },
+          { titulo: 'Perfil no Censo 2022', texto: 'No grupo “tradições indígenas”, 50,9% são homens e 49,1%, mulheres.' },
+          { titulo: 'Migração para cidades', texto: 'Muda a vida comunitária e as formas de transmitir saberes.', conferir: true }
+        ],
+        ['A comunidade é a base da identidade.', 'Mudanças como a migração e novas religiões transformam a vida comunitária.'],
+        'Como manter tradições em contextos diferentes?',
+        'IBGE, Censo 2022 (Tabela 2).'),
+      area('convivencia', 'Convivência e diversidade', 'convivencia',
+        'Muitas pessoas indígenas se declaram de diversas religiões.',
+        [
+          { titulo: 'Pluralidade religiosa', texto: '42,7% católicos, 32,2% evangélicos e 7,6% de tradições indígenas entre indígenas por cor ou raça (Censo 2022).' },
+          { titulo: 'Missões', texto: 'Ao longo da história, várias igrejas atuaram junto a povos indígenas.' },
+          { titulo: 'Roraima', texto: 'Maior percentual de tradições indígenas (1,7%).' }
+        ],
+        ['Cada pessoa tem o direito de escolher e mudar de fé.', 'Comunidades e missionários debatem o respeito a modos de vida e crenças.'],
+        'Como respeitar a escolha individual e a cultura coletiva ao mesmo tempo?',
+        'IBGE, Censo 2022 (Tabelas 3 e 4); Texto 01.')
     ]
   }
 };

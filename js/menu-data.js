@@ -11,10 +11,10 @@ export const MENU = [
     ] },
     { titulo: 'Espiritismo e matrizes afro-brasileiras', itens: [
       { rotulo: 'Espiritismo', href: 'espiritismo.html' },
-      { rotulo: 'Umbanda', breve: true },
-      { rotulo: 'Candomblé', breve: true }
+      { rotulo: 'Umbanda', href: 'umbanda.html' },
+      { rotulo: 'Candomblé', href: 'candomble.html' }
     ] },
-    { titulo: 'Povos indígenas', itens: [{ rotulo: 'Tradições indígenas', breve: true }] },
+    { titulo: 'Povos indígenas', itens: [{ rotulo: 'Tradições indígenas', href: 'tradicoes-indigenas.html' }] },
     { titulo: 'Outras tradições', itens: [
       { rotulo: 'Judaísmo', breve: true },
       { rotulo: 'Islamismo', breve: true },

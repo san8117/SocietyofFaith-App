@@ -41,9 +41,9 @@ function renderizarCards() {
     article.append(elemento('p', 'eyebrow', familia?.nome ?? 'Tradição religiosa'));
     article.append(elemento('h3', '', religiao.nome));
     if (religiao.resumo) article.append(elemento('p', '', religiao.resumo));
-    if (religiao.status === 'disponivel') {
+    if (religiao.status === 'disponivel' || religiao.status === 'pronta' || religiao.pagina) {
       const link = elemento('a', 'button--secondary', 'Conheça esta tradição');
-      link.href = religiao.arquivo;
+      link.href = religiao.pagina ?? religiao.arquivo;
       article.append(link);
     } else {
       const emBreve = elemento('span', 'religion-card__status', 'Conteúdo em breve');

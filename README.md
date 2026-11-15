@@ -32,10 +32,12 @@ HTML5, CSS3 e JavaScript puro (ES modules). Sem frameworks e sem etapa de build.
 SocietyofFaith-App/
   brasil.html, censos.html, religioes.html, religiao.html
   catolicismo.html, evangelicos.html, espiritismo.html
+  umbanda.html, candomble.html, tradicoes-indigenas.html
   css/       tokens.css, base.css, graficos.css, censos.css, religioes.css, religiao-pagina.css
   js/        components.js, menu-data.js, charts-core.js
              dados-ibge.js, dados-censos.js, dados-religioes.js
              dados-sociedade.js
+             dados-paginas-religiao.js
              graficos.js, censos.js, religioes.js, pagina-religiao.js
              imagens-religioes.js, imagens.js
   data/      dados complementares
@@ -64,6 +66,8 @@ SocietyofFaith-App/
 3. Use as seis áreas padrão: educação, assistência e saúde, cultura, política e leis, família e valores, convivência e diversidade. Se houver menos material, a página pode ter quatro áreas, mas deve sempre incluir **convivência e diversidade**.
 4. Mantenha o texto completo no HTML em `<article>`s, com “Dois olhares” em `<details>` para o fallback sem JavaScript. O módulo interativo usa os dados correspondentes em `js/dados-sociedade.js`.
 5. Preserve o tom descritivo e neutro, registre uma fonte por área, evite alegações de causalidade e marque itens que precisem de checagem com `conferir: true` nos dados.
+6. Use linguagem respeitosa, os nomes escolhidos por cada tradição e comunidade, e evite generalizações. Para tradições indígenas, reconheça a diversidade entre povos; Umbanda e Candomblé são religiões distintas.
+7. Marque todos os slots de imagem como sensíveis; não use imagens de pessoas identificáveis em rituais restritos, iniciações ou situações íntimas sem autorização documentada. Prefira arquitetura, patrimônio, festas públicas, objetos, mapas, ilustrações históricas e acervos oficiais. Registre fonte, crédito, licença, texto alternativo e legenda; informe que imagens de rituais exigem autorização de quem é retratado.
 
 ## Roadmap
 
@@ -74,9 +78,11 @@ SocietyofFaith-App/
 - [x] Etapa 3: Dados do IBGE e gráficos (2010 × 2022)
 - [x] Etapa 4: Série histórica, linha do tempo e acesso aos dados dos censos (1872–2022)
 - [x] Etapa 5: Índice e páginas de religiões (imagens com créditos pendentes de curadoria)
-- [ ] Etapa 6: Cristianismo e sociedade brasileira
-- [ ] Etapa 7: Vídeos, fontes e links
-- [ ] Etapa 8: Quiz, acessibilidade, polimento e deploy
+- [x] Etapa 6: Umbanda, Candomblé e tradições indígenas
+- [ ] Etapa 7: Judaísmo, Islamismo, Budismo e Hinduísmo
+- [ ] Etapa 8: Testemunhas de Jeová, Mórmons, tradições esotéricas, Santo Daime e Sem religião
+- [ ] Etapa 9: Origens do cristianismo, Vídeos e Fontes
+- [ ] Etapa 10: Quiz, acessibilidade, polimento e deploy
 
 ## Changelog
 
@@ -102,6 +108,11 @@ SocietyofFaith-App/
 ### Etapa 5.1 — 15/11/2026
 - Adicionada a seção “Religião e sociedade” ao modelo e às páginas de Catolicismo, Evangélicos e Espiritismo, com dados em `js/dados-sociedade.js`.
 - Incluídos navegação radial/chips acessível, progressão por teclado, suporte a movimento reduzido e links para conceitos e perfil censitário.
+
+### Etapa 6 — 15/11/2026
+- Criadas `umbanda.html`, `candomble.html` e `tradicoes-indigenas.html`, com história, glossário, linha do tempo, dados dos censos, seção “Religião e sociedade” e navegação entre tradições.
+- Atualizados `religiao.html`, `js/dados-religioes.js`, `js/dados-sociedade.js`, `js/dados-paginas-religiao.js`, `js/menu-data.js`, `js/religioes.js`, `js/imagens-religioes.js`, `js/imagens.js`, `js/pagina-religiao.js` e `css/religiao-pagina.css`.
+- Adicionados comparativos 2010 × 2022, perfis combinados quando exigido pela divulgação do IBGE, tabelas acessíveis, callouts metodológicos e slots sensíveis de imagens ainda pendentes de curadoria.
 
 ## Fontes de dados
 
