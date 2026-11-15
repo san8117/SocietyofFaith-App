@@ -30,9 +30,13 @@ HTML5, CSS3 e JavaScript puro (ES modules). Sem frameworks e sem etapa de build.
 
 ```text
 SocietyofFaith-App/
-  brasil.html, censos.html
-  css/       tokens.css, base.css, graficos.css, censos.css
-  js/        components.js, dados-ibge.js, graficos.js, dados-censos.js, censos.js
+  brasil.html, censos.html, religioes.html
+  catolicismo.html, evangelicos.html, espiritismo.html
+  css/       tokens.css, base.css, graficos.css, censos.css, religioes.css, religiao-pagina.css
+  js/        components.js, menu-data.js, charts-core.js
+             dados-ibge.js, dados-censos.js, dados-religioes.js
+             graficos.js, censos.js, religioes.js, pagina-religiao.js
+             imagens-religioes.js, imagens.js
   data/      dados complementares
   conteudo/  textos de apoio
   assets/    imagens e ícones
@@ -43,7 +47,14 @@ SocietyofFaith-App/
 1. Clone o repositório.
 2. Abra a pasta no VS Code.
 3. Use a extensão "Live Server" ou execute `python -m http.server 5500`.
-4. Acesse `http://localhost:5500/brasil.html` ou `http://localhost:5500/censos.html`.
+4. Acesse `http://localhost:5500/religioes.html`, `http://localhost:5500/brasil.html` ou `http://localhost:5500/censos.html`.
+
+## Como adicionar imagens
+
+1. Adicione a imagem selecionada em `assets/` e confirme que sua licença permite o uso no projeto.
+2. Em `js/imagens-religioes.js`, informe o caminho local, texto alternativo, autoria/crédito e licença do slot correspondente (`capa`, `origens`, `brasil`, `hoje` ou `galeria1`–`galeria3`).
+3. Só preencha `src`, `alt`, `credito` e `licenca` quando todos os dados estiverem confirmados. Os slots incompletos permanecem como placeholders; não use imagens sem procedência verificada.
+4. Confira a descrição alternativa, a atribuição visível e a abertura/fechamento da lightbox por teclado.
 
 ## Roadmap
 
@@ -53,7 +64,7 @@ SocietyofFaith-App/
 - [x] Etapa 2: Conteúdo teórico sobre religião
 - [x] Etapa 3: Dados do IBGE e gráficos (2010 × 2022)
 - [x] Etapa 4: Série histórica, linha do tempo e acesso aos dados dos censos (1872–2022)
-- [ ] Etapa 5: História das religiões (páginas separadas, com imagens)
+- [x] Etapa 5: Índice e páginas de religiões (imagens com créditos pendentes de curadoria)
 - [ ] Etapa 6: Cristianismo e sociedade brasileira
 - [ ] Etapa 7: Vídeos, fontes e links
 - [ ] Etapa 8: Quiz, acessibilidade, polimento e deploy
@@ -73,6 +84,11 @@ SocietyofFaith-App/
 ### Etapa 4 — 14/11/2026
 - Criados `censos.html`, `css/censos.css`, `js/dados-censos.js` e `js/censos.js`; criado `js/components.js` e atualizado o menu em `brasil.html`.
 - Entregues série histórica com lacunas explícitas e tabela de dados, gráficos de variação, linha do tempo filtrável com diálogo acessível, comparação interativa de formulários, links oficiais do IBGE e cópia de citação ABNT.
+
+### Etapa 5 — concluída
+- Criados o índice de religiões, as páginas de Catolicismo, Evangélicos e Espiritismo e seus estilos, dados e módulos de interação.
+- Adicionado menu compartilhado com base declarativa, sistema de slots de imagem com placeholders/créditos e lightbox acessível, além da extração de utilitários comuns para `js/charts-core.js`.
+- As imagens permanecem pendentes de curadoria; não foram incluídas imagens externas sem licença e crédito confirmados.
 
 ## Fontes de dados
 

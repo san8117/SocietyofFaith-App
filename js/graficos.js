@@ -11,25 +11,30 @@ import {
   RELIGIAO_POR_COR,
   SEXO
 } from './dados-ibge.js';
+import {
+  formatarNumero,
+  aplicarTema as reconstruirTema,
+  gerarTabela as criarTabelaComum,
+  lerCor as lerToken,
+  observarGraficos as observarElementos,
+  opcoesBase as opcoesComuns,
+  animarContadores as animarValores
+} from './charts-core.js';
 
-const numero = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 const graficos = new Map();
 const observados = new WeakSet();
+const observando = new WeakSet();
+let observadorGraficos;
 const movimentoReduzido = window.matchMedia('(prefers-reduced-motion: reduce)');
 const temaEscuro = window.matchMedia('(prefers-color-scheme: dark)');
 const donutVisivel = GRUPOS.map(() => true);
-let observadorGraficos;
 
 const gruposRegionais = GRUPOS.filter((grupo) => grupo.id !== 'naosabe');
 const coresRaca = ['--c-race-white', '--c-race-black', '--c-race-yellow', '--c-race-brown', '--c-race-indigenous'];
 const rotulosRaca = ['Branca', 'Preta', 'Amarela', 'Parda', 'Indígena'];
 
 function formatar(valor) {
-  return `${numero.format(valor)}%`;
-}
-
-function lerCor(variavel) {
-  return getComputedStyle(document.documentElement).getPropertyValue(variavel).trim();
+  return `${formatarNumero(valor)}%`;
 }
 
 function rgba(cor, alpha) {
@@ -50,45 +55,10 @@ function anunciar(mensagem) {
 // Gera tabelas com cabeçalhos semânticos, números pt-BR e um caption descritivo.
 function gerarTabela(alvo, titulo, cabecalhos, linhas, opcoes = {}) {
   const container = typeof alvo === 'string' ? document.querySelector(`[data-table="${alvo}"]`) : alvo;
-  if (!container) return;
-
-  const tabela = document.createElement('table');
-  tabela.className = 'data-table';
-  const caption = document.createElement('caption');
-  caption.textContent = titulo;
-  tabela.append(caption);
-
-  const thead = document.createElement('thead');
-  const linhaCabecalho = document.createElement('tr');
-  cabecalhos.forEach((cabecalho) => {
-    const th = document.createElement('th');
-    th.scope = 'col';
-    th.textContent = cabecalho;
-    linhaCabecalho.append(th);
-  });
-  thead.append(linhaCabecalho);
-  tabela.append(thead);
-
-  const tbody = document.createElement('tbody');
-  linhas.forEach((linha, indice) => {
-    const tr = document.createElement('tr');
-    if (opcoes.rowKeys) tr.dataset.rowKey = opcoes.rowKeys[indice];
-    if (opcoes.rowKeys) tr.tabIndex = 0;
-    linha.forEach((valor, coluna) => {
-      const celula = document.createElement(coluna === 0 ? 'th' : 'td');
-      if (coluna === 0) celula.scope = 'row';
-      celula.textContent = valor;
-      tr.append(celula);
-    });
-    tbody.append(tr);
-  });
-  tabela.append(tbody);
-
-  const scroll = document.createElement('div');
-  scroll.className = 'table-scroll';
-  scroll.append(tabela);
-  container.replaceChildren(scroll);
+  return criarTabelaComum(container, titulo, cabecalhos, linhas, opcoes);
 }
+
+const lerCor = (variavel) => lerToken(variavel);
 
 function tabelaGrupos(chave, titulo, cabecalhos, linhas, rowKeys) {
   gerarTabela(chave, titulo, cabecalhos, linhas, { rowKeys });
@@ -197,35 +167,11 @@ function atualizarTabelaIndicadores() {
 }
 
 function opcoesBase() {
-  const texto = lerCor('--ink');
-  const textoSuave = lerCor('--ink-soft');
-  const grade = lerCor('--line');
-  return {
-    responsive: true,
-    maintainAspectRatio: false,
-    animation: movimentoReduzido.matches ? false : { duration: 450 },
-    plugins: {
-      legend: { labels: { color: texto, usePointStyle: true, padding: 16 } },
-      tooltip: {
-        backgroundColor: lerCor('--surface'),
-        titleColor: texto,
-        bodyColor: texto,
-        borderColor: grade,
-        borderWidth: 1,
-        callbacks: { label: (context) => `${context.dataset.label}: ${formatar(context.parsed.x ?? context.parsed.y ?? context.raw)}` }
-      }
-    },
-    scales: {
-      x: {
-        ticks: { color: textoSuave },
-        grid: { color: grade }
-      },
-      y: {
-        ticks: { color: textoSuave },
-        grid: { color: grade }
-      }
-    }
+  const options = opcoesComuns({ reducedMotion: movimentoReduzido.matches, duration: 450 });
+  options.plugins.tooltip.callbacks = {
+    label: (context) => `${context.dataset.label}: ${formatar(context.parsed.x ?? context.parsed.y ?? context.raw)}`
   };
+  return options;
 }
 
 function criarInstancia(id, tipo, dados, opcoes = {}, plugins = []) {
@@ -274,10 +220,10 @@ function criarGraficoComparativo() {
     const valor = context.parsed.x;
     return agrupado
       ? `${context.dataset.label}: ${formatar(valor)}`
-      : `${valor > 0 ? '+' : valor < 0 ? '−' : ''}${numero.format(Math.abs(valor))} p.p.`;
+      : `${valor > 0 ? '+' : valor < 0 ? '−' : ''}${formatarNumero(Math.abs(valor))} p.p.`;
   };
   if (!agrupado) {
-    config.scales.x.ticks.callback = (valor) => `${valor > 0 ? '+' : valor < 0 ? '−' : ''}${numero.format(Math.abs(valor))} p.p.`;
+    config.scales.x.ticks.callback = (valor) => `${valor > 0 ? '+' : valor < 0 ? '−' : ''}${formatarNumero(Math.abs(valor))} p.p.`;
   } else {
     config.scales.x.ticks.callback = (valor) => formatar(valor);
   }
@@ -639,82 +585,52 @@ function observarGraficos() {
     document.querySelectorAll('.data-details').forEach((details) => { details.open = true; });
     return;
   }
-  if (!('IntersectionObserver' in window)) {
-    document.querySelectorAll('[data-chart]').forEach((figure) => criarGrafico(figure.dataset.chart));
+  const figures = [...document.querySelectorAll('[data-chart]')]
+    .filter((figure) => !observados.has(figure) && !observando.has(figure) && !figure.closest('[hidden]'));
+  const crearVisivel = (figure) => {
+    criarGrafico(figure.dataset.chart);
+    observados.add(figure);
+    observando.delete(figure);
+  };
+  if (observadorGraficos) {
+    figures.forEach((figure) => {
+      observando.add(figure);
+      observadorGraficos.observe(figure);
+    });
     return;
   }
-  if (!observadorGraficos) {
-    observadorGraficos = new IntersectionObserver((entradas, observer) => {
-      entradas.forEach((entrada) => {
-        if (!entrada.isIntersecting) return;
-        criarGrafico(entrada.target.dataset.chart);
-        observer.unobserve(entrada.target);
-        observados.add(entrada.target);
-      });
-    }, { rootMargin: '140px 0px' });
-  }
-  document.querySelectorAll('[data-chart]').forEach((figure) => {
-    if (observados.has(figure) || figure.closest('[hidden]')) return;
-    observadorGraficos.observe(figure);
-  });
+  observadorGraficos = observarElementos(figures, crearVisivel);
+  if (observadorGraficos) figures.forEach((figure) => observando.add(figure));
 }
 
 function aplicarTema() {
   if (!window.Chart) return;
   atualizarBotoesLegenda();
-  const idsCriados = [...graficos.keys()];
-  idsCriados.forEach((id) => {
-    graficos.get(id)?.destroy();
-    graficos.delete(id);
-  });
-  idsCriados.forEach((id) => {
-    const chave = Object.entries({
-      'chart-comparison': 'comparison',
-      'chart-donut': 'donut',
-      'chart-denominations': 'denominations',
-      'chart-evangelicals': 'evangelicals',
-      'chart-regions': 'regions',
-      'chart-ages': 'ages',
-      'chart-sex': 'sex',
-      'chart-race-religion': 'race-religion',
-      'chart-color-religion': 'color-religion',
-      'chart-instruction': 'instruction',
-      'chart-indicators': 'indicators'
-    }).find(([canvasId]) => canvasId === id)?.[1];
+  const chavesPorId = {
+    'chart-comparison': 'comparison',
+    'chart-donut': 'donut',
+    'chart-denominations': 'denominations',
+    'chart-evangelicals': 'evangelicals',
+    'chart-regions': 'regions',
+    'chart-ages': 'ages',
+    'chart-sex': 'sex',
+    'chart-race-religion': 'race-religion',
+    'chart-color-religion': 'color-religion',
+    'chart-instruction': 'instruction',
+    'chart-indicators': 'indicators'
+  };
+  reconstruirTema(graficos, (id) => {
+    const chave = chavesPorId[id];
     if (chave) criadores[chave]();
   });
 }
 
 function animarContadores() {
-  const contadores = document.querySelectorAll('[data-counter]');
-  const atualizar = (elemento) => {
-    const final = Number(elemento.dataset.counter);
-    if (movimentoReduzido.matches) {
-      elemento.textContent = numero.format(final);
-      return;
-    }
-    const inicio = performance.now();
-    const duracao = 1200;
-    const passo = (agora) => {
-      const progresso = Math.min((agora - inicio) / duracao, 1);
-      const suavizado = 1 - (1 - progresso) ** 3;
-      elemento.textContent = numero.format(final * suavizado);
-      if (progresso < 1) requestAnimationFrame(passo);
-    };
-    requestAnimationFrame(passo);
-  };
-  if (!('IntersectionObserver' in window)) {
-    contadores.forEach(atualizar);
-    return;
-  }
-  const observador = new IntersectionObserver((entradas, instancia) => {
-    entradas.forEach((entrada) => {
-      if (!entrada.isIntersecting) return;
-      atualizar(entrada.target);
-      instancia.unobserve(entrada.target);
-    });
-  }, { threshold: 0.5 });
-  contadores.forEach((contador) => observador.observe(contador));
+  animarValores(document.querySelectorAll('[data-counter]'), {
+    formatter: formatarNumero,
+    reducedMotion: movimentoReduzido.matches,
+    duration: 1200
+  });
 }
 
 function configurarControles() {

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore tradições religiosas presentes no Brasil e páginas informativas sobre diferentes religiões.">
+  <title>Religiões — Society of Faith</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/graficos.css">
+  <link rel="stylesheet" href="css/religioes.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script type="module" src="js/components.js"></script>
+  <script type="module" src="js/religioes.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <a class="brand" href="religioes.html" aria-label="Society of Faith, início">Society <span>of Faith</span></a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu"><span class="sr-only">Abrir menu</span><span aria-hidden="true">☰</span></button>
+    <nav class="site-menu" id="site-menu" data-site-menu aria-label="Navegação principal"></nav>
+  </header>
+  <main id="conteudo">
+    <section class="hero page-hero">
+      <div class="container">
+        <p class="eyebrow">Pluralidade religiosa</p>
+        <h1 id="page-title">Religiões no Brasil</h1>
+        <p class="hero__lead">Conheça tradições, histórias e formas diversas de viver e interpretar a fé.</p>
+      </div>
+    </section>
+
+    <section class="container religion-index" aria-labelledby="religion-list-title">
+      <div class="religion-index__intro">
+        <div>
+          <p class="eyebrow">Índice</p>
+          <h2 id="religion-list-title">Tradições e convicções</h2>
+        </div>
+        <label class="religion-search">Buscar
+          <input type="search" id="religion-search" autocomplete="off" placeholder="Nome da religião">
+        </label>
+      </div>
+      <div class="religion-filters" role="group" aria-label="Filtrar por família religiosa" data-family-filters></div>
+      <div class="religion-cards" data-religion-cards></div>
+      <p class="sr-only" aria-live="polite" data-filter-status></p>
+    </section>
+
+    <section class="container religion-data" aria-labelledby="religion-data-title">
+      <div class="section-heading">
+        <p class="eyebrow">Censo Demográfico 2022</p>
+        <h2 id="religion-data-title">Como a população se declarou</h2>
+        <p>Percentual de pessoas de 10 anos ou mais por grupos de religião registrados pelo IBGE. As categorias censitárias não correspondem a religiões individuais.</p>
+      </div>
+      <div class="religion-bars" data-religion-bars aria-label="Percentual por grupo religioso em 2022"></div>
+      <details class="data-details">
+        <summary>Consultar tabela de dados</summary>
+        <div data-table="religion-summary"></div>
+      </details>
+      <p class="method-note">Fonte: IBGE, Censo Demográfico 2022. Os valores reproduzem as categorias e percentuais fornecidos na página de dados do projeto. Consulte <a href="brasil.html">Brasil em dados</a> para definições e ressalvas metodológicas.</p>
+    </section>
+  </main>
+  <footer class="site-footer"><p>Society of Faith · Religião e Sociedade no Brasil</p></footer>
+</body>
+</html>

@@ -1,6 +1,13 @@
 import { ANOS_SEM_CENSO, CENSOS, LINKS, QUEDA_CATOLICOS, SERIE } from './dados-censos.js';
+import {
+  aplicarTema as reconstruirTema,
+  formatarNumero,
+  gerarTabela as criarTabelaComum,
+  lerCor,
+  observarGraficos as observarElementos,
+  opcoesBase as opcoesComuns
+} from './charts-core.js';
 
-const numero = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
 const anosCenso = CENSOS.map((censo) => censo.ano);
 const faixas = {
   catolica: { nome: 'Católica', cor: '--c-catolica' },
@@ -14,11 +21,7 @@ const movimentoReduzido = window.matchMedia('(prefers-reduced-motion: reduce)');
 const temaEscuro = window.matchMedia('(prefers-color-scheme: dark)');
 
 function formatar(valor) {
-  return `${numero.format(valor)}%`;
-}
-
-function corToken(token) {
-  return getComputedStyle(document.documentElement).getPropertyValue(token).trim();
+  return `${formatarNumero(valor)}%`;
 }
 
 function anunciar(mensagem) {
@@ -27,40 +30,7 @@ function anunciar(mensagem) {
 
 function criarTabela(alvo, titulo, colunas, linhas) {
   const container = document.querySelector(`[data-censo-table="${alvo}"]`);
-  if (!container) return;
-  const tabela = document.createElement('table');
-  tabela.className = 'data-table';
-  const caption = document.createElement('caption');
-  caption.textContent = titulo;
-  tabela.append(caption);
-
-  const cabecalho = document.createElement('thead');
-  const linhaCabecalho = document.createElement('tr');
-  colunas.forEach((coluna) => {
-    const th = document.createElement('th');
-    th.scope = 'col';
-    th.textContent = coluna;
-    linhaCabecalho.append(th);
-  });
-  cabecalho.append(linhaCabecalho);
-  tabela.append(cabecalho);
-
-  const corpo = document.createElement('tbody');
-  linhas.forEach((linha) => {
-    const tr = document.createElement('tr');
-    linha.forEach((valor, indice) => {
-      const celula = document.createElement(indice === 0 ? 'th' : 'td');
-      if (indice === 0) celula.scope = 'row';
-      celula.textContent = valor;
-      tr.append(celula);
-    });
-    corpo.append(tr);
-  });
-  tabela.append(corpo);
-  const rolagem = document.createElement('div');
-  rolagem.className = 'table-scroll';
-  rolagem.append(tabela);
-  container.replaceChildren(rolagem);
+  return criarTabelaComum(container, titulo, colunas, linhas);
 }
 
 // Prepara os valores da série e marca explicitamente os percentuais ainda ausentes.
@@ -78,31 +48,19 @@ function montarTabelas() {
     'queda',
     'Variação da proporção católica entre censos',
     ['Período', 'Variação'],
-    QUEDA_CATOLICOS.map((item) => [item.periodo, `${item.pp < 0 ? '−' : '+'}${numero.format(Math.abs(item.pp))} p.p.`])
+    QUEDA_CATOLICOS.map((item) => [item.periodo, `${item.pp < 0 ? '−' : '+'}${formatarNumero(Math.abs(item.pp))} p.p.`])
   );
 }
 
 function opcoesGrafico() {
-  return {
-    responsive: true,
-    maintainAspectRatio: false,
-    animation: movimentoReduzido.matches ? false : { duration: 450 },
-    plugins: {
-      legend: { display: false },
-      tooltip: {
-        backgroundColor: corToken('--surface'),
-        titleColor: corToken('--ink'),
-        bodyColor: corToken('--ink'),
-        borderColor: corToken('--line'),
-        borderWidth: 1
-      }
-    }
-  };
+  const options = opcoesComuns({ reducedMotion: movimentoReduzido.matches, duration: 450 });
+  options.plugins.legend.display = false;
+  return options;
 }
 
 // Desenha a série como pontos no eixo temporal real e deixa lacunas sem interpolação.
 function criarSerie() {
-  const cores = Object.fromEntries(Object.entries(faixas).map(([id, grupo]) => [id, corToken(grupo.cor)]));
+  const cores = Object.fromEntries(Object.entries(faixas).map(([id, grupo]) => [id, lerCor(grupo.cor)]));
   const conjuntos = Object.entries(faixas).map(([id, grupo]) => ({
     label: grupo.nome,
     data: SERIE.map((item) => ({ x: item.ano, y: item[id], base: item.base })),
@@ -130,14 +88,14 @@ function criarSerie() {
       ].forEach((marcador) => {
         const x = scales.x.getPixelForValue(marcador.ano);
         ctx.save();
-        ctx.strokeStyle = corToken('--line');
+        ctx.strokeStyle = lerCor('--line');
         ctx.setLineDash([4, 5]);
         ctx.beginPath();
         ctx.moveTo(x, chartArea.top);
         ctx.lineTo(x, chartArea.bottom);
         ctx.stroke();
         ctx.setLineDash([]);
-        ctx.fillStyle = corToken('--ink-soft');
+        ctx.fillStyle = lerCor('--ink-soft');
         ctx.font = '11px system-ui';
         ctx.fillText(marcador.rotulo, x + 4, chartArea.top + 13);
         ctx.restore();
@@ -162,19 +120,19 @@ function criarSerie() {
         scale.ticks = ticks.map((value) => ({ value }));
       },
       ticks: {
-        color: corToken('--ink-soft'),
+        color: lerCor('--ink-soft'),
         callback(value) { return ticks.includes(Number(value)) ? String(value) : ''; },
         maxRotation: 45,
         minRotation: 0
       },
-      grid: { color: corToken('--line') }
+      grid: { color: lerCor('--line') }
     },
     y: {
       min: 0,
       max: 100,
-      title: { display: true, text: 'População (%)', color: corToken('--ink-soft') },
-      ticks: { color: corToken('--ink-soft'), callback: (valor) => formatar(valor) },
-      grid: { color: corToken('--line') }
+      title: { display: true, text: 'População (%)', color: lerCor('--ink-soft') },
+      ticks: { color: lerCor('--ink-soft'), callback: (valor) => formatar(valor) },
+      grid: { color: lerCor('--line') }
     }
   };
   const canvas = document.querySelector('#chart-serie');
@@ -195,11 +153,11 @@ function criarQueda() {
       chart.getDatasetMeta(0).data.forEach((barra, indice) => {
         const valor = QUEDA_CATOLICOS[indice].pp;
         ctx.save();
-        ctx.fillStyle = corToken('--ink');
+        ctx.fillStyle = lerCor('--ink');
         ctx.font = '600 12px system-ui';
         ctx.textAlign = 'right';
         ctx.textBaseline = 'middle';
-        ctx.fillText(`−${numero.format(Math.abs(valor))} p.p.`, barra.x - 7, barra.y);
+        ctx.fillText(`−${formatarNumero(Math.abs(valor))} p.p.`, barra.x - 7, barra.y);
         ctx.restore();
       });
     }
@@ -212,12 +170,12 @@ function criarQueda() {
     x: {
       min: -11,
       max: 0,
-      ticks: { color: corToken('--ink-soft'), callback: (valor) => `${numero.format(Math.abs(valor))} p.p.` },
-      grid: { color: corToken('--line') }
+      ticks: { color: lerCor('--ink-soft'), callback: (valor) => `${formatarNumero(Math.abs(valor))} p.p.` },
+      grid: { color: lerCor('--line') }
     },
-    y: { ticks: { color: corToken('--ink-soft') }, grid: { display: false } }
+    y: { ticks: { color: lerCor('--ink-soft') }, grid: { display: false } }
   };
-  config.plugins.tooltip.callbacks = { label: (context) => `−${numero.format(Math.abs(context.raw))} p.p.` };
+  config.plugins.tooltip.callbacks = { label: (context) => `−${formatarNumero(Math.abs(context.raw))} p.p.` };
   graficos.set('queda', new window.Chart(canvas, {
     type: 'bar',
     data: {
@@ -225,7 +183,7 @@ function criarQueda() {
       datasets: [{
         label: 'Variação',
         data: QUEDA_CATOLICOS.map((item) => item.pp),
-        backgroundColor: corToken('--c-catolica'),
+        backgroundColor: lerCor('--c-catolica'),
         borderRadius: 5,
         categoryPercentage: 0.72
       }]
@@ -474,18 +432,9 @@ function observarGraficos() {
     document.querySelectorAll('.data-details').forEach((details) => { details.open = true; });
     return;
   }
-  if (!('IntersectionObserver' in window)) {
-    document.querySelectorAll('[data-censo-chart]').forEach((figure) => criarGrafico(figure.dataset.censoChart));
-    return;
-  }
-  const observer = new IntersectionObserver((entradas, instancia) => {
-    entradas.forEach((entrada) => {
-      if (!entrada.isIntersecting) return;
-      criarGrafico(entrada.target.dataset.censoChart);
-      instancia.unobserve(entrada.target);
-    });
-  }, { rootMargin: '140px 0px' });
-  document.querySelectorAll('[data-censo-chart]').forEach((figure) => observer.observe(figure));
+  observarElementos(document.querySelectorAll('[data-censo-chart]'), (figure) => {
+    criarGrafico(figure.dataset.censoChart);
+  });
 }
 
 function criarGrafico(tipo) {
@@ -495,10 +444,7 @@ function criarGrafico(tipo) {
 }
 
 function aplicarTema() {
-  const criados = [...graficos.keys()];
-  graficos.forEach((grafico) => grafico.destroy());
-  graficos.clear();
-  criados.forEach(criarGrafico);
+  reconstruirTema(graficos, criarGrafico);
 }
 
 function scrollspy() {

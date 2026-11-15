@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Uma introdução à história, às crenças e à presença do catolicismo no Brasil.">
+  <title>Catolicismo — Society of Faith</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/graficos.css">
+  <link rel="stylesheet" href="css/religiao-pagina.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script type="module" src="js/components.js"></script>
+  <script type="module" src="js/pagina-religiao.js"></script>
+</head>
+<body data-religion="catolicismo">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <a class="brand" href="religioes.html" aria-label="Society of Faith, início">Society <span>of Faith</span></a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu"><span class="sr-only">Abrir menu</span><span aria-hidden="true">☰</span></button>
+    <nav class="site-menu" id="site-menu" data-site-menu aria-label="Navegação principal"></nav>
+  </header>
+  <main id="conteudo" class="religion-page">
+    <section class="hero page-hero">
+      <div class="container">
+        <p class="eyebrow">Cristianismo · tradição católica</p>
+        <h1 id="page-title">Catolicismo</h1>
+        <p class="hero__lead">Uma tradição cristã global, marcada por comunidades, sacramentos, textos bíblicos e uma longa história de transformações.</p>
+      </div>
+    </section>
+
+    <section class="container religion-article" aria-labelledby="intro-title">
+      <div class="article-intro">
+        <div>
+          <p class="eyebrow">Panorama</p>
+          <h2 id="intro-title">História, fé e vida comunitária</h2>
+          <p>O catolicismo é uma das tradições cristãs, organizada em torno da comunhão entre igrejas locais e da autoridade episcopal. Sua história atravessa diferentes épocas e sociedades; crenças e práticas são vividas de maneiras diversas por comunidades ao redor do mundo.</p>
+        </div>
+        <div class="article-cover" data-image-slot="capa"></div>
+      </div>
+
+      <div class="article-tabs" role="tablist" aria-label="Tópicos sobre catolicismo">
+        <button role="tab" id="tab-history" aria-controls="panel-history" aria-selected="true">História</button>
+        <button role="tab" id="tab-practice" aria-controls="panel-practice" aria-selected="false" tabindex="-1">Crenças e práticas</button>
+        <button role="tab" id="tab-brazil" aria-controls="panel-brazil" aria-selected="false" tabindex="-1">No Brasil</button>
+      </div>
+      <section id="panel-history" class="article-panel" role="tabpanel" aria-labelledby="tab-history">
+        <h2>Uma trajetória em contextos diversos</h2>
+        <p>As comunidades cristãs dos primeiros séculos formaram tradições litúrgicas e estruturas de liderança em diferentes regiões. Ao longo do tempo, concílios, disputas teológicas, mudanças políticas e movimentos de reforma contribuíram para a configuração histórica da Igreja Católica.</p>
+        <ol class="timeline-list">
+          <li><strong>Primeiros séculos:</strong> expansão de comunidades cristãs no Mediterrâneo e desenvolvimento de formas locais de culto e organização.</li>
+          <li><strong>Antiguidade tardia:</strong> consolidação institucional e debates teológicos em um contexto de mudanças políticas no Império Romano.</li>
+          <li><strong>Idade Moderna:</strong> reformas religiosas e católicas, expansão missionária e novos contatos entre sociedades.</li>
+          <li><strong>Época contemporânea:</strong> mudanças sociais e renovação pastoral, incluindo o Concílio Vaticano II (1962–1965).</li>
+        </ol>
+        <div class="article-image" data-image-slot="origens"></div>
+      </section>
+      <section id="panel-practice" class="article-panel" role="tabpanel" aria-labelledby="tab-practice" hidden>
+        <h2>Elementos da tradição</h2>
+        <p>A Bíblia e a tradição interpretativa ocupam lugar central. A celebração eucarística, os sacramentos, a oração, as devoções e a vida comunitária são dimensões importantes, com expressões culturais variadas. A organização inclui dioceses e paróquias, sob a liderança de bispos em comunhão com o bispo de Roma.</p>
+        <div class="article-image" data-image-slot="hoje"></div>
+      </section>
+      <section id="panel-brazil" class="article-panel" role="tabpanel" aria-labelledby="tab-brazil" hidden>
+        <h2>Catolicismo no Brasil</h2>
+        <p>A presença católica no território brasileiro está ligada à colonização portuguesa, mas a história religiosa do país também envolve povos indígenas, populações africanas e suas descendências, imigrações e processos de intercâmbio e conflito. A prática católica brasileira é plural e varia entre regiões, gerações e comunidades.</p>
+        <p>Os censos registram mudanças na autodeclaração religiosa ao longo do tempo. As categorias e os métodos de coleta também mudaram, por isso comparações históricas exigem cautela.</p>
+        <div class="article-image" data-image-slot="brasil"></div>
+      </section>
+    </section>
+
+    <section class="container religion-article religion-numbers" aria-labelledby="numbers-title">
+      <p class="eyebrow">Dados do IBGE</p>
+      <h2 id="numbers-title">A categoria católica nos censos</h2>
+      <p>Os percentuais abaixo representam autodeclaração no grupo de religião divulgado pelo IBGE. Séries antigas podem ter bases populacionais e classificações distintas.</p>
+      <figure class="religion-chart" data-chart-wrapper>
+        <canvas data-religion-chart="history" role="img" aria-label="Série histórica dos percentuais católicos disponíveis nos dados censitários"></canvas>
+      </figure>
+      <p class="chart-fallback" data-chart-fallback hidden>O gráfico interativo não está disponível. Abra as tabelas para consultar os valores.</p>
+      <details class="data-details">
+        <summary>Ver tabela da série histórica</summary>
+        <div data-table="history"></div>
+      </details>
+      <figure class="religion-chart">
+        <canvas data-religion-chart="comparison" role="img" aria-label="Comparação do percentual católico nos censos de 2010 e 2022"></canvas>
+      </figure>
+      <details class="data-details">
+        <summary>Ver tabela de comparação 2010 e 2022</summary>
+        <div data-table="comparison"></div>
+      </details>
+      <p class="method-note">Fonte: IBGE, Censos Demográficos 2010 e 2022. A série histórica apresenta as bases informadas para cada ano; o comparativo recente considera pessoas de 10 anos ou mais. Consulte a <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv102182.pdf" rel="noopener noreferrer">publicação do Censo 2022 sobre religiões<span class="sr-only"> (link externo)</span></a>, a <a href="https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/14244-asi-censo-2010-numero-de-catolicos-cai-e-aumenta-o-de-evangelicos-espiritas-e-sem-religiao" rel="noopener noreferrer">divulgação dos dados de 2010<span class="sr-only"> (link externo)</span></a> e as páginas do projeto <a href="brasil.html">Brasil em dados</a> e <a href="censos.html">história dos censos</a>.</p>
+    </section>
+
+    <section class="container religion-gallery" aria-labelledby="gallery-title">
+      <p class="eyebrow">Galeria</p>
+      <h2 id="gallery-title">Imagens e créditos</h2>
+      <p>As imagens serão incluídas após curadoria de origem, direitos de uso, descrição alternativa e crédito. Não há imagens de terceiros carregadas nesta versão.</p>
+      <div class="image-gallery" data-image-gallery></div>
+    </section>
+    <nav class="religion-pagination" aria-label="Navegação entre religiões">
+      <a href="religioes.html">← Índice de religiões</a>
+      <a href="evangelicos.html">Próxima: Evangélicos →</a>
+    </nav>
+  </main>
+  <dialog class="image-lightbox" id="image-lightbox" aria-label="Imagem ampliada">
+    <button type="button" data-lightbox-close aria-label="Fechar imagem ampliada">Fechar</button>
+    <img alt="">
+    <p></p>
+  </dialog>
+</body>
+</html>

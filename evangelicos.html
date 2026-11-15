@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Uma introdução à diversidade protestante e evangélica e à sua presença no Brasil.">
+  <title>Evangélicos e protestantismo — Society of Faith</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/graficos.css">
+  <link rel="stylesheet" href="css/religiao-pagina.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script type="module" src="js/components.js"></script>
+  <script type="module" src="js/pagina-religiao.js"></script>
+</head>
+<body data-religion="evangelicos">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <a class="brand" href="religioes.html" aria-label="Society of Faith, início">Society <span>of Faith</span></a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu"><span class="sr-only">Abrir menu</span><span aria-hidden="true">☰</span></button>
+    <nav class="site-menu" id="site-menu" data-site-menu aria-label="Navegação principal"></nav>
+  </header>
+  <main id="conteudo" class="religion-page">
+    <section class="hero page-hero">
+      <div class="container">
+        <p class="eyebrow">Cristianismo · tradições protestantes</p>
+        <h1 id="page-title">Evangélicos e protestantismo</h1>
+        <p class="hero__lead">Um conjunto plural de igrejas e movimentos cristãos, com histórias, práticas e formas de organização distintas.</p>
+      </div>
+    </section>
+    <section class="container religion-article" aria-labelledby="intro-title">
+      <div class="article-intro">
+        <div>
+          <p class="eyebrow">Panorama</p>
+          <h2 id="intro-title">Uma tradição diversa</h2>
+          <p>“Protestantismo” designa tradições cristãs relacionadas a movimentos da Reforma do século XVI e seus desdobramentos. No Brasil, “evangélico” é uma designação ampla que reúne denominações históricas, pentecostais e outras comunidades, sem representar uma igreja única ou um conjunto uniforme de crenças.</p>
+        </div>
+        <div class="article-cover" data-image-slot="capa"></div>
+      </div>
+      <div class="article-tabs" role="tablist" aria-label="Tópicos sobre tradições evangélicas">
+        <button role="tab" id="tab-history" aria-controls="panel-history" aria-selected="true">História</button>
+        <button role="tab" id="tab-practice" aria-controls="panel-practice" aria-selected="false" tabindex="-1">Crenças e práticas</button>
+        <button role="tab" id="tab-brazil" aria-controls="panel-brazil" aria-selected="false" tabindex="-1">No Brasil</button>
+      </div>
+      <section id="panel-history" class="article-panel" role="tabpanel" aria-labelledby="tab-history">
+        <h2>Da Reforma a diferentes movimentos</h2>
+        <p>A Reforma do século XVI ocorreu em contextos políticos e religiosos diversos e contribuiu para a formação de várias tradições protestantes. Nos séculos seguintes, movimentos de renovação e missões deram origem a novas igrejas e redes cristãs em diferentes partes do mundo.</p>
+        <ol class="timeline-list">
+          <li><strong>Século XVI:</strong> movimentos reformadores na Europa e consolidação de distintas tradições protestantes.</li>
+          <li><strong>Séculos XVII–XVIII:</strong> expansão e diversificação de igrejas protestantes em diferentes países.</li>
+          <li><strong>Século XIX:</strong> crescimento de movimentos missionários e pentecostais em escala internacional.</li>
+          <li><strong>Séculos XX–XXI:</strong> expansão de igrejas pentecostais e neopentecostais e crescente diversidade institucional.</li>
+        </ol>
+        <div class="article-image" data-image-slot="origens"></div>
+      </section>
+      <section id="panel-practice" class="article-panel" role="tabpanel" aria-labelledby="tab-practice" hidden>
+        <h2>Ênfases e diversidade</h2>
+        <p>Muitas comunidades destacam a leitura da Bíblia, a pregação, a oração e a participação congregacional. O batismo, a ceia e a música ocupam lugares diferentes conforme a denominação. Doutrinas, liturgias, lideranças e relações com a sociedade variam substancialmente entre igrejas.</p>
+        <div class="article-image" data-image-slot="hoje"></div>
+      </section>
+      <section id="panel-brazil" class="article-panel" role="tabpanel" aria-labelledby="tab-brazil" hidden>
+        <h2>Presença no Brasil</h2>
+        <p>A presença protestante no Brasil se desenvolveu por diferentes caminhos, incluindo imigração, missões e formação de igrejas locais. Ao longo dos séculos XX e XXI, comunidades pentecostais e outras denominações cresceram e se diversificaram em contextos urbanos e rurais.</p>
+        <p>O Censo do IBGE registra a autodeclaração em categorias amplas. “Evangélicos” inclui pessoas vinculadas a denominações diversas e não deve ser interpretado como uma tradição homogênea.</p>
+        <div class="article-image" data-image-slot="brasil"></div>
+      </section>
+    </section>
+    <section class="container religion-article religion-numbers" aria-labelledby="numbers-title">
+      <p class="eyebrow">Dados do IBGE</p>
+      <h2 id="numbers-title">A categoria evangélica nos censos</h2>
+      <p>Os dados mostram autodeclarações agregadas pelo IBGE. Eles não permitem, por si sós, descrever a diversidade interna das igrejas.</p>
+      <figure class="religion-chart">
+        <canvas data-religion-chart="history" role="img" aria-label="Série histórica dos percentuais evangélicos disponíveis nos dados censitários"></canvas>
+      </figure>
+      <p class="chart-fallback" data-chart-fallback hidden>O gráfico interativo não está disponível. Abra as tabelas para consultar os valores.</p>
+      <details class="data-details">
+        <summary>Ver tabela da série histórica</summary>
+        <div data-table="history"></div>
+      </details>
+      <figure class="religion-chart">
+        <canvas data-religion-chart="comparison" role="img" aria-label="Comparação do percentual evangélico nos censos de 2010 e 2022"></canvas>
+      </figure>
+      <details class="data-details">
+        <summary>Ver tabela de comparação 2010 e 2022</summary>
+        <div data-table="comparison"></div>
+      </details>
+      <p class="method-note">Fonte: IBGE, Censos Demográficos 2010 e 2022. A série histórica apresenta as bases informadas para cada ano; o comparativo recente considera pessoas de 10 anos ou mais. Consulte a <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv102182.pdf" rel="noopener noreferrer">publicação do Censo 2022 sobre religiões<span class="sr-only"> (link externo)</span></a>, a <a href="https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/14244-asi-censo-2010-numero-de-catolicos-cai-e-aumenta-o-de-evangelicos-espiritas-e-sem-religiao" rel="noopener noreferrer">divulgação dos dados de 2010<span class="sr-only"> (link externo)</span></a> e as páginas do projeto <a href="brasil.html">Brasil em dados</a> e <a href="censos.html">história dos censos</a>.</p>
+    </section>
+    <section class="container religion-gallery" aria-labelledby="gallery-title">
+      <p class="eyebrow">Galeria</p>
+      <h2 id="gallery-title">Imagens e créditos</h2>
+      <p>As imagens serão incluídas após curadoria de origem, direitos de uso, descrição alternativa e crédito. Não há imagens de terceiros carregadas nesta versão.</p>
+      <div class="image-gallery" data-image-gallery></div>
+    </section>
+    <nav class="religion-pagination" aria-label="Navegação entre religiões">
+      <a href="catolicismo.html">← Anterior: Catolicismo</a>
+      <a href="espiritismo.html">Próxima: Espiritismo →</a>
+    </nav>
+  </main>
+  <dialog class="image-lightbox" id="image-lightbox" aria-label="Imagem ampliada">
+    <button type="button" data-lightbox-close aria-label="Fechar imagem ampliada">Fechar</button>
+    <img alt="">
+    <p></p>
+  </dialog>
+</body>
+</html>

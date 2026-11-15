@@ -1,0 +1,186 @@
+.religion-index,
+.religion-data {
+  padding-block: clamp(3rem, 7vw, 6rem);
+}
+
+.religion-index__intro,
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.religion-index h2,
+.religion-data h2 {
+  margin: 0;
+  color: var(--ink);
+}
+
+.religion-search {
+  display: grid;
+  gap: 0.3rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.religion-search input {
+  min-width: min(18rem, 72vw);
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  padding: 0.65rem 0.8rem;
+}
+
+.religion-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-block: 1.25rem 1.5rem;
+}
+
+.filter-chip {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  padding: 0.45rem 0.8rem;
+}
+
+.filter-chip[aria-pressed="true"] {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--ink);
+}
+
+.religion-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+}
+
+.religion-card {
+  display: flex;
+  min-height: 13rem;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid var(--line);
+  border-radius: 0.85rem;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  padding: 1.25rem;
+}
+
+.religion-card .eyebrow {
+  margin: 0 0 0.5rem;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+}
+
+.religion-card h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.religion-card p:not(.eyebrow) {
+  color: var(--ink-soft);
+}
+
+.religion-card a {
+  display: inline-flex;
+  margin-top: auto;
+  padding: 0.5rem 0.75rem;
+}
+
+.religion-card__status {
+  margin-top: auto;
+  border-radius: 999px;
+  background: var(--surface-alt);
+  color: var(--ink-soft);
+  padding: 0.35rem 0.65rem;
+  font-size: 0.85rem;
+}
+
+.religion-data {
+  max-width: 62rem;
+}
+
+.section-heading {
+  display: block;
+}
+
+.section-heading > p:last-child,
+.method-note {
+  color: var(--ink-soft);
+}
+
+.religion-bars {
+  display: grid;
+  gap: 1rem;
+  margin-block: 2rem;
+}
+
+.religion-bar__label {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.35rem;
+}
+
+.religion-bar__track {
+  height: 0.7rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--surface-alt);
+}
+
+.religion-bar__fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+}
+
+.data-details {
+  margin-block: 2rem 1rem;
+}
+
+.data-details summary {
+  color: var(--accent);
+  cursor: pointer;
+  font-weight: 650;
+}
+
+.method-note {
+  font-size: 0.9rem;
+}
+
+.method-note a {
+  color: var(--accent);
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+@media (max-width: 680px) {
+  .religion-index__intro {
+    display: block;
+  }
+
+  .religion-search {
+    margin-top: 1rem;
+  }
+
+  .religion-search input {
+    width: 100%;
+  }
+}
