@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/graficos.css">
   <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script type="module" src="js/components.js"></script>
   <script type="module" src="js/graficos.js"></script>
 </head>
 <body>
@@ -18,7 +19,10 @@
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Society of Faith, início">Society <span>of Faith</span></a>
-    <span class="header-section">Religião e sociedade no Brasil</span>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu"><span class="sr-only">Abrir menu</span><span aria-hidden="true">☰</span></button>
+    <nav class="site-menu" id="site-menu" data-site-menu aria-label="Navegação principal">
+      <a href="brasil.html" aria-current="page">Brasil em dados</a><a href="censos.html">Censos</a><span class="site-menu__upcoming" aria-disabled="true">Cristianismo · em breve</span>
+    </nav>
   </header>
 
   <main id="conteudo">

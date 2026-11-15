@@ -19,6 +19,42 @@ header {
   border-bottom: 1px solid var(--line);
 }
 
+.site-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.site-menu a {
+  border-radius: 999px;
+  color: var(--ink-soft);
+  padding: 0.45rem 0.7rem;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.site-menu a:hover,
+.site-menu a[aria-current="page"] {
+  background-color: var(--surface-alt);
+  color: var(--ink);
+}
+
+.site-menu__upcoming {
+  color: var(--ink-soft);
+  padding: 0.45rem 0.7rem;
+  font-size: 0.9rem;
+}
+
+.menu-toggle {
+  display: none;
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 0.45rem 0.65rem;
+  font: inherit;
+}
+
 main > section,
 .section {
   padding-block: calc(var(--section-space) * 1.15);
@@ -100,5 +136,41 @@ button[type="submit"]:hover {
   *::after {
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .site-menu {
+    position: absolute;
+    z-index: 25;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.2rem;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-header);
+    padding: 0.75rem 1rem;
+  }
+
+  .site-menu.is-open {
+    display: flex;
+  }
+
+  .site-menu a {
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+  }
+
+  .site-menu__upcoming {
+    padding: 0.75rem;
   }
 }

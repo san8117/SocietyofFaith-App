@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#FAF7F2">
+  <meta name="description" content="Explore a história das perguntas sobre religião nos censos brasileiros de 1872 a 2022.">
+  <title>Todos os censos — Society of Faith</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/graficos.css">
+  <link rel="stylesheet" href="css/censos.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script type="module" src="js/components.js"></script>
+  <script type="module" src="js/censos.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Society of Faith, início">Society <span>of Faith</span></a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu"><span class="sr-only">Abrir menu</span><span aria-hidden="true">☰</span></button>
+    <nav class="site-menu" id="site-menu" data-site-menu aria-label="Navegação principal">
+      <a href="brasil.html">Brasil em dados</a><a href="censos.html" aria-current="page">Censos</a><span class="site-menu__upcoming" aria-disabled="true">Cristianismo · em breve</span>
+    </nav>
+  </header>
+
+  <main id="conteudo">
+    <section class="hero page-hero" aria-labelledby="page-title">
+      <div class="container">
+        <p class="eyebrow">Censos do IBGE</p>
+        <h1 id="page-title">150 anos de censos: como o Brasil declarou sua fé</h1>
+        <p class="hero__lead">De 1872 a 2022, a pergunta sobre religião mudou, e os números também.</p>
+      </div>
+    </section>
+
+    <nav class="section-nav" aria-label="Navegação nesta página">
+      <div class="section-nav__inner">
+        <a href="#serie">Série histórica</a>
+        <a href="#linha-do-tempo">Linha do tempo</a>
+        <a href="#pergunta">Como a pergunta mudou</a>
+        <a href="#acessar">Acessar os dados</a>
+        <a href="#curiosidades">Curiosidades</a>
+      </div>
+    </nav>
+
+    <p class="sr-only" id="live-region" aria-live="polite" aria-atomic="true"></p>
+    <p class="chart-fallback container" id="chart-fallback" hidden>Não foi possível carregar os gráficos. Os dados e as tabelas continuam disponíveis abaixo.</p>
+
+    <section class="content-section" id="serie" data-reveal aria-labelledby="serie-title">
+      <div class="container">
+        <p class="eyebrow">01 · Série histórica</p>
+        <h2 id="serie-title">A fé brasileira em perspectiva</h2>
+        <p class="section-intro">Um país quase todo católico em 1872 (99,7%) chegou a 2022 com 56,7%. A queda foi lenta até os anos 1970 e acelerou a partir dos anos 1980; o grupo evangélico foi de 2,7% (1940) a 26,9% (2022).</p>
+        <div class="series-controls" role="group" aria-label="Mostrar ou ocultar grupos religiosos no gráfico">
+          <button type="button" class="series-chip" data-serie="catolica" aria-pressed="true">Católica</button>
+          <button type="button" class="series-chip" data-serie="evangelicas" aria-pressed="true">Evangélicas</button>
+          <button type="button" class="series-chip" data-serie="sem" aria-pressed="true">Sem religião</button>
+          <button type="button" class="series-chip" data-serie="espirita" aria-pressed="true">Espírita</button>
+        </div>
+        <figure class="chart-figure" data-censo-chart="serie">
+          <div class="chart-container chart-container--historic"><canvas id="chart-serie" role="img" aria-label="Série histórica das declarações de religião nos censos de 1872 a 2022"><span>Percentuais declarados por grupo religioso em anos de censo selecionados.</span></canvas></div>
+          <figcaption>
+            <h3>Religiões declaradas nos censos selecionados</h3>
+            <p>Fonte: IBGE, Censos Demográficos (valores conforme tabela abaixo).</p>
+            <p class="data-note">Anos sem ponto: percentual ainda não incluído; consulte a publicação do IBGE <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv102182.pdf" target="_blank" rel="noopener noreferrer">neste PDF <span aria-hidden="true">↗</span><span class="sr-only">(abre em nova aba)</span></a>.</p>
+            <details class="data-details"><summary>Ver tabela de dados</summary><div data-censo-table="serie"></div></details>
+          </figcaption>
+        </figure>
+        <p class="data-note">Em 2010, na base comparável de 10 anos ou mais, os valores foram 65,1% católicos, 21,6% evangélicos, 2,2% espíritas e 7,9% sem religião; a série acima usa os percentuais de população total informados para aquele censo.</p>
+
+        <figure class="chart-figure" data-censo-chart="queda">
+          <div class="chart-container chart-container--short"><canvas id="chart-queda" role="img" aria-label="Queda percentual da população católica entre censos"><span>Variação em pontos percentuais dos católicos em cada período.</span></canvas></div>
+          <figcaption>
+            <h3>Queda dos católicos por período (pontos percentuais)</h3>
+            <p>A queda desacelerou no último período.</p>
+            <p>Fonte: IBGE, Censos Demográficos (valores conforme tabela abaixo).</p>
+            <details class="data-details"><summary>Ver tabela de dados</summary><div data-censo-table="queda"></div></details>
+          </figcaption>
+        </figure>
+        <aside class="callout"><span aria-hidden="true">⚠️</span><p>Os censos usaram bases diferentes (população total ou 10 anos ou mais) e formas diferentes de perguntar. Compare com cuidado. 1890, 1950 e 1960 constam na publicação do IBGE (Gráfico 1) e ainda não foram incluídos aqui. <a class="button--secondary" href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv102182.pdf" target="_blank" rel="noopener noreferrer">Consultar publicação <span aria-hidden="true">↗</span><span class="sr-only">(abre em nova aba)</span></a></p></aside>
+      </div>
+    </section>
+
+    <section class="content-section content-section--alt" id="linha-do-tempo" data-reveal aria-labelledby="timeline-title">
+      <div class="container">
+        <p class="eyebrow">02 · Linha do tempo</p>
+        <h2 id="timeline-title">Cada censo, uma pergunta diferente</h2>
+        <div class="timeline-filters" role="group" aria-label="Filtrar censos">
+          <button type="button" data-filter="all" aria-pressed="true">Todos</button>
+          <button type="button" data-filter="published" aria-pressed="false">Com dados divulgados</button>
+          <button type="button" data-filter="without" aria-pressed="false">Sem dados de religião</button>
+          <p id="census-count" aria-live="polite">Mostrando 13 de 13 censos</p>
+        </div>
+        <div class="timeline-controls">
+          <button type="button" class="timeline-arrow" data-scroll="backward" aria-label="Rolar censos para trás">←</button>
+          <button type="button" class="timeline-arrow" data-scroll="forward" aria-label="Rolar censos para frente">→</button>
+        </div>
+        <div class="timeline-shell">
+          <svg class="timeline-wave" aria-hidden="true" focusable="false" viewBox="0 0 1200 100" preserveAspectRatio="none"><path d="M0 54 C100 8 200 98 300 52 S500 7 600 52 S800 98 900 51 S1100 8 1200 54" /></svg>
+          <div class="timeline-track" id="timeline-track" tabindex="0" aria-label="Linha do tempo dos censos. Use as setas do teclado para percorrer."></div>
+        </div>
+        <p class="no-census-note">Anos em que não houve censo: 1880, 1910 e 1930 (conturbações políticas).</p>
+        <noscript>
+          <p>Ative JavaScript para usar filtros e detalhes interativos. Lista dos censos: 1872, 1890, 1900, 1920, 1940, 1950, 1960, 1970, 1980, 1991, 2000, 2010 e 2022.</p>
+          <ol>
+            <li>1872 — Primeiro censo do Império. Pergunta binária: católico ou acatólico. Católicos: 99,7%.</li>
+            <li>1890 — Primeiro censo da República. Campo aberto sobre “culto”; resultados divulgados.</li>
+            <li>1900 — Religião coletada, mas os resultados não foram divulgados por fragilidades dos dados.</li>
+            <li>1920 — O tema religião não foi investigado.</li>
+            <li>1940 — Primeiro censo conduzido pelo IBGE. Campo aberto; católicos 94,7%, evangélicos 2,7%, espíritas 1,2% e sem religião 0,2% (10+ anos).</li>
+            <li>1950 — Campo aberto, seguindo o modelo de 1940; resultados divulgados.</li>
+            <li>1960 — Religião passa à amostra; lista fechada de categorias.</li>
+            <li>1970 — Campo fechado com cinco opções. Católicos: 91,8%.</li>
+            <li>1980 — Volta ao campo aberto; católicos 89,0% e evangélicos 6,6%.</li>
+            <li>1991 — Quesito “religião ou culto”, com classificação em parceria com o ISER. Católicos 83,3% e evangélicos 9,0%.</li>
+            <li>2000 — Sistema informatizado e banco descritor. Católicos 73,6%, evangélicos 15,4% e sem religião 7,3%.</li>
+            <li>2010 — Coleta por dispositivo móvel. Católicos 64,6%, evangélicos 22,2%, espíritas 2,0% e sem religião 8,0% (população total).</li>
+            <li>2022 — Religião perguntada a pessoas de 10 anos ou mais; católicos 56,7%, evangélicos 26,9%, espíritas 1,8% e sem religião 9,3%.</li>
+          </ol>
+        </noscript>
+      </div>
+    </section>
+
+    <section class="content-section" id="pergunta" data-reveal aria-labelledby="question-title">
+      <div class="container">
+        <p class="eyebrow">03 · Mudanças na pergunta</p>
+        <h2 id="question-title">O que o recenseador perguntava?</h2>
+        <div class="responsive-table">
+          <table class="question-table">
+            <caption>Transformações no quesito religião dos censos brasileiros</caption>
+            <thead><tr><th scope="col">Período</th><th scope="col">Tipo de campo</th><th scope="col">Categorias e novidades</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">1872</th><td>Binário</td><td>Católico ou acatólico.</td></tr>
+              <tr><th scope="row">1890 a 1950</th><td>Campo aberto</td><td>Resposta livre.</td></tr>
+              <tr><th scope="row">1960 e 1970</th><td>Campo fechado</td><td>Lista de opções pré-definida.</td></tr>
+              <tr><th scope="row">1980 em diante</th><td>Campo aberto</td><td>1980 retoma a resposta livre; 1991 tem parceria do ISER; 2000 usa sistema informatizado e banco descritor; em 2022, o quesito é aplicado apenas a pessoas de 10 anos ou mais e há pergunta específica em terras indígenas.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="before-after">
+          <div>
+            <p class="eyebrow">Antes e depois</p>
+            <label for="question-year">Exemplo do formulário: <output id="question-year-label" for="question-year">1872</output></label>
+            <input id="question-year" type="range" min="0" max="2" step="1" value="0" aria-valuetext="1872">
+            <div class="range-labels" aria-hidden="true"><span>1872</span><span>1960</span><span>2022</span></div>
+          </div>
+          <div class="form-mock" id="form-mock" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section content-section--alt" id="acessar" data-reveal aria-labelledby="access-title">
+      <div class="container">
+        <p class="eyebrow">04 · Fontes originais</p>
+        <h2 id="access-title">Acesse os dados do IBGE</h2>
+        <p class="section-intro">Todos os dados deste site vêm do IBGE. Aqui estão os caminhos para você conferir e explorar por conta própria.</p>
+        <div class="resource-grid" id="resource-grid"></div>
+        <h3>Como encontrar os dados de um censo antigo</h3>
+        <ol class="steps-list">
+          <li><span>1</span><p>Abra a Biblioteca do IBGE.</p></li>
+          <li><span>2</span><p>Busque “Censo Demográfico” e o ano.</p></li>
+          <li><span>3</span><p>Procure o volume com o tema “religião” ou “culto”.</p></li>
+          <li><span>4</span><p>Compare com o SIDRA ou com as Séries Estatísticas.</p></li>
+        </ol>
+        <button type="button" class="citation-button" id="copy-citation">Copiar citação ABNT</button>
+        <span class="sr-only" id="citation-toast" role="status" aria-live="polite"></span>
+      </div>
+    </section>
+
+    <section class="content-section" id="curiosidades" data-reveal aria-labelledby="curiosities-title">
+      <div class="container">
+        <p class="eyebrow">05 · Curiosidades</p>
+        <h2 id="curiosities-title">Detalhes que contam uma história</h2>
+        <div class="curiosity-grid">
+          <details><summary>1872</summary><p>Toda a população escravizada foi registrada como católica no censo.</p></details>
+          <details><summary>1900</summary><p>A religião foi coletada, mas os resultados nunca foram divulgados.</p></details>
+          <details><summary>1920</summary><p>O tema nem foi investigado.</p></details>
+          <details><summary>1980</summary><p>Aparece pela primeira vez a categoria “espírita afro-brasileira”.</p></details>
+          <details><summary>2000</summary><p>Surge a categoria “tradições indígenas”.</p></details>
+          <details><summary>2022</summary><p>Religião só foi perguntada a quem tinha 10 anos ou mais; ateus e agnósticos aparecem detalhados nos microdados.</p></details>
+          <details><summary>Microdados 2022</summary><p>“Evangélicos não determinados” foi de 4,8% (2010) para 15,6% (2022).</p></details>
+        </div>
+        <div class="closing-actions">
+          <a class="button--primary" href="brasil.html">Ver dados de 2010 × 2022</a>
+          <button class="button--secondary" type="button" disabled>História das religiões — em breve</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <dialog class="census-dialog" id="census-dialog" aria-labelledby="dialog-title">
+    <form method="dialog"><button class="dialog-close" aria-label="Fechar detalhes">×</button></form>
+    <div id="dialog-content"></div>
+  </dialog>
+  <footer class="site-footer"><p>Fontes: Instituto Brasileiro de Geografia e Estatística (IBGE). Consulte os dados originais e as bases antes de comparar os resultados.</p></footer>
+</body>
+</html>

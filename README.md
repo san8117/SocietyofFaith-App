@@ -30,9 +30,9 @@ HTML5, CSS3 e JavaScript puro (ES modules). Sem frameworks e sem etapa de build.
 
 ```text
 SocietyofFaith-App/
-  brasil.html
-  css/       tokens.css, base.css, graficos.css
-  js/        dados-ibge.js, graficos.js
+  brasil.html, censos.html
+  css/       tokens.css, base.css, graficos.css, censos.css
+  js/        components.js, dados-ibge.js, graficos.js, dados-censos.js, censos.js
   data/      dados complementares
   conteudo/  textos de apoio
   assets/    imagens e ícones
@@ -43,18 +43,20 @@ SocietyofFaith-App/
 1. Clone o repositório.
 2. Abra a pasta no VS Code.
 3. Use a extensão "Live Server" ou execute `python -m http.server 5500`.
-4. Acesse `http://localhost:5500/brasil.html`.
+4. Acesse `http://localhost:5500/brasil.html` ou `http://localhost:5500/censos.html`.
 
 ## Roadmap
 
 - [x] Etapa 0: README e esqueleto do repositório
-- [ ] Etapa 1: Estrutura, identidade visual e home
-- [ ] Etapa 2: Conteúdo teórico sobre religião
+- [x] Etapa 1: Estrutura, identidade visual e home
+- [x] Etapa 1.1: Paleta clean e estilos-base
+- [x] Etapa 2: Conteúdo teórico sobre religião
 - [x] Etapa 3: Dados do IBGE e gráficos (2010 × 2022)
-- [ ] Etapa 4: Linha do tempo dos censos (1872–2022) e mapa por região/UF
-- [ ] Etapa 5: Cristianismo e sociedade brasileira
-- [ ] Etapa 6: Vídeos, fontes e links oficiais
-- [ ] Etapa 7: Quiz, acessibilidade, polimento e deploy
+- [x] Etapa 4: Série histórica, linha do tempo e acesso aos dados dos censos (1872–2022)
+- [ ] Etapa 5: História das religiões (páginas separadas, com imagens)
+- [ ] Etapa 6: Cristianismo e sociedade brasileira
+- [ ] Etapa 7: Vídeos, fontes e links
+- [ ] Etapa 8: Quiz, acessibilidade, polimento e deploy
 
 ## Changelog
 
@@ -67,6 +69,10 @@ SocietyofFaith-App/
 ### Etapa 3 — 14/11/2026
 - Criados `brasil.html`, `css/graficos.css`, `js/dados-ibge.js` e `js/graficos.js`; atualizados `README.md`.
 - Entregues gráficos interativos do Censo 2010 e 2022, tabelas acessíveis, filtros por perfil, navegação por seção, animações respeitando movimento reduzido e ressalvas metodológicas.
+
+### Etapa 4 — 14/11/2026
+- Criados `censos.html`, `css/censos.css`, `js/dados-censos.js` e `js/censos.js`; criado `js/components.js` e atualizado o menu em `brasil.html`.
+- Entregues série histórica com lacunas explícitas e tabela de dados, gráficos de variação, linha do tempo filtrável com diálogo acessível, comparação interativa de formulários, links oficiais do IBGE e cópia de citação ABNT.
 
 ## Fontes de dados
 
