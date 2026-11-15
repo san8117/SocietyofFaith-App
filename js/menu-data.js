@@ -1,5 +1,5 @@
 export const MENU = [
-  { rotulo: 'Início', href: 'religioes.html' },
+  { rotulo: 'Início', href: 'index.html' },
   { rotulo: 'Conceitos', href: 'religiao.html' },
   { rotulo: 'Religiões', href: 'religioes.html', grupos: [
     { titulo: 'Cristianismo', itens: [

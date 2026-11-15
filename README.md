@@ -86,6 +86,8 @@ SocietyofFaith-App/
 
 ## Changelog
 
+### Etapa 6.0 — 15/11/2026: index.html refeito, 'Início' corrigido
+
 ### Etapa 0 — 14/11/2026
 - Preparada a documentação inicial e a estrutura básica do repositório.
 

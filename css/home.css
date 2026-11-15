@@ -1,0 +1,633 @@
+.home-container {
+  width: min(100% - 2.5rem, 76rem);
+  margin-inline: auto;
+}
+
+.home-hero {
+  display: grid;
+  min-height: min(42rem, calc(100svh - 4.5rem));
+  align-items: center;
+  padding-block: clamp(5rem, 12vw, 10rem);
+  background:
+    radial-gradient(ellipse at 82% 18%, color-mix(in srgb, var(--accent-soft) 64%, transparent), transparent 40%),
+    var(--bg);
+}
+
+.home-hero__inner {
+  padding-block: 1.5rem;
+}
+
+.eyebrow {
+  margin: 0 0 1rem;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+  line-height: 1.5;
+}
+
+.home-hero__title {
+  max-width: 13ch;
+  margin: 0;
+  color: var(--accent);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(4rem, 12vw, 9.5rem);
+  font-weight: 500;
+  letter-spacing: -0.075em;
+  line-height: 0.96;
+}
+
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .home-hero__title {
+    background-color: var(--accent);
+    background-image:
+      repeating-linear-gradient(124deg, transparent 0 5px, color-mix(in srgb, var(--accent-2) 32%, transparent) 5px 6px, transparent 6px 12px),
+      radial-gradient(ellipse at 20% 30%, var(--accent-2), transparent 48%),
+      linear-gradient(115deg, var(--accent), color-mix(in srgb, var(--accent) 72%, var(--ink)));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.home-hero__lead {
+  max-width: 47rem;
+  margin: 1.75rem 0 0;
+  color: var(--ink-soft);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.7;
+}
+
+.home-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.home-button {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 1.15rem;
+  font-weight: 650;
+}
+
+.home-stats {
+  padding-block: 2.25rem 1.25rem;
+  border-block: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+}
+
+.stats-item {
+  padding: 0.5rem clamp(0.5rem, 2.5vw, 2rem);
+  text-align: center;
+}
+
+.stats-item + .stats-item {
+  border-left: 1px solid var(--line);
+}
+
+.stats-item dt,
+.stats-item p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+}
+
+.stats-item dd {
+  margin: 0.15rem 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.2;
+  font-variant-numeric: tabular-nums;
+}
+
+.stats-item__suffix {
+  font-family: system-ui, sans-serif;
+  font-size: 0.55em;
+}
+
+.stats-source {
+  margin: 1rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.home-section {
+  padding-block: clamp(4rem, 9vw, 7rem);
+}
+
+.has-reveal [data-reveal]:not(.is-revealed) {
+  opacity: 0;
+  transform: translateY(1.25rem);
+}
+
+[data-reveal] {
+  transition: opacity 450ms ease, transform 450ms ease;
+}
+
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+.home-section__heading {
+  margin-bottom: 2rem;
+}
+
+.home-section__heading h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+}
+
+.showcase {
+  overflow: hidden;
+}
+
+.showcase__inner {
+  position: relative;
+}
+
+.showcase__controls {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.carousel-arrow {
+  display: grid;
+  width: 2.75rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 1.3rem;
+}
+
+.carousel-arrow:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.showcase__track {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-auto-columns: minmax(15rem, 19rem);
+  grid-auto-flow: column;
+  gap: 1.25rem;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  padding: 2.25rem 0.75rem 2rem;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-color: var(--accent-2) var(--surface-alt);
+  scrollbar-width: thin;
+}
+
+.showcase-card {
+  position: relative;
+  display: flex;
+  min-height: 17rem;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  padding: 1.35rem;
+  scroll-snap-align: start;
+  transform: rotate(var(--card-angle, -1.5deg));
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.showcase-card:nth-child(even) {
+  --card-angle: 1.4deg;
+}
+
+.showcase-card:hover,
+.showcase-card:focus-within {
+  box-shadow: 0 16px 36px -18px rgba(35, 31, 28, 0.36);
+  transform: rotate(0) translateY(-0.2rem);
+}
+
+.showcase-card__number {
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+}
+
+.showcase-card__badge {
+  position: absolute;
+  top: 1.15rem;
+  right: 1.1rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 0.25rem 0.55rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.showcase-card h3 {
+  margin: 2.25rem 0 0.5rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.55rem;
+  font-weight: 500;
+}
+
+.showcase-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.showcase-card a,
+.showcase-card__status {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.showcase-card a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.showcase-card__status {
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+
+.showcase__line {
+  position: absolute;
+  top: 8rem;
+  left: -3%;
+  width: 106%;
+  height: 15rem;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.showcase__line path {
+  fill: none;
+  stroke: var(--accent-2);
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  stroke-width: 2;
+}
+
+.showcase.is-revealed .showcase__line path {
+  animation: draw-showcase-line 1.6s ease-out forwards;
+}
+
+@keyframes draw-showcase-line {
+  to { stroke-dashoffset: 0; }
+}
+
+.featured-religions {
+  background: var(--surface-alt);
+}
+
+.featured-religions__heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.text-link {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: 1rem;
+}
+
+.featured-religions__note {
+  margin: 0.9rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+}
+
+.religion-product {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 0.9rem;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+}
+
+.religion-product__image {
+  display: grid;
+  min-height: 10rem;
+  place-items: center;
+  margin: 0;
+  background:
+    radial-gradient(ellipse at 70% 30%, color-mix(in srgb, var(--accent-2) 55%, transparent), transparent 42%),
+    linear-gradient(135deg, var(--surface-alt), var(--accent-soft));
+  color: var(--accent);
+  text-align: center;
+}
+
+.religion-product__image img {
+  width: 100%;
+  height: 11rem;
+  object-fit: cover;
+}
+
+.religion-product__image figcaption {
+  padding: 1rem;
+  font-size: 0.78rem;
+}
+
+.religion-product__body {
+  padding: 1.15rem;
+}
+
+.religion-product__title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.religion-product__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.religion-product__title a:hover {
+  color: var(--accent);
+}
+
+.religion-product__stat {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font-family: system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+}
+
+.religion-product__summary {
+  min-height: 3rem;
+  margin: 0.6rem 0 1rem;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.religion-product__details {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+}
+
+.religion-product__dots {
+  display: inline-flex;
+  gap: 0.2rem;
+}
+
+.religion-product__dots span {
+  width: 0.45rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--dot-color, var(--accent));
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: steps;
+}
+
+.step-card {
+  min-height: 14rem;
+  border-top: 1px solid var(--line);
+  padding: 1.2rem 1rem 1rem 0;
+}
+
+.step-card__number {
+  display: grid;
+  width: 2.5rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 750;
+}
+
+.step-card h3 {
+  margin: 1.25rem 0 0.5rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.step-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.creators {
+  background: var(--surface);
+}
+
+.creators-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.creator {
+  display: flex;
+  min-height: 5.25rem;
+  align-items: center;
+  gap: 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: var(--bg);
+  padding: 0.75rem;
+}
+
+.creator__initials {
+  display: grid;
+  width: 2.5rem;
+  flex: 0 0 2.5rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 750;
+}
+
+.creator__name {
+  font-size: 0.82rem;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.home-footer {
+  border-top: 1px solid var(--line);
+  background: var(--bg-header);
+  padding: 2rem 0;
+}
+
+.home-footer .home-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+}
+
+.home-footer p {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+}
+
+.home-footer .brand {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+@media (max-width: 760px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 1rem;
+  }
+
+  .stats-item:nth-child(3) {
+    border-left: 0;
+  }
+
+  .showcase__controls {
+    position: static;
+    margin: -0.75rem 0 0.25rem;
+  }
+
+  .showcase__controls .carousel-arrow:first-child {
+    margin-left: auto;
+  }
+
+  .featured-religions__heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .creators-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .home-container {
+    width: min(100% - 2rem, 76rem);
+  }
+
+  .home-hero {
+    min-height: auto;
+    padding-block: 5rem;
+  }
+
+  .home-hero__title {
+    font-size: clamp(3.3rem, 17vw, 5.5rem);
+  }
+
+  .home-hero__actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .home-button {
+    width: 100%;
+  }
+
+  .showcase__track {
+    grid-auto-columns: minmax(14rem, 84vw);
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .step-card {
+    min-height: auto;
+    padding-block: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    transition: none;
+  }
+
+  .showcase__track {
+    scroll-behavior: auto;
+  }
+
+  .showcase-card {
+    transition: none;
+    transform: none;
+  }
+
+  .showcase__line path {
+    stroke-dashoffset: 0;
+  }
+
+  .showcase.is-revealed .showcase__line path {
+    animation: none;
+  }
+}

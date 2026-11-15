@@ -3,17 +3,192 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Society of Faith: religião e sociedade no Brasil, com tradições religiosas e dados do IBGE.">
-  <meta http-equiv="refresh" content="0; url=religioes.html">
-  <title>Society of Faith</title>
-  <link rel="canonical" href="religioes.html">
-  <script>window.location.replace('religioes.html');</script>
+  <meta name="description" content="Explore 150 anos de censos do IBGE, a história das religiões e os conceitos das Ciências da Religião no Brasil.">
+  <meta name="author" content="Guilherme Oliveira de Santana, Pedro Henrique Gomes, Henrique Soares, Lucas Cardoso e Kaue Bueno">
+  <meta name="theme-color" content="#FAF7F2">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Society of Faith — Religião e sociedade no Brasil">
+  <meta property="og:description" content="Como o Brasil se identifica em matéria de fé? Explore censos, religiões e conceitos das Ciências da Religião.">
+  <title>Society of Faith — Religião e sociedade no Brasil</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23A8502F'/%3E%3Cpath d='M32 10 46 32 32 54 18 32Z' fill='none' stroke='%23FAF7F2' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23FAF7F2'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/home.css">
+  <script type="module" src="js/components.js"></script>
+  <script type="module" src="js/reveal.js"></script>
+  <script type="module" src="js/home.js"></script>
 </head>
 <body>
-  <main>
-    <h1>Society of Faith</h1>
-    <p>Você será direcionado para o índice de religiões.</p>
-    <p><a href="religioes.html">Acessar o site</a></p>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Society of Faith, início">Society <span>of Faith</span></a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu">
+      <span class="sr-only">Abrir menu</span><span aria-hidden="true">☰</span>
+    </button>
+    <nav class="site-menu" id="site-menu" data-site-menu aria-label="Navegação principal"></nav>
+  </header>
+
+  <main id="conteudo">
+    <section class="home-hero" aria-labelledby="home-title">
+      <div class="home-container home-hero__inner">
+        <p class="eyebrow">RELIGIÃO E SOCIEDADE NO BRASIL</p>
+        <h1 class="home-hero__title" id="home-title">Society of Faith</h1>
+        <p class="home-hero__lead">Como o Brasil se identifica em matéria de fé? Explore 150 anos de censos do IBGE, a história das religiões e os conceitos das Ciências da Religião.</p>
+        <div class="home-hero__actions">
+          <a class="button--primary home-button" href="religioes.html">Explorar as religiões</a>
+          <a class="button--secondary home-button" href="brasil.html">Ver os dados</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-stats" aria-label="Religião no Brasil em números">
+      <div class="home-container">
+        <dl class="stats-grid">
+          <div class="stats-item">
+            <dt>de censos</dt>
+            <dd><span data-counter data-value="150" data-decimals="0">150</span><span class="stats-item__suffix"> anos</span></dd>
+            <p>1872–2022</p>
+          </div>
+          <div class="stats-item">
+            <dt>católicos</dt>
+            <dd><span data-counter data-value="56.7" data-decimals="1">56,7</span><span class="stats-item__suffix">%</span></dd>
+            <p>em 2022</p>
+          </div>
+          <div class="stats-item">
+            <dt>evangélicos</dt>
+            <dd><span data-counter data-value="26.9" data-decimals="1">26,9</span><span class="stats-item__suffix">%</span></dd>
+            <p>em 2022</p>
+          </div>
+          <div class="stats-item">
+            <dt>sem religião</dt>
+            <dd><span data-counter data-value="9.3" data-decimals="1">9,3</span><span class="stats-item__suffix">%</span></dd>
+            <p>em 2022</p>
+          </div>
+        </dl>
+        <p class="stats-source">Fonte: IBGE, Censo 2022 (pop. 10+)</p>
+      </div>
+    </section>
+
+    <section class="home-section showcase" data-reveal aria-labelledby="showcase-title">
+      <div class="home-container showcase__inner">
+        <div class="home-section__heading">
+          <p class="eyebrow">UM PERCURSO DE DESCOBERTA</p>
+          <h2 id="showcase-title">O que você vai encontrar</h2>
+        </div>
+        <div class="showcase__controls">
+          <button class="carousel-arrow" type="button" data-carousel-prev aria-label="Rolar para os conteúdos anteriores" aria-controls="home-showcase">
+            <span aria-hidden="true">←</span>
+          </button>
+          <button class="carousel-arrow" type="button" data-carousel-next aria-label="Rolar para os próximos conteúdos" aria-controls="home-showcase">
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+        <svg class="showcase__line" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M-20 112 C95 12 174 190 288 98 S470 18 570 111 744 182 835 83 970 49 1020 105"></path>
+        </svg>
+        <div class="showcase__track" id="home-showcase" tabindex="0" aria-label="Conteúdos do projeto, role horizontalmente para explorar">
+          <article class="showcase-card">
+            <span class="showcase-card__number">01</span>
+            <h3>Conceitos</h3>
+            <p>Ideias para compreender o fenômeno religioso.</p>
+            <a href="religiao.html">Explorar conceitos <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="showcase-card">
+            <span class="showcase-card__number">02</span>
+            <h3>Religiões</h3>
+            <p>Histórias e tradições em sua diversidade.</p>
+            <a href="religioes.html">Conhecer religiões <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="showcase-card">
+            <span class="showcase-card__number">03</span>
+            <h3>Brasil em dados</h3>
+            <p>O que os números do IBGE revelam sobre a fé.</p>
+            <a href="brasil.html">Ver os dados <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="showcase-card">
+            <span class="showcase-card__number">04</span>
+            <h3>Todos os censos</h3>
+            <p>Uma viagem pela história censitária da religião.</p>
+            <a href="censos.html">Ver a linha do tempo <span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="showcase-card showcase-card--soon">
+            <span class="showcase-card__number">05</span><span class="showcase-card__badge">em breve</span>
+            <h3>Vídeos</h3>
+            <p>Conteúdos audiovisuais para aprofundar a conversa.</p>
+            <span class="showcase-card__status">Estamos preparando</span>
+          </article>
+          <article class="showcase-card showcase-card--soon">
+            <span class="showcase-card__number">06</span><span class="showcase-card__badge">em breve</span>
+            <h3>Quiz</h3>
+            <p>Teste o que aprendeu ao longo do percurso.</p>
+            <span class="showcase-card__status">Estamos preparando</span>
+          </article>
+          <article class="showcase-card showcase-card--soon">
+            <span class="showcase-card__number">07</span><span class="showcase-card__badge">em breve</span>
+            <h3>Fontes</h3>
+            <p>Referências e materiais para continuar pesquisando.</p>
+            <span class="showcase-card__status">Estamos preparando</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section featured-religions" data-reveal aria-labelledby="featured-title">
+      <div class="home-container">
+        <div class="home-section__heading featured-religions__heading">
+          <div>
+            <p class="eyebrow">TRADIÇÕES E HISTÓRIAS</p>
+            <h2 id="featured-title">Religiões em destaque</h2>
+          </div>
+          <a class="text-link" href="religioes.html">Ver todas as religiões <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="featured-grid" data-home-religions></div>
+        <p class="featured-religions__note">No Censo 2022, Umbanda e Candomblé aparecem juntas nesta categoria percentual.</p>
+      </div>
+    </section>
+
+    <section class="home-section how-to" data-reveal aria-labelledby="how-to-title">
+      <div class="home-container">
+        <div class="home-section__heading">
+          <p class="eyebrow">UM CAMINHO SIMPLES</p>
+          <h2 id="how-to-title">Como navegar</h2>
+        </div>
+        <ol class="steps-grid">
+          <li class="step-card">
+            <span class="step-card__number">1</span>
+            <h3>Entenda os conceitos</h3>
+            <p>Comece pelas ideias e ferramentas das Ciências da Religião.</p>
+          </li>
+          <li class="step-card">
+            <span class="step-card__number">2</span>
+            <h3>Conheça cada religião</h3>
+            <p>Explore histórias, crenças e expressões de diferentes tradições.</p>
+          </li>
+          <li class="step-card">
+            <span class="step-card__number">3</span>
+            <h3>Veja os dados e teste o que aprendeu</h3>
+            <p>Leia os censos e, em breve, confira seus conhecimentos no quiz.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="home-section creators" data-reveal aria-labelledby="creators-title">
+      <div class="home-container">
+        <div class="home-section__heading">
+          <p class="eyebrow">PROJETO EDUCACIONAL · UNASP</p>
+          <h2 id="creators-title">Quem criou</h2>
+        </div>
+        <ul class="creators-list" data-home-creators></ul>
+      </div>
+    </section>
   </main>
+
+  <footer class="site-footer home-footer">
+    <div class="home-container">
+      <a class="brand" href="index.html" aria-label="Society of Faith, início">Society <span>of Faith</span></a>
+      <p>Religião e Sociedade no Brasil · Projeto educacional desenvolvido no UNASP.</p>
+      <p>Dados: IBGE. Consulte as fontes oficiais e as ressalvas metodológicas.</p>
+    </div>
+  </footer>
 </body>
 </html>
