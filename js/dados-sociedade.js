@@ -418,5 +418,278 @@ export const SOCIEDADE = {
         'Como respeitar a escolha individual e a cultura coletiva ao mesmo tempo?',
         'IBGE, Censo 2022 (Tabelas 3 e 4); Texto 01.')
     ]
+  },
+  judaismo: {
+    conceito: {
+      rotulo: 'Diáspora e identidade',
+      frase: 'A experiência de viver como grupo religioso em muitos países mostra como identidade e religião se constroem nas interações com a sociedade.',
+      href: 'religiao.html#identidade'
+    },
+    areas: [
+      area('educacao', 'Educação e estudo', 'educacao',
+        'O estudo de textos é muito valorizado na tradição.',
+        [
+          { titulo: 'Estudo da Torá e do Talmude', texto: 'Prática de debate e interpretação.' },
+          { titulo: 'Escolas e centros comunitários', texto: 'Muitas comunidades mantêm instituições próprias.', conferir: true }
+        ],
+        ['A tradição de estudo e debate forma gerações de leitores críticos.', 'Escolas confessionais e escolas plurais podem complementar-se.'],
+        'O que se aprende quando se estuda um texto por séculos?',
+        'Texto 03; LDB art. 19 (instituições confessionais).'),
+      area('assistencia', 'Solidariedade e comunidade', 'assistencia',
+        'A ajuda mútua (tzedacá) é um valor central.',
+        [
+          { titulo: 'Tzedacá', texto: 'Justiça e caridade.', conferir: true },
+          { titulo: 'Associações comunitárias', texto: 'Apoio a famílias e idosos.', conferir: true }
+        ],
+        ['Redes comunitárias oferecem proteção e pertencimento.', 'Cada pessoa pode vivenciar a identidade judaica de formas diferentes, mais ou menos religiosas.'],
+        'Como a solidariedade organiza uma comunidade?',
+        'Texto de apoio.', true),
+      area('cultura', 'Cultura e festas', 'cultura',
+        'O calendário judaico marca a vida de muitas famílias.',
+        [
+          { titulo: 'Shabat', texto: 'Descanso semanal.' },
+          { titulo: 'Rosh Hashaná, Yom Kipur e Pessach', texto: 'Festas do ano.' },
+          { titulo: 'Culinária e música', texto: 'Tradições variam por região de origem.' }
+        ],
+        ['As festas conectam gerações e preservam memória.', 'Muitos se sentem judeus pela cultura, mesmo sem prática religiosa, algo parecido com os “declarantes não praticantes”.'],
+        'Religião e cultura se separam?',
+        'Texto 01 (declarantes não praticantes).'),
+      area('politica', 'Política, leis e liberdade', 'politica',
+        'A liberdade de crença é protegida pela Constituição de 1988.',
+        [
+          { titulo: 'Inquisição', texto: 'Perseguição a cristãos-novos no período colonial.' },
+          { titulo: 'Liberdade de crença (art. 5º)', texto: 'Proteção constitucional.' },
+          { titulo: 'Estado de Israel (1948)', texto: 'Tema de debate político distinto da religião; esta página trata do judaísmo como religião.', conferir: true }
+        ],
+        ['Reconhecer a história de perseguição ajuda a combater o preconceito.', 'É importante não confundir religião, povo e Estado nas conversas públicas.'],
+        'Por que é útil distinguir religião, identidade e política?',
+        'Constituição Federal de 1988.'),
+      area('familia', 'Família e rituais', 'familia',
+        'Rituais marcam a vida familiar.',
+        [
+          { titulo: 'Brit milá e bar/bat mitzvá', texto: 'Ritos de passagem.', conferir: true },
+          { titulo: 'Mesa de shabat', texto: 'Encontro semanal.' },
+          { titulo: 'Casamento religioso', texto: 'Rito vivido de formas diversas pelas comunidades.' }
+        ],
+        ['Os ritos dão sentido a momentos de passagem.', 'Há comunidades que se organizam de modos diferentes sobre papéis e regras.'],
+        'Como os ritos de passagem criam pertencimento?',
+        'Texto 03 (constituintes: ritos e comunidade).'),
+      area('convivencia', 'Convivência e diversidade', 'convivencia',
+        'Judeus e não judeus convivem em muitos espaços, e há esforços de diálogo.',
+        [
+          { titulo: 'Antissemitismo', texto: 'Preconceito e violência contra pessoas judias, ainda presentes.' },
+          { titulo: 'Diálogo inter-religioso', texto: 'Iniciativas conjuntas com cristãos e muçulmanos.', conferir: true },
+          { titulo: 'Dupla pertença', texto: 'Nem todo mundo vive a religião da mesma forma.' }
+        ],
+        ['O diálogo reduz estereótipos.', 'Conflitos políticos no mundo podem se refletir em discriminação local, o que exige cuidado.'],
+        'Como conhecer sem generalizar?',
+        'Texto 01 (educar para a diversidade); Aula 2 (charges sobre intolerância).')
+    ]
+  },
+  islamismo: {
+    conceito: {
+      rotulo: 'Fronteiras simbólicas',
+      frase: 'O Texto 01 lembra que as fronteiras simbólicas entre religiões são cada vez mais tênues, mas estereótipos ainda criam distância entre grupos.',
+      href: 'religiao.html#identidade'
+    },
+    areas: [
+      area('educacao', 'Educação', 'educacao',
+        'O estudo do Alcorão e da língua árabe é valorizado em muitas comunidades.',
+        [
+          { titulo: 'Aulas nas mesquitas', texto: 'Ensino religioso e cultural.', conferir: true },
+          { titulo: 'Escolas comunitárias', texto: 'Em algumas cidades.', conferir: true },
+          { titulo: 'Ensino Religioso na escola pública', texto: 'Debate sobre como abordar o islamismo sem estereótipos.' }
+        ],
+        ['Conhecer a religião pelas fontes dos próprios fiéis combate o preconceito.', 'A escola pública deve apresentar todas as tradições sem privilegiar uma.'],
+        'Quem deve falar sobre uma religião na sala de aula?',
+        'Aulas 1 e 2.'),
+      area('assistencia', 'Caridade e comunidade', 'assistencia',
+        'A caridade (zakat) é um dos cinco pilares.',
+        [
+          { titulo: 'Zakat', texto: 'Contribuição para ajudar quem precisa.' },
+          { titulo: 'Ramadã', texto: 'Mês de jejum e de solidariedade, com refeições partilhadas.' },
+          { titulo: 'Associações', texto: 'Apoio a imigrantes e refugiados.', conferir: true }
+        ],
+        ['A solidariedade religiosa pode apoiar pessoas em situação vulnerável.', 'Cada pessoa vive o jejum e a caridade de formas diferentes.'],
+        'Como a prática de ajudar faz parte da fé?',
+        'Texto de apoio.'),
+      area('cultura', 'Cultura e alimentação', 'cultura',
+        'A cultura árabe e a muçulmana se cruzam, mas não são a mesma coisa.',
+        [
+          { titulo: 'Culinária árabe', texto: 'Popular no Brasil; muitos imigrantes sírio-libaneses eram cristãos.' },
+          { titulo: 'Halal', texto: 'Regras sobre o que é permitido na alimentação.' },
+          { titulo: 'Caligrafia e arquitetura', texto: 'Expressões artísticas do mundo muçulmano.' }
+        ],
+        ['A cultura de origem do Oriente Médio é parte da vida brasileira.', 'É preciso distinguir o que é religião do que é cultura de um país específico.'],
+        'O que é religioso e o que é cultural numa tradição?',
+        'Texto 01 (fronteiras simbólicas).'),
+      area('politica', 'Política e leis', 'politica',
+        'A liberdade de crença protege todas as religiões.',
+        [
+          { titulo: 'Constituição de 1988, art. 5º', texto: 'Liberdade de crença e proteção aos locais de culto.' },
+          { titulo: 'Revolta dos Malês (1835)', texto: 'Levante de escravizados, muitos deles muçulmanos.' },
+          { titulo: 'Debate sobre liberdade de expressão', texto: 'Caso Charlie Hebdo, lembrado nas aulas.' }
+        ],
+        ['A liberdade de expressão é fundamental numa democracia.', 'A liberdade religiosa também exige respeito, e ofensas podem machucar quem tem fé.'],
+        'Onde termina a crítica e começa o desrespeito?',
+        'Aula 2 (Charlie Hebdo); Constituição Federal.'),
+      area('familia', 'Família e vida comunitária', 'familia',
+        'A comunidade e a família são centrais.',
+        [
+          { titulo: 'Oração de sexta-feira', texto: 'Encontro comunitário.' },
+          { titulo: 'Vestuário religioso', texto: 'Escolhas pessoais e religiosas, como o véu para algumas mulheres.' },
+          { titulo: 'Casamento e ritos', texto: 'Práticas vividas de formas diversas.' }
+        ],
+        ['Para muitas pessoas, as práticas dão identidade e pertencimento.', 'Há debates dentro e fora das comunidades sobre liberdade e escolhas individuais.'],
+        'Como respeitar escolhas religiosas pessoais?',
+        'Texto de apoio.'),
+      area('convivencia', 'Convivência e diversidade', 'convivencia',
+        'Há convivência e também preconceito.',
+        [
+          { titulo: 'Estereótipos', texto: 'Associar a religião a violência é uma generalização injusta.' },
+          { titulo: 'Islamofobia', texto: 'Preconceito contra pessoas muçulmanas.' },
+          { titulo: 'Diálogo', texto: 'Iniciativas entre comunidades.', conferir: true }
+        ],
+        ['Educar para a diversidade ajuda a reduzir o preconceito.', 'Notícias internacionais podem reforçar imagens simplificadas; é preciso olhar com cuidado.'],
+        'Como ler notícias sem generalizar?',
+        'Texto 01 (seção 4.2.2: educar para a diversidade).')
+    ]
+  },
+  budismo: {
+    conceito: {
+      rotulo: 'Dupla pertença e trânsito religioso',
+      frase: 'Muita gente pratica meditação budista sem deixar sua religião de origem: um exemplo de dupla pertença.',
+      href: 'religiao.html#identidade'
+    },
+    areas: [
+      area('educacao', 'Educação e meditação', 'educacao',
+        'Ensinamentos e práticas de atenção chegam a escolas, empresas e clínicas.',
+        [
+          { titulo: 'Meditação e mindfulness', texto: 'Práticas inspiradas na tradição.', conferir: true },
+          { titulo: 'Escolas e centros budistas', texto: 'Cursos e retiros.' },
+          { titulo: 'Ensino Religioso', texto: 'Debate sobre como tratar tradições orientais.' }
+        ],
+        ['Práticas de atenção podem ajudar a lidar com o estresse.', 'É importante distinguir a prática laica da religião de origem e reconhecer sua fonte.'],
+        'É possível separar a técnica da tradição?',
+        'Aula 7; Texto 01 (novas religiosidades).'),
+      area('assistencia', 'Cuidado e compaixão', 'assistencia',
+        'A compaixão é valor central.',
+        [
+          { titulo: 'Voluntariado', texto: 'Ações de templos e centros.', conferir: true },
+          { titulo: 'Meditação e saúde', texto: 'Uso complementar em contextos de cuidado.', conferir: true },
+          { titulo: 'Cuidado com pessoas', texto: 'Práticas de atenção.' }
+        ],
+        ['Para muitas pessoas, a prática ajuda no bem-estar emocional.', 'A saúde exige cuidado profissional e as práticas são complementares.'],
+        'Como a compaixão se traduz em atitudes?',
+        'Texto de apoio.'),
+      area('cultura', 'Cultura e imigração japonesa', 'cultura',
+        'O budismo no Brasil está ligado à história da imigração japonesa.',
+        [
+          { titulo: 'Kasato Maru (1908)', texto: 'Início da imigração japonesa.' },
+          { titulo: 'Bairro da Liberdade (São Paulo)', texto: 'Templos e comércio.' },
+          { titulo: 'Festas, como o Obon', texto: 'Celebração de memória aos antepassados em comunidades nipo-brasileiras.', conferir: true }
+        ],
+        ['A cultura nipo-brasileira é parte importante da formação do país.', 'Nem todo descendente de japoneses é budista, e nem todo budista é de origem asiática.'],
+        'Como a imigração traz e transforma religiões?',
+        'Texto de apoio; Texto 01.'),
+      area('politica', 'Política e leis', 'politica',
+        'A liberdade religiosa protege todas as crenças.',
+        [
+          { titulo: 'Constituição de 1988, art. 5º', texto: 'Proteção da liberdade de crença.' },
+          { titulo: 'Tolerância e Estado laico', texto: 'Princípios da convivência entre diferentes tradições.' },
+          { titulo: 'Debate sobre religião ou filosofia', texto: 'A Aula 7 mostra visões que classificam o budismo como tradição ateísta, o que levanta a discussão sobre como o Estado lida com cada tradição.' }
+        ],
+        ['Reconhecer as tradições como religiões garante direitos de culto.', 'Chamar uma tradição de “filosofia” pode ser uma escolha do fiel e não deve diminuir seu valor religioso.'],
+        'Quem define o que é religião?',
+        'Aula 7; Texto 03.'),
+      area('familia', 'Família e vida cotidiana', 'familia',
+        'A prática pode ser doméstica e comunitária.',
+        [
+          { titulo: 'Altar doméstico', texto: 'Em muitas casas, um pequeno espaço de devoção.' },
+          { titulo: 'Ritos de passagem', texto: 'Nascimento, casamento e funerais conforme a escola.', conferir: true },
+          { titulo: 'Meditação em família', texto: 'Prática compartilhada em alguns contextos.' }
+        ],
+        ['A prática cotidiana dá ritmo à vida em casa.', 'Em famílias de religiões diferentes, as práticas convivem de formas diversas.'],
+        'Como manter práticas pessoais no cotidiano?',
+        'Texto de apoio.'),
+      area('convivencia', 'Convivência e diversidade', 'convivencia',
+        'O budismo dialoga com outras religiões e com a cultura contemporânea.',
+        [
+          { titulo: 'Trânsito religioso', texto: 'Pessoas que praticam sem se converter.' },
+          { titulo: 'Queda entre censos', texto: 'De 243.966 (2010) a cerca de 197 mil (2022), com bases diferentes.' },
+          { titulo: 'Novas religiões orientais', texto: 'Categoria distinta no Texto 01 (155.951 pessoas em 2010).' }
+        ],
+        ['O interesse por tradições orientais mostra a abertura da sociedade a outras referências.', 'A apropriação de símbolos religiosos como decoração ou moda gera debate sobre respeito.'],
+        'Quando usar um símbolo religioso é respeito e quando é banalização?',
+        'Texto 01; Aulas 2 e 3.')
+    ]
+  },
+  hinduismo: {
+    conceito: {
+      rotulo: 'Classificações ocidentais',
+      frase: 'O Texto 03 lembra que as classificações de religião nascem do olhar ocidental, e o hinduísmo desafia categorias simples.',
+      href: 'religiao.html#classificacoes'
+    },
+    areas: [
+      area('educacao', 'Educação e filosofia', 'educacao',
+        'Textos antigos e filosofias são parte do estudo.',
+        [
+          { titulo: 'Bhagavad Gita', texto: 'Lida em vários contextos.' },
+          { titulo: 'Yoga e filosofia', texto: 'Práticas e reflexão.' },
+          { titulo: 'Ensino Religioso', texto: 'Desafio de tratar tradições com muitas formas.' }
+        ],
+        ['Estudar a diversidade do hinduísmo evita reduzi-lo a estereótipos.', 'O yoga ensinado fora do contexto religioso é uma escolha de muita gente e merece reconhecimento da origem.'],
+        'Como ensinar sem simplificar?',
+        'Texto 03; Aula 7.'),
+      area('assistencia', 'Serviço e devoção', 'assistencia',
+        'Templos e movimentos devocionais costumam oferecer refeições e atividades comunitárias.',
+        [
+          { titulo: 'Distribuição de alimentos vegetarianos', texto: 'Prática de movimentos como o Hare Krishna.', conferir: true },
+          { titulo: 'Seva (serviço desinteressado)', texto: 'Valor presente em tradições hindus.', conferir: true }
+        ],
+        ['Ações sociais conectam a prática religiosa à vida cotidiana.', 'Cada comunidade tem sua forma de ajudar e de se organizar.'],
+        'Como o serviço ao próximo faz parte do espiritual?',
+        'Texto de apoio.'),
+      area('cultura', 'Cultura, música e festas', 'cultura',
+        'A cultura indiana é parte da vida de muitos brasileiros.',
+        [
+          { titulo: 'Diwali', texto: 'Festival das luzes.' },
+          { titulo: 'Holi', texto: 'Festival das cores.', conferir: true },
+          { titulo: 'Música devocional e dança', texto: 'Expressões culturais diversas.' }
+        ],
+        ['Festas e músicas aproximam as pessoas e promovem o diálogo cultural.', 'Há debate sobre apropriação cultural quando símbolos sagrados são usados sem respeito.'],
+        'O que é inspiração e o que é apropriação?',
+        'Texto de apoio.'),
+      area('politica', 'Política e leis', 'politica',
+        'A liberdade religiosa protege também as comunidades menores em número.',
+        [
+          { titulo: 'Constituição de 1988, art. 5º', texto: 'Proteção da liberdade de crença.' },
+          { titulo: 'Estado laico', texto: 'Princípio de neutralidade religiosa do Estado.' },
+          { titulo: 'Pluralismo', texto: 'O Texto 01 diz que não se pode falar em maiorias e minorias religiosas, pois as fronteiras são tênues.' }
+        ],
+        ['Garantir direitos a grupos pequenos fortalece a democracia.', 'Políticas públicas precisam considerar a diversidade sem privilegiar nenhuma tradição.'],
+        'O tamanho de um grupo muda seus direitos?',
+        'Texto 01; Constituição Federal.'),
+      area('familia', 'Família e rituais', 'familia',
+        'A vida familiar é cheia de ritos.',
+        [
+          { titulo: 'Puja doméstico', texto: 'Culto em casa.' },
+          { titulo: 'Ritos de passagem', texto: 'Nascimento, casamento e funerais (variam muito).', conferir: true },
+          { titulo: 'Vegetarianismo', texto: 'Adotado por muitas comunidades.', conferir: true }
+        ],
+        ['Os ritos dão forma à rotina e à memória.', 'As práticas variam muito entre famílias e regiões.'],
+        'Como o culto doméstico fortalece laços?',
+        'Texto 03 (constituintes: ritos).'),
+      area('convivencia', 'Convivência e diversidade', 'convivencia',
+        'O hinduísmo está presente sobretudo no diálogo com o yoga, o vegetarianismo e a cultura indiana.',
+        [
+          { titulo: 'Yoga no Brasil', texto: 'Prática popular entre pessoas de várias religiões.' },
+          { titulo: 'Sincretismo e dupla pertença', texto: 'O Texto 01 aponta o crescimento de ideias que atravessam fronteiras religiosas.' },
+          { titulo: 'Reencarnação', texto: 'O Texto 01 diz que ideias reencarnacionistas crescem até em religiões que as rejeitam.' }
+        ],
+        ['A circulação de ideias enriquece a cultura.', 'A mistura pode simplificar o significado original de práticas e conceitos.'],
+        'Como respeitar a origem de uma prática ao adotá-la?',
+        'Texto 01 (4.2.2).')
+    ]
   }
 };

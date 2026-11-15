@@ -106,6 +106,19 @@
   font-size: 0.85rem;
 }
 
+.religion-card__highlight {
+  margin: 0.25rem 0 0;
+  color: var(--accent);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.religion-card__sub {
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+}
+
 .religion-data {
   max-width: 62rem;
 }

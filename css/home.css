@@ -414,6 +414,12 @@
   line-height: 1.5;
 }
 
+.religion-product__sub {
+  margin: -0.55rem 0 0.9rem;
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+}
+
 .religion-product__details {
   display: flex;
   align-items: center;

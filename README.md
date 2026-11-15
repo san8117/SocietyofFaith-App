@@ -24,17 +24,18 @@
 
 ## Tecnologias
 
-HTML5, CSS3 e JavaScript puro (ES modules). Sem frameworks e sem etapa de build. Gráficos com Chart.js 4.4.7 (CDN, versão fixa). Hospedagem prevista: GitHub Pages.
+HTML5, CSS3 e JavaScript puro (ES modules). Sem frameworks e sem etapa de build. Gráficos com Chart.js 4.4.7 (CDN, versão fixa). Hospedagem: Vercel.
 
 ## Estrutura do projeto
 
 ```text
 SocietyofFaith-App/
-  brasil.html, censos.html, religioes.html, religiao.html
+  index.html, brasil.html, censos.html, religioes.html, religiao.html
   catolicismo.html, evangelicos.html, espiritismo.html
   umbanda.html, candomble.html, tradicoes-indigenas.html
-  css/       tokens.css, base.css, graficos.css, censos.css, religioes.css, religiao-pagina.css
-  js/        components.js, menu-data.js, charts-core.js
+  judaismo.html, islamismo.html, budismo.html, hinduismo.html
+  css/       tokens.css, base.css, home.css, graficos.css, censos.css, religioes.css, religiao-pagina.css
+  js/        components.js, menu-data.js, charts-core.js, home.js, reveal.js
              dados-ibge.js, dados-censos.js, dados-religioes.js
              dados-sociedade.js
              dados-paginas-religiao.js
@@ -50,7 +51,7 @@ SocietyofFaith-App/
 1. Clone o repositório.
 2. Abra a pasta no VS Code.
 3. Use a extensão "Live Server" ou execute `python -m http.server 5500`.
-4. Acesse `http://localhost:5500/religioes.html`, `http://localhost:5500/brasil.html` ou `http://localhost:5500/censos.html`.
+4. Acesse `http://localhost:5500/` para a home (`index.html`), ou `religioes.html`, `brasil.html` e `censos.html`.
 
 ## Como adicionar imagens
 
@@ -68,6 +69,7 @@ SocietyofFaith-App/
 5. Preserve o tom descritivo e neutro, registre uma fonte por área, evite alegações de causalidade e marque itens que precisem de checagem com `conferir: true` nos dados.
 6. Use linguagem respeitosa, os nomes escolhidos por cada tradição e comunidade, e evite generalizações. Para tradições indígenas, reconheça a diversidade entre povos; Umbanda e Candomblé são religiões distintas.
 7. Marque todos os slots de imagem como sensíveis; não use imagens de pessoas identificáveis em rituais restritos, iniciações ou situações íntimas sem autorização documentada. Prefira arquitetura, patrimônio, festas públicas, objetos, mapas, ilustrações históricas e acervos oficiais. Registre fonte, crédito, licença, texto alternativo e legenda; informe que imagens de rituais exigem autorização de quem é retratado.
+8. Quando uma tradição não tiver grupo próprio nos recortes do IBGE, marque `semGrupoIBGE: true` e informe `contexto` com o grupo censitário usado. Apresente esse grupo como contexto, nunca como retrato da tradição; explique as bases, os denominadores e qualquer percentual calculado.
 
 ## Roadmap
 
@@ -79,7 +81,7 @@ SocietyofFaith-App/
 - [x] Etapa 4: Série histórica, linha do tempo e acesso aos dados dos censos (1872–2022)
 - [x] Etapa 5: Índice e páginas de religiões (imagens com créditos pendentes de curadoria)
 - [x] Etapa 6: Umbanda, Candomblé e tradições indígenas
-- [ ] Etapa 7: Judaísmo, Islamismo, Budismo e Hinduísmo
+- [x] Etapa 7: Judaísmo, Islamismo, Budismo e Hinduísmo
 - [ ] Etapa 8: Testemunhas de Jeová, Mórmons, tradições esotéricas, Santo Daime e Sem religião
 - [ ] Etapa 9: Origens do cristianismo, Vídeos e Fontes
 - [ ] Etapa 10: Quiz, acessibilidade, polimento e deploy
@@ -115,6 +117,11 @@ SocietyofFaith-App/
 - Criadas `umbanda.html`, `candomble.html` e `tradicoes-indigenas.html`, com história, glossário, linha do tempo, dados dos censos, seção “Religião e sociedade” e navegação entre tradições.
 - Atualizados `religiao.html`, `js/dados-religioes.js`, `js/dados-sociedade.js`, `js/dados-paginas-religiao.js`, `js/menu-data.js`, `js/religioes.js`, `js/imagens-religioes.js`, `js/imagens.js`, `js/pagina-religiao.js` e `css/religiao-pagina.css`.
 - Adicionados comparativos 2010 × 2022, perfis combinados quando exigido pela divulgação do IBGE, tabelas acessíveis, callouts metodológicos e slots sensíveis de imagens ainda pendentes de curadoria.
+
+### Etapa 7 — 15/11/2026
+- Criadas `judaismo.html`, `islamismo.html`, `budismo.html` e `hinduismo.html`, com história em abas, linha do tempo, glossário, classificação, seção “Religião e sociedade”, galerias pendentes e navegação entre páginas.
+- Atualizados `js/menu-data.js`, `js/dados-religioes.js`, `js/dados-paginas-religiao.js`, `js/dados-sociedade.js`, `js/imagens-religioes.js`, `js/pagina-religiao.js`, `js/religioes.js`, `js/home.js`, `css/religioes.css` e `css/religiao-pagina.css`.
+- Incluídos dados censitários sem grupo próprio no IBGE, comparações contextuais identificadas, percentuais calculados, avisos de bases distintas, selos de conferência para `?dev=1` e consultas de imagem sem baixar arquivos.
 
 ## Fontes de dados
 

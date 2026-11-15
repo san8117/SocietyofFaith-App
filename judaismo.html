@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Conheça o judaísmo, sua história, diversidade e presença no Brasil.">
+  <title>Judaísmo — Society of Faith</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/graficos.css">
+  <link rel="stylesheet" href="css/religiao-pagina.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script type="module" src="js/components.js"></script>
+  <script type="module" src="js/pagina-religiao.js"></script>
+</head>
+<body data-religion="judaismo">
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Society of Faith, início">Society <span>of Faith</span></a>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu"><span class="sr-only">Abrir menu</span><span aria-hidden="true">☰</span></button>
+    <nav class="site-menu" id="site-menu" data-site-menu aria-label="Navegação principal"></nav>
+  </header>
+  <main id="conteudo" class="religion-page" data-new-religion-page>
+    <section class="hero page-hero">
+      <div class="container">
+        <p class="eyebrow">OUTRAS TRADIÇÕES · JUDAÍSMO</p>
+        <h1 id="page-title">Judaísmo</h1>
+        <p class="hero__lead">Uma das mais antigas tradições monoteístas, raiz de outras religiões e presente no Brasil desde o período colonial.</p>
+      </div>
+    </section>
+    <aside class="callout respect-callout container"><p>Esta página apresenta uma descrição geral e respeitosa. Cada comunidade tem seus próprios entendimentos, e a voz de quem pratica é a principal fonte sobre a própria fé.</p></aside>
+    <aside class="callout respect-callout container"><p>Judaísmo é uma religião; também existe uma identidade e uma história do povo judeu. Esta página trata da religião.</p></aside>
+    <nav class="section-nav" aria-label="Navegação nesta página"><div class="section-nav__inner" data-page-navigation></div></nav>
+    <noscript><p class="container callout">Ative o JavaScript para consultar as seções, os dados censitários e as imagens em curadoria desta página.</p></noscript>
+    <div data-religion-content></div>
+  </main>
+  <footer class="site-footer"><p>Society of Faith · Religião e Sociedade no Brasil · Créditos: dados do IBGE e textos de apoio das aulas.</p></footer>
+  <dialog class="image-lightbox" id="image-lightbox" aria-label="Imagem ampliada">
+    <button type="button" data-lightbox-close aria-label="Fechar imagem ampliada">Fechar</button>
+    <img alt="">
+    <p></p>
+  </dialog>
+</body>
+</html>

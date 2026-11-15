@@ -59,8 +59,9 @@ function montarReligiao(religiao) {
   const titulo = criar('h3', 'religion-product__title');
   const link = criar('a', '', religiao.nome);
   link.href = religiao.pagina || religiao.arquivo;
-  titulo.append(link, criar('span', 'religion-product__stat', DESTAQUES[religiao.id] || ''));
+  titulo.append(link, criar('span', 'religion-product__stat', religiao.destaque || DESTAQUES[religiao.id] || ''));
   corpo.append(titulo, criar('p', 'religion-product__summary', religiao.resumo || 'Conheça a história e a presença desta tradição no Brasil.'));
+  if (religiao.sub) corpo.append(criar('p', 'religion-product__sub', religiao.sub));
 
   const detalhes = criar('div', 'religion-product__details');
   const bolinhas = criar('span', 'religion-product__dots');

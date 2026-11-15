@@ -16,10 +16,10 @@ export const MENU = [
     ] },
     { titulo: 'Povos indígenas', itens: [{ rotulo: 'Tradições indígenas', href: 'tradicoes-indigenas.html' }] },
     { titulo: 'Outras tradições', itens: [
-      { rotulo: 'Judaísmo', breve: true },
-      { rotulo: 'Islamismo', breve: true },
-      { rotulo: 'Budismo', breve: true },
-      { rotulo: 'Hinduísmo', breve: true }
+      { rotulo: 'Judaísmo', href: 'judaismo.html' },
+      { rotulo: 'Islamismo', href: 'islamismo.html' },
+      { rotulo: 'Budismo', href: 'budismo.html' },
+      { rotulo: 'Hinduísmo', href: 'hinduismo.html' }
     ] },
     { titulo: 'Novas religiosidades e sem religião', itens: [
       { rotulo: 'Tradições esotéricas', breve: true },

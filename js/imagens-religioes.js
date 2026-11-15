@@ -6,7 +6,11 @@ const sugestoes = {
   espiritismo: ['Allan Kardec domínio público', 'espiritismo história Brasil', 'centro espírita Brasil', 'estudo espírita grupo', 'livro dos espíritos edição histórica', 'centro espírita arquitetura', 'biblioteca espírita'],
   umbanda: ['Zélio Fernandino de Moraes licença', 'Neves São Gonçalo Niterói mapa paisagem', 'Festa de Iemanjá Copacabana', 'Tenda de umbanda fachada arquitetura', 'Atabaque instrumento', 'Festa de Iemanjá Santos praia', 'Brasão Federação Umbanda licença'],
   candomble: ['Terreiro da Casa Branca Salvador fachada', 'Ilê Axé Iyá Nassô Oká', 'Lavagem do Bonfim Salvador', 'Festa de Iemanjá Rio Vermelho Salvador', 'Acarajé baiana de acarajé Salvador', 'Ilê Axé Opô Afonjá', 'Mãe Menininha do Gantois licença'],
-  'tradicoes-indigenas': ['Kuarup Alto Xingu autorização licença', 'Debret índios do Brasil domínio público', 'Terra Indígena Xingu mapa', 'Escola indígena aldeia Agência Brasil', 'Arte plumária indígena museu', 'Grafismo indígena cerâmica museu', 'Davi Kopenawa licença']
+  'tradicoes-indigenas': ['Kuarup Alto Xingu autorização licença', 'Debret índios do Brasil domínio público', 'Terra Indígena Xingu mapa', 'Escola indígena aldeia Agência Brasil', 'Arte plumária indígena museu', 'Grafismo indígena cerâmica museu', 'Davi Kopenawa licença'],
+  judaismo: ['Kahal Zur Israel synagogue Recife', 'Arch of Titus Menorah relief; Western Wall Jerusalem', 'Sinagoga Kahal Zur Israel Recife Rua do Bom Jesus', 'Sinagoga Shabat Rosh Hashaná Pessach mesa (objetos, sem pessoas)', 'Torah scroll', 'Menorah', 'Sinagoga Bom Retiro São Paulo; Sinagoga Porto Alegre Bom Fim'],
+  islamismo: ['Mesquita do Brás São Paulo; Mesquita Brasil', 'Kaaba Mecca calligraphy (caligrafia ou arquitetura, sem pessoas); Quran manuscript', 'Revolta dos Malês Salvador', 'Mesquita Foz do Iguaçu; Mesquita Brasil fachada', 'Arabic calligraphy', 'Mesquita arquitetura cúpula minarete', 'Alcorão manuscrito'],
+  budismo: ['Templo Zu Lai Cotia', 'Buda estátua Bodh Gaya; Sarnath Dhamek Stupa', 'Kasato Maru Santos 1908', 'Templo budista São Paulo Liberdade', 'Buddha statue', 'Roda do Dharma Dharmachakra', 'Templo budista Brasil'],
+  hinduismo: ['Templo hindu mandir fachada', 'Vedas manuscrito; Bhagavad Gita manuscrito', 'ISKCON Brasil templo', 'Festa Diwali lâmpadas (sem pessoas)', 'Om símbolo', 'Ganges rio Varanasi ghats (paisagem)', 'Estátua Ganesha']
 };
 
 export const IMAGENS_RELIGIOES = Object.fromEntries(
@@ -15,7 +19,7 @@ export const IMAGENS_RELIGIOES = Object.fromEntries(
     Object.fromEntries(slots.map((slot, indice) => [slot, {
       status: 'pendente',
       pendente: true,
-      sensivel: ['umbanda', 'candomble', 'tradicoes-indigenas'].includes(pagina),
+      sensivel: ['umbanda', 'candomble', 'tradicoes-indigenas', 'judaismo', 'islamismo', 'budismo', 'hinduismo'].includes(pagina),
       src: null,
       alt: `${slot === 'capa' ? 'Imagem de abertura' : `Imagem ${slot}`} sugerida para ${pagina.replaceAll('-', ' ')}: ${consultas[indice]}.`,
       legenda: `Sugestão de imagem: ${consultas[indice]}.`,
