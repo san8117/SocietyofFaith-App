@@ -27,7 +27,10 @@
         <p class="hero__lead">Um conjunto plural de igrejas e movimentos cristãos, com histórias, práticas e formas de organização distintas.</p>
       </div>
     </section>
-    <section class="container religion-article" aria-labelledby="intro-title">
+    <nav class="section-nav" aria-label="Navegação nesta página">
+      <div class="section-nav__inner"><a href="#panorama">Panorama</a><a href="#sociedade">Sociedade</a><a href="#censos">Censos</a><a href="#galeria">Galeria</a></div>
+    </nav>
+    <section class="container religion-article" id="panorama" aria-labelledby="intro-title">
       <div class="article-intro">
         <div>
           <p class="eyebrow">Panorama</p>
@@ -40,6 +43,7 @@
         <button role="tab" id="tab-history" aria-controls="panel-history" aria-selected="true">História</button>
         <button role="tab" id="tab-practice" aria-controls="panel-practice" aria-selected="false" tabindex="-1">Crenças e práticas</button>
         <button role="tab" id="tab-brazil" aria-controls="panel-brazil" aria-selected="false" tabindex="-1">No Brasil</button>
+        <button role="tab" id="tab-profile" aria-controls="censos" aria-selected="false" tabindex="-1">Perfil</button>
       </div>
       <section id="panel-history" class="article-panel" role="tabpanel" aria-labelledby="tab-history">
         <h2>Da Reforma a diferentes movimentos</h2>
@@ -64,7 +68,28 @@
         <div class="article-image" data-image-slot="brasil"></div>
       </section>
     </section>
-    <section class="container religion-article religion-numbers" aria-labelledby="numbers-title">
+    <section class="container religion-society" id="sociedade" aria-labelledby="society-title">
+      <div class="society-heading">
+        <p class="eyebrow">E2 · Religião e sociedade</p><h2 id="society-title">Religião e sociedade</h2>
+        <p>Como a tradição conversa com o mundo à sua volta: escola, saúde, festas, leis, família e convivência.</p>
+      </div>
+      <div class="society-layout" data-society>
+        <div class="society-navigation" data-society-tabs aria-label="Áreas de religião e sociedade"></div>
+        <div class="society-panels" data-society-panels>
+          <article class="society-static-panel" data-area="educacao"><h3>Educação</h3><p>Igrejas protestantes e evangélicas mantêm escolas e instituições de ensino superior confessionais.</p><h4>Exemplos</h4><ul><li><strong>Instituições confessionais:</strong> Mackenzie (presbiteriana), UMESP (metodista) e UNASP (adventista) são exemplos em São Paulo, previstos na LDB.</li><li><strong>Escola bíblica dominical:</strong> ensino religioso e comunitário nas igrejas.</li><li><strong>Alfabetização e leitura da Bíblia:</strong> o foco no texto bíblico incentivou, historicamente, a leitura.</li></ul><details class="society-static-views"><summary>Dois olhares</summary><div class="society-static-views__grid"><p><strong>Um olhar:</strong> Instituições confessionais oferecem ensino de qualidade com identidade própria.</p><p><strong>Outro olhar:</strong> O ensino confessional não deve se confundir com doutrinação na escola pública.</p></div></details><blockquote>Educação com identidade religiosa e ensino plural podem caminhar juntos?</blockquote><p class="society-source">Fonte: Aula 1 (Antropologia Cristã, UNASP); LDB 9.394/96, art. 19.</p></article>
+          <article class="society-static-panel" data-area="assistencia"><h3>Assistência social e comunidade</h3><p>Estudos e reportagens apontam a assistência social e o acolhimento comunitário como fatores de atração e fidelização, sobretudo em contextos de migração do campo para a cidade.</p><h4>Exemplos</h4><ul><li><strong>Êxodo rural:</strong> recém-chegados encontram rede de apoio na igreja.</li><li><strong>Ações sociais:</strong> distribuição de alimentos, atendimento e grupos de apoio.</li><li><strong>Linguagem acessível:</strong> culto e pregação mais próximos do cotidiano.</li></ul><details class="society-static-views"><summary>Dois olhares</summary><div class="society-static-views__grid"><p><strong>Um olhar:</strong> Para muitos, a igreja oferece pertencimento, apoio emocional e prático.</p><p><strong>Outro olhar:</strong> O Texto 01 lembra que a dimensão econômica também pode motivar conversões, o que merece análise cuidadosa.</p></div></details><blockquote>O que leva alguém a escolher uma comunidade religiosa?</blockquote><p class="society-source">Fonte: BBC News Brasil, “O que explica a multiplicação de igrejas” (Aula 3); Texto 01.</p></article>
+          <article class="society-static-panel" data-area="cultura"><h3>Cultura e mídia</h3><p>As igrejas evangélicas produzem cultura própria.</p><h4>Exemplos</h4><ul><li><strong>Música gospel:</strong> produção musical e festivais.</li><li><strong>Rádio, TV, internet e editoras:</strong> meios de comunicação e publicação próprios.</li><li><strong>Marcha para Jesus:</strong> evento de rua com grande participação; o ano de criação requer conferência.</li></ul><details class="society-static-views"><summary>Dois olhares</summary><div class="society-static-views__grid"><p><strong>Um olhar:</strong> A produção cultural fortalece a comunidade e gera economia criativa.</p><p><strong>Outro olhar:</strong> A fronteira entre evangelização, entretenimento e mercado pode ser debatida.</p></div></details><blockquote>Quando a cultura religiosa se torna cultura de massa?</blockquote><p class="society-source">Fonte: BBC News Brasil (Aula 3: “produtor de cultura”).</p></article>
+          <article class="society-static-panel" data-area="politica"><h3>Política e leis</h3><p>A Constituição de 1988 ampliou a liberdade religiosa, e a presença evangélica na vida pública cresceu.</p><h4>Exemplos</h4><ul><li><strong>Constituição Federal de 1988:</strong> apontada entre as mudanças legais que favoreceram a multiplicação de igrejas.</li><li><strong>Disputa de subcampos:</strong> segundo o Texto 01, a disputa entre religiões chegou ao Congresso Nacional e às câmaras estaduais e municipais.</li><li><strong>Pergunta de Lellis (Texto 02):</strong> cristãos disputam se Jesus defenderia a “direita” ou a “esquerda”.</li></ul><details class="society-static-views"><summary>Dois olhares</summary><div class="society-static-views__grid"><p><strong>Um olhar:</strong> Representar eleitores religiosos é parte legítima da democracia.</p><p><strong>Outro olhar:</strong> A laicidade exige cuidado para que leis não privilegiem uma única crença.</p></div></details><blockquote>Como separar convicção pessoal e regra para todos?</blockquote><p class="society-source">Fonte: Texto 01; Texto 02 (LELLIS, 2020); BBC News Brasil (Aula 3).</p></article>
+          <article class="society-static-panel" data-area="familia"><h3>Família e valores</h3><p>Muitas igrejas dão grande peso à vida familiar, à vida em comunidade e à conduta pessoal.</p><h4>Exemplos</h4><ul><li><strong>Culto e vida comunitária:</strong> grupos de jovens, casais e famílias.</li><li><strong>Perfil jovem:</strong> o Texto 01 aponta maior número de jovens e crianças entre evangélicos (Censo 2010).</li><li><strong>Mulheres:</strong> 55,4% dos evangélicos são mulheres (Censo 2022).</li></ul><details class="society-static-views"><summary>Dois olhares</summary><div class="society-static-views__grid"><p><strong>Um olhar:</strong> Para muitos fiéis, a igreja oferece rede de cuidado para a família.</p><p><strong>Outro olhar:</strong> Há debates sobre o papel das mulheres e das lideranças nas igrejas.</p></div></details><blockquote>Como a comunidade religiosa influencia escolhas familiares?</blockquote><p class="society-source">Fonte: Texto 01; IBGE, Censo 2022.</p></article>
+          <article class="society-static-panel" data-area="convivencia"><h3>Convivência e diversidade</h3><p>O crescimento evangélico acontece num país plural, com tensões e convivência.</p><h4>Exemplos</h4><ul><li><strong>Relações com religiões afro-brasileiras:</strong> o Texto 01 diz que o combate empreendido pelo neopentecostalismo não reduziu o número de adeptos das religiões afro.</li><li><strong>Trânsito entre igrejas:</strong> há circulação entre pentecostais e neopentecostais e também protestantes históricos que frequentam igrejas pentecostais.</li><li><strong>Intolerância religiosa:</strong> conflitos que contrariam princípios éticos e religiosos (Texto 01).</li></ul><details class="society-static-views"><summary>Dois olhares</summary><div class="society-static-views__grid"><p><strong>Um olhar:</strong> Liberdade de proselitismo faz parte da liberdade religiosa.</p><p><strong>Outro olhar:</strong> O respeito às outras religiões também é um direito protegido; ofensas e violência não são liberdade.</p></div></details><blockquote>Como convencer sem desrespeitar?</blockquote><p class="society-source">Fonte: Texto 01 (seção 4.2.2, “educar para a diversidade”); Aula 2 (charges sobre intolerância).</p></article>
+        </div>
+      </div>
+      <div class="society-links">
+        <a class="society-link-card" data-society-concept href="religiao.html#identidade"><span>Conceito relacionado</span><strong>Trânsito religioso e identidade (Hervieu-Léger)</strong><p data-concept-description>Os fiéis circulam entre igrejas e a identidade religiosa se revela nas interações com a sociedade, não só na doutrina.</p><span>Ver conceito →</span></a>
+        <a class="society-link-card" href="#censos"><span>Veja o perfil social nos censos</span><strong>Perfil do Censo</strong><p>Consulte os dados censitários sobre o grupo evangélico.</p><span>Abrir perfil →</span></a>
+      </div>
+    </section>
+    <section class="container religion-article religion-numbers" id="censos" aria-labelledby="tab-profile" role="tabpanel" tabindex="-1">
       <p class="eyebrow">Dados do IBGE</p>
       <h2 id="numbers-title">A categoria evangélica nos censos</h2>
       <p>Os dados mostram autodeclarações agregadas pelo IBGE. Eles não permitem, por si sós, descrever a diversidade interna das igrejas.</p>
@@ -85,7 +110,7 @@
       </details>
       <p class="method-note">Fonte: IBGE, Censos Demográficos 2010 e 2022. A série histórica apresenta as bases informadas para cada ano; o comparativo recente considera pessoas de 10 anos ou mais. Consulte a <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv102182.pdf" rel="noopener noreferrer">publicação do Censo 2022 sobre religiões<span class="sr-only"> (link externo)</span></a>, a <a href="https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/14244-asi-censo-2010-numero-de-catolicos-cai-e-aumenta-o-de-evangelicos-espiritas-e-sem-religiao" rel="noopener noreferrer">divulgação dos dados de 2010<span class="sr-only"> (link externo)</span></a> e as páginas do projeto <a href="brasil.html">Brasil em dados</a> e <a href="censos.html">história dos censos</a>.</p>
     </section>
-    <section class="container religion-gallery" aria-labelledby="gallery-title">
+    <section class="container religion-gallery" id="galeria" aria-labelledby="gallery-title">
       <p class="eyebrow">Galeria</p>
       <h2 id="gallery-title">Imagens e créditos</h2>
       <p>As imagens serão incluídas após curadoria de origem, direitos de uso, descrição alternativa e crédito. Não há imagens de terceiros carregadas nesta versão.</p>

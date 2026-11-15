@@ -27,7 +27,10 @@
         <p class="hero__lead">Uma doutrina espiritualista que se difundiu no Brasil e ganhou expressões próprias em diferentes comunidades.</p>
       </div>
     </section>
-    <section class="container religion-article" aria-labelledby="intro-title">
+    <nav class="section-nav" aria-label="Navegação nesta página">
+      <div class="section-nav__inner"><a href="#panorama">Panorama</a><a href="#sociedade">Sociedade</a><a href="#censos">Censos</a><a href="#galeria">Galeria</a></div>
+    </nav>
+    <section class="container religion-article" id="panorama" aria-labelledby="intro-title">
       <div class="article-intro">
         <div>
           <p class="eyebrow">Panorama</p>
@@ -40,6 +43,7 @@
         <button role="tab" id="tab-history" aria-controls="panel-history" aria-selected="true">História</button>
         <button role="tab" id="tab-practice" aria-controls="panel-practice" aria-selected="false" tabindex="-1">Ideias e práticas</button>
         <button role="tab" id="tab-brazil" aria-controls="panel-brazil" aria-selected="false" tabindex="-1">No Brasil</button>
+        <button role="tab" id="tab-profile" aria-controls="censos" aria-selected="false" tabindex="-1">Perfil</button>
       </div>
       <section id="panel-history" class="article-panel" role="tabpanel" aria-labelledby="tab-history">
         <h2>Da França do século XIX ao Brasil</h2>
@@ -63,7 +67,28 @@
         <div class="article-image" data-image-slot="brasil"></div>
       </section>
     </section>
-    <section class="container religion-article religion-numbers" aria-labelledby="numbers-title">
+    <section class="container religion-society" id="sociedade" aria-labelledby="society-title">
+      <div class="society-heading">
+        <p class="eyebrow">E2 · Religião e sociedade</p><h2 id="society-title">Religião e sociedade</h2>
+        <p>Como a tradição conversa com o mundo à sua volta: escola, saúde, festas, leis, família e convivência.</p>
+      </div>
+      <div class="society-layout" data-society>
+        <div class="society-navigation" data-society-tabs aria-label="Áreas de religião e sociedade"></div>
+        <div class="society-panels" data-society-panels>
+          <article class="society-static-panel" data-area="educacao"><h3>Educação e estudo</h3><p>A doutrina valoriza o estudo sistemático e a leitura.</p><h4>Exemplos</h4><ul><li><strong>Obras de Allan Kardec:</strong> base do estudo.</li><li><strong>Estudo sistematizado:</strong> os centros oferecem cursos e grupos de estudo; o nome do programa requer conferência.</li><li><strong>Perfil de escolaridade:</strong> 48,0% dos espíritas com 25 anos ou mais têm ensino superior (Censo 2022).</li></ul><details class="society-static-views"><summary>Dois olhares</summary><div class="society-static-views__grid"><p><strong>Um olhar:</strong> O estudo contínuo é parte da vida espírita e forma leitores críticos.</p><p><strong>Outro olhar:</strong> A associação entre religião e escolaridade tem muitas variáveis (renda, região, idade) e não deve ser lida como causa.</p></div></details><blockquote>O que o perfil de um grupo diz, e o que não diz?</blockquote><p class="society-source">Fonte: IBGE, Censo 2022 (Tabela 5).</p></article>
+          <article class="society-static-panel" data-area="assistencia"><h3>Assistência social e saúde</h3><p>A caridade é um princípio central e se traduz em ações sociais.</p><h4>Exemplos</h4><ul><li><strong>Centros espíritas:</strong> atendimento fraterno, oração e assistência a famílias.</li><li><strong>Instituições de saúde e assistência:</strong> mantidas por entidades espíritas em diversas cidades.</li><li><strong>“Médico dos pobres”:</strong> Bezerra de Menezes é lembrado por seu atendimento a pessoas pobres.</li></ul><details class="society-static-views"><summary>Dois olhares</summary><div class="society-static-views__grid"><p><strong>Um olhar:</strong> A caridade organizada atende pessoas e fortalece vínculos de solidariedade.</p><p><strong>Outro olhar:</strong> Práticas de cura espiritual convivem com o debate sobre o papel da medicina e da ciência.</p></div></details><blockquote>Como religião e saúde podem colaborar sem se confundir?</blockquote><p class="society-source">Fonte: Texto de apoio (história do espiritismo no Brasil).</p></article>
+          <article class="society-static-panel" data-area="cultura"><h3>Cultura e literatura</h3><p>A psicografia popularizou obras que alcançaram o grande público.</p><h4>Exemplos</h4><ul><li><strong>Chico Xavier:</strong> primeiro livro em 1932; Nosso Lar (1944).</li><li><strong>Cinema:</strong> Nosso Lar foi levado às telas; ano e direção precisam de conferência.</li><li><strong>Editoras e livrarias espíritas:</strong> publicação e circulação de obras espíritas.</li></ul><details class="society-static-views"><summary>Dois olhares</summary><div class="society-static-views__grid"><p><strong>Um olhar:</strong> A literatura mediúnica levou a doutrina a leitores de várias religiões.</p><p><strong>Outro olhar:</strong> Há quem veja as obras psicografadas como fé; outros as analisam como fenômeno literário.</p></div></details><blockquote>Uma obra mediúnica é religião, literatura ou ambas?</blockquote><p class="society-source">Fonte: Texto de apoio.</p></article>
+          <article class="society-static-panel" data-area="politica"><h3>Política e leis</h3><p>O espiritismo, como outras religiões de matriz não católica, já enfrentou restrições legais.</p><h4>Exemplos</h4><ul><li><strong>Código Penal de 1890:</strong> previa punição para práticas associadas ao espiritismo, à magia e ao curandeirismo; artigo e redação exata precisam de conferência.</li><li><strong>Estado laico:</strong> a liberdade de crença protegida hoje é fruto de lutas.</li></ul><details class="society-static-views"><summary>Dois olhares</summary><div class="society-static-views__grid"><p><strong>Um olhar:</strong> A liberdade religiosa é conquista que protege todas as crenças.</p><p><strong>Outro olhar:</strong> Ainda há debates sobre práticas de cura e o limite entre crença e exercício ilegal da medicina.</p></div></details><blockquote>Quem decide o que é religião e o que é crime?</blockquote><p class="society-source">Fonte: Texto de apoio (confirmar na legislação histórica).</p></article>
+          <article class="society-static-panel" data-area="familia"><h3>Família e valores</h3><p>O Evangelho no lar e a evangelização infantil levam a doutrina à vida familiar.</p><h4>Exemplos</h4><ul><li><strong>Evangelho no lar:</strong> leitura e reflexão em família.</li><li><strong>Reencarnação:</strong> visão de que o espírito evolui em várias vidas, o que influencia a forma de ver o sofrimento e a responsabilidade.</li><li><strong>Mulheres:</strong> 60,6% dos espíritas são mulheres (Censo 2022).</li></ul><details class="society-static-views"><summary>Dois olhares</summary><div class="society-static-views__grid"><p><strong>Um olhar:</strong> A ideia de evolução dá sentido a perdas e recomeços.</p><p><strong>Outro olhar:</strong> A reencarnação, pensada à luz de outras religiões, pode ser vista de formas bem diferentes.</p></div></details><blockquote>Como uma crença sobre a vida após a morte muda a vida de hoje?</blockquote><p class="society-source">Fonte: IBGE, Censo 2022; Texto 01 (reencarnacionismo).</p></article>
+          <article class="society-static-panel" data-area="convivencia"><h3>Convivência e diversidade</h3><p>O espiritismo dialoga e se confunde, na percepção popular, com outras tradições.</p><h4>Exemplos</h4><ul><li><strong>Espiritismo kardecista e Umbanda:</strong> tradições distintas; o censo as separa.</li><li><strong>Declarações por preconceito:</strong> o Texto 01 nota que muitos afro-brasileiros se declaram espíritas ou católicos, o que sugere subnotificação de umbandistas e candomblecistas.</li><li><strong>Reencarnação em outras religiões:</strong> ideias reencarnacionistas crescem até entre fiéis de religiões que as rejeitam.</li></ul><details class="society-static-views"><summary>Dois olhares</summary><div class="society-static-views__grid"><p><strong>Um olhar:</strong> A mistura de crenças é característica do campo religioso brasileiro.</p><p><strong>Outro olhar:</strong> Cada tradição quer ser reconhecida por seu próprio nome e história.</p></div></details><blockquote>Por que algumas pessoas escondem sua religião de origem?</blockquote><p class="society-source">Fonte: Texto 01 (seção 4.2.2).</p></article>
+        </div>
+      </div>
+      <div class="society-links">
+        <a class="society-link-card" data-society-concept href="religiao.html#identidade"><span>Conceito relacionado</span><strong>Dupla pertença e sincretismo</strong><p data-concept-description>Muitos brasileiros usam serviços de uma religião e se declaram de outra; o censo nem sempre capta essas fronteiras.</p><span>Ver conceito →</span></a>
+        <a class="society-link-card" href="#censos"><span>Veja o perfil social nos censos</span><strong>Perfil do Censo</strong><p>Consulte os dados censitários sobre o grupo espírita.</p><span>Abrir perfil →</span></a>
+      </div>
+    </section>
+    <section class="container religion-article religion-numbers" id="censos" aria-labelledby="tab-profile" role="tabpanel" tabindex="-1">
       <p class="eyebrow">Dados do IBGE</p>
       <h2 id="numbers-title">A categoria espírita nos censos</h2>
       <p>O gráfico apresenta percentuais do grupo espírita disponíveis na série e a comparação mais recente, conforme os dados do projeto. Categorias censitárias podem mudar ao longo do tempo.</p>
@@ -84,7 +109,7 @@
       </details>
       <p class="method-note">Fonte: IBGE, Censos Demográficos 2010 e 2022. A série histórica apresenta as bases informadas para cada ano; o comparativo recente considera pessoas de 10 anos ou mais. Consulte a <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv102182.pdf" rel="noopener noreferrer">publicação do Censo 2022 sobre religiões<span class="sr-only"> (link externo)</span></a>, a <a href="https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/14244-asi-censo-2010-numero-de-catolicos-cai-e-aumenta-o-de-evangelicos-espiritas-e-sem-religiao" rel="noopener noreferrer">divulgação dos dados de 2010<span class="sr-only"> (link externo)</span></a> e as páginas do projeto <a href="brasil.html">Brasil em dados</a> e <a href="censos.html">história dos censos</a>.</p>
     </section>
-    <section class="container religion-gallery" aria-labelledby="gallery-title">
+    <section class="container religion-gallery" id="galeria" aria-labelledby="gallery-title">
       <p class="eyebrow">Galeria</p>
       <h2 id="gallery-title">Imagens e créditos</h2>
       <p>As imagens serão incluídas após curadoria de origem, direitos de uso, descrição alternativa e crédito. Não há imagens de terceiros carregadas nesta versão.</p>

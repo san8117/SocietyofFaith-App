@@ -30,11 +30,12 @@ HTML5, CSS3 e JavaScript puro (ES modules). Sem frameworks e sem etapa de build.
 
 ```text
 SocietyofFaith-App/
-  brasil.html, censos.html, religioes.html
+  brasil.html, censos.html, religioes.html, religiao.html
   catolicismo.html, evangelicos.html, espiritismo.html
   css/       tokens.css, base.css, graficos.css, censos.css, religioes.css, religiao-pagina.css
   js/        components.js, menu-data.js, charts-core.js
              dados-ibge.js, dados-censos.js, dados-religioes.js
+             dados-sociedade.js
              graficos.js, censos.js, religioes.js, pagina-religiao.js
              imagens-religioes.js, imagens.js
   data/      dados complementares
@@ -55,6 +56,14 @@ SocietyofFaith-App/
 2. Em `js/imagens-religioes.js`, informe o caminho local, texto alternativo, autoria/crédito e licença do slot correspondente (`capa`, `origens`, `brasil`, `hoje` ou `galeria1`–`galeria3`).
 3. Só preencha `src`, `alt`, `credito` e `licenca` quando todos os dados estiverem confirmados. Os slots incompletos permanecem como placeholders; não use imagens sem procedência verificada.
 4. Confira a descrição alternativa, a atribuição visível e a abertura/fechamento da lightbox por teclado.
+
+## Como criar uma nova página de religião
+
+1. Reaproveite a estrutura, navegação, estilos e módulos de `catolicismo.html`, `evangelicos.html` e `espiritismo.html`.
+2. A seção **“Religião e sociedade”** é obrigatória no modelo e deve entrar entre “Para entender” e “Galeria”. Use o sistema comum de abas/painel, diagrama radial em telas largas e chips roláveis no mobile.
+3. Use as seis áreas padrão: educação, assistência e saúde, cultura, política e leis, família e valores, convivência e diversidade. Se houver menos material, a página pode ter quatro áreas, mas deve sempre incluir **convivência e diversidade**.
+4. Mantenha o texto completo no HTML em `<article>`s, com “Dois olhares” em `<details>` para o fallback sem JavaScript. O módulo interativo usa os dados correspondentes em `js/dados-sociedade.js`.
+5. Preserve o tom descritivo e neutro, registre uma fonte por área, evite alegações de causalidade e marque itens que precisem de checagem com `conferir: true` nos dados.
 
 ## Roadmap
 
@@ -89,6 +98,10 @@ SocietyofFaith-App/
 - Criados o índice de religiões, as páginas de Catolicismo, Evangélicos e Espiritismo e seus estilos, dados e módulos de interação.
 - Adicionado menu compartilhado com base declarativa, sistema de slots de imagem com placeholders/créditos e lightbox acessível, além da extração de utilitários comuns para `js/charts-core.js`.
 - As imagens permanecem pendentes de curadoria; não foram incluídas imagens externas sem licença e crédito confirmados.
+
+### Etapa 5.1 — 15/11/2026
+- Adicionada a seção “Religião e sociedade” ao modelo e às páginas de Catolicismo, Evangélicos e Espiritismo, com dados em `js/dados-sociedade.js`.
+- Incluídos navegação radial/chips acessível, progressão por teclado, suporte a movimento reduzido e links para conceitos e perfil censitário.
 
 ## Fontes de dados
 

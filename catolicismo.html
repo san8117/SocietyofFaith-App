@@ -27,8 +27,16 @@
         <p class="hero__lead">Uma tradição cristã global, marcada por comunidades, sacramentos, textos bíblicos e uma longa história de transformações.</p>
       </div>
     </section>
+    <nav class="section-nav" aria-label="Navegação nesta página">
+      <div class="section-nav__inner">
+        <a href="#panorama">Panorama</a>
+        <a href="#sociedade">Sociedade</a>
+        <a href="#censos">Censos</a>
+        <a href="#galeria">Galeria</a>
+      </div>
+    </nav>
 
-    <section class="container religion-article" aria-labelledby="intro-title">
+    <section class="container religion-article" id="panorama" aria-labelledby="intro-title">
       <div class="article-intro">
         <div>
           <p class="eyebrow">Panorama</p>
@@ -42,6 +50,7 @@
         <button role="tab" id="tab-history" aria-controls="panel-history" aria-selected="true">História</button>
         <button role="tab" id="tab-practice" aria-controls="panel-practice" aria-selected="false" tabindex="-1">Crenças e práticas</button>
         <button role="tab" id="tab-brazil" aria-controls="panel-brazil" aria-selected="false" tabindex="-1">No Brasil</button>
+        <button role="tab" id="tab-profile" aria-controls="censos" aria-selected="false" tabindex="-1">Perfil</button>
       </div>
       <section id="panel-history" class="article-panel" role="tabpanel" aria-labelledby="tab-history">
         <h2>Uma trajetória em contextos diversos</h2>
@@ -67,7 +76,62 @@
       </section>
     </section>
 
-    <section class="container religion-article religion-numbers" aria-labelledby="numbers-title">
+    <section class="container religion-society" id="sociedade" aria-labelledby="society-title">
+      <div class="society-heading">
+        <p class="eyebrow">E2 · Religião e sociedade</p>
+        <h2 id="society-title">Religião e sociedade</h2>
+        <p>Como a tradição conversa com o mundo à sua volta: escola, saúde, festas, leis, família e convivência.</p>
+      </div>
+      <div class="society-layout" data-society>
+        <div class="society-navigation" data-society-tabs aria-label="Áreas de religião e sociedade"></div>
+        <div class="society-panels" data-society-panels>
+          <article class="society-static-panel" data-area="educacao">
+            <h3>Educação</h3>
+            <p>A história da educação brasileira só pode ser compreendida à luz da relação com a Igreja Católica, que durante séculos teve papel central nas escolas.</p>
+            <h4>Exemplos</h4>
+            <ul><li><strong>Jesuítas (1549):</strong> chegam para fundar colégios e missões.</li><li><strong>Universidades confessionais:</strong> a LDB (art. 19) permite instituições confessionais, como a PUC-SP, católica.</li><li><strong>Ensino Religioso:</strong> componente curricular discutido em escolas públicas.</li></ul>
+            <details class="society-static-views"><summary>Dois olhares</summary><div class="society-static-views__grid"><p><strong>Um olhar:</strong> Escolas confessionais ampliaram o acesso à educação e formaram gerações de estudantes.</p><p><strong>Outro olhar:</strong> Num Estado laico (desde 1891), a escola pública deve tratar a religião de modo plural, sem privilegiar uma tradição.</p></div></details>
+            <blockquote>Como ensinar sobre religiões sem favorecer nenhuma?</blockquote><p class="society-source">Fonte: CARVALHO; CARVALHO, 2011, p. 56 (Aula 1, Antropologia Cristã, UNASP); LDB 9.394/96, art. 19.</p>
+          </article>
+          <article class="society-static-panel" data-area="assistencia">
+            <h3>Assistência social e saúde</h3><p>Instituições ligadas à Igreja atuam há séculos em saúde e assistência.</p>
+            <h4>Exemplos</h4><ul><li><strong>Santas Casas de Misericórdia:</strong> presentes no Brasil desde o século XVI.</li><li><strong>Pastoral da Criança:</strong> criada em 1983.</li><li><strong>Cáritas:</strong> rede católica de ação social.</li></ul>
+            <details class="society-static-views"><summary>Dois olhares</summary><div class="society-static-views__grid"><p><strong>Um olhar:</strong> A ação caritativa alcança quem o Estado nem sempre alcança.</p><p><strong>Outro olhar:</strong> Serviços essenciais dependem do Estado; a caridade não substitui políticas públicas.</p></div></details>
+            <blockquote>Qual é a diferença entre caridade e direito social?</blockquote><p class="society-source">Fonte: Texto de apoio; IBGE para o contexto social (links da página).</p>
+          </article>
+          <article class="society-static-panel" data-area="cultura">
+            <h3>Cultura e festas</h3><p>O calendário e a arte do país carregam marcas católicas.</p>
+            <h4>Exemplos</h4><ul><li><strong>Círio de Nazaré:</strong> festa em Belém desde 1793.</li><li><strong>Nossa Senhora Aparecida:</strong> padroeira do Brasil desde 1930; 12 de outubro é feriado nacional.</li><li><strong>Festas juninas:</strong> ligadas a santos como Santo Antônio, São João e São Pedro.</li><li><strong>Carnaval e Quaresma:</strong> o carnaval se relaciona ao calendário litúrgico.</li></ul>
+            <details class="society-static-views"><summary>Dois olhares</summary><div class="society-static-views__grid"><p><strong>Um olhar:</strong> Festas e romarias unem comunidades, preservam tradições e movimentam a cultura popular.</p><p><strong>Outro olhar:</strong> Há quem se sinta católico pela cultura, sem praticar; o censo registra “declarantes não praticantes”.</p></div></details>
+            <blockquote>Uma festa religiosa é fé, cultura ou as duas coisas?</blockquote><p class="society-source">Fonte: Texto 01 (declarantes não praticantes); Aulas 2 e 3.</p>
+          </article>
+          <article class="society-static-panel" data-area="politica">
+            <h3>Política e leis</h3><p>Do padroado à separação entre Igreja e Estado, a política brasileira sempre dialogou com o catolicismo.</p>
+            <h4>Exemplos</h4><ul><li><strong>Religião oficial do Império:</strong> o catolicismo foi a religião oficial no Império (1824).</li><li><strong>Estado laico:</strong> a separação entre Igreja e Estado foi estabelecida em 1891.</li><li><strong>CNBB (1952):</strong> reúne os bispos e participa do debate público.</li><li><strong>CEBs e Teologia da Libertação:</strong> a partir dos anos 1960 e 1970, ligam fé e justiça social.</li></ul>
+            <details class="society-static-views"><summary>Dois olhares</summary><div class="society-static-views__grid"><p><strong>Um olhar:</strong> A Igreja deu voz a causas sociais e à defesa de direitos.</p><p><strong>Outro olhar:</strong> Instituições religiosas, ao atuarem na política, devem respeitar a pluralidade de crenças.</p></div></details>
+            <blockquote>Até onde a religião pode influenciar uma lei num Estado laico?</blockquote><p class="society-source">Fonte: Texto de apoio (história do catolicismo no Brasil); Texto 01.</p>
+          </article>
+          <article class="society-static-panel" data-area="familia">
+            <h3>Família e valores</h3><p>Ritos como batismo e matrimônio marcam a vida de muitas famílias.</p>
+            <h4>Exemplos</h4><ul><li><strong>Batismo e primeira comunhão:</strong> ritos de passagem.</li><li><strong>Casamento religioso:</strong> uma celebração religiosa presente na vida de algumas famílias.</li><li><strong>Debates públicos:</strong> posições da Igreja sobre família e vida participam do debate, onde convivem opiniões diversas, inclusive entre católicos.</li></ul>
+            <details class="society-static-views"><summary>Dois olhares</summary><div class="society-static-views__grid"><p><strong>Um olhar:</strong> Para muitos, os ritos dão sentido e vínculo comunitário.</p><p><strong>Outro olhar:</strong> Para outros, as normas da instituição nem sempre acompanham a vida das pessoas.</p></div></details>
+            <blockquote>Pertencer a uma religião é seguir todas as suas regras?</blockquote><p class="society-source">Fonte: Texto 01 (declarantes não praticantes; fronteiras tênues).</p>
+          </article>
+          <article class="society-static-panel" data-area="convivencia">
+            <h3>Convivência e diversidade</h3><p>No Brasil, o catolicismo conviveu e se misturou com outras tradições.</p>
+            <h4>Exemplos</h4><ul><li><strong>Sincretismo:</strong> aproximações entre tradições católicas e religiões afro-brasileiras, sem reduzir suas diferenças.</li><li><strong>Dupla pertença:</strong> frequentar mais de uma religião.</li><li><strong>Trânsito religioso:</strong> a queda católica — de 99,7% em 1872 a 56,7% em 2022 — vem junto de maior diversidade.</li></ul>
+            <details class="society-static-views"><summary>Dois olhares</summary><div class="society-static-views__grid"><p><strong>Um olhar:</strong> O encontro de tradições é parte da riqueza cultural brasileira.</p><p><strong>Outro olhar:</strong> Sincretismo também nasceu de imposição e apagamento de religiões africanas e indígenas.</p></div></details>
+            <blockquote>Quando a mistura é troca e quando é imposição?</blockquote><p class="society-source">Fonte: Texto 01; Aulas 2 e 3 (sincretismo, dupla pertença, trânsito religioso); IBGE.</p>
+          </article>
+        </div>
+      </div>
+      <div class="society-links">
+        <a class="society-link-card" data-society-concept href="religiao.html#identidade"><span>Conceito relacionado</span><strong>Campo religioso (Bourdieu)</strong><p data-concept-description>Por muito tempo, o catolicismo foi a religião de referência do país, o que muda a forma como as demais tradições aparecem no campo religioso.</p><span>Ver conceito →</span></a>
+        <a class="society-link-card" href="#censos"><span>Veja o perfil social nos censos</span><strong>Perfil do Censo</strong><p>Consulte os dados censitários sobre o grupo católico.</p><span>Abrir perfil →</span></a>
+      </div>
+    </section>
+
+    <section class="container religion-article religion-numbers" id="censos" role="tabpanel" aria-labelledby="tab-profile" tabindex="-1">
       <p class="eyebrow">Dados do IBGE</p>
       <h2 id="numbers-title">A categoria católica nos censos</h2>
       <p>Os percentuais abaixo representam autodeclaração no grupo de religião divulgado pelo IBGE. Séries antigas podem ter bases populacionais e classificações distintas.</p>
@@ -89,7 +153,7 @@
       <p class="method-note">Fonte: IBGE, Censos Demográficos 2010 e 2022. A série histórica apresenta as bases informadas para cada ano; o comparativo recente considera pessoas de 10 anos ou mais. Consulte a <a href="https://biblioteca.ibge.gov.br/visualizacao/livros/liv102182.pdf" rel="noopener noreferrer">publicação do Censo 2022 sobre religiões<span class="sr-only"> (link externo)</span></a>, a <a href="https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/14244-asi-censo-2010-numero-de-catolicos-cai-e-aumenta-o-de-evangelicos-espiritas-e-sem-religiao" rel="noopener noreferrer">divulgação dos dados de 2010<span class="sr-only"> (link externo)</span></a> e as páginas do projeto <a href="brasil.html">Brasil em dados</a> e <a href="censos.html">história dos censos</a>.</p>
     </section>
 
-    <section class="container religion-gallery" aria-labelledby="gallery-title">
+    <section class="container religion-gallery" id="galeria" aria-labelledby="gallery-title">
       <p class="eyebrow">Galeria</p>
       <h2 id="gallery-title">Imagens e créditos</h2>
       <p>As imagens serão incluídas após curadoria de origem, direitos de uso, descrição alternativa e crédito. Não há imagens de terceiros carregadas nesta versão.</p>
