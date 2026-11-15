@@ -1,4 +1,5 @@
 import { ANOS_SEM_CENSO, CENSOS, LINKS, QUEDA_CATOLICOS, SERIE } from './dados-censos.js';
+import { initCarrossel } from './carrossel.js';
 import {
   aplicarTema as reconstruirTema,
   formatarNumero,
@@ -279,6 +280,7 @@ function montarLinhaDoTempo() {
     trilha.append(card);
   });
   document.querySelector('#census-count').textContent = `Mostrando ${CENSOS.length} de ${CENSOS.length} censos`;
+  initCarrossel(trilha, { autoplay: false });
   observarRevelacao();
 }
 
@@ -400,24 +402,6 @@ function configurarTimeline() {
       serie.update();
       anunciar(`${faixas[id].nome} ${seriesAtivas.has(id) ? 'mostrada' : 'ocultada'} no gráfico.`);
     });
-  });
-  const trilha = document.querySelector('#timeline-track');
-  document.querySelectorAll('[data-scroll]').forEach((botao) => {
-    botao.addEventListener('click', () => {
-      const distancia = Math.max(trilha.clientWidth * 0.8, 260);
-      trilha.scrollBy({
-        left: botao.dataset.scroll === 'forward' ? distancia : -distancia,
-        behavior: movimentoReduzido.matches ? 'auto' : 'smooth'
-      });
-    });
-  });
-  trilha.addEventListener('keydown', (evento) => {
-    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(evento.key)) return;
-    evento.preventDefault();
-    const behavior = movimentoReduzido.matches ? 'auto' : 'smooth';
-    if (evento.key === 'Home') trilha.scrollTo({ left: 0, behavior });
-    else if (evento.key === 'End') trilha.scrollTo({ left: trilha.scrollWidth, behavior });
-    else trilha.scrollBy({ left: evento.key === 'ArrowRight' ? 280 : -280, behavior });
   });
   const dialogo = document.querySelector('#census-dialog');
   dialogo.addEventListener('close', () => ultimoGatilho?.focus());

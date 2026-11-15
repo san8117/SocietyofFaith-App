@@ -47,52 +47,11 @@ body {
   margin-inline: auto;
 }
 
-.site-header {
-  position: sticky;
-  z-index: 20;
-  top: 0;
-  display: flex;
-  min-height: var(--header-height);
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.75rem max(1.25rem, calc((100vw - 72rem) / 2));
-}
-
-.brand {
-  color: var(--ink);
-  font-family: Georgia, serif;
-  font-size: 1.25rem;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.brand span {
-  color: var(--accent);
-  font-style: italic;
-}
-
 .header-section,
 .data-note,
 .site-footer {
   color: var(--ink-soft);
   font-size: 0.9rem;
-}
-
-.skip-link {
-  position: fixed;
-  z-index: 40;
-  top: 0.5rem;
-  left: 0.5rem;
-  transform: translateY(-160%);
-  border-radius: 0.4rem;
-  background: var(--surface);
-  color: var(--ink);
-  padding: 0.75rem 1rem;
-}
-
-.skip-link:focus {
-  transform: translateY(0);
 }
 
 .page-hero {

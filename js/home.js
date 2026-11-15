@@ -1,6 +1,7 @@
-import { COMPARATIVO } from './dados-ibge.js';
+import { COMPARATIVO, DENOMINACOES_2022 } from './dados-ibge.js';
 import { RELIGIOES } from './dados-religioes.js';
 import { IMAGENS_RELIGIOES } from './imagens-religioes.js';
+import { initCarrossel } from './carrossel.js';
 
 const CRIADORES = [
   'Guilherme Oliveira de Santana',
@@ -10,12 +11,19 @@ const CRIADORES = [
   'Kaue Bueno'
 ];
 
+const percentual = (valor) => `${valor.toLocaleString('pt-BR', { minimumFractionDigits: 1 })}%`;
+const denominacao = (nome) => DENOMINACOES_2022.find((item) => item.nome === nome)?.pct;
 const DESTAQUES = {
-  catolicismo: '56,7%',
-  evangelicos: '26,9%',
-  umbanda: `${COMPARATIVO[2022][3].toLocaleString('pt-BR', { minimumFractionDigits: 1 })}%`,
-  candomble: `${COMPARATIVO[2022][3].toLocaleString('pt-BR', { minimumFractionDigits: 1 })}%`,
-  'tradicoes-indigenas': `${COMPARATIVO[2022][4].toLocaleString('pt-BR', { minimumFractionDigits: 1 })}%`
+  catolicismo: percentual(COMPARATIVO[2022][0]),
+  evangelicos: percentual(COMPARATIVO[2022][1]),
+  umbanda: percentual(denominacao('Umbanda')),
+  candomble: percentual(denominacao('Candomblé')),
+  'tradicoes-indigenas': percentual(COMPARATIVO[2022][4])
+};
+const SUBTITULOS_DESTAQUES = {
+  umbanda: 'microdados do Censo 2022',
+  candomble: 'microdados do Censo 2022',
+  'tradicoes-indigenas': 'Censo 2022 · população 10+'
 };
 
 const CORES = ['#A8502F', '#D9A58B', '#6B645D', '#E6DDD3'];
@@ -61,7 +69,8 @@ function montarReligiao(religiao) {
   link.href = religiao.pagina || religiao.arquivo;
   titulo.append(link, criar('span', 'religion-product__stat', religiao.destaque || DESTAQUES[religiao.id] || ''));
   corpo.append(titulo, criar('p', 'religion-product__summary', religiao.resumo || 'Conheça a história e a presença desta tradição no Brasil.'));
-  if (religiao.sub) corpo.append(criar('p', 'religion-product__sub', religiao.sub));
+  const subtitulo = religiao.sub || SUBTITULOS_DESTAQUES[religiao.id];
+  if (subtitulo) corpo.append(criar('p', 'religion-product__sub', subtitulo));
 
   const detalhes = criar('div', 'religion-product__details');
   const bolinhas = criar('span', 'religion-product__dots');
@@ -81,6 +90,7 @@ const listaReligioes = document.querySelector('[data-home-religions]');
 if (listaReligioes) {
   const prontas = RELIGIOES.filter((religiao) => religiao.status === 'pronta' && (religiao.pagina || religiao.arquivo));
   listaReligioes.replaceChildren(...prontas.map(montarReligiao));
+  initCarrossel(listaReligioes, { autoplay: true, intervalo: 4500 });
 }
 
 const listaCriadores = document.querySelector('[data-home-creators]');
@@ -119,12 +129,4 @@ document.querySelectorAll('[data-counter]').forEach((contador) => {
   requestAnimationFrame(atualizar);
 });
 
-const trilha = document.querySelector('#home-showcase');
-document.querySelector('[data-carousel-prev]')?.addEventListener('click', () => {
-  if (!trilha) return;
-  trilha.scrollBy({ left: -trilha.clientWidth * 0.8, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
-});
-document.querySelector('[data-carousel-next]')?.addEventListener('click', () => {
-  if (!trilha) return;
-  trilha.scrollBy({ left: trilha.clientWidth * 0.8, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
-});
+initCarrossel(document.querySelector('#home-showcase'), { autoplay: true, intervalo: 4500 });

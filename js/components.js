@@ -2,12 +2,78 @@ import { MENU } from './menu-data.js';
 
 const botaoMenu = document.querySelector('[data-menu-toggle]');
 const menu = document.querySelector('[data-site-menu]');
+const atrasosAbertura = new WeakMap();
+const atrasosFechamento = new WeakMap();
 
 function criar(tag, classe, texto) {
   const elemento = document.createElement(tag);
   if (classe) elemento.className = classe;
   if (texto) elemento.textContent = texto;
   return elemento;
+}
+
+function limparAtraso(mapa, item) {
+  const atraso = mapa.get(item);
+  if (atraso) window.clearTimeout(atraso);
+  mapa.delete(item);
+}
+
+function obterBotao(item) {
+  return item.querySelector('.menu-dropdown__toggle');
+}
+
+function obterPainel(item) {
+  return item.querySelector('.menu-panel');
+}
+
+function posicionarPainel(item) {
+  if (matchMedia('(max-width: 899px)').matches) return;
+  const painel = obterPainel(item);
+  const limites = item.getBoundingClientRect();
+  const megaMenu = item.classList.contains('menu-item--religioes');
+  const largura = Math.min(megaMenu ? 896 : 288, window.innerWidth - 32);
+  const esquerda = megaMenu
+    ? (window.innerWidth - largura) / 2
+    : Math.max(16, Math.min(limites.left, window.innerWidth - largura - 16));
+  painel.style.left = `${esquerda - limites.left}px`;
+}
+
+function definirGrupos(item, expandir) {
+  if (!matchMedia('(min-width: 900px)').matches) return;
+  item.querySelectorAll('.menu-column').forEach((coluna) => {
+    coluna.classList.toggle('is-expanded', expandir);
+    coluna.querySelector('.menu-column__toggle')?.setAttribute('aria-expanded', String(expandir));
+  });
+}
+
+function fecharItem(item, devolverFoco = false) {
+  limparAtraso(atrasosAbertura, item);
+  limparAtraso(atrasosFechamento, item);
+  item.classList.remove('is-open');
+  item.removeAttribute('data-pinned');
+  obterBotao(item).setAttribute('aria-expanded', 'false');
+  obterPainel(item).hidden = true;
+  definirGrupos(item, false);
+  if (devolverFoco) obterBotao(item).focus();
+}
+
+function fecharSubmenus(devolverFoco = false) {
+  const abertos = [...document.querySelectorAll('.menu-item.is-open')];
+  abertos.forEach((item, index) => fecharItem(item, devolverFoco && index === 0));
+}
+
+function abrirItem(item, fixar = false) {
+  document.querySelectorAll('.menu-item.is-open').forEach((outro) => {
+    if (outro !== item) fecharItem(outro);
+  });
+  limparAtraso(atrasosAbertura, item);
+  limparAtraso(atrasosFechamento, item);
+  item.classList.add('is-open');
+  if (fixar) item.dataset.pinned = 'true';
+  obterBotao(item).setAttribute('aria-expanded', 'true');
+  obterPainel(item).hidden = false;
+  posicionarPainel(item);
+  definirGrupos(item, true);
 }
 
 function criarLink(item) {
@@ -24,10 +90,23 @@ function criarLink(item) {
   return link;
 }
 
+function navegarItensMenu(evento, raiz) {
+  if (!['ArrowDown', 'ArrowUp'].includes(evento.key)) return;
+  const itens = [...raiz.querySelectorAll('a, button')].filter((item) => (
+    !item.closest('[hidden]') && item.getClientRects().length > 0
+  ));
+  const atual = itens.indexOf(evento.target.closest('a, button'));
+  if (atual < 0 || !itens.length) return;
+  evento.preventDefault();
+  const passo = evento.key === 'ArrowDown' ? 1 : -1;
+  itens[(atual + passo + itens.length) % itens.length].focus();
+}
+
 function renderizarItem(item, indice) {
   if (!item.grupos) return criarLink(item);
 
-  const raiz = criar('div', `menu-dropdown menu-dropdown--${item.rotulo.toLowerCase()}`);
+  const nome = item.rotulo === 'Religiões' ? 'religioes' : 'dados';
+  const raiz = criar('div', `menu-item menu-dropdown menu-item--${nome}`);
   const botao = criar('button', 'menu-dropdown__toggle', item.rotulo);
   const panelId = `menu-panel-${indice}`;
   botao.type = 'button';
@@ -48,10 +127,8 @@ function renderizarItem(item, indice) {
     const coluna = criar('section', 'menu-column');
     const titulo = criar('h2');
     const toggleGrupo = criar('button', 'menu-column__toggle', grupo.titulo);
-    const inicialmenteExpandido = matchMedia('(min-width: 900px)').matches;
-    if (inicialmenteExpandido) coluna.classList.add('is-expanded');
     toggleGrupo.type = 'button';
-    toggleGrupo.setAttribute('aria-expanded', String(inicialmenteExpandido));
+    toggleGrupo.setAttribute('aria-expanded', 'false');
     toggleGrupo.addEventListener('click', () => {
       const expandido = coluna.classList.toggle('is-expanded');
       toggleGrupo.setAttribute('aria-expanded', String(expandido));
@@ -62,62 +139,45 @@ function renderizarItem(item, indice) {
     coluna.append(titulo, lista);
     painel.append(coluna);
   });
+
   raiz.append(botao, painel);
-  botao.addEventListener('click', () => alternarDropdown(raiz, !raiz.classList.contains('is-open')));
+  botao.addEventListener('click', () => {
+    if (raiz.classList.contains('is-open')) fecharItem(raiz);
+    else abrirItem(raiz, true);
+  });
   raiz.addEventListener('mouseenter', () => {
-    if (matchMedia('(min-width: 900px)').matches) alternarDropdown(raiz, true);
+    if (!matchMedia('(pointer: fine)').matches || raiz.hasAttribute('data-pinned')) return;
+    limparAtraso(atrasosFechamento, raiz);
+    limparAtraso(atrasosAbertura, raiz);
+    atrasosAbertura.set(raiz, window.setTimeout(() => abrirItem(raiz), 80));
   });
   raiz.addEventListener('mouseleave', () => {
-    if (matchMedia('(min-width: 900px)').matches) alternarDropdown(raiz, false);
+    if (!matchMedia('(pointer: fine)').matches || raiz.hasAttribute('data-pinned')) return;
+    limparAtraso(atrasosAbertura, raiz);
+    limparAtraso(atrasosFechamento, raiz);
+    atrasosFechamento.set(raiz, window.setTimeout(() => {
+      if (!raiz.matches(':hover') && !raiz.contains(document.activeElement)) fecharItem(raiz);
+    }, 250));
   });
-  raiz.addEventListener('keydown', (evento) => navegarItensMenu(evento, raiz));
+  raiz.addEventListener('focusout', () => {
+    window.setTimeout(() => {
+      if (!raiz.contains(document.activeElement) && !raiz.matches(':hover')) fecharItem(raiz);
+    }, 0);
+  });
+  raiz.addEventListener('keydown', (evento) => {
+    if (evento.key === 'Escape') {
+      evento.preventDefault();
+      evento.stopPropagation();
+      fecharItem(raiz, true);
+      return;
+    }
+    navegarItensMenu(evento, raiz);
+  });
   return raiz;
 }
 
-function alternarDropdown(raiz, aberto) {
-  if (aberto) document.querySelectorAll('.menu-dropdown.is-open').forEach((outro) => {
-    if (outro === raiz) return;
-    outro.classList.remove('is-open');
-    outro.querySelector('.menu-dropdown__toggle').setAttribute('aria-expanded', 'false');
-    outro.querySelector('.menu-panel').hidden = true;
-    outro.querySelectorAll('.menu-column').forEach((grupo) => {
-      grupo.classList.remove('is-expanded');
-      grupo.querySelector('.menu-column__toggle')?.setAttribute('aria-expanded', 'false');
-    });
-  });
-  const botao = raiz.querySelector('.menu-dropdown__toggle');
-  const painel = raiz.querySelector('.menu-panel');
-  raiz.classList.toggle('is-open', aberto);
-  botao.setAttribute('aria-expanded', String(aberto));
-  painel.hidden = !aberto;
-  if (aberto && matchMedia('(min-width: 900px)').matches) {
-    raiz.querySelectorAll('.menu-column').forEach((grupo) => {
-      grupo.classList.add('is-expanded');
-      grupo.querySelector('.menu-column__toggle')?.setAttribute('aria-expanded', 'true');
-    });
-  }
-  if (!aberto) raiz.querySelectorAll('.menu-column').forEach((grupo) => {
-    grupo.classList.remove('is-expanded');
-    grupo.querySelector('.menu-column__toggle')?.setAttribute('aria-expanded', 'false');
-  });
-}
-
-function navegarItensMenu(evento, raiz) {
-  const itens = [...raiz.querySelectorAll('a, button')].filter((item) => (
-    !item.closest('[hidden]') && item.getClientRects().length > 0
-  ));
-  const atual = itens.indexOf(evento.target.closest('a, button'));
-  let proximo = null;
-  if (evento.key === 'ArrowDown') proximo = (atual + 1) % itens.length;
-  if (evento.key === 'ArrowUp') proximo = (atual - 1 + itens.length) % itens.length;
-  if (proximo !== null) {
-    evento.preventDefault();
-    itens[proximo]?.focus();
-  }
-}
-
 function fecharTudo(devolverFoco = false) {
-  document.querySelectorAll('.menu-dropdown.is-open').forEach((raiz) => alternarDropdown(raiz, false));
+  fecharSubmenus();
   menu.classList.remove('is-open');
   botaoMenu.setAttribute('aria-expanded', 'false');
   botaoMenu.querySelector('.sr-only').textContent = 'Abrir menu';
@@ -131,6 +191,7 @@ if (menu && botaoMenu) {
 
   botaoMenu.addEventListener('click', () => {
     const aberto = botaoMenu.getAttribute('aria-expanded') !== 'true';
+    if (!aberto) fecharSubmenus();
     botaoMenu.setAttribute('aria-expanded', String(aberto));
     botaoMenu.querySelector('.sr-only').textContent = aberto ? 'Fechar menu' : 'Abrir menu';
     menu.classList.toggle('is-open', aberto);
@@ -143,6 +204,15 @@ if (menu && botaoMenu) {
     if (!evento.target.closest('.site-header')) fecharTudo();
   });
   document.addEventListener('keydown', (evento) => {
-    if (evento.key === 'Escape') fecharTudo(true);
+    if (evento.key !== 'Escape') return;
+    const itemAberto = document.querySelector('.menu-item.is-open');
+    if (itemAberto) {
+      fecharItem(itemAberto, true);
+    } else if (menu.classList.contains('is-open')) {
+      fecharTudo(true);
+    }
+  });
+  window.addEventListener('resize', () => {
+    document.querySelectorAll('.menu-item.is-open').forEach(posicionarPainel);
   });
 }

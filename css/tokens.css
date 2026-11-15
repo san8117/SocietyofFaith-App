@@ -16,6 +16,7 @@
   --accent-button: var(--accent);
   --accent-hover: color-mix(in srgb, var(--accent) 88%, var(--ink));
   --section-space: 4rem;
+  --font-sans: system-ui, sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {

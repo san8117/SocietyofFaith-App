@@ -7,6 +7,7 @@ import { PAGINAS_RELIGIAO } from './dados-paginas-religiao.js';
 import { IMAGENS_RELIGIOES } from './imagens-religioes.js';
 import { aplicarTema, formatarPercentual, gerarTabela, opcoesBase, observarGraficos } from './charts-core.js';
 import { montarImagens } from './imagens.js';
+import { initCarrossel } from './carrossel.js';
 
 const slug = document.body.dataset.religion;
 const graficos = new Map();
@@ -518,6 +519,9 @@ function renderizarHistoria(conteudo, pagina) {
   });
   section.append(tabs, ...panels);
   const timeline = criarElemento('ol', 'timeline-list');
+  timeline.id = `${slug}-timeline`;
+  timeline.tabIndex = 0;
+  timeline.setAttribute('aria-label', `Linha do tempo de ${pagina.title}. Use as setas do teclado para percorrer.`);
   pagina.timeline.forEach((item) => {
     const li = criarElemento('li');
     const strong = criarElemento('strong', '', `${item.year}: `);
@@ -930,6 +934,7 @@ function renderizarGaleria(conteudo, pagina) {
   section.append(criarElemento('p', '', 'As imagens permanecem pendentes de curadoria de origem, autorização, direitos de uso, descrição alternativa e crédito. Priorizaremos arquitetura, patrimônio, festas públicas, objetos, mapas, ilustrações históricas e acervos oficiais.'));
   section.append(criarElemento('div', 'image-gallery'));
   section.querySelector('.image-gallery').dataset.imageGallery = '';
+  section.querySelector('[data-image-gallery]').setAttribute('aria-label', `Galeria de imagens de ${pagina.title}`);
   const credits = criarElemento('details', 'accordion');
   credits.append(criarElemento('summary', '', 'Créditos das imagens'));
   credits.append(criarElemento('p', '', pagina.imageSensitivityCallout
@@ -1077,6 +1082,9 @@ if (!renderizarPaginaNova()) gerarTabelas();
 renderizarNavegacaoReligioes();
 configurarAbas();
 montarGaleria();
+document.querySelectorAll('.timeline-list, [data-image-gallery]').forEach((trilha) => {
+  initCarrossel(trilha, { autoplay: false });
+});
 montarSociedade();
 configurarScrollspy();
 iniciarGraficos();

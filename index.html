@@ -18,7 +18,7 @@
   <script type="module" src="js/home.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Society of Faith, início">Society <span>of Faith</span></a>
     <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu">
@@ -27,7 +27,7 @@
     <nav class="site-menu" id="site-menu" data-site-menu aria-label="Navegação principal"></nav>
   </header>
 
-  <main id="conteudo">
+  <main id="conteudo" tabindex="-1">
     <section class="home-hero" aria-labelledby="home-title">
       <div class="home-container home-hero__inner">
         <p class="eyebrow">RELIGIÃO E SOCIEDADE NO BRASIL</p>
@@ -37,6 +37,23 @@
           <a class="button--primary home-button" href="religioes.html">Explorar as religiões</a>
           <a class="button--secondary home-button" href="brasil.html">Ver os dados</a>
         </div>
+      </div>
+    </section>
+
+    <section class="home-headline" aria-labelledby="headline-title">
+      <div class="home-container home-headline__inner">
+        <div class="home-headline__copy">
+          <p class="eyebrow">ATUALIZAÇÃO CENSITÁRIA · IBGE</p>
+          <h2 id="headline-title">O retrato religioso do Brasil ganhou novos recortes</h2>
+          <p>Os resultados do Censo 2022 ajudam a acompanhar como a população se identifica em matéria de fé. Cada página informa quando o IBGE divulga uma tradição em grupo agregado ou nos microdados.</p>
+          <a class="text-link" href="brasil.html">Explore os dados do Censo <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="home-headline__stamp" aria-label="Censo Demográfico 2022, população com 10 anos ou mais">
+          <span>CENSO</span>
+          <strong>2022</strong>
+          <small>religião declarada<br>população 10+</small>
+        </div>
+        <p class="home-headline__source">Fonte: IBGE, Censo Demográfico 2022. As páginas identificam bases e ressalvas específicas.</p>
       </div>
     </section>
 
@@ -69,12 +86,12 @@
     </section>
 
     <section class="home-section showcase" data-reveal aria-labelledby="showcase-title">
-      <div class="home-container showcase__inner">
+      <div class="home-container showcase__inner" data-carousel-shell>
         <div class="home-section__heading">
           <p class="eyebrow">UM PERCURSO DE DESCOBERTA</p>
           <h2 id="showcase-title">O que você vai encontrar</h2>
         </div>
-        <div class="showcase__controls">
+        <div class="showcase__controls" data-carousel-controls aria-label="Controles da vitrine">
           <button class="carousel-arrow" type="button" data-carousel-prev aria-label="Rolar para os conteúdos anteriores" aria-controls="home-showcase">
             <span aria-hidden="true">←</span>
           </button>
@@ -85,7 +102,7 @@
         <svg class="showcase__line" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
           <path d="M-20 112 C95 12 174 190 288 98 S470 18 570 111 744 182 835 83 970 49 1020 105"></path>
         </svg>
-        <div class="showcase__track" id="home-showcase" tabindex="0" aria-label="Conteúdos do projeto, role horizontalmente para explorar">
+        <div class="showcase__track" id="home-showcase" data-carousel tabindex="0" aria-label="Conteúdos do projeto, role horizontalmente para explorar">
           <article class="showcase-card">
             <span class="showcase-card__number">01</span>
             <h3>Conceitos</h3>
@@ -112,18 +129,6 @@
           </article>
           <article class="showcase-card showcase-card--soon">
             <span class="showcase-card__number">05</span><span class="showcase-card__badge">em breve</span>
-            <h3>Vídeos</h3>
-            <p>Conteúdos audiovisuais para aprofundar a conversa.</p>
-            <span class="showcase-card__status">Estamos preparando</span>
-          </article>
-          <article class="showcase-card showcase-card--soon">
-            <span class="showcase-card__number">06</span><span class="showcase-card__badge">em breve</span>
-            <h3>Quiz</h3>
-            <p>Teste o que aprendeu ao longo do percurso.</p>
-            <span class="showcase-card__status">Estamos preparando</span>
-          </article>
-          <article class="showcase-card showcase-card--soon">
-            <span class="showcase-card__number">07</span><span class="showcase-card__badge">em breve</span>
             <h3>Fontes</h3>
             <p>Referências e materiais para continuar pesquisando.</p>
             <span class="showcase-card__status">Estamos preparando</span>
@@ -141,8 +146,14 @@
           </div>
           <a class="text-link" href="religioes.html">Ver todas as religiões <span aria-hidden="true">→</span></a>
         </div>
-        <div class="featured-grid" data-home-religions></div>
-        <p class="featured-religions__note">No Censo 2022, Umbanda e Candomblé aparecem juntas nesta categoria percentual.</p>
+        <div class="featured-carousel" data-carousel-shell>
+          <div class="showcase__controls" data-carousel-controls aria-label="Controles de religiões em destaque">
+            <button class="carousel-arrow" type="button" data-carousel-prev aria-label="Religião anterior" aria-controls="home-featured-religions"><span aria-hidden="true">←</span></button>
+            <button class="carousel-arrow" type="button" data-carousel-next aria-label="Próxima religião" aria-controls="home-featured-religions"><span aria-hidden="true">→</span></button>
+          </div>
+          <div class="featured-grid" id="home-featured-religions" data-home-religions data-carousel tabindex="0" aria-label="Religiões em destaque, role horizontalmente para explorar"></div>
+        </div>
+        <p class="featured-religions__note">Os percentuais específicos de Umbanda e Candomblé vêm dos microdados do Censo 2022; os demais usam os resultados agregados para a população de 10 anos ou mais.</p>
       </div>
     </section>
 
@@ -165,8 +176,8 @@
           </li>
           <li class="step-card">
             <span class="step-card__number">3</span>
-            <h3>Veja os dados e teste o que aprendeu</h3>
-            <p>Leia os censos e, em breve, confira seus conhecimentos no quiz.</p>
+            <h3>Explore os dados dos censos</h3>
+            <p>Compare as declarações de fé e conheça as ressalvas de cada recorte.</p>
           </li>
         </ol>
       </div>

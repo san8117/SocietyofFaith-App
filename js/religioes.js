@@ -1,5 +1,7 @@
 import { EXTRAS, FAMILIAS, RELIGIOES } from './dados-religioes.js';
+import { IMAGENS_RELIGIOES } from './imagens-religioes.js';
 import { formatarPercentual, gerarTabela } from './charts-core.js';
+import { destroyCarrossel, initCarrossel } from './carrossel.js';
 
 const filtros = document.querySelector('[data-family-filters]');
 const cards = document.querySelector('[data-religion-cards]');
@@ -30,30 +32,60 @@ function renderizarFiltros() {
 }
 
 function renderizarCards() {
+  cards.querySelectorAll('[data-carousel]').forEach(destroyCarrossel);
   const busca = search.value.trim().toLocaleLowerCase('pt-BR');
-  const resultado = RELIGIOES.filter((religiao) => {
-    const correspondeFamilia = familiaAtual === 'todas' || religiao.familia === familiaAtual;
-    return correspondeFamilia && religiao.nome.toLocaleLowerCase('pt-BR').includes(busca);
-  });
-  cards.replaceChildren(...resultado.map((religiao) => {
-    const familia = FAMILIAS.find((item) => item.id === religiao.familia);
-    const article = elemento('article', 'religion-card');
-    article.append(elemento('p', 'eyebrow', familia?.nome ?? 'Tradição religiosa'));
-    article.append(elemento('h3', '', religiao.nome));
-    if (religiao.resumo) article.append(elemento('p', '', religiao.resumo));
-    if (religiao.destaque) article.append(elemento('p', 'religion-card__highlight', religiao.destaque));
-    if (religiao.sub) article.append(elemento('p', 'religion-card__sub', religiao.sub));
-    if (religiao.status === 'disponivel' || religiao.status === 'pronta' || religiao.pagina) {
-      const link = elemento('a', 'button--secondary', 'Conheça esta tradição');
-      link.href = religiao.pagina ?? religiao.arquivo;
-      article.append(link);
-    } else {
-      const emBreve = elemento('span', 'religion-card__status', 'Conteúdo em breve');
-      emBreve.setAttribute('aria-label', `${religiao.nome}: conteúdo em breve`);
-      article.append(emBreve);
-    }
-    return article;
-  }));
+  const resultado = RELIGIOES.filter((religiao) => religiao.nome.toLocaleLowerCase('pt-BR').includes(busca));
+  const familias = FAMILIAS.filter((familia) => familiaAtual === 'todas' || familia.id === familiaAtual);
+  const vitrines = familias.map((familia) => {
+    const itens = resultado.filter((religiao) => religiao.familia === familia.id);
+    if (!itens.length) return null;
+    const vitrine = elemento('section', 'religion-family');
+    vitrine.dataset.carouselShell = '';
+    const titulo = elemento('h3', 'religion-family__title', familia.nome);
+    titulo.id = `religion-family-${familia.id}-title`;
+    vitrine.setAttribute('aria-labelledby', titulo.id);
+    const trilha = elemento('div', 'religion-cards');
+    trilha.id = `religion-family-${familia.id}`;
+    trilha.tabIndex = 0;
+    trilha.setAttribute('aria-label', `${familia.nome}, role horizontalmente para explorar`);
+    const cardsFamilia = itens.map((religiao) => {
+      const article = elemento('article', 'religion-card');
+      const figure = elemento('figure', 'religion-card__image');
+      const imagem = IMAGENS_RELIGIOES[religiao.id]?.capa;
+      if (imagem?.src && imagem.alt && imagem.credito && imagem.licenca && (!imagem.sensivel || imagem.fonte)) {
+        const img = elemento('img');
+        img.src = imagem.src;
+        img.alt = imagem.alt;
+        img.loading = 'lazy';
+        img.decoding = 'async';
+        figure.append(img);
+      } else {
+        figure.setAttribute('role', 'img');
+        figure.setAttribute('aria-label', `Capa de ${religiao.nome} em curadoria`);
+        figure.append(elemento('figcaption', '', 'Imagem em curadoria'));
+      }
+      article.append(figure);
+      article.append(elemento('h4', '', religiao.nome));
+      if (religiao.resumo) article.append(elemento('p', '', religiao.resumo));
+      if (religiao.destaque) article.append(elemento('p', 'religion-card__highlight', religiao.destaque));
+      if (religiao.sub) article.append(elemento('p', 'religion-card__sub', religiao.sub));
+      if (religiao.status === 'disponivel' || religiao.status === 'pronta' || religiao.pagina) {
+        const link = elemento('a', 'button--secondary', 'Conheça esta tradição');
+        link.href = religiao.pagina ?? religiao.arquivo;
+        article.append(link);
+      } else {
+        const emBreve = elemento('span', 'religion-card__status', 'Conteúdo em breve');
+        emBreve.setAttribute('aria-label', `${religiao.nome}: conteúdo em breve`);
+        article.append(emBreve);
+      }
+      return article;
+    });
+    trilha.replaceChildren(...cardsFamilia);
+    vitrine.append(titulo, trilha);
+    initCarrossel(trilha, { autoplay: true, intervalo: 4500 });
+    return vitrine;
+  }).filter(Boolean);
+  cards.replaceChildren(...vitrines);
   status.textContent = `${resultado.length} ${resultado.length === 1 ? 'tradição encontrada' : 'tradições encontradas'}.`;
 }
 

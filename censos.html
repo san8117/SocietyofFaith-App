@@ -14,14 +14,14 @@
   <script type="module" src="js/censos.js"></script>
 </head>
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Society of Faith, início">Society <span>of Faith</span></a>
     <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu"><span class="sr-only">Abrir menu</span><span aria-hidden="true">☰</span></button>
     <nav class="site-menu" id="site-menu" data-site-menu aria-label="Navegação principal"></nav>
   </header>
 
-  <main id="conteudo">
+  <main id="conteudo" tabindex="-1">
     <section class="hero page-hero" aria-labelledby="page-title">
       <div class="container">
         <p class="eyebrow">Censos do IBGE</p>
@@ -88,13 +88,13 @@
           <button type="button" data-filter="without" aria-pressed="false">Sem dados de religião</button>
           <p id="census-count" aria-live="polite">Mostrando 13 de 13 censos</p>
         </div>
-        <div class="timeline-controls">
-          <button type="button" class="timeline-arrow" data-scroll="backward" aria-label="Rolar censos para trás">←</button>
-          <button type="button" class="timeline-arrow" data-scroll="forward" aria-label="Rolar censos para frente">→</button>
-        </div>
-        <div class="timeline-shell">
+        <div class="timeline-shell" data-carousel-shell>
           <svg class="timeline-wave" aria-hidden="true" focusable="false" viewBox="0 0 1200 100" preserveAspectRatio="none"><path d="M0 54 C100 8 200 98 300 52 S500 7 600 52 S800 98 900 51 S1100 8 1200 54" /></svg>
-          <div class="timeline-track" id="timeline-track" tabindex="0" aria-label="Linha do tempo dos censos. Use as setas do teclado para percorrer."></div>
+          <div class="timeline-controls" data-carousel-controls role="group" aria-label="Controles da linha do tempo">
+            <button type="button" class="timeline-arrow" data-carousel-prev aria-controls="timeline-track" aria-label="Rolar censos para trás">←</button>
+            <button type="button" class="timeline-arrow" data-carousel-next aria-controls="timeline-track" aria-label="Rolar censos para frente">→</button>
+          </div>
+          <div class="timeline-track" id="timeline-track" data-carousel tabindex="0" aria-label="Linha do tempo dos censos. Use as setas do teclado para percorrer."></div>
         </div>
         <p class="no-census-note">Anos em que não houve censo: 1880, 1910 e 1930 (conturbações políticas).</p>
         <noscript>
@@ -178,7 +178,7 @@
           <details><summary>Microdados 2022</summary><p>“Evangélicos não determinados” foi de 4,8% (2010) para 15,6% (2022).</p></details>
         </div>
         <div class="closing-actions">
-          <a class="button--primary" href="brasil.html">Ver dados de 2010 × 2022</a>
+          <a class="button--primary" href="brasil.html">Ver os dados de 2010 × 2022</a>
           <button class="button--secondary" type="button" disabled>História das religiões — em breve</button>
         </div>
       </div>

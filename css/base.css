@@ -10,7 +10,7 @@ body {
   margin: 0;
   background-color: var(--bg);
   color: var(--ink);
-  font-family: system-ui, sans-serif;
+  font-family: var(--font-sans);
   line-height: 1.7;
 }
 
@@ -47,6 +47,41 @@ header {
   gap: 0.35rem;
 }
 
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -100px;
+  z-index: 1000;
+  padding: 0.7rem 1rem;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 10px;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: var(--shadow-card);
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 12px;
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+@media (prefers-color-scheme: dark) {
+  .skip-link {
+    background: color-mix(in srgb, var(--accent) 45%, var(--bg));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skip-link {
+    transition: none;
+  }
+}
+
 .site-menu a,
 .menu-dropdown__toggle {
   border: 0;
@@ -72,19 +107,32 @@ header {
   margin-left: 0.35rem;
 }
 
+.menu-item,
 .menu-dropdown {
   position: relative;
 }
 
+.menu-item::after {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 19;
+  height: 16px;
+  background: transparent;
+  content: "";
+}
+
 .menu-panel {
   position: absolute;
-  top: calc(100% + 0.65rem);
-  right: 0;
-  z-index: 20;
+  top: 100%;
+  left: 0;
+  z-index: 21;
   display: grid;
   grid-template-columns: repeat(3, minmax(12rem, 1fr));
   gap: 1.25rem;
   width: min(56rem, calc(100vw - 2rem));
+  max-width: calc(100vw - 2rem);
   max-height: min(75vh, 38rem);
   overflow: auto;
   border: 1px solid var(--line);
@@ -92,6 +140,11 @@ header {
   background: var(--surface);
   box-shadow: var(--shadow-card);
   padding: 1.25rem;
+}
+
+.menu-item--dados > .menu-panel {
+  grid-template-columns: minmax(0, 1fr);
+  width: min(18rem, calc(100vw - 2rem));
 }
 
 .menu-panel[hidden] {
@@ -150,6 +203,61 @@ header {
   white-space: nowrap;
 }
 
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+
+.carousel-controls[hidden] {
+  display: none;
+}
+
+.carousel-arrow,
+.carousel-toggle {
+  display: grid;
+  width: 2.75rem;
+  min-width: 2.75rem;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+}
+
+.carousel-arrow {
+  font-size: 1.3rem;
+}
+
+.carousel-toggle {
+  font-size: 0.85rem;
+}
+
+.carousel-arrow:hover,
+.carousel-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+[data-carousel] {
+  cursor: grab;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+[data-carousel]::-webkit-scrollbar {
+  display: none;
+}
+
+[data-carousel].is-dragging {
+  cursor: grabbing;
+  user-select: none;
+}
+
 .menu-all-link {
   grid-column: 1 / -1;
   border-bottom: 1px solid var(--line) !important;
@@ -182,7 +290,14 @@ main > section,
 .hero h1,
 .hero__title,
 .hero-title {
+  display: inline-block;
+  max-width: 100%;
+  overflow: visible;
+  padding-block: 0.08em 0.22em;
   color: var(--accent);
+  line-height: 1.08;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 @supports ((background-clip: text) or (-webkit-background-clip: text)) {
@@ -294,8 +409,12 @@ button[type="submit"]:hover {
     padding: 0.75rem;
   }
 
-  .menu-dropdown {
+  .menu-item {
     width: 100%;
+  }
+
+  .menu-item::after {
+    display: none;
   }
 
   .menu-dropdown__toggle {
@@ -312,9 +431,12 @@ button[type="submit"]:hover {
     position: static;
     display: flex;
     width: 100%;
+    max-width: none;
     max-height: none;
     flex-direction: column;
+    grid-template-columns: 1fr;
     gap: 0.25rem;
+    transform: none;
     border: 0;
     border-radius: 0;
     background: transparent;
@@ -338,5 +460,10 @@ button[type="submit"]:hover {
   .menu-column .menu-coming-soon {
     margin-left: 0.5rem;
   }
+}
 
+@media (hover: hover) and (pointer: fine) {
+  .menu-item::after {
+    pointer-events: auto;
+  }
 }

@@ -31,7 +31,5 @@ export const MENU = [
     { rotulo: 'Brasil em dados (2010 × 2022)', href: 'brasil.html' },
     { rotulo: 'Todos os censos (1872–2022)', href: 'censos.html' }
   ] }] },
-  { rotulo: 'Vídeos', breve: true },
-  { rotulo: 'Quiz', breve: true },
   { rotulo: 'Fontes', breve: true }
 ];

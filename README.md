@@ -1,6 +1,6 @@
 # Society of Faith
 
-**Religião e Sociedade no Brasil**: um site informativo e interativo que mostra como a sociedade brasileira se identifica em matéria de fé, com dados dos censos do IBGE (1872–2022), conceitos das Ciências da Religião, história do cristianismo, vídeos e quiz de revisão.
+**Religião e Sociedade no Brasil**: um site informativo que mostra como a sociedade brasileira se identifica em matéria de fé, com textos, dados censitários (1872–2022), conceitos das Ciências da Religião e imagens em curadoria.
 
 > Projeto educacional desenvolvido a partir das disciplinas de Fundamentos do Cristianismo e Antropologia Cristã (UNASP).
 
@@ -18,8 +18,6 @@
 - **Brasil em dados**: gráficos interativos do IBGE (Censo 2010 × 2022), perfis por região, idade, sexo, cor ou raça e escolaridade.
 - **Todos os censos**: linha do tempo de 1872 a 2022 e como a religião foi perguntada em cada recenseamento.
 - **Cristianismo**: nascimento, cronologia, Edito de Milão, Teodósio e a estrutura das primeiras comunidades.
-- **Vídeos**: seleção sobre religião e sociedade.
-- **Quiz**: perguntas de revisão com feedback.
 - **Fontes**: links oficiais do IBGE e referências bibliográficas.
 
 ## Tecnologias
@@ -36,6 +34,7 @@ SocietyofFaith-App/
   judaismo.html, islamismo.html, budismo.html, hinduismo.html
   css/       tokens.css, base.css, home.css, graficos.css, censos.css, religioes.css, religiao-pagina.css
   js/        components.js, menu-data.js, charts-core.js, home.js, reveal.js
+             carrossel.js
              dados-ibge.js, dados-censos.js, dados-religioes.js
              dados-sociedade.js
              dados-paginas-religiao.js
@@ -82,9 +81,9 @@ SocietyofFaith-App/
 - [x] Etapa 5: Índice e páginas de religiões (imagens com créditos pendentes de curadoria)
 - [x] Etapa 6: Umbanda, Candomblé e tradições indígenas
 - [x] Etapa 7: Judaísmo, Islamismo, Budismo e Hinduísmo
-- [ ] Etapa 8: Testemunhas de Jeová, Mórmons, tradições esotéricas, Santo Daime e Sem religião
-- [ ] Etapa 9: Origens do cristianismo, Vídeos e Fontes
-- [ ] Etapa 10: Quiz, acessibilidade, polimento e deploy
+- [ ] Etapa 8: Testemunhas de Jeová, Mórmons, Tradições esotéricas, Santo Daime e Sem religião
+- [ ] Etapa 9: Origens do cristianismo e página Fontes
+- [ ] Etapa 10: Acessibilidade, polimento, SEO e deploy
 
 ## Changelog
 
@@ -122,6 +121,10 @@ SocietyofFaith-App/
 - Criadas `judaismo.html`, `islamismo.html`, `budismo.html` e `hinduismo.html`, com história em abas, linha do tempo, glossário, classificação, seção “Religião e sociedade”, galerias pendentes e navegação entre páginas.
 - Atualizados `js/menu-data.js`, `js/dados-religioes.js`, `js/dados-paginas-religiao.js`, `js/dados-sociedade.js`, `js/imagens-religioes.js`, `js/pagina-religiao.js`, `js/religioes.js`, `js/home.js`, `css/religioes.css` e `css/religiao-pagina.css`.
 - Incluídos dados censitários sem grupo próprio no IBGE, comparações contextuais identificadas, percentuais calculados, avisos de bases distintas, selos de conferência para `?dev=1` e consultas de imagem sem baixar arquivos.
+
+### Etapa 7.1 — 15/11/2026
+- Skip link escondido até o foco; título do hero sem corte; submenus com ponte e atraso (hover estável); carrosséis automáticos e arrastáveis sem barra; Quiz e Vídeos removidos.
+- Incluída uma chamada editorial para as atualizações do Censo 2022 e imagens de capa nos cards de religiões, com placeholders enquanto a curadoria/licença não estiver completa.
 
 ## Fontes de dados
 
