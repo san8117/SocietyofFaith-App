@@ -4,12 +4,12 @@ import {
   aplicarTema as reconstruirTema,
   formatarNumero,
   gerarTabela as criarTabelaComum,
+  obterFonteGrafico,
   lerCor,
   observarGraficos as observarElementos,
   opcoesBase as opcoesComuns
 } from './charts-core.js';
 
-const anosCenso = CENSOS.map((censo) => censo.ano);
 const faixas = {
   catolica: { nome: 'Católica', cor: '--c-catolica' },
   evangelicas: { nome: 'Evangélicas', cor: '--c-evangelicas' },
@@ -72,38 +72,34 @@ function criarSerie() {
     borderWidth: 2,
     showLine: true,
     spanGaps: false,
+    clip: false,
     hidden: !seriesAtivas.has(id)
   }));
-  const ticks = [...new Set([
-    ...Array.from({ length: 16 }, (_, indice) => 1870 + indice * 10),
-    ...anosCenso
-  ])].sort((a, b) => a - b);
+  const ticksDesktop = [1880, 1900, 1920, 1940, 1960, 1980, 2000, 2022];
+  const ticksMobile = [1880, 1920, 1960, 2000, 2022];
   const marcadores = {
     id: 'marcadoresTemporais',
     afterDraw(chart) {
       const { ctx, chartArea, scales } = chart;
       if (!chartArea) return;
-      [
-        { ano: 1988, rotulo: 'Constituição' },
-        { ano: 2000, rotulo: '2000' }
-      ].forEach((marcador) => {
-        const x = scales.x.getPixelForValue(marcador.ano);
-        ctx.save();
-        ctx.strokeStyle = lerCor('--line');
-        ctx.setLineDash([4, 5]);
-        ctx.beginPath();
-        ctx.moveTo(x, chartArea.top);
-        ctx.lineTo(x, chartArea.bottom);
-        ctx.stroke();
-        ctx.setLineDash([]);
-        ctx.fillStyle = lerCor('--ink-soft');
-        ctx.font = '11px system-ui';
-        ctx.fillText(marcador.rotulo, x + 4, chartArea.top + 13);
-        ctx.restore();
-      });
+      const x = scales.x.getPixelForValue(1988);
+      ctx.save();
+      ctx.strokeStyle = lerCor('--line');
+      ctx.setLineDash([4, 5]);
+      ctx.beginPath();
+      ctx.moveTo(x, chartArea.top);
+      ctx.lineTo(x, chartArea.bottom);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = lerCor('--ink-soft');
+      ctx.font = `500 11px ${obterFonteGrafico()}`;
+      ctx.textAlign = 'left';
+      ctx.fillText('CF 1988', x + 4, chartArea.top + 13);
+      ctx.restore();
     }
   };
   const config = opcoesGrafico();
+  config.layout = { padding: 12 };
   config.plugins.tooltip.callbacks = {
     title(items) {
       return items.length ? String(items[0].raw.x) : '';
@@ -115,15 +111,19 @@ function criarSerie() {
   config.scales = {
     x: {
       type: 'linear',
-      min: 1870,
+      min: 1860,
       max: 2025,
       afterBuildTicks(scale) {
+        const ticks = window.innerWidth < 600 ? ticksMobile : ticksDesktop;
         scale.ticks = ticks.map((value) => ({ value }));
       },
       ticks: {
         color: lerCor('--ink-soft'),
-        callback(value) { return ticks.includes(Number(value)) ? String(value) : ''; },
-        maxRotation: 45,
+        callback(value) {
+          const ticks = window.innerWidth < 600 ? ticksMobile : ticksDesktop;
+          return ticks.includes(Number(value)) ? String(value) : '';
+        },
+        maxRotation: 0,
         minRotation: 0
       },
       grid: { color: lerCor('--line') }
@@ -155,7 +155,7 @@ function criarQueda() {
         const valor = QUEDA_CATOLICOS[indice].pp;
         ctx.save();
         ctx.fillStyle = lerCor('--ink');
-        ctx.font = '600 12px system-ui';
+        ctx.font = `600 12px ${obterFonteGrafico()}`;
         ctx.textAlign = 'right';
         ctx.textBaseline = 'middle';
         ctx.fillText(`−${formatarNumero(Math.abs(valor))} p.p.`, barra.x - 7, barra.y);

@@ -32,9 +32,8 @@
 }
 
 :root {
-  --header-height: 4.25rem;
   scroll-behavior: smooth;
-  scroll-padding-top: 8rem;
+  scroll-padding-top: calc(var(--header-h) + var(--section-nav-h) + 1rem);
 }
 
 body {
@@ -75,7 +74,7 @@ body {
 .page-hero h1 {
   max-width: 16ch;
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: clamp(2.4rem, 7vw, 5.2rem);
   line-height: 1.08;
 }
@@ -89,11 +88,11 @@ body {
 
 .section-nav {
   position: sticky;
-  z-index: 15;
-  top: var(--header-height);
+  z-index: 99;
+  top: var(--header-h);
   overflow-x: auto;
   border-bottom: 1px solid var(--line);
-  background: var(--bg-header);
+  background: var(--bg);
   scrollbar-width: thin;
 }
 
@@ -123,7 +122,7 @@ body {
 
 .content-section {
   padding-block: calc(var(--section-space) * 1.15);
-  scroll-margin-top: 8rem;
+  scroll-margin-top: calc(var(--header-h) + var(--section-nav-h) + 1rem);
 }
 
 .content-section--alt {
@@ -133,7 +132,7 @@ body {
 .content-section h2 {
   max-width: 22ch;
   margin: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: clamp(2rem, 4vw, 3.25rem);
   line-height: 1.15;
 }
@@ -176,7 +175,7 @@ body {
 .stat-card__value {
   margin: 0 0 0.4rem;
   color: var(--accent);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: clamp(1.8rem, 4vw, 2.5rem);
   font-weight: 700;
   line-height: 1.15;
@@ -215,7 +214,7 @@ body {
 .chart-figure figcaption h3 {
   margin: 0;
   color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: 1.25rem;
 }
 
@@ -255,7 +254,7 @@ body {
 }
 
 .mini-heading {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
 }
 
 .icon-sprite {
@@ -384,7 +383,7 @@ body {
   width: 100%;
   border-collapse: collapse;
   color: var(--ink);
-  font-variant-numeric: tabular-nums;
+  font-variant-numeric: lining-nums tabular-nums;
   text-align: left;
 }
 
@@ -514,7 +513,7 @@ body {
 
 .teaser-card h3 {
   max-width: 42ch;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: 1.5rem;
 }
 
@@ -554,8 +553,8 @@ body {
 
 @media (max-width: 760px) {
   :root {
-    --header-height: 3.75rem;
-    scroll-padding-top: 7rem;
+    --header-height: var(--header-h);
+    scroll-padding-top: calc(var(--header-h) + var(--section-nav-h) + 1rem);
   }
 
   .container,

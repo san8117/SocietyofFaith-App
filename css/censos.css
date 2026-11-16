@@ -12,6 +12,12 @@
   height: 390px;
 }
 
+@media (max-width: 600px) {
+  .chart-container--historic {
+    height: clamp(280px, 70vw, 380px);
+  }
+}
+
 .chart-container--short {
   height: 280px;
 }
@@ -74,6 +80,16 @@
 .timeline-controls {
   justify-content: flex-end;
   margin-block: 0.5rem;
+}
+
+.timeline-controls.carousel-controls {
+  margin: 0;
+}
+
+@media (max-width: 719px), (pointer: coarse) {
+  .timeline-controls.carousel-controls[data-carousel-controls] {
+    margin: 0.4rem auto 0;
+  }
 }
 
 .timeline-arrow {
@@ -153,7 +169,7 @@
 .timeline-card h3 {
   margin: 0.75rem 0 0.25rem;
   color: var(--accent);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: 2.75rem;
   line-height: 1;
 }
@@ -268,7 +284,7 @@
 
 .form-mock h3 {
   margin-top: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
 }
 
 .mock-options {
@@ -319,7 +335,7 @@
 
 .resource-card h3 {
   margin-block: 0.75rem 0.4rem;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
 }
 
 .resource-card p {
@@ -400,7 +416,7 @@
 
 .curiosity-grid summary {
   color: var(--accent);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: 1.25rem;
   font-weight: 700;
   cursor: pointer;
@@ -461,7 +477,7 @@
 .dialog-year {
   margin: 0;
   color: var(--accent);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: 3rem;
 }
 
@@ -550,7 +566,7 @@
 
   .question-table tbody th {
     color: var(--accent);
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: 1.2rem;
   }
 

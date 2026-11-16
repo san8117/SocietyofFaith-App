@@ -126,6 +126,9 @@ SocietyofFaith-App/
 - Skip link escondido até o foco; título do hero sem corte; submenus com ponte e atraso (hover estável); carrosséis automáticos e arrastáveis sem barra; Quiz e Vídeos removidos.
 - Incluída uma chamada editorial para as atualizações do Censo 2022 e imagens de capa nos cards de religiões, com placeholders enquanto a curadoria/licença não estiver completa.
 
+### Etapa 7.1b — 15/11/2026
+- Tipografia restaurada (Cormorant Garamond e Jost), menu mobile só com ícone e painel completo, carrossel mobile sem setas, gráfico da série histórica legível, barra de chips sem sobreposição.
+
 ## Fontes de dados
 
 - IBGE, Censo Demográfico 2022 — Religiões: resultados preliminares da amostra (2025).

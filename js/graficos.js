@@ -15,6 +15,7 @@ import {
   formatarNumero,
   aplicarTema as reconstruirTema,
   gerarTabela as criarTabelaComum,
+  obterFonteGrafico,
   lerCor as lerToken,
   observarGraficos as observarElementos,
   opcoesBase as opcoesComuns,
@@ -245,7 +246,7 @@ function criarRosca() {
       ctx.fillStyle = lerCor('--ink');
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
-      ctx.font = '700 1.35rem system-ui';
+      ctx.font = `700 1.35rem ${obterFonteGrafico()}`;
       ctx.fillText(String(chart.$ano), (chartArea.left + chartArea.right) / 2, (chartArea.top + chartArea.bottom) / 2);
       ctx.restore();
     }
@@ -388,7 +389,7 @@ function criarIdades() {
         const pontoMeta = chart.getDatasetMeta(datasetIndex).data[ponto.indice];
         if (!pontoMeta) return;
         ctx.save();
-        ctx.font = '600 11px system-ui';
+        ctx.font = `600 11px ${obterFonteGrafico()}`;
         ctx.fillStyle = lerCor('--ink');
         ctx.fillText(ponto.texto, pontoMeta.x + ponto.dx, pontoMeta.y + ponto.dy);
         ctx.restore();
@@ -527,7 +528,7 @@ function criarIndicadores() {
       ctx.stroke();
       ctx.setLineDash([]);
       ctx.fillStyle = lerCor('--ink-soft');
-      ctx.font = '11px system-ui';
+      ctx.font = `11px ${obterFonteGrafico()}`;
       ctx.fillText(`Brasil: ${formatar(total)}`, x + 4, chart.chartArea.top + 12);
       ctx.restore();
     }

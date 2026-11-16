@@ -79,6 +79,18 @@ export function initCarrossel(trilha, { autoplay = false, intervalo = 4500 } = {
     }
   }
 
+  let pontos = controles.querySelector('[data-carousel-dots]');
+  if (!pontos) {
+    pontos = document.createElement('div');
+    pontos.className = 'carousel-dots';
+    pontos.dataset.carouselDots = '';
+    pontos.setAttribute('role', 'group');
+    pontos.setAttribute('aria-label', 'Posição no carrossel');
+    controles.insertBefore(pontos, botaoReproducao);
+  }
+  controles.classList.add('carousel-controls');
+  shell.append(controles);
+
   const movimentoReduzido = matchMedia('(prefers-reduced-motion: reduce)');
   const eventos = new AbortController();
   function ouvir(alvo, tipo, callback, opcoes = {}) {
@@ -95,13 +107,23 @@ export function initCarrossel(trilha, { autoplay = false, intervalo = 4500 } = {
     ponteiroAtivo: false,
     ponteiroId: null,
     arrasto: null,
-    cancelarClique: false
+    cancelarCliqueAte: 0
   };
 
   function atualizaControles() {
+    const itens = obterItens(trilha);
     const temRolagem = trilha.scrollWidth > trilha.clientWidth + 2;
     shell.classList.toggle('has-carousel-overflow', temRolagem);
     controles.hidden = !temRolagem;
+    while (pontos.children.length > itens.length) pontos.lastElementChild.remove();
+    while (pontos.children.length < itens.length) {
+      const botao = document.createElement('button');
+      botao.type = 'button';
+      botao.className = 'carousel-dot';
+      botao.setAttribute('aria-label', `Ir ao item ${pontos.children.length + 1}`);
+      pontos.append(botao);
+    }
+    atualizarPontoAtivo(itens);
     if (botaoReproducao) {
       const ativo = !estado.pausado;
       botaoReproducao.setAttribute('aria-pressed', String(ativo));
@@ -109,6 +131,14 @@ export function initCarrossel(trilha, { autoplay = false, intervalo = 4500 } = {
       botaoReproducao.firstElementChild.textContent = ativo ? 'Ⅱ' : '▶';
     }
     return temRolagem;
+  }
+
+  function atualizarPontoAtivo(itens = obterItens(trilha)) {
+    const atual = indiceMaisProximo(trilha, itens);
+    [...pontos.children].forEach((botao, indice) => {
+      if (indice === atual) botao.setAttribute('aria-current', 'true');
+      else botao.removeAttribute('aria-current');
+    });
   }
 
   function interacaoAtiva() {
@@ -178,6 +208,16 @@ export function initCarrossel(trilha, { autoplay = false, intervalo = 4500 } = {
     pausarPorInteracao();
     avancar(1);
   });
+  ouvir(pontos, 'click', (evento) => {
+    const botao = evento.target.closest('.carousel-dot');
+    if (!botao) return;
+    const indice = [...pontos.children].indexOf(botao);
+    if (indice < 0) return;
+    pausarPorInteracao();
+    rolarPara(indice, movimentoReduzido.matches ? 'auto' : 'smooth');
+    agendarRetomada();
+  });
+  ouvir(trilha, 'scroll', () => atualizarPontoAtivo(), { passive: true });
 
   if (botaoReproducao) {
     ouvir(botaoReproducao, 'click', () => {
@@ -251,9 +291,8 @@ export function initCarrossel(trilha, { autoplay = false, intervalo = 4500 } = {
     }
     if (estado.arrasto?.id === evento.pointerId) {
       if (estado.arrasto.ativo) {
-        estado.cancelarClique = true;
+        estado.cancelarCliqueAte = performance.now() + 400;
         trilha.classList.remove('is-dragging');
-        window.setTimeout(() => { estado.cancelarClique = false; }, 0);
       }
       estado.arrasto = null;
     }
@@ -262,7 +301,7 @@ export function initCarrossel(trilha, { autoplay = false, intervalo = 4500 } = {
   ouvir(document, 'pointerup', finalizarPonteiro);
   ouvir(document, 'pointercancel', finalizarPonteiro);
   ouvir(trilha, 'click', (evento) => {
-    if (!estado.cancelarClique) return;
+    if (performance.now() > estado.cancelarCliqueAte) return;
     evento.preventDefault();
     evento.stopImmediatePropagation();
   }, { capture: true });

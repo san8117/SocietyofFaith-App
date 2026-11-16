@@ -15,7 +15,16 @@ export function lerCor(cssVar, elemento = document.documentElement) {
   return getComputedStyle(elemento).getPropertyValue(cssVar).trim();
 }
 
+export function obterFonteGrafico() {
+  return getComputedStyle(document.documentElement).getPropertyValue('--font-sans').trim() || 'sans-serif';
+}
+
+export function atualizarFonteGrafico() {
+  if (window.Chart) window.Chart.defaults.font.family = obterFonteGrafico();
+}
+
 export function opcoesBase(tema = {}) {
+  atualizarFonteGrafico();
   const tinta = tema.ink ?? lerCor('--ink');
   const tintaSuave = tema.inkSoft ?? lerCor('--ink-soft');
   const linha = tema.line ?? lerCor('--line');
@@ -134,6 +143,7 @@ export function animarContadores(elementos, options = {}) {
 }
 
 export function aplicarTema(graficos, recriar) {
+  atualizarFonteGrafico();
   const ativos = [...graficos.keys()];
   graficos.forEach((grafico) => grafico.destroy());
   graficos.clear();

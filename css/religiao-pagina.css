@@ -6,7 +6,7 @@
 
 .religion-page [data-scroll-section] {
   padding-block: clamp(2.5rem, 6vw, 5rem);
-  scroll-margin-top: calc(var(--header-height, 4.25rem) + 1rem);
+  scroll-margin-top: calc(var(--header-h) + var(--section-nav-h) + 1rem);
 }
 
 .respect-callout {
@@ -31,7 +31,7 @@
 .term-card h3 {
   margin-top: 0;
   color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
 }
 
 .term-card p,
@@ -181,9 +181,9 @@
   margin-inline: auto;
   max-width: 70rem;
   background: var(--bg);
-  font-family: "Jost", system-ui, sans-serif;
+  font-family: var(--font-sans);
   padding: clamp(3rem, 8vw, 7rem) clamp(1rem, 4vw, 2rem);
-  scroll-margin-top: calc(var(--header-height, 4.25rem) + 1rem);
+  scroll-margin-top: calc(var(--header-h) + var(--section-nav-h) + 1rem);
 }
 
 .society-heading {
@@ -195,7 +195,7 @@
 .society-heading h2 {
   margin: 0.25rem 0 0.75rem;
   color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: clamp(2.2rem, 5vw, 3.6rem);
   font-weight: 500;
   line-height: 1.1;
@@ -261,7 +261,7 @@
   border-radius: 50%;
   background: var(--surface);
   color: var(--society-color);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: clamp(1rem, 2vw, 1.35rem);
   text-align: center;
   transform: translate(-50%, -50%);
@@ -372,7 +372,7 @@
 
 .society-panel h3,
 .society-panel blockquote {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
 }
 
 .society-panel h3 {
@@ -466,7 +466,7 @@
   margin: 1.5rem 0 0;
   border-left: 3px solid var(--society-color);
   color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: 1.2rem;
   font-style: italic;
   padding: 0.25rem 0 0.25rem 1rem;
@@ -531,12 +531,12 @@
 }
 
 .society-static-panel h3 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
 }
 
 .society-static-panel blockquote {
   border-left: 3px solid var(--accent);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-style: italic;
   padding-left: 1rem;
 }
@@ -558,13 +558,13 @@
 
 .concept-section > h2 {
   color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 500;
 }
 
 .concept-section {
-  font-family: "Jost", system-ui, sans-serif;
+  font-family: var(--font-sans);
 }
 
 .concept-section > p:not(.eyebrow) {
@@ -585,13 +585,13 @@
   background: var(--surface);
   box-shadow: var(--shadow-card);
   padding: 1.25rem;
-  scroll-margin-top: calc(var(--header-height, 4.25rem) + 1rem);
+  scroll-margin-top: calc(var(--header-h) + var(--section-nav-h) + 1rem);
 }
 
 .concept-card h3 {
   margin-top: 0;
   color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
 }
 
 .concept-card p {
@@ -618,7 +618,7 @@
 #sociedade,
 #censos,
 #galeria {
-  scroll-margin-top: calc(var(--header-height, 4.25rem) + 1rem);
+  scroll-margin-top: calc(var(--header-h) + var(--section-nav-h) + 1rem);
 }
 
 @media (max-width: 520px) {
