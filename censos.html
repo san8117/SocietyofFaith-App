@@ -3,18 +3,31 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <script src="js/tema-init.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <meta name="theme-color" content="#FAF7F2">
   <meta name="description" content="Explore a história das perguntas sobre religião nos censos brasileiros de 1872 a 2022.">
-  <title>Todos os censos — Society of Faith</title>
+  <meta name="theme-color" content="#FAF7F2">
+  <link rel="canonical" href="https://societyoffaithapp.vercel.app/censos.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Todos os censos | Society of Faith">
+  <meta property="og:description" content="Explore a história das perguntas sobre religião nos censos brasileiros de 1872 a 2022.">
+  <meta property="og:url" content="https://societyoffaithapp.vercel.app/censos.html">
+  <meta property="og:image" content="https://societyoffaithapp.vercel.app/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Todos os censos | Society of Faith">
+  <meta name="twitter:description" content="Explore a história das perguntas sobre religião nos censos brasileiros de 1872 a 2022.">
+  <meta name="twitter:image" content="https://societyoffaithapp.vercel.app/assets/og.png">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<title>Todos os censos | Society of Faith</title>
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/graficos.css">
   <link rel="stylesheet" href="css/censos.css">
   <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <script type="module" src="js/components.js"></script>
-  <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/tema.js"></script>
+<script type="module" src="js/main.js"></script>
   <script type="module" src="js/censos.js"></script>
 </head>
 <body>
@@ -97,8 +110,6 @@
         <div class="timeline-shell" data-carousel-shell>
           <svg class="timeline-wave" aria-hidden="true" focusable="false" viewBox="0 0 1200 100" preserveAspectRatio="none"><path d="M0 54 C100 8 200 98 300 52 S500 7 600 52 S800 98 900 51 S1100 8 1200 54" /></svg>
           <div class="timeline-controls" data-carousel-controls role="group" aria-label="Controles da linha do tempo">
-            <button type="button" class="timeline-arrow" data-carousel-prev aria-controls="timeline-track" aria-label="Rolar censos para trás">←</button>
-            <button type="button" class="timeline-arrow" data-carousel-next aria-controls="timeline-track" aria-label="Rolar censos para frente">→</button>
           </div>
           <div class="timeline-track" id="timeline-track" data-carousel tabindex="0" aria-label="Linha do tempo dos censos. Use as setas do teclado para percorrer."></div>
         </div>

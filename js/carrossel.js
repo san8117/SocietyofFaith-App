@@ -1,19 +1,6 @@
 const instances = new WeakMap();
 let generatedId = 0;
 
-function criarBotao(classe, texto, rotulo, alvo) {
-  const botao = document.createElement('button');
-  botao.type = 'button';
-  botao.className = classe;
-  botao.setAttribute('aria-label', rotulo);
-  botao.setAttribute('aria-controls', alvo);
-  const icone = document.createElement('span');
-  icone.setAttribute('aria-hidden', 'true');
-  icone.textContent = texto;
-  botao.append(icone);
-  return botao;
-}
-
 function obterItens(trilha) {
   return [...trilha.children].filter((item) => !item.hidden && item.getAttribute('aria-hidden') !== 'true');
 }
@@ -56,25 +43,15 @@ export function initCarrossel(trilha, { autoplay = false, intervalo = 4500 } = {
   }
   if (!controles.hasAttribute('role')) controles.setAttribute('role', 'group');
 
-  let anterior = controles.querySelector('[data-carousel-prev]');
-  let proximo = controles.querySelector('[data-carousel-next]');
-  if (!anterior) {
-    anterior = criarBotao('carousel-arrow', '←', 'Item anterior', trilha.id);
-    anterior.dataset.carouselPrev = '';
-    controles.append(anterior);
-  }
-  if (!proximo) {
-    proximo = criarBotao('carousel-arrow', '→', 'Próximo item', trilha.id);
-    proximo.dataset.carouselNext = '';
-    controles.append(proximo);
-  }
-
   let botaoReproducao = null;
   if (autoplay) {
     botaoReproducao = controles.querySelector('[data-carousel-toggle]');
     if (!botaoReproducao) {
-      botaoReproducao = criarBotao('carousel-toggle', 'Ⅱ', 'Pausar avanço automático', trilha.id);
+      botaoReproducao = document.createElement('button');
+      botaoReproducao.type = 'button';
+      botaoReproducao.className = 'carousel-toggle sr-only';
       botaoReproducao.dataset.carouselToggle = '';
+      botaoReproducao.setAttribute('aria-controls', trilha.id);
       controles.append(botaoReproducao);
     }
   }
@@ -125,10 +102,11 @@ export function initCarrossel(trilha, { autoplay = false, intervalo = 4500 } = {
     }
     atualizarPontoAtivo(itens);
     if (botaoReproducao) {
+      botaoReproducao.hidden = !estado.autoplay;
       const ativo = !estado.pausado;
       botaoReproducao.setAttribute('aria-pressed', String(ativo));
-      botaoReproducao.setAttribute('aria-label', ativo ? 'Pausar avanço automático' : 'Reproduzir carrossel');
-      botaoReproducao.firstElementChild.textContent = ativo ? 'Ⅱ' : '▶';
+      botaoReproducao.setAttribute('aria-label', ativo ? 'Pausar rotação automática' : 'Retomar rotação automática');
+      botaoReproducao.textContent = ativo ? 'Pausar rotação automática' : 'Retomar rotação automática';
     }
     return temRolagem;
   }
@@ -200,14 +178,6 @@ export function initCarrossel(trilha, { autoplay = false, intervalo = 4500 } = {
     estado.temporizador = 0;
   }
 
-  ouvir(anterior, 'click', () => {
-    pausarPorInteracao();
-    avancar(-1);
-  });
-  ouvir(proximo, 'click', () => {
-    pausarPorInteracao();
-    avancar(1);
-  });
   ouvir(pontos, 'click', (evento) => {
     const botao = evento.target.closest('.carousel-dot');
     if (!botao) return;
@@ -259,6 +229,13 @@ export function initCarrossel(trilha, { autoplay = false, intervalo = 4500 } = {
     pausarPorInteracao();
     estado.ponteiroAtivo = true;
     estado.ponteiroId = evento.pointerId;
+    if (evento.pointerType === 'touch') {
+      estado.autoplay = false;
+      estado.pausado = true;
+      limparTemporizadores();
+      atualizaControles();
+      return;
+    }
     if (evento.pointerType !== 'mouse' || evento.button !== 0) return;
     estado.arrasto = {
       id: evento.pointerId,
@@ -273,6 +250,8 @@ export function initCarrossel(trilha, { autoplay = false, intervalo = 4500 } = {
     const distancia = evento.clientX - arrasto.x;
     if (!arrasto.ativo && Math.abs(distancia) > 6) {
       arrasto.ativo = true;
+      estado.autoplay = false;
+      estado.pausado = true;
       trilha.classList.add('is-dragging');
       trilha.setPointerCapture(evento.pointerId);
     }
@@ -300,6 +279,12 @@ export function initCarrossel(trilha, { autoplay = false, intervalo = 4500 } = {
   }
   ouvir(document, 'pointerup', finalizarPonteiro);
   ouvir(document, 'pointercancel', finalizarPonteiro);
+  ouvir(trilha, 'touchstart', () => {
+    estado.autoplay = false;
+    estado.pausado = true;
+    limparTemporizadores();
+    atualizaControles();
+  }, { passive: true });
   ouvir(trilha, 'click', (evento) => {
     if (performance.now() > estado.cancelarCliqueAte) return;
     evento.preventDefault();

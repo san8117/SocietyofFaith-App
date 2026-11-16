@@ -9,13 +9,7 @@
 }
 
 .chart-container--historic {
-  height: 390px;
-}
-
-@media (max-width: 600px) {
-  .chart-container--historic {
-    height: clamp(280px, 70vw, 380px);
-  }
+  height: clamp(280px, 70vw, 380px);
 }
 
 .chart-container--short {
@@ -35,7 +29,6 @@
 
 .series-chip,
 .timeline-filters button,
-.timeline-arrow,
 .citation-button {
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -90,11 +83,6 @@
   .timeline-controls.carousel-controls[data-carousel-controls] {
     margin: 0.4rem auto 0;
   }
-}
-
-.timeline-arrow {
-  min-width: 2.75rem;
-  font-size: 1.2rem;
 }
 
 .timeline-shell {
@@ -386,19 +374,17 @@
   margin: 0;
 }
 
-.citation-button,
-.button--primary {
+.citation-button {
   display: inline-block;
-  border-color: var(--accent-button);
-  background: var(--accent-button);
-  color: var(--on-accent);
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--on-accent-button);
   text-decoration: none;
 }
 
-.citation-button:hover,
-.button--primary:hover {
-  border-color: var(--accent-hover);
-  background: var(--accent-hover);
+.citation-button:hover {
+  border-color: var(--accent);
+  background: var(--accent);
 }
 
 .curiosity-grid {

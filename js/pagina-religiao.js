@@ -8,6 +8,7 @@ import { IMAGENS_RELIGIOES } from './imagens-religioes.js';
 import { aplicarTema, formatarPercentual, gerarTabela, opcoesBase, observarGraficos } from './charts-core.js';
 import { montarImagens } from './imagens.js';
 import { initCarrossel } from './carrossel.js';
+import { cardReligiao } from './card-religiao.js';
 
 const slug = document.body.dataset.religion;
 const graficos = new Map();
@@ -20,7 +21,6 @@ const grupo = GRUPOS.find((item) => item.id === ({
 }[slug]));
 const campoSerie = ({ catolicismo: 'catolica', evangelicos: 'evangelicas', espiritismo: 'espirita', 'sem-religiao': 'sem' })[slug];
 const campoGrupo = ({ catolicismo: 'catolica', evangelicos: 'evangelicas', espiritismo: 'espirita', 'sem-religiao': 'sem' })[slug];
-const observadorTema = matchMedia('(prefers-color-scheme: dark)');
 const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const iconesSociedade = {
   educacao: '<path d="M3 5.5c4-1.5 7-.5 9 1.5v13c-2-2-5-3-9-1.5zM21 5.5c-4-1.5-7-.5-9 1.5v13c2-2 5-3 9-1.5z"/><path d="M6 9h3M6 12h3M15 9h3M15 12h3"/>',
@@ -1049,11 +1049,18 @@ function renderizarNavegacaoReligioes() {
   const indice = ativas.findIndex((religiao) => religiao.id === slug);
   const anterior = ativas[indice - 1];
   const proxima = ativas[indice + 1];
-  const linkAnterior = criarElemento('a', '', anterior ? `← Anterior: ${anterior.nome}` : '← Índice de religiões');
-  linkAnterior.href = anterior ? (anterior.pagina ?? anterior.arquivo) : 'religioes.html';
-  const linkProxima = criarElemento('a', '', proxima ? `Próxima: ${proxima.nome} →` : 'Índice de religiões →');
-  linkProxima.href = proxima ? (proxima.pagina ?? proxima.arquivo) : 'religioes.html';
-  nav.replaceChildren(linkAnterior, linkProxima);
+  const itens = [];
+  if (anterior) {
+    const item = criarElemento('section', 'religion-pagination__item');
+    item.append(criarElemento('h2', 'eyebrow', 'Anterior'), cardReligiao(anterior, { href: anterior.pagina ?? anterior.arquivo }));
+    itens.push(item);
+  }
+  if (proxima) {
+    const item = criarElemento('section', 'religion-pagination__item');
+    item.append(criarElemento('h2', 'eyebrow', 'Próxima'), cardReligiao(proxima, { href: proxima.pagina ?? proxima.arquivo }));
+    itens.push(item);
+  }
+  nav.replaceChildren(...itens);
 }
 
 function criarTabelaFallbackSociedade(area) {
@@ -1197,4 +1204,4 @@ document.querySelectorAll('.timeline-list, [data-image-gallery]').forEach((trilh
 montarSociedade();
 configurarScrollspy();
 iniciarGraficos();
-observadorTema.addEventListener('change', () => aplicarTema(graficos, criarGrafico));
+document.addEventListener('tema:mudou', () => aplicarTema(graficos, criarGrafico));

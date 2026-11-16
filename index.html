@@ -3,21 +3,30 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <script src="js/tema-init.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
   <meta name="description" content="Explore 150 anos de censos do IBGE, a história das religiões e os conceitos das Ciências da Religião no Brasil.">
-  <meta name="author" content="Guilherme Oliveira de Santana, Pedro Henrique Gomes, Henrique Soares, Lucas Cardoso e Kaue Bueno">
   <meta name="theme-color" content="#FAF7F2">
+  <link rel="canonical" href="https://societyoffaithapp.vercel.app/">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Society of Faith — Religião e sociedade no Brasil">
-  <meta property="og:description" content="Como o Brasil se identifica em matéria de fé? Explore censos, religiões e conceitos das Ciências da Religião.">
-  <title>Society of Faith — Religião e sociedade no Brasil</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23A8502F'/%3E%3Cpath d='M32 10 46 32 32 54 18 32Z' fill='none' stroke='%23FAF7F2' stroke-width='4'/%3E%3Ccircle cx='32' cy='32' r='5' fill='%23FAF7F2'/%3E%3C/svg%3E">
+  <meta property="og:title" content="Início | Society of Faith">
+  <meta property="og:description" content="Explore 150 anos de censos do IBGE, a história das religiões e os conceitos das Ciências da Religião no Brasil.">
+  <meta property="og:url" content="https://societyoffaithapp.vercel.app/">
+  <meta property="og:image" content="https://societyoffaithapp.vercel.app/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Início | Society of Faith">
+  <meta name="twitter:description" content="Explore 150 anos de censos do IBGE, a história das religiões e os conceitos das Ciências da Religião no Brasil.">
+  <meta name="twitter:image" content="https://societyoffaithapp.vercel.app/assets/og.png">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<meta name="author" content="Guilherme Oliveira de Santana, Pedro Henrique Gomes, Henrique Soares, Lucas Cardoso e Kaue Bueno">
+  <title>Início | Society of Faith</title>
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/home.css">
   <script type="module" src="js/components.js"></script>
-  <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/tema.js"></script>
+<script type="module" src="js/main.js"></script>
   <script type="module" src="js/reveal.js"></script>
   <script type="module" src="js/home.js"></script>
 </head>
@@ -96,12 +105,6 @@
           <h2 id="showcase-title">O que você vai encontrar</h2>
         </div>
         <div class="showcase__controls" data-carousel-controls aria-label="Controles da vitrine">
-          <button class="carousel-arrow" type="button" data-carousel-prev aria-label="Rolar para os conteúdos anteriores" aria-controls="home-showcase">
-            <span aria-hidden="true">←</span>
-          </button>
-          <button class="carousel-arrow" type="button" data-carousel-next aria-label="Rolar para os próximos conteúdos" aria-controls="home-showcase">
-            <span aria-hidden="true">→</span>
-          </button>
         </div>
         <svg class="showcase__line" viewBox="0 0 1000 200" preserveAspectRatio="none" aria-hidden="true">
           <path d="M-20 112 C95 12 174 190 288 98 S470 18 570 111 744 182 835 83 970 49 1020 105"></path>
@@ -158,8 +161,6 @@
         </div>
         <div class="featured-carousel" data-carousel-shell>
           <div class="showcase__controls" data-carousel-controls aria-label="Controles de religiões em destaque">
-            <button class="carousel-arrow" type="button" data-carousel-prev aria-label="Religião anterior" aria-controls="home-featured-religions"><span aria-hidden="true">←</span></button>
-            <button class="carousel-arrow" type="button" data-carousel-next aria-label="Próxima religião" aria-controls="home-featured-religions"><span aria-hidden="true">→</span></button>
           </div>
           <div class="featured-grid" id="home-featured-religions" data-home-religions data-carousel tabindex="0" aria-label="Religiões em destaque, role horizontalmente para explorar"></div>
         </div>

@@ -8,10 +8,12 @@
   --ink-soft: #6B645D;
   --accent: #A8502F;
   --accent-2: #D9A58B;
-  --accent-soft: #F1E2D8;
+  --accent-soft: #F3E9E2;
   --line: #E6DDD3;
   --shadow-card: 0 10px 30px -18px rgba(35, 31, 28, .25);
+  --radius-card: 0.9rem;
   --on-accent: #FFFFFF;
+  --on-accent-button: #FFFFFF;
   --dialog-backdrop: rgba(0, 0, 0, .7);
   --accent-button: var(--accent);
   --accent-hover: color-mix(in srgb, var(--accent) 88%, var(--ink));
@@ -23,8 +25,7 @@
   --section-nav-h: 0px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
+:root[data-theme="dark"] {
     color-scheme: dark;
     --bg: #171412;
     --bg-header: #1D1916;
@@ -38,8 +39,8 @@
     --line: #3A322C;
     --shadow-card: 0 10px 30px -18px rgba(0, 0, 0, .6);
     --on-accent: #FFFFFF;
+    --on-accent-button: var(--bg);
     --dialog-backdrop: rgba(0, 0, 0, .7);
     --accent-button: color-mix(in srgb, var(--accent) 45%, var(--bg));
     --accent-hover: color-mix(in srgb, var(--accent-button) 88%, var(--bg));
-  }
 }

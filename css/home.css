@@ -247,6 +247,13 @@
   transform: translateY(-50%);
 }
 
+.showcase__controls.carousel-controls {
+  position: static;
+  right: auto;
+  justify-content: center;
+  transform: none;
+}
+
 .showcase__line {
   pointer-events: none;
 }
@@ -416,18 +423,18 @@
   -ms-overflow-style: none;
 }
 
-.featured-grid > .religion-product {
+.featured-grid > .religion-card {
   scroll-snap-align: start;
   transform: rotate(-1deg);
   transition: transform 200ms ease;
 }
 
-.featured-grid > .religion-product:nth-child(even) {
+.featured-grid > .religion-card:nth-child(even) {
   transform: rotate(1deg);
 }
 
-.featured-grid > .religion-product:hover,
-.featured-grid > .religion-product:focus-within {
+.featured-grid > .religion-card:hover,
+.featured-grid > .religion-card:focus-within {
   transform: rotate(0);
 }
 
@@ -687,7 +694,13 @@
   }
 
   .featured-grid {
-    grid-auto-columns: minmax(16rem, 86vw);
+    grid-auto-columns: minmax(16rem, 78vw);
+  }
+
+  .showcase-card,
+  .featured-grid > .religion-card,
+  .featured-grid > .religion-card:nth-child(even) {
+    transform: none;
   }
 
   .creators-list {
@@ -727,7 +740,7 @@
   }
 
   .showcase__track {
-    grid-auto-columns: minmax(14rem, 84vw);
+    grid-auto-columns: minmax(14rem, 78vw);
   }
 
   .steps-grid {
@@ -741,10 +754,8 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .home-headline__stamp {
-    background: color-mix(in srgb, var(--accent) 45%, var(--bg));
-  }
+:root[data-theme="dark"] .home-headline__stamp {
+  background: color-mix(in srgb, var(--accent) 45%, var(--bg));
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -761,8 +772,8 @@
     transform: none;
   }
 
-  .featured-grid > .religion-product,
-  .featured-grid > .religion-product:nth-child(even) {
+  .featured-grid > .religion-card,
+  .featured-grid > .religion-card:nth-child(even) {
     transition: none;
     transform: none;
   }

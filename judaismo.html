@@ -3,43 +3,57 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <script src="js/tema-init.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <meta name="description" content="ConheÃ§a o judaÃ­smo, sua histÃ³ria, diversidade e presenÃ§a no Brasil.">
-  <title>JudaÃ­smo â€” Society of Faith</title>
+  <meta name="description" content="Conheça o judaísmo, sua história, diversidade e presença no Brasil.">
+  <meta name="theme-color" content="#FAF7F2">
+  <link rel="canonical" href="https://societyoffaithapp.vercel.app/judaismo.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Judaísmo | Society of Faith">
+  <meta property="og:description" content="Conheça o judaísmo, sua história, diversidade e presença no Brasil.">
+  <meta property="og:url" content="https://societyoffaithapp.vercel.app/judaismo.html">
+  <meta property="og:image" content="https://societyoffaithapp.vercel.app/assets/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Judaísmo | Society of Faith">
+  <meta name="twitter:description" content="Conheça o judaísmo, sua história, diversidade e presença no Brasil.">
+  <meta name="twitter:image" content="https://societyoffaithapp.vercel.app/assets/og.png">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<title>Judaísmo | Society of Faith</title>
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/graficos.css">
   <link rel="stylesheet" href="css/religiao-pagina.css">
   <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
   <script type="module" src="js/components.js"></script>
-  <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/tema.js"></script>
+<script type="module" src="js/main.js"></script>
   <script type="module" src="js/pagina-religiao.js"></script>
 </head>
 <body data-religion="judaismo">
-  <a class="skip-link" href="#conteudo">Ir para o conteÃºdo</a>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Society of Faith, inÃ­cio">Society <span>of Faith</span></a>
+    <a class="brand" href="index.html" aria-label="Society of Faith, início">Society <span>of Faith</span></a>
     <button class="menu-toggle" type="button" data-menu-toggle aria-label="Abrir menu" aria-expanded="false" aria-controls="site-menu">
       <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
     </button>
-    <nav class="site-menu" id="site-menu" data-site-menu aria-label="NavegaÃ§Ã£o principal"></nav>
+    <nav class="site-menu" id="site-menu" data-site-menu aria-label="Navegação principal"></nav>
   </header>
   <main id="conteudo" class="religion-page" tabindex="-1" data-new-religion-page>
     <section class="hero page-hero">
       <div class="container">
-        <p class="eyebrow">OUTRAS TRADIÃ‡Ã•ES Â· JUDAÃSMO</p>
-        <h1 id="page-title">JudaÃ­smo</h1>
-        <p class="hero__lead">Uma das mais antigas tradiÃ§Ãµes monoteÃ­stas, raiz de outras religiÃµes e presente no Brasil desde o perÃ­odo colonial.</p>
+        <p class="eyebrow">OUTRAS TRADIÇÕES · JUDAÍSMO</p>
+        <h1 id="page-title">Judaísmo</h1>
+        <p class="hero__lead">Uma das mais antigas tradições monoteístas, raiz de outras religiões e presente no Brasil desde o período colonial.</p>
       </div>
     </section>
-    <aside class="callout respect-callout container"><p>Esta pÃ¡gina apresenta uma descriÃ§Ã£o geral e respeitosa. Cada comunidade tem seus prÃ³prios entendimentos, e a voz de quem pratica Ã© a principal fonte sobre a prÃ³pria fÃ©.</p></aside>
-    <aside class="callout respect-callout container"><p>JudaÃ­smo Ã© uma religiÃ£o; tambÃ©m existe uma identidade e uma histÃ³ria do povo judeu. Esta pÃ¡gina trata da religiÃ£o.</p></aside>
-    <nav class="section-nav" aria-label="NavegaÃ§Ã£o nesta pÃ¡gina"><div class="section-nav__inner" data-page-navigation></div></nav>
-    <noscript><p class="container callout">Ative o JavaScript para consultar as seÃ§Ãµes, os dados censitÃ¡rios e as ilustrações originais em SVG desta pÃ¡gina.</p></noscript>
+    <aside class="callout respect-callout container"><p>Esta página apresenta uma descrição geral e respeitosa. Cada comunidade tem seus próprios entendimentos, e a voz de quem pratica é a principal fonte sobre a própria fé.</p></aside>
+    <aside class="callout respect-callout container"><p>Judaísmo é uma religião; também existe uma identidade e uma história do povo judeu. Esta página trata da religião.</p></aside>
+    <nav class="section-nav" aria-label="Navegação nesta página"><div class="section-nav__inner" data-page-navigation></div></nav>
+    <noscript><p class="container callout">Ative o JavaScript para consultar as seções, os dados censitários e as ilustrações originais em SVG desta página.</p></noscript>
     <div data-religion-content></div>
   </main>
-  <footer class="site-footer"><p>Society of Faith Â· ReligiÃ£o e Sociedade no Brasil Â· CrÃ©ditos: dados do IBGE e textos de apoio das aulas.</p></footer>
+  <footer class="site-footer"><p>Society of Faith · Religião e Sociedade no Brasil · Créditos: dados do IBGE e textos de apoio das aulas.</p></footer>
   <dialog class="image-lightbox" id="image-lightbox" aria-label="Imagem ampliada">
     <button type="button" data-lightbox-close aria-label="Fechar imagem ampliada">Fechar</button>
     <img alt="">

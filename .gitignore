@@ -3,3 +3,5 @@ node_modules/
 Thumbs.db
 .vscode/
 *.log
+/tools/capturas/
+/tools/relatorio-*.md

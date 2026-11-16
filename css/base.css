@@ -15,7 +15,7 @@ body {
   line-height: 1.7;
 }
 
-a {
+:where(main a:not([class])) {
   color: var(--accent);
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -24,20 +24,18 @@ a {
   transition: color 0.15s ease, text-decoration-color 0.15s ease, text-decoration-thickness 0.15s ease;
 }
 
-a:hover {
-  color: color-mix(in srgb, var(--accent) 88%, var(--ink));
-  text-decoration-thickness: 2px;
-  text-decoration-color: var(--accent);
-}
-
-a:visited {
+:where(main a:not([class])):visited {
   color: var(--accent);
 }
 
-a:focus-visible {
+:where(main a:not([class])):hover {
+  text-decoration-color: currentColor;
+}
+
+:where(main a:not([class])):focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 0.2rem;
+  border-radius: 4px;
 }
 
 h1,
@@ -66,8 +64,9 @@ header {
 .brand {
   color: var(--ink);
   font-family: var(--font-serif);
-  font-size: inherit;
+  font-size: clamp(1.6rem, 1.1rem + 1.2vw, 2.2rem);
   font-weight: 700;
+  line-height: 1;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -100,17 +99,14 @@ header {
   transition: top 0.15s ease;
 }
 
-.skip-link:focus,
 .skip-link:focus-visible {
   top: 12px;
   outline: 2px solid var(--ink);
   outline-offset: 2px;
 }
 
-@media (prefers-color-scheme: dark) {
-  .skip-link {
-    background: color-mix(in srgb, var(--accent) 45%, var(--bg));
-  }
+:root[data-theme="dark"] .skip-link {
+  background: color-mix(in srgb, var(--accent) 45%, var(--bg));
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -255,49 +251,36 @@ header {
 }
 
 .carousel-controls[data-carousel-controls] {
-  position: absolute;
-  z-index: 3;
-  top: 50%;
-  right: 0.5rem;
   display: flex;
+  min-height: 2rem;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 0.5rem;
-  transform: translateY(-50%);
+  margin: 0.5rem auto 0;
 }
 
 .carousel-controls[hidden] {
   display: none;
 }
 
-.carousel-arrow,
-[data-carousel-prev],
-[data-carousel-next],
 .carousel-toggle {
-  display: grid;
-  width: 44px;
-  min-width: 44px;
-  aspect-ratio: 1;
-  place-items: center;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  background: var(--surface);
-  color: var(--ink);
-  cursor: pointer;
-  font: 500 1rem/1 var(--font-sans);
-  -webkit-tap-highlight-color: transparent;
-}
-
-.carousel-arrow {
-  font-size: 1.3rem;
-}
-
-.carousel-toggle {
-  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  min-width: 0;
+  height: auto;
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0.4rem 0.6rem;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
 
 @media (hover: hover) {
-  .carousel-arrow:hover,
   .carousel-toggle:hover {
     border-color: var(--accent);
     color: var(--accent);
@@ -305,7 +288,7 @@ header {
 }
 
 .carousel-dots {
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
@@ -327,6 +310,8 @@ header {
 
 [data-carousel] {
   cursor: grab;
+  touch-action: pan-x pan-y;
+  overscroll-behavior-x: contain;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
@@ -362,6 +347,26 @@ header {
   color: var(--ink);
   padding: 0.45rem 0.65rem;
   font: inherit;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+.carousel-toggle:focus-visible {
+  position: static;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  clip: auto;
+  clip-path: none;
+  white-space: normal;
 }
 
 main > section,
@@ -415,27 +420,210 @@ main > section,
   box-shadow: var(--shadow-card);
 }
 
+.religion-card {
+  position: relative;
+  display: grid;
+  min-width: 0;
+  height: 100%;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card, 0.9rem);
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.religion-card:hover {
+  box-shadow: 0 16px 36px -18px rgba(35, 31, 28, .36);
+  transform: translateY(-0.2rem);
+}
+
+.religion-card:focus-within {
+  box-shadow: 0 0 0 2px var(--accent), var(--shadow-card);
+}
+
+.religion-card__image {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  margin: 0;
+  background: var(--surface-alt);
+}
+
+.religion-card__image img,
+.religion-card__image .image-placeholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+
+.religion-card__image figcaption {
+  display: none;
+}
+
+.religion-card__body {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.religion-card__title {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin: 0;
+  font: 600 1.15rem/1.2 var(--font-serif);
+}
+
+.religion-card__title a {
+  overflow: hidden;
+  color: var(--ink);
+  text-decoration: none;
+  text-overflow: ellipsis;
+}
+
+.religion-card__title a::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: "";
+}
+
+.religion-card__title a:focus-visible {
+  outline: 0;
+}
+
+.religion-card__title a:focus-visible::after {
+  border-radius: inherit;
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.religion-card__stat {
+  flex: 0 0 auto;
+  color: var(--accent);
+  font: 750 0.95rem/1.2 var(--font-sans);
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.religion-card__summary {
+  display: -webkit-box;
+  overflow: hidden;
+  min-height: 2.8em;
+  margin: 0.6rem 0 0.7rem;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+  line-height: 1.4;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.religion-card__base {
+  margin: 0 0 0.8rem;
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+}
+
+.religion-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: auto;
+  color: var(--ink-soft);
+  font-size: 0.69rem;
+}
+
+.religion-card__dots {
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 0.15rem;
+}
+
+.religion-card__dots span {
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: var(--dot-color);
+}
+
+.religion-card__topics {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.religion-card__arrow {
+  flex: 0 0 auto;
+  margin-left: auto;
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+.image-figure__badge {
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  z-index: 2;
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 0.15rem 0.45rem;
+  font-size: 0.65rem;
+}
+
+html[data-theme="dark"] img[data-image-type="arte"] {
+  filter: brightness(.9) contrast(1.05);
+}
+
+@media (max-width: 699px) {
+  .religion-card__image {
+    aspect-ratio: 16 / 9;
+  }
+}
+
 .button--primary,
+.button--primary:visited,
+.button--primary:hover,
+.button--primary:active,
+.button--primary:focus-visible,
 .btn-primary,
+.btn-primary:visited,
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus-visible,
+.citation-button,
+.citation-button:visited,
+.citation-button:hover,
+.citation-button:active,
+.citation-button:focus-visible,
 button[type="submit"] {
-  background-color: var(--accent-button);
-  border: 1px solid var(--accent-button);
+  background-color: var(--accent);
+  border: 1px solid var(--accent);
   border-radius: 0.5rem;
-  color: var(--on-accent);
+  color: var(--on-accent-button);
   cursor: pointer;
   text-decoration: none;
   transition: background-color 160ms ease, border-color 160ms ease;
 }
 
-.button--primary:hover,
-.btn-primary:hover,
-button[type="submit"]:hover {
-  background-color: var(--accent-hover);
-  border-color: var(--accent-hover);
-}
-
 .button--secondary,
-.btn-secondary {
+.button--secondary:visited,
+.button--secondary:hover,
+.button--secondary:active,
+.button--secondary:focus-visible,
+.btn-secondary,
+.btn-secondary:visited,
+.btn-secondary:hover,
+.btn-secondary:active,
+.btn-secondary:focus-visible {
   background-color: transparent;
   border: 1px solid var(--accent);
   border-radius: 0.5rem;
@@ -450,42 +638,24 @@ button[type="submit"]:hover {
   background-color: var(--accent-soft);
 }
 
+.site-footer a,
+.site-footer a:visited,
+.site-footer a:hover,
+.site-footer a:active,
+.site-footer a:focus-visible {
+  color: var(--accent);
+}
+
+main .image-figure,
+main .image-gallery,
+main [data-image-gallery],
+.image-lightbox {
+  display: none !important;
+}
+
 :where(a, button, input, select, textarea):focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-}
-
-@media (max-width: 719px), (pointer: coarse) {
-  .carousel-controls[data-carousel-controls] {
-    position: static;
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    justify-content: initial;
-    gap: 0.65rem;
-    margin: 0.4rem auto 0;
-    transform: none;
-  }
-
-  .carousel-arrow {
-    display: none;
-  }
-
-  [data-carousel-prev],
-  [data-carousel-next] {
-    display: none;
-  }
-
-  .carousel-dots {
-    display: flex;
-    grid-column: 2;
-  }
-
-  .carousel-toggle {
-    grid-column: 3;
-    justify-self: end;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -511,7 +681,7 @@ button[type="submit"]:hover {
     align-items: center;
     justify-content: center;
     border: 1px solid var(--line);
-    border-radius: 0.5rem;
+    border-radius: 50%;
     background: var(--surface);
     color: var(--ink);
     padding: 0;
@@ -521,7 +691,7 @@ button[type="submit"]:hover {
   .site-menu {
     position: fixed;
     z-index: 101;
-    inset: var(--header-h) 0 0;
+    inset: var(--header-h) 0 0 0;
     display: none;
     flex-direction: column;
     align-items: stretch;
@@ -544,6 +714,9 @@ button[type="submit"]:hover {
     align-items: center;
     border-radius: 0.5rem;
     padding: 0.7rem 0.75rem;
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    line-height: 1.15;
   }
 
   .site-menu > a[aria-current="page"],
@@ -628,6 +801,13 @@ button[type="submit"]:hover {
     background: var(--accent-soft);
     color: var(--ink);
   }
+
+  .menu-appearance {
+    display: block;
+    margin-top: 1rem;
+    border-top: 1px solid var(--line);
+    padding: 1rem 0 0.5rem;
+  }
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -637,14 +817,14 @@ button[type="submit"]:hover {
 }
 
 .menu-toggle svg {
-  width: 24px;
-  height: 24px;
+  width: 18px;
+  height: 18px;
   overflow: visible;
 }
 
 .menu-toggle svg line {
   stroke: currentColor;
-  stroke-width: 2;
+  stroke-width: 1.75;
   stroke-linecap: round;
   transition: transform 160ms ease, opacity 160ms ease;
   transform-origin: center;
@@ -662,13 +842,87 @@ button[type="submit"]:hover {
   transform: translateY(-6px) rotate(-45deg);
 }
 
+.menu-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.menu-appearance {
+  display: none;
+}
+
+.menu-appearance h2 {
+  margin: 0 0 0.5rem;
+  color: var(--ink-soft);
+  font: 600 0.78rem/1.3 var(--font-sans);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.menu-appearance__options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.menu-appearance button,
+.theme-toggle {
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  padding: 0.5rem 0.75rem;
+}
+
+.theme-toggle {
+  display: grid;
+  place-items: center;
+  padding: 0;
+}
+
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.75;
+}
+
+.theme-toggle:hover,
+.menu-appearance button[aria-pressed="true"] {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
 @media (prefers-reduced-motion: reduce) {
   .menu-toggle svg line,
   .menu-caret {
     transition: none;
   }
 
+  .carousel-toggle {
+    transition: none;
+  }
+
   html {
     scroll-behavior: auto;
+  }
+
+  @media (pointer: coarse) {
+    [data-carousel] {
+      scroll-snap-type: x proximity;
+    }
+  }
+
+  @media (pointer: coarse) {
+    .religion-card:hover {
+      transform: none;
+    }
   }
 }

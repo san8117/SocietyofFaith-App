@@ -23,6 +23,31 @@ export function atualizarFonteGrafico() {
   if (window.Chart) window.Chart.defaults.font.family = obterFonteGrafico();
 }
 
+export function criarOuAtualizar(canvasId, config) {
+  const canvas = document.getElementById(canvasId);
+  const figura = canvas?.closest('[data-chart], [data-censo-chart]');
+  if (canvas && window.Chart) {
+    try {
+      window.Chart.getChart(canvas)?.destroy();
+      if (figura) figura.hidden = false;
+      return new window.Chart(canvas, config);
+    } catch (erro) {
+      console.error(`Não foi possível renderizar o gráfico ${canvasId}.`, erro);
+    }
+  } else {
+    console.error(`Não foi possível renderizar o gráfico ${canvasId}: canvas ou Chart.js indisponível.`);
+  }
+
+  if (figura) figura.hidden = true;
+  const chave = figura?.dataset.chart || figura?.dataset.censoChart;
+  const tabela = chave
+    ? document.querySelector(`[data-table="${chave}"], [data-censo-table="${chave}"]`)
+    : null;
+  const detalhes = tabela?.closest('details');
+  if (detalhes) detalhes.open = true;
+  return null;
+}
+
 export function opcoesBase(tema = {}) {
   atualizarFonteGrafico();
   const tinta = tema.ink ?? lerCor('--ink');

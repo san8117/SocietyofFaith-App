@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://societyoffaithapp.vercel.app/sitemap.xml

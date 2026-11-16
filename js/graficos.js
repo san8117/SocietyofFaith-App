@@ -14,6 +14,7 @@ import {
 import {
   formatarNumero,
   aplicarTema as reconstruirTema,
+  criarOuAtualizar,
   gerarTabela as criarTabelaComum,
   obterFonteGrafico,
   lerCor as lerToken,
@@ -27,7 +28,6 @@ const observados = new WeakSet();
 const observando = new WeakSet();
 let observadorGraficos;
 const movimentoReduzido = window.matchMedia('(prefers-reduced-motion: reduce)');
-const temaEscuro = window.matchMedia('(prefers-color-scheme: dark)');
 const donutVisivel = GRUPOS.map(() => true);
 
 const gruposRegionais = GRUPOS.filter((grupo) => grupo.id !== 'naosabe');
@@ -176,16 +176,14 @@ function opcoesBase() {
 }
 
 function criarInstancia(id, tipo, dados, opcoes = {}, plugins = []) {
-  const canvas = document.getElementById(id);
-  if (!canvas || !window.Chart) return null;
   const configuracao = {
     type: tipo,
     data: dados,
     plugins,
     options: { ...opcoesBase(), ...opcoes }
   };
-  const instancia = new window.Chart(canvas, configuracao);
-  graficos.set(id, instancia);
+  const instancia = criarOuAtualizar(id, configuracao);
+  if (instancia) graficos.set(id, instancia);
   return instancia;
 }
 
@@ -213,9 +211,12 @@ function criarGraficoComparativo() {
       }];
   const config = opcoesBase();
   config.indexAxis = 'y';
-  config.scales.x.beginAtZero = !agrupado;
-  config.scales.x.min = agrupado ? 0 : undefined;
-  config.scales.x.max = agrupado ? undefined : undefined;
+  config.scales.x.beginAtZero = agrupado;
+  if (agrupado) config.scales.x.min = 0;
+  else {
+    delete config.scales.x.min;
+    delete config.scales.x.max;
+  }
   config.scales.x.ticks.callback = (valor) => formatar(valor);
   config.plugins.tooltip.callbacks.label = (context) => {
     const valor = context.parsed.x;
@@ -761,7 +762,7 @@ function iniciar() {
   configurarScrollspy();
   animarContadores();
   observarGraficos();
-  temaEscuro.addEventListener('change', aplicarTema);
+  document.addEventListener('tema:mudou', aplicarTema);
   movimentoReduzido.addEventListener('change', aplicarTema);
 }
 

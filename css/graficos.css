@@ -18,8 +18,7 @@
   --c-race-indigenous: var(--accent);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
+:root[data-theme="dark"] {
     --c-catolica: #D98B68;
     --c-evangelicas: #5FA3B3;
     --c-espirita: #9A8BC8;
@@ -28,7 +27,6 @@
     --c-outras: #A89F97;
     --c-semreligiao: #7F93A6;
     --c-naosabe: #8A8079;
-  }
 }
 
 :root {
@@ -226,6 +224,10 @@ body {
   position: relative;
   width: 100%;
   height: 360px;
+}
+
+.chart-container--comparison {
+  height: clamp(300px, 46vw, 420px);
 }
 
 .chart-container--tall {

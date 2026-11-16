@@ -179,6 +179,30 @@ if (menu && botaoMenu) {
   MENU.forEach((item, indice) => nav.append(renderizarItem(item, indice)));
   menu.replaceChildren(nav);
 
+  const aparencia = criar('section', 'menu-appearance');
+  aparencia.setAttribute('aria-label', 'Aparência');
+  aparencia.append(criar('h2', '', 'Aparência'));
+  const opcoes = criar('div', 'menu-appearance__options');
+  [
+    ['claro', 'Claro'],
+    ['escuro', 'Escuro'],
+    ['auto', 'Automático']
+  ].forEach(([valor, rotulo]) => {
+    const opcao = criar('button', '', rotulo);
+    opcao.type = 'button';
+    opcao.dataset.themeOption = valor;
+    opcoes.append(opcao);
+  });
+  aparencia.append(opcoes);
+  menu.append(aparencia);
+
+  const alternador = criar('button', 'theme-toggle');
+  alternador.type = 'button';
+  alternador.dataset.themeToggle = '';
+  alternador.setAttribute('aria-label', 'Tema atual: Claro. Alterar para Escuro.');
+  alternador.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"></svg>';
+  menu.parentElement.insertBefore(alternador, menu);
+
   botaoMenu.addEventListener('click', () => {
     const aberto = botaoMenu.getAttribute('aria-expanded') !== 'true';
     if (aberto) {

@@ -2,6 +2,7 @@ import { ANOS_SEM_CENSO, CENSOS, LINKS, QUEDA_CATOLICOS, SERIE } from './dados-c
 import { initCarrossel } from './carrossel.js';
 import {
   aplicarTema as reconstruirTema,
+  criarOuAtualizar,
   formatarNumero,
   gerarTabela as criarTabelaComum,
   obterFonteGrafico,
@@ -19,7 +20,6 @@ const faixas = {
 const graficos = new Map();
 const seriesAtivas = new Set(Object.keys(faixas));
 const movimentoReduzido = window.matchMedia('(prefers-reduced-motion: reduce)');
-const temaEscuro = window.matchMedia('(prefers-color-scheme: dark)');
 
 function formatar(valor) {
   return `${formatarNumero(valor)}%`;
@@ -136,14 +136,13 @@ function criarSerie() {
       grid: { color: lerCor('--line') }
     }
   };
-  const canvas = document.querySelector('#chart-serie');
-  if (!canvas || !window.Chart) return;
-  graficos.set('serie', new window.Chart(canvas, {
+  const serie = criarOuAtualizar('chart-serie', {
     type: 'scatter',
     data: { datasets: conjuntos },
     options: config,
     plugins: [marcadores]
-  }));
+  });
+  if (serie) graficos.set('serie', serie);
 }
 
 function criarQueda() {
@@ -163,8 +162,6 @@ function criarQueda() {
       });
     }
   };
-  const canvas = document.querySelector('#chart-queda');
-  if (!canvas || !window.Chart) return;
   const config = opcoesGrafico();
   config.indexAxis = 'y';
   config.scales = {
@@ -177,7 +174,7 @@ function criarQueda() {
     y: { ticks: { color: lerCor('--ink-soft') }, grid: { display: false } }
   };
   config.plugins.tooltip.callbacks = { label: (context) => `−${formatarNumero(Math.abs(context.raw))} p.p.` };
-  graficos.set('queda', new window.Chart(canvas, {
+  const queda = criarOuAtualizar('chart-queda', {
     type: 'bar',
     data: {
       labels: QUEDA_CATOLICOS.map((item) => item.periodo.replace('→', ' → ')),
@@ -191,7 +188,8 @@ function criarQueda() {
     },
     options: config,
     plugins: [pluginRotulos]
-  }));
+  });
+  if (queda) graficos.set('queda', queda);
 }
 
 function montarLinks(chaves) {
@@ -469,7 +467,7 @@ function iniciar() {
   document.querySelector('.no-census-note').textContent = `Anos em que não houve censo: ${ANOS_SEM_CENSO.join(', ')} (conturbações políticas).`;
   scrollspy();
   observarGraficos();
-  temaEscuro.addEventListener('change', aplicarTema);
+  document.addEventListener('tema:mudou', aplicarTema);
   movimentoReduzido.addEventListener('change', aplicarTema);
 }
 

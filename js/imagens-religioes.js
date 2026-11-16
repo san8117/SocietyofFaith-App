@@ -1,5 +1,14 @@
 const slots = ['capa', 'origens', 'brasil', 'hoje', 'galeria1', 'galeria2', 'galeria3'];
 
+const cores = {
+  catolicismo: '#A8502F', evangelicos: '#2F6B7A', espiritismo: '#6C5B9E',
+  umbanda: '#C8553D', candomble: '#B8742C', 'tradicoes-indigenas': '#4E8A5B',
+  judaismo: '#3E5C99', islamismo: '#1F7A6D', budismo: '#D9A21F',
+  hinduismo: '#C9467A', 'testemunhas-de-jeova': '#5B7A8C', mormons: '#7A5C3E',
+  'tradicoes-esotericas': '#4B3F72', 'santo-daime': '#2F7D4F',
+  'sem-religiao': '#3D4A57', cristianismo: '#8A3A1C',
+};
+
 const nomes = {
   cristianismo: 'Cristianismo',
   catolicismo: 'Catolicismo',
@@ -42,6 +51,7 @@ function criarItem(slug, slot, nome) {
     status: 'pronto',
     pendente: false,
     tipo: 'arte',
+    cor: cores[slug],
     width: 1600,
     height: 1000,
     src: `assets/img/religioes/${slug}/${arquivo}`,
