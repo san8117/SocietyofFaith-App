@@ -74,6 +74,75 @@ export const SOCIEDADE = {
         'Texto 01; Aulas 2 e 3 (sincretismo, dupla pertença, trânsito religioso); IBGE.')
     ]
   },
+  cristianismo: {
+    conceito: {
+      rotulo: 'Do movimento à instituição',
+      frase: 'O cristianismo primitivo mostra como uma comunidade religiosa vira instituição e se relaciona com o poder político.',
+      href: 'religiao.html#identidade'
+    },
+    areas: [
+      area('educacao', 'Educação e formação', 'educacao',
+        'As comunidades cristãs primárias se reuniam para ensinar, celebrar e organizar a vida em comum.',
+        [
+          { titulo: 'Catequese', texto: 'A formação dos convertidos foi um processo de ensino e transmissão da fé.' },
+          { titulo: 'Leitura dos textos', texto: 'A tradição cristã cedo valorizou a leitura e a memorização de ensinamentos.' },
+          { titulo: 'Escolas e instituições', texto: 'Com o tempo, igrejas e bispos passaram a organizar ensino e formação.' }
+        ],
+        ['A educação religiosa fortalece vínculos internos e transmite memória.', 'A escolarização pública deve respeitar a pluralidade de crenças e não privilegiar uma tradição.'],
+        'Como a transmissão da fé se organiza sem perder sentido?',
+        'Texto 04; Atos dos Apóstolos; relatos sobre comunidades primitivas.'),
+      area('assistencia', 'Assistência e cuidado', 'assistencia',
+        'A caridade e o cuidado com os pobres foram marcas importantes da vida cristã inicial.',
+        [
+          { titulo: 'Posse comum', texto: 'Comunidades primárias compartilhavam bens e apoio mútuo, conforme Atos 2.44-46.' },
+          { titulo: 'Cuidado dos vulneráveis', texto: 'A prática de acolhimento foi central nas comunidades cristãs.' },
+          { titulo: 'Redes de suporte', texto: 'As comunidades passaram a cuidar de órfãos, viúvas e necessitados.' }
+        ],
+        ['A ajuda concreta fortaleceu a identidade comunitária.', 'A caridade não se confunde com a lógica estatal ou com a substituição de políticas públicas.'],
+        'Quando agir comunitário vira responsabilidade pública?',
+        'Atos dos Apóstolos; Texto 04.'),
+      area('cultura', 'Cultura, arte e memória', 'cultura',
+        'A literatura cristã primitiva, os ritos e a memória dos mártires moldaram a cultura do Império.',
+        [
+          { titulo: 'Ritos litúrgicos', texto: 'A assembleia, a leitura dos textos e a eucaristia ganharam centralidade.' },
+          { titulo: 'Mártires e memória', texto: 'As histórias de perseguição foram lembradas e narradas por comunidades.' },
+          { titulo: 'Arte e arquitetura', texto: 'Basílicas e símbolos se tornaram parte da cultura do ocidente romano.' }
+        ],
+        ['A memória dos mártires ajudou a consolidar a identidade cristã.', 'A arte religiosa também pode ser compreendida como expressão política e cultural.'],
+        'Quando a memória religiosa se torna patrimônio cultural?',
+        'Texto 04; história da arte cristã antiga.'),
+      area('politica', 'Política e poder', 'politica',
+        'A relação entre cristianismo e Estado se torna decisiva após a legalização e a oficialização da fé.',
+        [
+          { titulo: 'Edito de Milão', texto: 'A legalização do cristianismo em 313 mudou o quadro institucional.' },
+          { titulo: 'Concílio de Niceia', texto: 'A reunião de bispos em 325 mostra a consolidação da Igreja como instituição.' },
+          { titulo: 'Teodósio I', texto: 'A decretação do cristianismo como religião oficial em 380 altera a relação entre Estado e Igreja.' }
+        ],
+        ['A legitimação imperial ampliou a influência cristã.', 'A relação com o poder também exigiu reconhecimento da pluralidade interna e do Estado laico.'],
+        'O que muda quando a fé se torna religião oficial?',
+        'Texto 04; história do cristianismo antigo.'),
+      area('familia', 'Família e valores', 'familia',
+        'As comunidades cristãs primárias praticavam laços de pertencimento e disciplina moral.',
+        [
+          { titulo: 'Comunidade doméstica', texto: 'A casa era espaço central de reunião e cuidado de famílias.' },
+          { titulo: 'Ritos de passagem', texto: 'Batismo e eucaristia ganharam sentido como marcas de pertencimento.' },
+          { titulo: 'Ética cristã', texto: 'Regras de vida e preocupação com a moral foram elementos fundamentais.' }
+        ],
+        ['A comunidade define normas e apoio para muitos fiéis.', 'Nem toda prática comunitária significa conformidade individual; há diversidade e disputa.'],
+        'A comunidade cria sentido ou impõe regras?',
+        'Atos dos Apóstolos; estudos sobre comunidades cristãs antigas.'),
+      area('convivencia', 'Convivência e diversidade', 'convivencia',
+        'O cristianismo primitivo cresceu em contextos plurais e de convivência com judeus, romanos e povos diversos.',
+        [
+          { titulo: 'Judeus e cristãos', texto: 'A separação entre os grupos foi gradual e nem sempre direta.' },
+          { titulo: 'Paganismo romano', texto: 'Os cultos imperiais e os deuses do panteão romanos eram parte do cenário político.' },
+          { titulo: 'Diversidade interna', texto: 'As primeiras comunidades não eram homogêneas; debates teológicos e disputas eram recorrentes.' }
+        ],
+        ['A convivência entre tradições pode gerar tensão e diálogo ao mesmo tempo.', 'A noção de “religião oficial” não elimina a diversidade interna nem as disputas de poder.'],
+        'Como lidar com diferenças religiosas sem reduzir toda a pluralidade a um único modelo?',
+        'Texto 04; estudos de história antiga e Ciências da Religião.')
+    ]
+  },
   evangelicos: {
     conceito: {
       rotulo: 'Trânsito religioso e identidade (Hervieu-Léger)',

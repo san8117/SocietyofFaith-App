@@ -1,4 +1,93 @@
 export const PAGINAS_RELIGIAO = {
+  cristianismo: {
+    title: 'Origens do cristianismo',
+    eyebrow: 'CRISTIANISMO · ORIGENS',
+    subtitle: 'De um movimento judaico na Palestina a religião oficial do Império Romano em pouco mais de três séculos.',
+    sentence: 'O nascimento de uma religião é um evento complexo, que envolve aspectos sociais, culturais, políticos e históricos. O cristianismo surgiu como uma seita judaica e se expandiu até se tornar uma religião universal.',
+    family: 'Cristianismo',
+    callouts: [
+      { text: 'Esta página apresenta a história do cristianismo como estudada pela história e pelas Ciências da Religião. As comunidades cristãs também têm suas próprias leituras de fé, que esta página respeita.', conferir: false }
+    ],
+    history: [
+      {
+        tab: 'O mundo de Jesus',
+        title: 'A Palestina e a tradição judaica',
+        text: 'A Palestina vivia sob a influência do helenismo, após as conquistas de Alexandre, o Grande, e foi integrada ao mundo romano em 63 a.C. Os judeus passaram a fazer parte do Império e a religião monoteísta circulava por portos e rotas comerciais. Jesus, jovem carpinteiro da tradição judaica, pregou nos últimos três anos de sua vida, criticou sacerdotes do Templo alinhados ao poder romano e ensinava uma salvação de alcance universal.',
+        extra: 'O texto de base ressalta que a Palestina era um espaço de múltiplas influências culturais e políticas, e que o cristianismo nasceu dentro de um mundo judaico muito diverso.',
+        conferir: true
+      },
+      {
+        tab: 'Da Palestina ao Mediterrâneo',
+        title: 'Dispersão e comunidades',
+        text: 'Os romanos condenaram Jesus à morte, mas seus discípulos proclamaram a ressurreição e difundiram a doutrina pelo Mediterrâneo, no esteio das rotas comerciais. Pregavam, convertiam e fundavam comunidades. Por volta do ano 40, em Antioquia, o grupo passou a ser chamado de “cristão” (do grego christos, “ungido”). A distinção entre cristãos e judeus levou décadas para se tornar clara.',
+        extra: 'A expansão se deu de modo gradual e em redes de relações sociais, comerciais e religiosas, e não por um processo linear ou uniforme.',
+        conferir: true
+      },
+      {
+        tab: 'Perseguições',
+        title: 'Perseguição e resistência',
+        text: 'Entre 64 e 313, houve diversas perseguições e repressões. Elas não foram contínuas nem homogêneas, e o texto de base lembra que as interpretações sobre o fenômeno variam. A questão central era a recusa dos cristãos de adorar o panteão romano e o imperador, o que colocava em risco a pax deorum, a “paz dos deuses”.',
+        extra: 'Paradoxalmente, as perseguições parecem ter funcionado como reforço para a difusão e a coesão dos grupos cristãos, embora isso não seja uma certeza absoluta.',
+        conferir: true
+      },
+      {
+        tab: 'De Constantino a Teodósio',
+        title: 'Legalização e institucionalização',
+        text: 'Em 312, Constantino se converte; em 313, o Edito de Milão legaliza o cristianismo; em 325, o Concílio de Niceia reúne bispos convocados por Constantino; em 379, Graciano abandona o título de Grande Pontífice; em 380, Teodósio I decreta o cristianismo religião oficial. Em 382, o imperador proíbe os sacrifícios pagãos. A religião já estava bastante disseminada e adquiria contornos institucionais, com debates teológicos e filosóficos importantes.',
+        extra: 'A transformação de um movimento de base em instituição religiosa envolveu disputa, poder e reorganização de comunidades por todo o Império.',
+        conferir: true
+      }
+    ],
+    timeline: [
+      { year: '30', text: 'Morte de Jesus.', conferir: true },
+      { year: '40', text: 'Termo “cristão” em Antioquia.', conferir: true },
+      { year: '64', text: 'Primeira perseguição em Roma, no governo de Nero.', conferir: true },
+      { year: '70', text: 'Destruição do Templo de Jerusalém.', conferir: true },
+      { year: '81–96', text: 'Perseguição de Domiciano.', conferir: true },
+      { year: '113', text: 'Trajano define a conduta oficial do Império.', conferir: true },
+      { year: '177', text: 'Mártires de Lyon, durante o governo de Marco Aurélio.', conferir: true },
+      { year: '250', text: 'Perseguição de Décio.', conferir: true },
+      { year: '303–311', text: 'Perseguições de Diocleciano.', conferir: true },
+      { year: '312', text: 'Constantino se converte.', conferir: true },
+      { year: '313', text: 'Edito de Milão legaliza o cristianismo.', conferir: true },
+      { year: '325', text: 'Concílio de Niceia.', conferir: true },
+      { year: '379', text: 'Graciano abandona o título de Grande Pontífice.', conferir: true },
+      { year: '380', text: 'Teodósio I decreta o cristianismo religião oficial.', conferir: true },
+      { year: '382', text: 'Proibição dos sacrifícios pagãos.', conferir: true }
+    ],
+    understand: [
+      ['Helenismo', 'Influência cultural grega e cultural do mundo helenístico na região da Palestina.'],
+      ['Pax deorum', 'A “paz dos deuses”, base dos rituais cívicos romanos e da vida pública imperial.'],
+      ['Ecclesia', 'Do grego, “assembleia dos cidadãos”; origem da palavra “igreja”.'],
+      ['Atos dos Apóstolos', 'Texto do Novo Testamento que descreve as primeiras comunidades cristãs.'],
+      ['Bispos e clero', 'Líderes religiosos que ganham importância social e institucional.'],
+      ['Concílio de Niceia', 'Reunião de bispos convocada em 325 para discutir questões teológicas e eclesiásticas.']
+    ],
+    glossary: [
+      ['Edito', 'Decreto oficial do imperador.'],
+      ['Panteão', 'Conjunto dos deuses de uma tradição religiosa.'],
+      ['Concílio', 'Reunião de bispos e líderes da Igreja.'],
+      ['Ungido', 'Christos, em grego, “o ungido”.'],
+      ['Cristianismo primitivo', 'Período inicial até a institucionalização do cristianismo no Império romano.']
+    ],
+    facts: [
+      'O termo “cristão” aparece em Antioquia por volta do ano 40.',
+      'As perseguições não foram contínuas nem homogêneas.',
+      'Em 380, Teodósio I decretou o cristianismo religião oficial.',
+      'A posse comum de bens descrita em Atos 2.44-46 não durou indefinidamente.',
+      'A cristandade primitiva se expandiu por rotas comerciais e redes de comunicação no Mediterrâneo.'
+    ],
+    censusCallouts: [
+      'O Censo 2022 soma denominações cristãs em um total aproximado de 86,9% da população. Cada tradição cristã entende de modo próprio o que é “ser cristão”.'
+    ],
+    imageSensitivityCallout: false,
+    conceptos: null,
+    conceito: {
+      rotulo: 'Do movimento à instituição',
+      frase: 'O cristianismo primitivo mostra como uma comunidade religiosa vira instituição e se relaciona com o poder político.',
+      href: 'religiao.html#identidade'
+    }
+  },
   umbanda: {
     title: 'Umbanda',
     eyebrow: 'MATRIZES AFRO-BRASILEIRAS · UMBANDA',

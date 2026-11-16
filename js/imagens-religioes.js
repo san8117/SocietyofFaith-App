@@ -1,6 +1,7 @@
 const slots = ['capa', 'origens', 'brasil', 'hoje', 'galeria1', 'galeria2', 'galeria3'];
 
 const sugestoes = {
+  cristianismo: ['cristianismo primitivo mapa', 'igreja antiga e Roma', 'Palestina do século I', 'Imperador Constantino', 'Concílio de Niceia', 'sinagoga e comunidade', 'cristianismo no Brasil'],
   catolicismo: ['igreja católica arquitetura', 'cristianismo antigo arte', 'catolicismo no Brasil igrejas', 'missa comunidade católica', 'arte sacra católica', 'festa religiosa católica Brasil', 'catedral brasileira'],
   evangelicos: ['igreja protestante história', 'reforma protestante arte', 'igreja evangélica Brasil', 'culto evangélico comunidade', 'bíblia protestantismo', 'música evangélica comunidade', 'igreja protestante arquitetura'],
   espiritismo: ['Allan Kardec domínio público', 'espiritismo história Brasil', 'centro espírita Brasil', 'estudo espírita grupo', 'livro dos espíritos edição histórica', 'centro espírita arquitetura', 'biblioteca espírita'],

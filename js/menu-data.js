@@ -3,7 +3,7 @@ export const MENU = [
   { rotulo: 'Conceitos', href: 'religiao.html' },
   { rotulo: 'Religiões', href: 'religioes.html', grupos: [
     { titulo: 'Cristianismo', itens: [
-      { rotulo: 'Origens do cristianismo', href: 'cristianismo.html', breve: true },
+      { rotulo: 'Origens do cristianismo', href: 'cristianismo.html' },
       { rotulo: 'Catolicismo', href: 'catolicismo.html' },
       { rotulo: 'Evangélicos e protestantismo', href: 'evangelicos.html' },
       { rotulo: 'Testemunhas de Jeová', href: 'testemunhas-de-jeova.html' },
@@ -31,5 +31,5 @@ export const MENU = [
     { rotulo: 'Brasil em dados (2010 × 2022)', href: 'brasil.html' },
     { rotulo: 'Todos os censos (1872–2022)', href: 'censos.html' }
   ] }] },
-  { rotulo: 'Fontes', breve: true }
+  { rotulo: 'Fontes', href: 'fontes.html' }
 ];

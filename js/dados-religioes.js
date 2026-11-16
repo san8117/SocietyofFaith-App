@@ -9,6 +9,7 @@ export const FAMILIAS = [
 ];
 
 export const RELIGIOES = [
+  { id: 'cristianismo', nome: 'Cristianismo', familia: 'cristianismo', status: 'pronta', pagina: 'cristianismo.html', arquivo: 'cristianismo.html', destaque: '86,9%', sub: 'população cristã em 2022 (microdados)', semGrupoIBGE: true, contexto: 'Cristianismo (soma de denominações)', resumo: 'Origem de uma tradição universal a partir de um movimento judaico na Palestina.' },
   { id: 'catolicismo', nome: 'Catolicismo', familia: 'cristianismo', status: 'disponivel', arquivo: 'catolicismo.html', resumo: 'História, crenças e presença do catolicismo no Brasil.' },
   { id: 'evangelicos', nome: 'Evangélicos e protestantismo', familia: 'cristianismo', status: 'disponivel', arquivo: 'evangelicos.html', resumo: 'Diversidade das tradições protestantes e evangélicas brasileiras.' },
   { id: 'testemunhas-de-jeova', nome: 'Testemunhas de Jeová', familia: 'cristianismo', status: 'pronta', pagina: 'testemunhas-de-jeova.html', arquivo: 'testemunhas-de-jeova.html', semGrupoIBGE: true, contexto: 'Outras religiosidades', destaque: '1,2 mi', sub: 'pessoas em 2022 (0,7%)', resumo: 'Um grupo cristão de origem estadunidense com comunidades em todo o Brasil.' },
@@ -27,6 +28,18 @@ export const RELIGIOES = [
 ];
 
 export const EXTRAS = {
+  cristianismo: {
+    semGrupoIBGE: true,
+    contexto: 'Cristianismo (soma de denominações)',
+    chips: [['86,9%', 'da população (2022)'], ['≈ 170 mi', 'de pessoas'], ['313', 'Edito de Milão']],
+    pessoas: { 2010: null, 2022: 170000000 },
+    pct: { 2010: null, 2022: 86.9 },
+    recordes: [
+      ['86,9%', 'da população', 'total cristão em 2022 (microdados)'],
+      ['57,0%', 'católicos', 'na população de 10 anos ou mais'],
+      ['26,9%', 'evangélicos', 'na mesma base']
+    ]
+  },
   umbanda: {
     avisoCombinado: true,
     chips: [['0,8%', 'da população (2022)'], ['1,4 mi', 'de pessoas'], ['1908', 'ano tradicional de fundação']],

@@ -29,6 +29,7 @@ HTML5, CSS3 e JavaScript puro (ES modules). Sem frameworks e sem etapa de build.
 ```text
 SocietyofFaith-App/
   index.html, brasil.html, censos.html, religioes.html, religiao.html
+  cristianismo.html, fontes.html
   catolicismo.html, evangelicos.html, espiritismo.html
   umbanda.html, candomble.html, tradicoes-indigenas.html
   judaismo.html, islamismo.html, budismo.html, hinduismo.html
@@ -86,7 +87,7 @@ SocietyofFaith-App/
 - [x] Etapa 6: Umbanda, Candomblé e tradições indígenas
 - [x] Etapa 7: Judaísmo, Islamismo, Budismo e Hinduísmo
 - [x] Etapa 8: Testemunhas de Jeová, Mórmons, Tradições esotéricas, Santo Daime e Sem religião
-- [ ] Etapa 9: Origens do cristianismo e página Fontes
+- [x] Etapa 9: Origens do cristianismo e página Fontes
 - [ ] Etapa 10: Acessibilidade, polimento, SEO e deploy
 
 ## Changelog
