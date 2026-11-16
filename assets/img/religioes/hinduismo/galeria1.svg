@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Ilustração abstrata inspirada em hinduismo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F6EEE6"/>
+      <stop offset="100%" stop-color="#d2678f"/>
+    </linearGradient>
+    <pattern id="grain" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="18" r="1.4" fill="#fff" opacity="0.10"/>
+      <circle cx="44" cy="58" r="1.1" fill="#fff" opacity="0.08"/>
+      <circle cx="68" cy="36" r="1.5" fill="#fff" opacity="0.09"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#grain)" opacity="0.65"/>
+  <circle cx="1180" cy="250" r="180" fill="#d2678f" opacity="0.22"/>
+  <path d="M 0 700 C 260 620, 420 640, 620 710 S 980 760, 1600 690" fill="none" stroke="#C9467A" stroke-width="4" opacity="0.36"/>
+  <path d="M 0 760 C 250 710, 430 710, 620 780 S 980 830, 1600 780" fill="none" stroke="#822d4f" stroke-width="3" opacity="0.28"/>
+  
+        <circle cx="800" cy="520" r="190" fill="none" stroke="#C9467A" stroke-width="5" opacity="0.7"/>
+        <circle cx="800" cy="520" r="120" fill="#d2678f" opacity="0.7"/>
+        <path d="M 800 290 C 860 390, 900 500, 800 640 C 700 500, 740 390, 800 290 Z" fill="#822d4f" opacity="0.38"/>
+        <path d="M 640 520 L 800 320 L 960 520 L 800 700 Z" fill="none" stroke="#C9467A" stroke-width="5" opacity="0.7"/>
+        
+</svg>

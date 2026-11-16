@@ -61,8 +61,8 @@ function renderizarCards() {
         figure.append(img);
       } else {
         figure.setAttribute('role', 'img');
-        figure.setAttribute('aria-label', `Capa de ${religiao.nome} em curadoria`);
-        figure.append(elemento('figcaption', '', 'Imagem em curadoria'));
+        figure.setAttribute('aria-label', `Ilustração de ${religiao.nome}`);
+        figure.style.background = 'linear-gradient(135deg, rgba(138, 58, 28, 0.28), rgba(246, 238, 230, 0.5))';
       }
       article.append(figure);
       article.append(elemento('h4', '', religiao.nome));

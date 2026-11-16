@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Ilustração abstrata inspirada em santo daime">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F6EEE6"/>
+      <stop offset="100%" stop-color="#56936d"/>
+    </linearGradient>
+    <pattern id="grain" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="18" r="1.4" fill="#fff" opacity="0.10"/>
+      <circle cx="44" cy="58" r="1.1" fill="#fff" opacity="0.08"/>
+      <circle cx="68" cy="36" r="1.5" fill="#fff" opacity="0.09"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#grain)" opacity="0.65"/>
+  <circle cx="1180" cy="250" r="180" fill="#56936d" opacity="0.22"/>
+  <path d="M 0 700 C 260 620, 420 640, 620 710 S 980 760, 1600 690" fill="none" stroke="#2F7D4F" stroke-width="4" opacity="0.36"/>
+  <path d="M 0 760 C 250 710, 430 710, 620 780 S 980 830, 1600 780" fill="none" stroke="#1e5133" stroke-width="3" opacity="0.28"/>
+  
+        <path d="M 280 700 C 430 610, 470 450, 530 410 C 610 350, 650 250, 760 250 C 870 250, 920 350, 980 410 C 1040 470, 1060 620, 1220 700" fill="none" stroke="#2F7D4F" stroke-width="5" opacity="0.72"/>
+        <path d="M 400 430 C 480 380, 560 390, 640 430 C 560 500, 500 520, 400 430 Z" fill="#56936d" opacity="0.75"/>
+        <path d="M 970 430 C 1045 390, 1110 390, 1190 430 C 1100 500, 1040 520, 970 430 Z" fill="#56936d" opacity="0.75"/>
+        <circle cx="820" cy="470" r="84" fill="#2F7D4F" opacity="0.12"/>
+        
+</svg>

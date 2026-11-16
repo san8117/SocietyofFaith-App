@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Ilustração abstrata inspirada em sem religiao">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F6EEE6"/>
+      <stop offset="100%" stop-color="#626a73"/>
+    </linearGradient>
+    <pattern id="grain" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="18" r="1.4" fill="#fff" opacity="0.10"/>
+      <circle cx="44" cy="58" r="1.1" fill="#fff" opacity="0.08"/>
+      <circle cx="68" cy="36" r="1.5" fill="#fff" opacity="0.09"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#grain)" opacity="0.65"/>
+  <circle cx="1180" cy="250" r="180" fill="#626a73" opacity="0.22"/>
+  <path d="M 0 700 C 260 620, 420 640, 620 710 S 980 760, 1600 690" fill="none" stroke="#3D4A57" stroke-width="4" opacity="0.36"/>
+  <path d="M 0 760 C 250 710, 430 710, 620 780 S 980 830, 1600 780" fill="none" stroke="#273038" stroke-width="3" opacity="0.28"/>
+  
+        <rect x="440" y="270" width="720" height="410" fill="#626a73" opacity="0.6"/>
+        <path d="M 440 690 Q 800 620 1160 690" fill="none" stroke="#273038" stroke-width="6" opacity="0.72"/>
+        <path d="M 530 300 L 620 300 L 560 380 Z" fill="#3D4A57" opacity="0.2"/>
+        <circle cx="770" cy="410" r="36" fill="#273038" opacity="0.8"/>
+        <path d="M 780 380 L 780 430 M 755 405 L 805 405 M 760 350 L 800 440 M 760 440 L 800 350" stroke="#3D4A57" stroke-width="3" opacity="0.7"/>
+        
+</svg>

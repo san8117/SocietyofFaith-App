@@ -53,8 +53,8 @@ function figuraImagem(religiao) {
     figura.append(elemento);
   } else {
     figura.setAttribute('role', 'img');
-    figura.setAttribute('aria-label', `Imagem de ${religiao.nome} em curadoria`);
-    figura.append(criar('figcaption', '', 'Imagem em curadoria'));
+    figura.setAttribute('aria-label', `Ilustração de ${religiao.nome}`);
+    figura.style.background = 'linear-gradient(135deg, rgba(138, 58, 28, 0.28), rgba(246, 238, 230, 0.5))';
   }
   return figura;
 }

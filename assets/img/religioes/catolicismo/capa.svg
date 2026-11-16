@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" role="img" aria-label="Ilustração abstrata inspirada em catolicismo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F6EEE6"/>
+      <stop offset="100%" stop-color="#b76f53"/>
+    </linearGradient>
+    <pattern id="grain" width="80" height="80" patternUnits="userSpaceOnUse">
+      <circle cx="12" cy="18" r="1.4" fill="#fff" opacity="0.10"/>
+      <circle cx="44" cy="58" r="1.1" fill="#fff" opacity="0.08"/>
+      <circle cx="68" cy="36" r="1.5" fill="#fff" opacity="0.09"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="url(#bg)"/>
+  <rect width="1600" height="1000" fill="url(#grain)" opacity="0.65"/>
+  <circle cx="1180" cy="250" r="180" fill="#b76f53" opacity="0.22"/>
+  <path d="M 0 700 C 260 620, 420 640, 620 710 S 980 760, 1600 690" fill="none" stroke="#A8502F" stroke-width="4" opacity="0.36"/>
+  <path d="M 0 760 C 250 710, 430 710, 620 780 S 980 830, 1600 780" fill="none" stroke="#6d341e" stroke-width="3" opacity="0.28"/>
+  
+        <path d="M 520 700 C 700 470, 690 270, 800 270 C 910 270, 900 470, 1080 700" fill="none" stroke="#6d341e" stroke-width="7" opacity="0.6"/>
+        <path d="M 580 360 L 800 700 L 1020 360" fill="none" stroke="#A8502F" stroke-width="6" opacity="0.75"/>
+        <circle cx="800" cy="465" r="120" fill="#b76f53" opacity="0.34"/>
+        <circle cx="800" cy="465" r="32" fill="#6d341e" opacity="0.75"/>
+        
+</svg>

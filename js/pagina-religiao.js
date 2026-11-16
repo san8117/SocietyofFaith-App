@@ -1029,7 +1029,7 @@ function renderizarCuriosidades(conteudo, pagina) {
 
 function renderizarGaleria(conteudo, pagina) {
   const section = criarSecao('galeria', 'Galeria', 'Imagens e créditos', 'container religion-gallery');
-  section.append(criarElemento('p', '', 'As imagens permanecem pendentes de curadoria de origem, autorização, direitos de uso, descrição alternativa e crédito. Priorizaremos arquitetura, patrimônio, festas públicas, objetos, mapas, ilustrações históricas e acervos oficiais.'));
+  section.append(criarElemento('p', '', 'As imagens desta página foram geradas em código em SVG. Para substituir por fotos reais, altere o tipo do item no manifesto para "foto" e informe crédito, licença e fonte.'));
   section.append(criarElemento('div', 'image-gallery'));
   section.querySelector('.image-gallery').dataset.imageGallery = '';
   section.querySelector('[data-image-gallery]').setAttribute('aria-label', `Galeria de imagens de ${pagina.title}`);
