@@ -436,5 +436,315 @@ export const PAGINAS_RELIGIAO = {
       'O yoga é praticado por muita gente que não é hindu.'
     ],
     censusCallouts: []
+  },
+  'testemunhas-de-jeova': {
+    title: 'Testemunhas de Jeová',
+    eyebrow: 'CRISTIANISMO · TESTEMUNHAS DE JEOVÁ',
+    subtitle: 'Um grupo cristão nascido nos Estados Unidos no século XIX, conhecido pela pregação de casa em casa e presente hoje em todo o Brasil.',
+    sentence: "As Testemunhas de Jeová são um grupo religioso de origem cristã que usa o nome 'Jeová' para Deus, tem a Bíblia como base e dá grande ênfase à pregação e ao Reino de Deus.",
+    family: 'Cristianismo',
+    imageSensitivityCallout: true,
+    callouts: [
+      { text: 'Esta página apresenta uma descrição geral e respeitosa. Cada comunidade tem seus próprios entendimentos, e a voz de quem pratica é a principal fonte sobre a própria fé.' },
+      { text: 'O IBGE soma o grupo ao total cristão de 86,9% em 2022; as tradições cristãs entendem de formas diferentes o que é "ser cristão".', conferir: true }
+    ],
+    history: [
+      {
+        tab: 'Origens',
+        title: 'Estudos bíblicos e publicações',
+        text: 'Segundo a história do grupo, tudo começa com estudos bíblicos organizados por Charles Taze Russell, na Pensilvânia (EUA), a partir da década de 1870 [conferir]. Os "Estudantes da Bíblia" criaram uma sociedade para publicar revistas e livros, a partir de 1881 [conferir]. O nome "Testemunhas de Jeová" foi adotado em 1931 [conferir]. Entre as ideias do grupo estão o uso do nome pessoal de Deus, a esperança no Reino de Deus e a não adoção da doutrina da Trindade [conferir formulação com a fonte do próprio grupo].',
+        conferir: true
+      },
+      {
+        tab: 'No Brasil',
+        title: 'Pregação e presença nacional',
+        text: 'A pregação chega ao país no início do século XX, por volta de 1920 [conferir], e o grupo cresce ao longo do século, com congregações em todos os estados [conferir]. O Texto 01 mostra que, em 2010, eram o 4º grupo da lista, com 1.393.208 pessoas (0,7%). O grupo é conhecido pelo trabalho de pregação de casa em casa e por suas revistas.',
+        conferir: true
+      },
+      {
+        tab: 'Hoje',
+        title: 'Encontros e convicções',
+        text: 'Os encontros acontecem nos Salões do Reino e em assembleias maiores. Em 2022, os microdados apontam 1,2 milhão de pessoas (0,7%). Entre as práticas conhecidas estão não comemorar aniversários e feriados religiosos como o Natal, não participar de serviço militar e a recusa de transfusão de sangue, tema discutido entre bioética, direito e liberdade religiosa [conferir cada item com a fonte do grupo].',
+        conferir: true
+      }
+    ],
+    timeline: [
+      { year: 'Anos 1870', text: 'Estudos bíblicos de Russell.', conferir: true },
+      { year: '1881', text: 'Sociedade de publicações.', conferir: true },
+      { year: '1931', text: 'Adoção do nome atual.', conferir: true },
+      { year: 'c. 1920', text: 'Início da pregação no Brasil.', conferir: true },
+      { year: '2010', text: '1.393.208 (0,7%).' },
+      { year: '2022', text: '≈ 1,2 milhão (0,7%).' }
+    ],
+    understand: [
+      ['Bíblia', 'Base da fé.'],
+      ['Nome de Deus', 'Jeová.'],
+      ['Reino de Deus', 'Esperança central.'],
+      ['Pregação', 'De casa em casa e por publicações.'],
+      ['Salão do Reino', 'Local de reunião.'],
+      ['Convicções de consciência', 'Aniversários, serviço militar e sangue; temas de debate.', true]
+    ],
+    glossary: [
+      ['Salão do Reino', 'Local de reunião.'],
+      ['Congregação', 'Grupo local.'],
+      ['Assembleia', 'Encontro grande.'],
+      ['Publicador', 'Quem participa da pregação.', true]
+    ],
+    facts: [
+      { texto: 'Em 2010, eram o 4º maior grupo da lista do Texto 01 (1.393.208 pessoas, 0,7%).', conferir: true },
+      'Em 2022, os microdados apontam 1,2 milhão (0,7%).',
+      'O IBGE soma o grupo ao total cristão de 86,9% em 2022.',
+      'O grupo é conhecido pela pregação de casa em casa.'
+    ],
+    censusCallouts: []
+  },
+  mormons: {
+    title: 'Mórmons',
+    eyebrow: 'CRISTIANISMO · MÓRMONS',
+    subtitle: 'A Igreja de Jesus Cristo dos Santos dos Últimos Dias: uma tradição cristã surgida nos Estados Unidos em 1830, com templo em São Paulo.',
+    sentence: 'É uma tradição cristã que, além da Bíblia, usa o Livro de Mórmon como escritura sagrada e acredita em revelação contínua.',
+    family: 'Cristianismo',
+    imageSensitivityCallout: true,
+    callouts: [
+      { text: 'Esta página apresenta uma descrição geral e respeitosa. Cada comunidade tem seus próprios entendimentos, e a voz de quem pratica é a principal fonte sobre a própria fé.' },
+      { text: "Nome da igreja: 'A Igreja de Jesus Cristo dos Santos dos Últimos Dias'. 'Mórmons' é o apelido popular, e a própria igreja pede que se use o nome completo [conferir].", conferir: true },
+      { text: 'O IBGE soma os mórmons ao total cristão de 86,9% em 2022; as tradições cristãs entendem de formas diferentes o que é "ser cristão".', conferir: true }
+    ],
+    history: [
+      {
+        tab: 'Origens',
+        title: 'Livro de Mórmon e migração para o Oeste',
+        text: 'Em 1830, no estado de Nova York (EUA), Joseph Smith publicou o Livro de Mórmon e organizou a Igreja [conferir datas]. Segundo a tradição do grupo, o livro foi traduzido de placas antigas. Perseguições levaram o grupo a migrar para o Oeste e, sob a liderança de Brigham Young, os fiéis chegaram ao Vale do Lago Salgado (Utah) em 1847 [conferir]. Os membros se chamam "santos dos últimos dias".',
+        conferir: true
+      },
+      {
+        tab: 'No Brasil',
+        title: 'Primeiras comunidades e templo',
+        text: 'Imigrantes alemães convertidos organizaram as primeiras reuniões no sul do país no fim da década de 1920, e a missão no Brasil foi organizada em 1935 [conferir]. Jovens missionários, em duplas, tornaram-se figuras conhecidas. O Templo de São Paulo foi dedicado em 1978 [conferir].',
+        conferir: true
+      },
+      {
+        tab: 'Hoje',
+        title: 'Práticas e presença',
+        text: 'Em 2022, os microdados apontam 148 mil pessoas (menos de 0,1%). O número de 2010 deve ser confirmado no SIDRA. Entre as práticas conhecidas estão oração, estudo das escrituras, o dízimo, o serviço missionário voluntário, a "Palavra de Sabedoria" (evitar álcool, tabaco, café e chá), a "noite familiar" e a pesquisa de antepassados [conferir cada item com a fonte do grupo].',
+        conferir: true
+      }
+    ],
+    timeline: [
+      { year: '1830', text: 'Livro de Mórmon e organização da Igreja.', conferir: true },
+      { year: '1847', text: 'Chegada ao Vale do Lago Salgado.', conferir: true },
+      { year: 'Fim dos anos 1920', text: 'Primeiros grupos no Brasil.', conferir: true },
+      { year: '1935', text: 'Missão no Brasil.', conferir: true },
+      { year: '1978', text: 'Templo de São Paulo.', conferir: true },
+      { year: '2022', text: '≈ 148 mil (microdados).' }
+    ],
+    understand: [
+      ['Bíblia e Livro de Mórmon', 'Escrituras sagradas.'],
+      ['Revelação contínua', 'Crença em revelação que continua.'],
+      ['Templos', 'Ritos como casamento; descrição geral.', true],
+      ['Missionários voluntários', 'Serviço missionário voluntário.'],
+      ['Família', 'Elemento valorizado na tradição.'],
+      ['Palavra de Sabedoria', 'Orientações de saúde e conduta do grupo.', true]
+    ],
+    glossary: [
+      ['Santo dos Últimos Dias', 'Membro.'],
+      ['Ala', 'Congregação local.'],
+      ['Estaca', 'Conjunto de congregações.'],
+      ['Bispo', 'Líder voluntário de uma ala.'],
+      ['Missão', 'Período de serviço voluntário.']
+    ],
+    facts: [
+      { texto: 'O Livro de Mórmon foi publicado em 1830.', conferir: true },
+      { texto: 'O Templo de São Paulo foi o primeiro da América do Sul.', conferir: true },
+      'Em 2022, 148 mil pessoas (menos de 0,1%), segundo os microdados.',
+      'O IBGE soma os mórmons ao total cristão de 86,9%.'
+    ],
+    censusCallouts: []
+  },
+  'tradicoes-esotericas': {
+    title: 'Tradições esotéricas',
+    eyebrow: 'NOVAS RELIGIOSIDADES · TRADIÇÕES ESOTÉRICAS',
+    subtitle: "Um campo amplo de saberes e práticas que buscam conhecimento interior ou 'oculto', como astrologia, tarô, hermetismo e outros.",
+    sentence: 'Esoterismo é um termo guarda-chuva para tradições que valorizam conhecimentos interiores, ligados a símbolos, ciclos da natureza e desenvolvimento espiritual.',
+    family: 'Novas religiosidades e sem religião',
+    imageSensitivityCallout: true,
+    callouts: [
+      { text: 'Esta página apresenta uma descrição geral e respeitosa. Cada comunidade tem seus próprios entendimentos, e a voz de quem pratica é a principal fonte sobre a própria fé.' },
+      { text: 'As Ciências da Religião descrevem crenças e práticas sem afirmar nem negar sua veracidade nem avaliar sua eficácia.' }
+    ],
+    history: [
+      {
+        tab: 'Origens',
+        title: 'Correntes antigas e modernas',
+        text: 'A palavra vem do grego "esoterikós" ("interior") [conferir]. Reúne correntes antigas e modernas: hermetismo (textos atribuídos a Hermes Trismegisto, dos séculos II e III d.C.) [conferir], astrologia, alquimia, rosacrucianismo (século XVII) [conferir] e teosofia (Sociedade Teosófica, 1875) [conferir]. O Texto 03 cita o esoterismo e a Teosofia entre exemplos de panteísmo (neopanteísmo), e o Texto 01 coloca as "tradições esotéricas" entre os Novos Movimentos Religiosos.',
+        conferir: true
+      },
+      {
+        tab: 'No Brasil',
+        title: 'Circulação e novas religiosidades',
+        text: 'As ideias chegam com leitores e imigrantes europeus no século XIX e crescem com a Nova Era, a partir dos anos 1970 e 1980 [conferir]. O Texto 01 observa o crescimento da procura por serviços terapêuticos das novas religiosidades nas grandes cidades.',
+        conferir: true
+      },
+      {
+        tab: 'Hoje',
+        title: 'Práticas e dados censitários',
+        text: 'Em 2010, o Texto 01 registra 74.013 pessoas (0,04%) em "tradições esotéricas"; os microdados de 2022 apontam 167 mil (≈ 0,09%, calculado). Há ainda 276 mil que se declaram "espiritualizados", categoria à parte [conferir]. Muita gente combina práticas (astrologia, meditação, cristais) com outra religião, a "dupla pertença" das aulas. As bases dos censos diferem: compare a ordem de grandeza.',
+        conferir: true
+      }
+    ],
+    timeline: [
+      { year: 'Sécs. II–III', text: 'Textos herméticos.', conferir: true },
+      { year: 'Séc. XVII', text: 'Rosacruzes.', conferir: true },
+      { year: '1875', text: 'Sociedade Teosófica.', conferir: true },
+      { year: 'Anos 1970–80', text: 'Nova Era.', conferir: true },
+      { year: '2010', text: '74.013.' },
+      { year: '2022', text: '167 mil e 276 mil "espiritualizados".', conferir: true }
+    ],
+    understand: [
+      ['Símbolos e correspondências', 'Relações simbólicas entre elementos.'],
+      ['Astrologia', 'Relação simbólica entre astros e vida.'],
+      ['Tarô', 'Baralho simbólico, usado por alguns como ferramenta de reflexão.'],
+      ['Meditação e terapias', 'Práticas de reflexão e cuidado.'],
+      ['Ordens e sociedades iniciáticas', 'Grupos com percursos e ensinamentos próprios.'],
+      ['Autoconhecimento', 'Busca de compreensão de si.']
+    ],
+    glossary: [
+      ['Esoterismo', 'Saberes "interiores".'],
+      ['Iniciático', 'Que envolve iniciação gradual.'],
+      ['Nova Era', 'Movimento cultural dos anos 1970 e 80.', true],
+      ['Holístico', 'Visão integral.'],
+      ['Dupla pertença', 'Frequentar mais de uma religião.']
+    ],
+    facts: [
+      { texto: 'O Texto 03 cita esoterismo e teosofia entre exemplos de panteísmo.', conferir: true },
+      'De 74.013 (2010) para 167 mil (2022): mais que dobrou, com bases diferentes.',
+      { texto: 'O IBGE tem uma categoria à parte para "espiritualizados" (276 mil).', conferir: true },
+      'O Texto 01 destaca a procura por serviços terapêuticos das novas religiosidades.'
+    ],
+    censusCallouts: []
+  },
+  'santo-daime': {
+    title: 'Santo Daime e tradições da ayahuasca',
+    eyebrow: 'NOVAS RELIGIOSIDADES · SANTO DAIME E AYAHUASCA',
+    subtitle: 'Religiões nascidas na Amazônia brasileira no século XX que usam, em contexto ritual, a bebida conhecida como ayahuasca ou daime.',
+    sentence: 'Santo Daime, Barquinha e União do Vegetal são religiões brasileiras da região amazônica que combinam elementos cristãos, indígenas, afro-brasileiros e espíritas e usam a ayahuasca em seus rituais.',
+    family: 'Novas religiosidades e sem religião',
+    imageSensitivityCallout: true,
+    callouts: [
+      { text: 'Esta página apresenta uma descrição geral e respeitosa. Cada comunidade tem seus próprios entendimentos, e a voz de quem pratica é a principal fonte sobre a própria fé.' },
+      { text: 'Esta página é informativa. O uso da ayahuasca é regulamentado e só é permitido no Brasil em contexto religioso, nos termos da lei [conferir]. O site não incentiva o consumo de nenhuma substância nem faz promessas de saúde. Quem tem dúvidas de saúde deve procurar orientação médica.', conferir: true }
+    ],
+    history: [
+      {
+        tab: 'Origens',
+        title: 'Tradições amazônicas',
+        text: 'A ayahuasca é uma bebida preparada com plantas amazônicas e usada há muito tempo por povos indígenas da região [conferir]. No início do século XX, seringueiros e migrantes no Acre conheceram seu uso. Raimundo Irineu Serra, o Mestre Irineu, fundou o Santo Daime em Rio Branco, por volta de 1930 [conferir]. Em 1945 surge a Barquinha, com Daniel Pereira de Matos, e em 1961, a União do Vegetal, com José Gabriel da Costa, em Porto Velho [conferir].',
+        conferir: true
+      },
+      {
+        tab: 'No Brasil',
+        title: 'Expansão e regulamentação',
+        text: 'Um ramo do Santo Daime, liderado por Sebastião Mota de Melo (Padrinho Sebastião), expandiu-se nos anos 1970 e se ligou à comunidade do Céu do Mapiá [conferir]. A partir dos anos 1980, grupos chegaram às grandes cidades. O uso ritual foi reconhecido por resolução do Conselho Nacional de Políticas sobre Drogas (CONAD), em 2010 [conferir número e data].',
+        conferir: true
+      },
+      {
+        tab: 'Hoje',
+        title: 'Presença e dados censitários',
+        text: 'Em 2022, os microdados apontam 14 mil pessoas (≈ 0,008%, calculado); o IBGE fala em "ayahuasqueiros", que praticam o Santo Daime e afins. O Texto 01 destaca o crescimento das novas religiosidades. Há comunidades na Amazônia e centros em várias cidades [conferir].',
+        conferir: true
+      }
+    ],
+    timeline: [
+      { year: 'c. 1930', text: 'Santo Daime.', conferir: true },
+      { year: '1945', text: 'Barquinha.', conferir: true },
+      { year: '1961', text: 'União do Vegetal.', conferir: true },
+      { year: 'Anos 1970', text: 'Expansão do ramo do Padrinho Sebastião.', conferir: true },
+      { year: '2010', text: 'Resolução do CONAD.', conferir: true },
+      { year: '2022', text: '≈ 14 mil (microdados).' }
+    ],
+    understand: [
+      ['Bebida sacramental', 'Daime ou ayahuasca.'],
+      ['Hinários', 'Cantos e hinos.'],
+      ['Trabalhos', 'Cerimônias.'],
+      ['Mestre e Padrinho', 'Lideranças.'],
+      ['Sincretismo', 'Cristianismo, saberes indígenas, matrizes afro-brasileiras e espiritismo.'],
+      ['Comunidade', 'Vida coletiva e pertencimento.']
+    ],
+    glossary: [
+      ['Daime', 'Nome da bebida no Santo Daime.'],
+      ['Hinário', 'Conjunto de hinos.'],
+      ['Trabalho', 'Cerimônia.'],
+      ['Mestre', 'Fundador ou liderança.', true]
+    ],
+    facts: [
+      { texto: 'O IBGE chama de "ayahuasqueiros" quem pratica Santo Daime e afins: 14 mil em 2022.', conferir: true },
+      { texto: 'A bebida tem origem em saberes de povos indígenas da Amazônia.', conferir: true },
+      { texto: 'O uso ritual foi reconhecido por resolução do CONAD em 2010.', conferir: true },
+      { texto: 'Essas religiões nasceram na região amazônica.', conferir: true }
+    ],
+    censusCallouts: []
+  },
+  'sem-religiao': {
+    title: 'Ateísmo e sem religião',
+    eyebrow: 'ATEÍSMO E SEM RELIGIÃO',
+    subtitle: 'Um grupo que reúne pessoas com visões muito diferentes sobre fé e espiritualidade, e que cresceu nos últimos censos.',
+    sentence: "'Sem religião' reúne ateus, agnósticos, pessoas espiritualizadas e quem simplesmente não pertence a nenhuma instituição religiosa.",
+    family: 'Novas religiosidades e sem religião',
+    imageSensitivityCallout: true,
+    callouts: [
+      { text: 'Esta página apresenta uma descrição geral e respeitosa. Cada comunidade tem seus próprios entendimentos, e a voz de quem pratica é a principal fonte sobre a própria fé.' },
+      { text: "Ter ou não ter religião é uma escolha protegida pela liberdade de consciência. 'Sem religião' não é sinônimo de ateu." },
+      { text: 'As Ciências da Religião descrevem crenças sem afirmar nem negar sua veracidade; como cientistas, não afirmamos a existência de "realidades" não observáveis.' }
+    ],
+    history: [
+      {
+        tab: 'Conceitos e ideias',
+        title: 'Ateísmo, agnosticismo e crítica religiosa',
+        text: 'Ateísmo é a negação ou inexistência de um sagrado/divino (Texto 03 e Aula 7). Ao longo da história houve críticas à religião: Karl Marx a via como consolo ilusório dos oprimidos, e Nietzsche, com a frase "Deus está morto", criticava a moral religiosa (Aula 6). Agnosticismo é a posição de quem considera impossível afirmar ou negar a existência de Deus [conferir; termo associado a T. H. Huxley, 1869]. Criticar ideias religiosas não é o mesmo que ser contra as pessoas religiosas.',
+        conferir: true
+      },
+      {
+        tab: 'Nos censos',
+        title: 'Mudanças na autodeclaração',
+        text: 'Em 1940, os sem religião eram 0,2%; em 2000, 7,3%; em 2010, 8,0%; em 2022, 9,3%. O Texto 01 observa que a disputa entre religiões e os combates efusivos podem estar colaborando para o aumento dos sem religião, e o Texto 02 (Hervieu-Léger) fala de indivíduos cada vez menos "institucionalizados".',
+        conferir: true
+      },
+      {
+        tab: 'Hoje',
+        title: 'Diversidade e perfil',
+        text: 'Em 2022, são 16,4 milhões (9,3%). Os microdados mostram 1,7 milhão de ateus (1,0%, o triplo de 2010), 881 mil agnósticos (0,5%) e 276 mil "espiritualizados" (categoria à parte) [conferir]. Perfil: 56,2% são homens; o pico por idade é de 14,3% aos 20 a 24 anos; Roraima tem o maior percentual entre os estados (16,9%) e Chuí (RS), entre os municípios (37,8%).',
+        conferir: true
+      }
+    ],
+    timeline: [
+      { year: '1940', text: '0,2%.' },
+      { year: '2000', text: '7,3%.' },
+      { year: '2010', text: '8,0% (4% deles se declaravam ateus, Texto 01).', conferir: true },
+      { year: '2022', text: '9,3% (16,4 milhões).' },
+      { year: '2022', text: 'Ateus: 1,7 milhão (1,0%).' }
+    ],
+    understand: [
+      ['Sem religião', 'Não pertence a instituição religiosa.'],
+      ['Ateísmo', 'Posição sobre a existência de um sagrado ou divino.'],
+      ['Agnosticismo', 'Posição sobre o conhecimento da existência de Deus.'],
+      ['Espiritualizado', 'Espiritualidade sem religião formal.'],
+      ['Laicidade', 'Estado neutro em matéria religiosa.'],
+      ['Desinstitucionalização', 'Conceito associado a Hervieu-Léger.']
+    ],
+    glossary: [
+      ['Ateu', 'Quem nega a existência de um sagrado/divino.'],
+      ['Agnóstico', 'Quem considera impossível afirmar ou negar.', true],
+      ['Laicidade', 'Neutralidade do Estado diante das religiões.'],
+      ['Secularização', 'Diminuição da influência religiosa na vida pública.', true],
+      ['Desinstitucionalização', 'Menor ligação com instituições.']
+    ],
+    facts: [
+      'Em 1940, os sem religião eram 0,2%.',
+      'Em 2010, só 4% dos sem religião se declaravam ateus (Texto 01).',
+      'Os ateus triplicaram e chegam a 1,7 milhão (1,0%).',
+      'Aos 20 a 24 anos, 14,3% não têm religião, o pico por idade.',
+      'Chuí (RS) tem 37,8% de pessoas sem religião.'
+    ],
+    censusCallouts: []
   }
 };

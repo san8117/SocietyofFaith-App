@@ -6,8 +6,8 @@ export const MENU = [
       { rotulo: 'Origens do cristianismo', href: 'cristianismo.html', breve: true },
       { rotulo: 'Catolicismo', href: 'catolicismo.html' },
       { rotulo: 'Evangélicos e protestantismo', href: 'evangelicos.html' },
-      { rotulo: 'Testemunhas de Jeová', breve: true },
-      { rotulo: 'Mórmons', breve: true }
+      { rotulo: 'Testemunhas de Jeová', href: 'testemunhas-de-jeova.html' },
+      { rotulo: 'Mórmons', href: 'mormons.html' }
     ] },
     { titulo: 'Espiritismo e matrizes afro-brasileiras', itens: [
       { rotulo: 'Espiritismo', href: 'espiritismo.html' },
@@ -22,9 +22,9 @@ export const MENU = [
       { rotulo: 'Hinduísmo', href: 'hinduismo.html' }
     ] },
     { titulo: 'Novas religiosidades e sem religião', itens: [
-      { rotulo: 'Tradições esotéricas', breve: true },
-      { rotulo: 'Santo Daime e ayahuasca', breve: true },
-      { rotulo: 'Ateísmo e sem religião', breve: true }
+      { rotulo: 'Tradições esotéricas', href: 'tradicoes-esotericas.html' },
+      { rotulo: 'Santo Daime e ayahuasca', href: 'santo-daime.html' },
+      { rotulo: 'Ateísmo e sem religião', href: 'sem-religiao.html' }
     ] }
   ] },
   { rotulo: 'Dados', grupos: [{ titulo: 'IBGE', itens: [

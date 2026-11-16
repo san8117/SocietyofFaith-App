@@ -32,6 +32,8 @@ SocietyofFaith-App/
   catolicismo.html, evangelicos.html, espiritismo.html
   umbanda.html, candomble.html, tradicoes-indigenas.html
   judaismo.html, islamismo.html, budismo.html, hinduismo.html
+  testemunhas-de-jeova.html, mormons.html, tradicoes-esotericas.html
+  santo-daime.html, sem-religiao.html
   css/       tokens.css, base.css, home.css, graficos.css, censos.css, religioes.css, religiao-pagina.css
   js/        components.js, menu-data.js, charts-core.js, home.js, reveal.js
              carrossel.js
@@ -69,6 +71,8 @@ SocietyofFaith-App/
 6. Use linguagem respeitosa, os nomes escolhidos por cada tradição e comunidade, e evite generalizações. Para tradições indígenas, reconheça a diversidade entre povos; Umbanda e Candomblé são religiões distintas.
 7. Marque todos os slots de imagem como sensíveis; não use imagens de pessoas identificáveis em rituais restritos, iniciações ou situações íntimas sem autorização documentada. Prefira arquitetura, patrimônio, festas públicas, objetos, mapas, ilustrações históricas e acervos oficiais. Registre fonte, crédito, licença, texto alternativo e legenda; informe que imagens de rituais exigem autorização de quem é retratado.
 8. Quando uma tradição não tiver grupo próprio nos recortes do IBGE, marque `semGrupoIBGE: true` e informe `contexto` com o grupo censitário usado. Apresente esse grupo como contexto, nunca como retrato da tradição; explique as bases, os denominadores e qualquer percentual calculado.
+9. Se o dado de 2010 não estiver disponível, registre `pessoas[2010]: null`, não desenhe uma comparação 2010 × 2022 e informe que o valor deve ser confirmado no SIDRA.
+10. Em temas sensíveis, use imagens de paisagens, plantas, mapas, arquitetura e documentos; não publique imagens de pessoas em cerimônias, consumo ou preparo de substâncias. Marque os slots sensíveis e inclua avisos de segurança e de autorização quando aplicável.
 
 ## Roadmap
 
@@ -81,7 +85,7 @@ SocietyofFaith-App/
 - [x] Etapa 5: Índice e páginas de religiões (imagens com créditos pendentes de curadoria)
 - [x] Etapa 6: Umbanda, Candomblé e tradições indígenas
 - [x] Etapa 7: Judaísmo, Islamismo, Budismo e Hinduísmo
-- [ ] Etapa 8: Testemunhas de Jeová, Mórmons, Tradições esotéricas, Santo Daime e Sem religião
+- [x] Etapa 8: Testemunhas de Jeová, Mórmons, Tradições esotéricas, Santo Daime e Sem religião
 - [ ] Etapa 9: Origens do cristianismo e página Fontes
 - [ ] Etapa 10: Acessibilidade, polimento, SEO e deploy
 
@@ -128,6 +132,11 @@ SocietyofFaith-App/
 
 ### Etapa 7.1b — 15/11/2026
 - Tipografia restaurada (Cormorant Garamond e Jost), menu mobile só com ícone e painel completo, carrossel mobile sem setas, gráfico da série histórica legível, barra de chips sem sobreposição.
+
+### Etapa 8 — 15/11/2026
+- Criadas as páginas de Testemunhas de Jeová, Mórmons, Tradições esotéricas, Santo Daime e Ateísmo e sem religião usando o modelo compartilhado.
+- Atualizados `js/menu-data.js`, `js/dados-religioes.js`, `js/dados-paginas-religiao.js`, `js/dados-sociedade.js`, `js/imagens-religioes.js`, `js/pagina-religiao.js`, `js/religioes.js`, `religioes.html` e `css/religioes.css`.
+- As 15 tradições agora estão ativas; a série de pessoas sem religião inclui evolução histórica, comparação 2010 × 2022, subgrupos e tabelas de perfil. Slots de imagens das novas páginas seguem pendentes de curadoria.
 
 ## Fontes de dados
 

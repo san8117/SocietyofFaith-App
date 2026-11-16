@@ -691,5 +691,350 @@ export const SOCIEDADE = {
         'Como respeitar a origem de uma prática ao adotá-la?',
         'Texto 01 (4.2.2).')
     ]
+  },
+  'testemunhas-de-jeova': {
+    conceito: {
+      rotulo: 'Pertencimento e identidade (Texto 02)',
+      frase: 'A identidade religiosa também se constrói pelas práticas visíveis na sociedade, como a pregação.',
+      href: 'religiao.html#identidade'
+    },
+    areas: [
+      area('educacao', 'Educação', 'educacao',
+        'O estudo da Bíblia é central e feito em grupo.',
+        [
+          { titulo: 'Estudo bíblico em congregação', texto: 'Atividade de estudo em grupo.', conferir: true },
+          { titulo: 'Material educativo próprio', texto: 'Publicações usadas pelo grupo.', conferir: true },
+          { titulo: 'Pedidos de dispensa em festas escolares', texto: 'Podem estar relacionados a convicções individuais.', conferir: true }
+        ],
+        ['Respeitar convicções de consciência faz parte da liberdade religiosa.', 'A escola precisa equilibrar o respeito individual com o currículo e a convivência do grupo.'],
+        'Como a escola pode acolher quem não participa de certas comemorações?',
+        'Texto de apoio; Texto 01.'),
+      area('assistencia', 'Saúde e bioética', 'assistencia',
+        'A recusa de transfusão de sangue é um dos temas mais debatidos sobre o grupo.',
+        [
+          { titulo: 'Autonomia do paciente', texto: 'E liberdade religiosa.' },
+          { titulo: 'Alternativas médicas sem sangue', texto: 'Opções terapêuticas discutidas no cuidado de saúde.', conferir: true },
+          { titulo: 'Decisões judiciais sobre o tema', texto: 'Jurisprudência relacionada à autonomia e à liberdade religiosa.', conferir: true }
+        ],
+        ['Para muitos fiéis, é uma decisão de consciência ligada à fé.', 'Profissionais de saúde e o Estado têm o dever de proteger a vida, em especial de crianças.'],
+        'Onde termina a autonomia individual e começa o dever de proteger?',
+        'Texto de apoio (confirmar decisões do STF).'),
+      area('cultura', 'Cultura e comunicação', 'cultura',
+        'O grupo produz revistas, livros e materiais em muitos idiomas.',
+        [
+          { titulo: 'Revistas do grupo', texto: 'Publicações próprias; confirmar títulos.', conferir: true },
+          { titulo: 'Tradução própria da Bíblia', texto: 'Edições produzidas pelo grupo.', conferir: true },
+          { titulo: 'Assembleias', texto: 'Encontros de maior porte.', conferir: true }
+        ],
+        ['A comunicação própria sustenta a vida da comunidade.', 'A pregação ativa gera interesse e também incômodo; o debate sobre limites é legítimo.'],
+        'Como equilibrar o direito de pregar e o direito de não ser abordado?',
+        'Texto de apoio.'),
+      area('politica', 'Política e leis', 'politica',
+        'Neutralidade política e recusa de serviço militar ligam-se à consciência religiosa.',
+        [
+          { titulo: 'Escusa de consciência', texto: 'CF, art. 5º, VIII.', conferir: true },
+          { titulo: 'Neutralidade em eleições', texto: 'Posição atribuída ao grupo.', conferir: true },
+          { titulo: 'Ações de liberdade religiosa nos tribunais', texto: 'Casos relacionados ao exercício da crença.', conferir: true }
+        ],
+        ['A objeção de consciência é direito previsto na Constituição.', 'Obrigações legais iguais para todos exigem alternativas razoáveis.'],
+        'Qual o limite entre direito de consciência e dever legal?',
+        'Constituição Federal.'),
+      area('familia', 'Família', 'familia',
+        'Reuniões, estudo e pregação organizam a rotina de muitas famílias.',
+        [
+          { titulo: 'Estudo em família', texto: 'Prática de estudo compartilhado.', conferir: true },
+          { titulo: 'Calendário próprio', texto: 'Sem Natal e aniversários.', conferir: true },
+          { titulo: 'Rede de apoio comunitária', texto: 'Relações entre pessoas da comunidade.' }
+        ],
+        ['Para quem pertence, a rotina compartilhada fortalece laços.', 'Famílias com religiões diferentes precisam negociar datas e festas.'],
+        'Como conciliar convicções diferentes dentro da mesma casa?',
+        'Texto de apoio.'),
+      area('convivencia', 'Convivência', 'convivencia',
+        'A pregação aproxima o grupo da vizinhança, com acolhimento e também desconforto.',
+        [
+          { titulo: 'Trânsito religioso', texto: 'Tema abordado no Texto 01.' },
+          { titulo: 'Estereótipos sobre o grupo', texto: 'Representações que podem influenciar a convivência.' },
+          { titulo: 'Diálogo com vizinhos', texto: 'Conversas sobre práticas e limites de abordagem.', conferir: true }
+        ],
+        ['A conversa sobre fé faz parte da liberdade religiosa.', 'É legítimo recusar uma abordagem: o respeito vale nos dois sentidos.'],
+        'Como conversar sobre fé sem pressionar?',
+        'Texto 01 (4.2.2).')
+    ]
+  },
+  mormons: {
+    conceito: {
+      rotulo: 'Socialização religiosa (Texto 02)',
+      frase: 'A identidade se aprende na família, na comunidade e na missão: um exemplo de como as crenças decorrem de aprendizagem.',
+      href: 'religiao.html#identidade'
+    },
+    areas: [
+      area('educacao', 'Educação e genealogia', 'educacao',
+        'Estudo das escrituras e da história familiar são valorizados.',
+        [
+          { titulo: 'Cursos de estudo bíblico para jovens', texto: 'Atividades de estudo oferecidas pelo grupo.', conferir: true },
+          { titulo: 'Pesquisa de antepassados', texto: 'Genealogia e memória familiar.', conferir: true },
+          { titulo: 'Estudo em casa', texto: 'Prática de estudo familiar.' }
+        ],
+        ['A genealogia gera conhecimento histórico útil a pessoas de qualquer religião.', 'Cada família decide como equilibrar estudo religioso e vida escolar.'],
+        'O que a história de uma família revela sobre a identidade?',
+        'Texto de apoio.'),
+      area('assistencia', 'Assistência', 'assistencia',
+        'Ajuda humanitária e programas de bem-estar fazem parte da vida do grupo.',
+        [
+          { titulo: 'Jejum e doações', texto: 'Práticas de contribuição e assistência.', conferir: true },
+          { titulo: 'Ações humanitárias', texto: 'Iniciativas de ajuda organizadas pelo grupo.', conferir: true },
+          { titulo: 'Voluntariado', texto: 'Serviço voluntário.' }
+        ],
+        ['A solidariedade organizada alcança muitas pessoas.', 'Ajuda e convite religioso podem se misturar; há quem peça clareza.'],
+        'Quando ajudar também é convidar?',
+        'Texto de apoio.'),
+      area('cultura', 'Cultura e costumes', 'cultura',
+        'Hábitos como a Palavra de Sabedoria e a noite familiar marcam a cultura do grupo.',
+        [
+          { titulo: 'Palavra de Sabedoria', texto: 'Evitar álcool, tabaco, café e chá.', conferir: true },
+          { titulo: 'Noite familiar', texto: 'Encontro regular entre familiares.', conferir: true },
+          { titulo: 'Música e corais', texto: 'Expressões musicais da comunidade.', conferir: true }
+        ],
+        ['Costumes compartilhados criam identidade.', 'Quem muda de religião pode sentir o peso das expectativas do grupo.'],
+        'Como a rotina cria pertencimento?',
+        'Texto de apoio.'),
+      area('politica', 'Política e leis', 'politica',
+        'A memória de perseguição inspira a defesa da liberdade religiosa.',
+        [
+          { titulo: 'Liberdade de crença', texto: 'CF, art. 5º.' },
+          { titulo: 'Neutralidade política declarada pela Igreja', texto: 'Posição institucional a confirmar.', conferir: true },
+          { titulo: 'Perseguição no século XIX nos EUA', texto: 'Contexto histórico a confirmar.', conferir: true }
+        ],
+        ['A memória de perseguição reforça a defesa da liberdade religiosa.', 'Instituições religiosas que opinam em temas públicos devem respeitar a pluralidade.'],
+        'Como defender a própria liberdade respeitando a dos outros?',
+        'Constituição Federal; Texto de apoio.'),
+      area('familia', 'Família', 'familia',
+        'A família é central na doutrina e na vida da comunidade.',
+        [
+          { titulo: 'Noite familiar', texto: 'Atividade compartilhada.', conferir: true },
+          { titulo: 'Casamento no templo', texto: 'Prática religiosa.', conferir: true },
+          { titulo: 'Gerações e genealogia', texto: 'Memória e história familiar.' }
+        ],
+        ['A família como centro de vida dá apoio a muitos.', 'Há debates sobre papéis familiares e inclusão dentro e fora do grupo.'],
+        'Como a comunidade religiosa influencia escolhas familiares?',
+        'Texto de apoio.'),
+      area('convivencia', 'Convivência', 'convivencia',
+        'Os missionários são a face mais conhecida do grupo.',
+        [
+          { titulo: 'Jovens missionários em duplas', texto: 'Serviço missionário do grupo.', conferir: true },
+          { titulo: 'Estereótipos', texto: 'Representações que podem influenciar a convivência.' },
+          { titulo: 'Diálogo inter-religioso', texto: 'Conversas entre tradições.', conferir: true }
+        ],
+        ['O serviço missionário é voluntário e faz parte da vivência religiosa.', 'Abordagens na rua ou de porta em porta podem incomodar; é legítimo recusar.'],
+        'Como respeitar a vontade de quem não quer conversar?',
+        'Texto 01.')
+    ]
+  },
+  'tradicoes-esotericas': {
+    conceito: {
+      rotulo: 'Dupla pertença e individualização (Hervieu-Léger)',
+      frase: 'Muita gente monta o próprio repertório de crenças e práticas, combinando tradições.',
+      href: 'religiao.html#identidade'
+    },
+    areas: [
+      area('educacao', 'Educação', 'educacao',
+        'Cursos, oficinas e grupos de estudo promovem autoconhecimento.',
+        [
+          { titulo: 'Oficinas e grupos de estudo', texto: 'Atividades de aprendizagem.', conferir: true },
+          { titulo: 'Livros e editoras do ramo', texto: 'Publicações sobre essas tradições.', conferir: true },
+          { titulo: 'Sociedades iniciáticas', texto: 'Organizações e percursos próprios.', conferir: true }
+        ],
+        ['Para muitos, é caminho de reflexão e crescimento pessoal.', 'É importante distinguir tradição simbólica de afirmações científicas ou de saúde sem comprovação.'],
+        'Como estudar um tema sem aceitar nem rejeitar de saída?',
+        'Texto 01; Dica do Texto 01.'),
+      area('assistencia', 'Terapias e cuidado', 'assistencia',
+        'A procura por serviços terapêuticos das novas religiosidades cresceu nas grandes cidades (Texto 01).',
+        [
+          { titulo: 'Terapias complementares', texto: 'Práticas a conferir.', conferir: true },
+          { titulo: 'Meditação e práticas corporais', texto: 'Atividades de reflexão e cuidado.' },
+          { titulo: 'Atendimentos individuais', texto: 'Serviços oferecidos por diferentes profissionais.' }
+        ],
+        ['Muita gente busca acolhimento e escuta que não encontra em outros lugares.', 'Práticas não substituem tratamento médico; é importante informar o consumidor.'],
+        'Quando um cuidado complementa e quando substitui?',
+        'Texto 01 (4.2.2).'),
+      area('cultura', 'Cultura e consumo', 'cultura',
+        'Horóscopo, símbolos e estética esotérica aparecem na mídia e no consumo.',
+        [
+          { titulo: 'Horóscopo na imprensa e nas redes', texto: 'Conteúdos de astrologia.' },
+          { titulo: 'Objetos, cristais e incensos', texto: 'Produtos associados a práticas diversas.', conferir: true },
+          { titulo: 'Arte e literatura', texto: 'Representações simbólicas.' }
+        ],
+        ['A cultura popular dialoga com símbolos antigos.', 'Quando vira moda, a tradição pode perder seus sentidos originais.'],
+        'Quando um símbolo religioso vira produto?',
+        'Texto de apoio.'),
+      area('politica', 'Política e leis', 'politica',
+        'A liberdade de crença protege essas práticas, e o consumidor tem seus direitos.',
+        [
+          { titulo: 'Liberdade de crença', texto: 'CF, art. 5º.' },
+          { titulo: 'Código de Defesa do Consumidor', texto: 'Regras sobre propaganda e serviços.', conferir: true },
+          { titulo: 'Debates sobre promessas de cura', texto: 'Questões relacionadas a serviços e informação.', conferir: true }
+        ],
+        ['A liberdade de crença inclui crenças pouco convencionais.', 'Serviços que prometem resultados precisam respeitar regras de informação.'],
+        'Como proteger a liberdade de crença e o consumidor ao mesmo tempo?',
+        'Constituição Federal.'),
+      area('familia', 'Família e cotidiano', 'familia',
+        'Rituais pessoais e símbolos fazem parte da rotina de muita gente.',
+        [
+          { titulo: 'Rituais pessoais', texto: 'Práticas individuais.', conferir: true },
+          { titulo: 'Mapa astral como assunto de conversa', texto: 'Interesse compartilhado.' },
+          { titulo: 'Práticas domésticas', texto: 'Atividades realizadas em casa.' }
+        ],
+        ['Para muitos, são pequenos rituais que dão sentido ao dia a dia.', 'Em famílias de outras religiões, essas práticas podem causar estranhamento.'],
+        'Rituais pessoais também são religião?',
+        'Texto de apoio.'),
+      area('convivencia', 'Convivência', 'convivencia',
+        'Muita gente combina esoterismo com outra religião (dupla pertença, Texto 01).',
+        [
+          { titulo: 'Dupla pertença', texto: 'Combinação de práticas e vínculos.' },
+          { titulo: 'Sincretismo', texto: 'Encontro entre tradições.' },
+          { titulo: 'Ceticismo e preconceito', texto: 'Atitudes presentes no debate público.' }
+        ],
+        ['A mistura de crenças é traço do campo religioso brasileiro.', 'Há quem veja confusão doutrinária; cada tradição define seus limites.'],
+        'Quem define as fronteiras de uma religião?',
+        'Texto 01 (4.2.2).')
+    ]
+  },
+  'santo-daime': {
+    conceito: {
+      rotulo: 'Sincretismo e saberes tradicionais',
+      frase: 'Essas religiões nascem do encontro entre cristianismo, saberes indígenas, matrizes afro-brasileiras e espiritismo.',
+      href: 'religiao.html#identidade'
+    },
+    areas: [
+      area('educacao', 'Educação e pesquisa', 'educacao',
+        'Pesquisadores de várias áreas estudam essas religiões.',
+        [
+          { titulo: 'Estudos em antropologia e ciências da religião', texto: 'Pesquisas sobre essas tradições.', conferir: true },
+          { titulo: 'Pesquisas acadêmicas em saúde', texto: 'Estudos a conferir.', conferir: true },
+          { titulo: 'Memória oral das comunidades', texto: 'Relatos e conhecimentos transmitidos.' }
+        ],
+        ['Estudos ajudam a entender essas religiões com rigor.', 'Resultados de pesquisa não devem ser tratados como promessa de cura.'],
+        'Que cuidados a pesquisa exige ao estudar temas sagrados?',
+        'Texto 03; Texto 01.'),
+      area('assistencia', 'Comunidade e cuidado', 'assistencia',
+        'Comunidades oferecem acolhimento, trabalho coletivo e vida em grupo.',
+        [
+          { titulo: 'Comunidades na Amazônia', texto: 'Como o Céu do Mapiá.', conferir: true },
+          { titulo: 'Ajuda mútua', texto: 'Apoio entre pessoas da comunidade.' },
+          { titulo: 'Ações sociais', texto: 'Iniciativas comunitárias a conferir.', conferir: true }
+        ],
+        ['A vida comunitária cria laços e apoio.', 'A saúde exige acompanhamento profissional; o ritual religioso não substitui tratamento.'],
+        'Quando uma comunidade religiosa é rede de apoio e quando precisa de apoio profissional?',
+        'Texto de apoio.'),
+      area('cultura', 'Cultura e música', 'cultura',
+        'Os hinários são parte central da vida ritual e cultural do grupo.',
+        [
+          { titulo: 'Hinários', texto: 'Cantos e hinos.', conferir: true },
+          { titulo: 'Música e dança nos trabalhos', texto: 'Expressões da vida ritual.' },
+          { titulo: 'Símbolos e arte', texto: 'Elementos culturais das comunidades.' }
+        ],
+        ['A música é uma forma de transmissão da fé.', 'A cultura religiosa amazônica é patrimônio brasileiro, e isso merece cuidado ao ser divulgada.'],
+        'Como a música guarda a memória de uma religião?',
+        'Texto de apoio.'),
+      area('politica', 'Política e leis', 'politica',
+        'O uso ritual é regulamentado e já foi tema de disputa.',
+        [
+          { titulo: 'Resolução do CONAD (2010)', texto: 'Norma a confirmar.', conferir: true },
+          { titulo: 'Debate sobre drogas e liberdade religiosa', texto: 'Discussão pública sobre o tema.' },
+          { titulo: 'Proteção do patrimônio cultural', texto: 'Medidas a conferir.', conferir: true }
+        ],
+        ['O reconhecimento legal protege a liberdade religiosa.', 'A regulação precisa considerar saúde pública e segurança.'],
+        'Como equilibrar liberdade religiosa e saúde pública?',
+        'Texto de apoio (confirmar a norma).'),
+      area('familia', 'Família e comunidade', 'familia',
+        'A participação costuma envolver famílias e comunidades.',
+        [
+          { titulo: 'Transmissão entre gerações', texto: 'Práticas e memórias compartilhadas.', conferir: true },
+          { titulo: 'Vestimentas rituais', texto: 'Elementos usados em contextos religiosos.', conferir: true },
+          { titulo: 'Vida comunitária', texto: 'Participação em grupo.' }
+        ],
+        ['A comunidade ajuda a manter laços entre gerações.', 'Famílias com crenças diferentes precisam de diálogo sobre a participação de crianças e jovens.'],
+        'Como a religião é transmitida entre gerações?',
+        'Texto 02 (crenças decorrem de aprendizagem).'),
+      area('convivencia', 'Convivência', 'convivencia',
+        'Origem indígena, cristianismo e matrizes afro-brasileiras se encontram nessas religiões.',
+        [
+          { titulo: 'Saberes indígenas', texto: 'Conhecimentos de povos diversos.' },
+          { titulo: 'Sincretismo', texto: 'Encontro de tradições.' },
+          { titulo: 'Turismo espiritual na Amazônia', texto: 'Prática a conferir.', conferir: true }
+        ],
+        ['O diálogo valoriza saberes tradicionais.', 'Há debate sobre apropriação cultural e reconhecimento de quem criou esses saberes.'],
+        'De quem é um saber tradicional?',
+        'Texto 01; Aula 2.')
+    ]
+  },
+  'sem-religiao': {
+    conceito: {
+      rotulo: 'Desinstitucionalização (Hervieu-Léger, Texto 02)',
+      frase: 'As pessoas seguem cada vez menos as instituições e mais as interações: a identidade religiosa, ou a ausência dela, se constrói na vida social.',
+      href: 'religiao.html#identidade'
+    },
+    areas: [
+      area('educacao', 'Educação', 'educacao',
+        'A escola pública deve ser laica e plural.',
+        [
+          { titulo: 'Ensino Religioso e pluralidade', texto: 'Aulas 1 e 2.' },
+          { titulo: 'Filosofia e ética', texto: 'Temas de formação.' },
+          { titulo: 'LDB art. 19', texto: 'Escolas confessionais.' }
+        ],
+        ['A laicidade protege estudantes de todas as crenças e de nenhuma.', 'Conhecer religiões é parte da formação cultural, mesmo para quem não crê.'],
+        'Como ensinar sobre religião sem favorecer nenhuma posição?',
+        'Aulas 1 e 2; LDB.'),
+      area('assistencia', 'Solidariedade e cuidado', 'assistencia',
+        'A solidariedade também existe fora das instituições religiosas.',
+        [
+          { titulo: 'Voluntariado e ONGs', texto: 'Organizações e iniciativas a conferir.', conferir: true },
+          { titulo: 'Redes de apoio', texto: 'Apoio entre pessoas e comunidades.' },
+          { titulo: 'Humanismo secular', texto: 'Perspectiva a conferir.', conferir: true }
+        ],
+        ['Quem não tem religião também ajuda e se organiza.', 'Instituições religiosas têm grande presença social; há quem veja complementaridade.'],
+        'O que faz alguém ajudar o próximo?',
+        'Texto de apoio.'),
+      area('cultura', 'Cultura e espiritualidade', 'cultura',
+        'Há quem busque sentido na ciência, na arte, na natureza ou em espiritualidade sem religião.',
+        [
+          { titulo: 'Espiritualizados', texto: '276 mil em 2022, categoria a conferir.', conferir: true },
+          { titulo: 'Filosofia, ciência e arte', texto: 'Fontes de reflexão e sentido.' },
+          { titulo: 'Natureza', texto: 'Experiência e contemplação.' }
+        ],
+        ['Buscar sentido não exige instituição.', 'Para outros, a tradição religiosa oferece profundidade que a busca individual não alcança.'],
+        'Dá para ter espiritualidade sem religião?',
+        'Texto 01; microdados 2022.'),
+      area('politica', 'Política e leis', 'politica',
+        'A Constituição protege a liberdade de consciência e de crença, e o Estado é laico.',
+        [
+          { titulo: 'Liberdade de consciência e crença', texto: 'CF, art. 5º, VI.', conferir: true },
+          { titulo: 'Estado laico', texto: 'Desde 1891.' },
+          { titulo: 'Direitos de quem não crê', texto: 'Proteções constitucionais.' }
+        ],
+        ['A laicidade garante igualdade entre crentes e não crentes.', 'Há debates sobre símbolos religiosos em espaços públicos.'],
+        'O que significa um Estado ser laico na prática?',
+        'Constituição Federal; Aulas.'),
+      area('familia', 'Família e rituais', 'familia',
+        'Cerimônias civis e funerais sem religião ganham espaço.',
+        [
+          { titulo: 'Casamentos civis', texto: 'Celebrações sem rito religioso.' },
+          { titulo: 'Funerais laicos', texto: 'Práticas a conferir.', conferir: true },
+          { titulo: 'Famílias com crenças diferentes', texto: 'Convivência de visões diversas.' }
+        ],
+        ['Rituais não precisam ser religiosos para dar sentido.', 'Em famílias religiosas, a escolha de não ter religião pode gerar tensões.'],
+        'Como celebrar momentos importantes sem religião?',
+        'Texto de apoio.'),
+      area('convivencia', 'Convivência', 'convivencia',
+        'Os sem religião convivem com um país majoritariamente religioso.',
+        [
+          { titulo: '"Sem religião" não é "sem moral"', texto: 'Distinção importante para o diálogo.' },
+          { titulo: 'Preconceito contra ateus', texto: 'Experiências a conferir.', conferir: true },
+          { titulo: 'Disputa entre religiões e aumento dos sem religião', texto: 'Observação do Texto 01.' }
+        ],
+        ['O diálogo reduz estereótipos nos dois sentidos.', 'Alguns se afastam por conflitos entre religiões, outros por convicção.'],
+        'Como conversar quando as visões de mundo são diferentes?',
+        'Texto 01; Texto 02.')
+    ]
   }
 };

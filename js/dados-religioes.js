@@ -11,8 +11,8 @@ export const FAMILIAS = [
 export const RELIGIOES = [
   { id: 'catolicismo', nome: 'Catolicismo', familia: 'cristianismo', status: 'disponivel', arquivo: 'catolicismo.html', resumo: 'História, crenças e presença do catolicismo no Brasil.' },
   { id: 'evangelicos', nome: 'Evangélicos e protestantismo', familia: 'cristianismo', status: 'disponivel', arquivo: 'evangelicos.html', resumo: 'Diversidade das tradições protestantes e evangélicas brasileiras.' },
-  { id: 'testemunhas', nome: 'Testemunhas de Jeová', familia: 'cristianismo', status: 'breve' },
-  { id: 'mormons', nome: 'Igreja de Jesus Cristo dos Santos dos Últimos Dias', familia: 'cristianismo', status: 'breve' },
+  { id: 'testemunhas-de-jeova', nome: 'Testemunhas de Jeová', familia: 'cristianismo', status: 'pronta', pagina: 'testemunhas-de-jeova.html', arquivo: 'testemunhas-de-jeova.html', semGrupoIBGE: true, contexto: 'Outras religiosidades', destaque: '1,2 mi', sub: 'pessoas em 2022 (0,7%)', resumo: 'Um grupo cristão de origem estadunidense com comunidades em todo o Brasil.' },
+  { id: 'mormons', nome: 'Mórmons', familia: 'cristianismo', status: 'pronta', pagina: 'mormons.html', arquivo: 'mormons.html', semGrupoIBGE: true, contexto: 'Outras religiosidades', destaque: '148 mil', sub: 'pessoas em 2022 (< 0,1%; ≈ 0,08%, calculado)', resumo: 'Uma tradição cristã conhecida também como Santos dos Últimos Dias.' },
   { id: 'espiritismo', nome: 'Espiritismo', familia: 'outras', status: 'disponivel', arquivo: 'espiritismo.html', resumo: 'Doutrina espírita, sua história e difusão no Brasil.' },
   { id: 'umbanda', nome: 'Umbanda', familia: 'afro-brasileiras', status: 'pronta', arquivo: 'umbanda.html', pagina: 'umbanda.html', grupoIBGE: 'umbanda', tabela: 'Umbanda e Candomblé', resumo: 'Uma religião brasileira formada pelo encontro de diferentes tradições.' },
   { id: 'candomble', nome: 'Candomblé', familia: 'afro-brasileiras', status: 'pronta', arquivo: 'candomble.html', pagina: 'candomble.html', grupoIBGE: 'umbanda', tabela: 'Umbanda e Candomblé', resumo: 'Religião de matriz africana vivida em comunidades e terreiros diversos.' },
@@ -21,9 +21,9 @@ export const RELIGIOES = [
   { id: 'islamismo', nome: 'Islamismo', familia: 'outras', status: 'pronta', pagina: 'islamismo.html', arquivo: 'islamismo.html', semGrupoIBGE: true, contexto: 'Outras religiosidades', destaque: '41,2 mil', sub: 'pessoas em 2022 (≈ 0,02%, calculado)', resumo: 'Uma religião monoteísta vivida por comunidades de muitos povos.' },
   { id: 'budismo', nome: 'Budismo', familia: 'outras', status: 'pronta', pagina: 'budismo.html', arquivo: 'budismo.html', semGrupoIBGE: true, contexto: 'Outras religiosidades', destaque: '197 mil', sub: 'pessoas em 2022 (≈ 0,11%, calculado)', resumo: 'Uma tradição plural de ensinamentos, reflexão e prática.' },
   { id: 'hinduismo', nome: 'Hinduísmo', familia: 'outras', status: 'pronta', pagina: 'hinduismo.html', arquivo: 'hinduismo.html', semGrupoIBGE: true, contexto: 'Outras religiosidades', destaque: '6,7 mil', sub: 'pessoas em 2022 (≈ 0,004%, calculado)', resumo: 'Conjunto diverso de tradições originadas no subcontinente indiano.' },
-  { id: 'esotericas', nome: 'Tradições esotéricas', familia: 'outras', status: 'breve' },
-  { id: 'santo-daime', nome: 'Santo Daime e tradições ayahuasqueiras', familia: 'outras', status: 'breve' },
-  { id: 'sem-religiao', nome: 'Ateísmo e pessoas sem religião', familia: 'outras', status: 'breve' }
+  { id: 'tradicoes-esotericas', nome: 'Tradições esotéricas', familia: 'outras', status: 'pronta', pagina: 'tradicoes-esotericas.html', arquivo: 'tradicoes-esotericas.html', semGrupoIBGE: true, contexto: 'Outras religiosidades', destaque: '167 mil', sub: 'pessoas em 2022 (≈ 0,09%, calculado)', resumo: 'Um campo plural de saberes e práticas simbólicas.' },
+  { id: 'santo-daime', nome: 'Santo Daime e tradições ayahuasqueiras', familia: 'outras', status: 'pronta', pagina: 'santo-daime.html', arquivo: 'santo-daime.html', semGrupoIBGE: true, contexto: 'Outras religiosidades', destaque: '14 mil', sub: 'pessoas em 2022 (≈ 0,008%, calculado)', resumo: 'Religiões brasileiras de origem amazônica, apresentadas em contexto informativo.' },
+  { id: 'sem-religiao', nome: 'Ateísmo e pessoas sem religião', familia: 'outras', status: 'pronta', pagina: 'sem-religiao.html', arquivo: 'sem-religiao.html', grupoIBGE: 'sem', tabela: 'Sem religião', destaque: '9,3%', sub: 'da população em 2022 · 16,4 mi de pessoas', resumo: 'Um conjunto diverso de pessoas sem vínculo religioso institucional.' }
 ];
 
 export const EXTRAS = {
@@ -123,6 +123,71 @@ export const EXTRAS = {
     ],
     recordes: [
       ['≈ 0,004%', 'da população', '(calculado)']
+    ]
+  },
+  'testemunhas-de-jeova': {
+    semGrupoIBGE: true,
+    pessoas: { 2010: 1393208, 2022: 1200000 },
+    pct: { 2010: 0.7, 2022: 0.7 },
+    contexto: 'Outras religiosidades',
+    conferir: true,
+    chips: [['1,2 mi', 'pessoas (2022)'], ['1.393.208', 'pessoas (2010)'], ['0,7%', 'em 2010 e em 2022']],
+    recordesNumeroRotulo: true,
+    recordes: [['4º lugar', 'na lista de 2010 do Texto 01'], ['≈ −0,2 milhão', 'diferença entre os censos', 'bases diferentes']]
+  },
+  mormons: {
+    semGrupoIBGE: true,
+    pessoas: { 2010: null, 2022: 148000 },
+    pct: { 2010: null, 2022: '< 0,1' },
+    pctCalculado2022: 0.08,
+    conferir2010: true,
+    contexto: 'Outras religiosidades',
+    conferir: true,
+    chipsConferir: [2],
+    chips: [['148 mil', 'pessoas (2022)'], ['< 0,1%', 'da população'], ['1830', 'fundação nos EUA [conferir]']],
+    recordesNumeroRotulo: true,
+    recordes: [['≈ 0,08%', 'da população (calculado)']]
+  },
+  'tradicoes-esotericas': {
+    semGrupoIBGE: true,
+    pessoas: { 2010: 74013, 2022: 167000 },
+    pct: { 2010: 0.04, 2022: 0.09 },
+    pctCalculado2022: true,
+    contexto: 'Outras religiosidades',
+    conferir: true,
+    chips: [['167 mil', 'pessoas (2022)'], ['74.013', 'pessoas (2010)'], ['276 mil', '"espiritualizados" (categoria à parte, 2022)']],
+    recordesNumeroRotulo: true,
+    recordes: [['mais que dobrou', 'de 2010 para 2022', 'bases diferentes'], ['≈ 0,09%', 'da população em 2022 (calculado)']]
+  },
+  'santo-daime': {
+    semGrupoIBGE: true,
+    pessoas: { 2010: null, 2022: 14000 },
+    pct: { 2010: null, 2022: 0.008 },
+    pctCalculado2022: true,
+    conferir2010: true,
+    contexto: 'Outras religiosidades',
+    conferir: true,
+    chipsConferir: [2],
+    chips: [['14 mil', 'pessoas (2022)'], ['≈ 0,008%', 'da população (calculado)'], ['c. 1930', 'origem do Santo Daime [conferir]']],
+    recordesNumeroRotulo: true,
+    recordes: [['"ayahuasqueiros"', 'termo usado pelo IBGE para quem pratica Santo Daime e afins']]
+  },
+  'sem-religiao': {
+    semGrupoIBGE: false,
+    grupoIBGE: 'sem',
+    tabela: 'Sem religião',
+    chips: [['9,3%', 'da população (2022)'], ['16,4 mi', 'de pessoas'], ['0,2%', 'em 1940']],
+    subgrupos: [
+      { nome: 'Sem religião (total)', pct: 9.3, pessoas: '16,4 milhões' },
+      { nome: 'Ateus', pct: 1.0, pessoas: '1,7 milhão' },
+      { nome: 'Agnósticos', pct: 0.5, pessoas: '881 mil' },
+      { nome: 'Espiritualizados (categoria à parte)', pct: null, pessoas: '276 mil', conferir: true }
+    ],
+    recordes: [
+      ['Roraima', '16,9%', 'maior % de sem religião (UF)'],
+      ['Chuí (RS)', '37,8%', 'maior % entre os municípios'],
+      ['14,3%', 'dos 20 a 24 anos', 'pico por faixa etária'],
+      ['56,2%', 'são homens', 'perfil do grupo (2022)']
     ]
   },
   censo: {

@@ -42,6 +42,12 @@
   margin-block: 1.25rem 1.5rem;
 }
 
+.filter-status {
+  margin: 0 0 0.75rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
 .filter-chip {
   border: 1px solid var(--line);
   border-radius: 999px;

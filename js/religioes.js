@@ -86,7 +86,8 @@ function renderizarCards() {
     return vitrine;
   }).filter(Boolean);
   cards.replaceChildren(...vitrines);
-  status.textContent = `${resultado.length} ${resultado.length === 1 ? 'tradição encontrada' : 'tradições encontradas'}.`;
+  const visiveis = resultado.filter((religiao) => familiaAtual === 'todas' || religiao.familia === familiaAtual).length;
+  status.textContent = `Mostrando ${visiveis} de ${RELIGIOES.length} tradições.`;
 }
 
 function renderizarDados() {
