@@ -15,6 +15,31 @@ body {
   line-height: 1.7;
 }
 
+a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  transition: color 0.15s ease, text-decoration-color 0.15s ease, text-decoration-thickness 0.15s ease;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent) 88%, var(--ink));
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--accent);
+}
+
+a:visited {
+  color: var(--accent);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 0.2rem;
+}
+
 h1,
 h2,
 h3,
@@ -105,6 +130,13 @@ header {
   font-size: 0.9rem;
   text-decoration: none;
   cursor: pointer;
+}
+
+.site-menu a:hover,
+.site-menu a:focus-visible,
+.menu-dropdown__toggle:hover,
+.menu-dropdown.is-open > .menu-dropdown__toggle {
+  color: var(--ink);
 }
 
 .site-menu a:hover,

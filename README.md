@@ -139,6 +139,11 @@ SocietyofFaith-App/
 - Atualizados `js/menu-data.js`, `js/dados-religioes.js`, `js/dados-paginas-religiao.js`, `js/dados-sociedade.js`, `js/imagens-religioes.js`, `js/pagina-religiao.js`, `js/religioes.js`, `religioes.html` e `css/religioes.css`.
 - As 15 tradições agora estão ativas; a série de pessoas sem religião inclui evolução histórica, comparação 2010 × 2022, subgrupos e tabelas de perfil. Slots de imagens das novas páginas seguem pendentes de curadoria.
 
+### Etapa 9.1 — 16/11/2026: Fontes refeita (cartões, citação, avisos)
+- Reescrita `fontes.html` com o mesmo esqueleto do site, links corrigidos e hero/chips de navegação.
+- Criados `css/fontes.css` e `js/fontes.js` para layout, scrollspy, cópia da citação e datas dinâmicas.
+- Ajustados os links globais em `css/base.css` para remover o padrão azul do navegador e manter o visual do projeto.
+
 ## Fontes de dados
 
 - IBGE, Censo Demográfico 2022 — Religiões: resultados preliminares da amostra (2025).
